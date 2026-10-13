@@ -17,3 +17,7 @@ The application records, schemas and SDK remain reproducible independently of th
 `ai-deck.mjs` assembles eight slides from original built-in image-generation artwork, editable diagrams, an editable measured chart and an actual public website capture. Generated logo, cover and India illustration are in `apps/web/public/brand`. They are conceptual artwork and do not depict customers. Prompt specifications remain private; generated assets are included. The deck is not animated into a film.
 
 `capture-ai-demo.mjs` records a real coding run, working India tools and the live graph. The supplementary `ai-workspace-recording.mp4` is a silent live walkthrough, separately labelled from the earlier OpenMontage motion-graphics prototype. It does not imply that the earlier prototype film covers the new AI features.
+
+## Updated AI Passport film
+
+`ai-film.tsx`, `narrate-ai.py` and `render-ai.py` produce a 75-second original motion film through OpenMontage and its Remotion renderer. It shows the real coding/gate/India-tool website flow and a moving source/context/run graph. The original 70-second prototype is preserved separately. A targeted graph-scene repair removes a footer overlap. Narration uses local Kokoro af_heart and is synthetic. Final audio is normalized and measured; waveform metadata and real render evidence are in `/data/ai-video-evaluation.json`. No PPT slide is animated into the film.

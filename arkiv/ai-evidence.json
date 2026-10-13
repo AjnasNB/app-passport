@@ -43,8 +43,9 @@
       "id": "runtime",
       "kind": "review",
       "artifact_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
-      "entity_key": "0xb4488c128ce112cf5ca7debb99085521662cebf6f7de805799a02afecdfe3e8b",
-      "tx_hash": "0x479116fc6c5d9566222c93d74f2d43de9ba31b6602086031c2bae1255762319b"
+      "entity_key": "0x1dfcc79058b8a27fef2a97f7cf0413511c0b4240645515656933a684126b8a19",
+      "tx_hash": "0x3304b98f21a1ad8b8e66b5e152937ba170959918947554b48c84cb7836028f42",
+      "tx_url": "https://tiramisu.explorer.arkiv.network/tx/0x3304b98f21a1ad8b8e66b5e152937ba170959918947554b48c84cb7836028f42"
     }
   ],
   "graph_records": [
@@ -410,7 +411,7 @@
   "read_block": "526566",
   "query": "namespace = str('ai-passport-graph-v1') AND schema_version = u64(1) AND graph_hash = bytes32(0x3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c) AND $expiresAt > u64(526566)",
   "graph_count": 71,
-  "passport_count": 37,
+  "passport_count": 39,
   "graph_revisions": [
     {
       "graph_digest": "sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13",
@@ -674,5 +675,20 @@
       "verified_at": "2026-10-13T14:23:47.610Z",
       "read_block": "525838"
     }
-  ]
+  ],
+  "runtime_review_withdrawal": {
+    "entity_key": "0x2dd4a8c7e04bf03dfd4b5b6491cf4486c2333e0411363a16a4e76c5fa903a2f7",
+    "tx_hash": "0x37aa43c50ce495b1a99f771bdb697477083f11ccc86a5f6662abcc96ce65ce1b",
+    "target_key": "0xb4488c128ce112cf5ca7debb99085521662cebf6f7de805799a02afecdfe3e8b"
+  },
+  "corrected_reviews": [
+    {
+      "id": "runtime",
+      "kind": "review",
+      "artifact_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
+      "entity_key": "0xb4488c128ce112cf5ca7debb99085521662cebf6f7de805799a02afecdfe3e8b",
+      "tx_hash": "0x479116fc6c5d9566222c93d74f2d43de9ba31b6602086031c2bae1255762319b"
+    }
+  ],
+  "runtime_review_corrected": true
 }

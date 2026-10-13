@@ -41,3 +41,7 @@ An initial 51-create `executeBatch` failed with an HTTP transport error during R
 ## Model output boundary is separate from Arkiv
 
 Workers AI returned a structured guard object where our first integration expected a response string. Accepting the strict guard schema fixed the coding flow. A Hindi answer also contained an incorrect numeric conversion. The calculator now supplies all displayed numeric statements; unchecked numerical AI commentary is withheld. These are inference/application issues, not Arkiv defects. The corrected eight-case live report and explicit mock-inference unit scope are public.
+
+## Correctly named runtime checks
+
+The first runtime review reused a Qarinah-validator description intended for context packets. We withdrew that review and issued four correctly named checks backed by actual source hashing, deterministic arithmetic calls, six interpreted guard cases and quiz-reference shape checks. The original record, withdrawal and replacement remain inspectable in ai-evidence.json. The publisher now distinguishes context validation from runtime controlled calls; this is an application review-description correction, not an Arkiv defect.

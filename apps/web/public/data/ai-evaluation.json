@@ -1,6 +1,6 @@
 {
   "schema": "ai-passport.evaluation.v1",
-  "started_at": "2026-10-13T14:42:16.914Z",
+  "started_at": "2026-10-13T15:42:01.847Z",
   "base_url": "https://passport.ajnasnb.com",
   "disclosure": "Project-run evaluation of real hosted model calls and public/synthetic inputs. No adoption or universal answer accuracy is claimed.",
   "results": [
@@ -13,7 +13,7 @@
       "passed": true,
       "result": {
         "schema": "ai-passport.run.v1",
-        "run_id": "72deef29-931f-4709-8e40-36888bc34c37",
+        "run_id": "0cb804c7-4347-4b3e-ac06-bb45161ab1fb",
         "task": "coding",
         "language": "en",
         "allowed": true,
@@ -75,9 +75,9 @@
           ],
           "code": "export function approveRelease(artifactDigest, reviewValid) {\n  return /^sha256:[0-9a-f]{64}$/.test(artifactDigest) && reviewValid === true;\n}"
         },
-        "graph_digest": "sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13",
-        "graph_read_block": "526393",
-        "read_block": "526394",
+        "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c",
+        "graph_read_block": "528185",
+        "read_block": "528186",
         "context_digest": "sha256:abe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d",
         "runtime_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
         "source_refs": [
@@ -102,10 +102,10 @@
           "selected": 343,
           "full_packet": 2524
         },
-        "completed_at": "2026-10-13T14:42:21.192Z",
-        "elapsed_ms": 1896,
+        "completed_at": "2026-10-13T15:42:05.776Z",
+        "elapsed_ms": 3345,
         "disclosure": "Public or synthetic fixture inputs. AI explanations can be wrong. Numeric statements come only from the deterministic calculator. This receipt is a project-generated record, not proof of model computation.",
-        "receipt_digest": "sha256:e702a53a883b3b549c4aa1e54adae1a9dffdbf14c5989633e83dd054b8466b77"
+        "receipt_digest": "sha256:89332d23cf8af15dcb179073edd390d76333ee9bd5a4115b6322df4552437b60"
       }
     },
     {
@@ -118,7 +118,7 @@
       "passed": true,
       "result": {
         "schema": "ai-passport.run.v1",
-        "run_id": "df2f8fbc-3072-42d3-a095-1458ec730a86",
+        "run_id": "412566aa-9375-4f56-b08b-d3c3f7892b8d",
         "task": "numbers",
         "language": "en",
         "allowed": true,
@@ -136,9 +136,9 @@
           "lakh": "12.3457"
         },
         "coding": null,
-        "graph_digest": "sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13",
-        "graph_read_block": "526406",
-        "read_block": "526407",
+        "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c",
+        "graph_read_block": "528198",
+        "read_block": "528199",
         "context_digest": "sha256:c609f75e2178fd8ada7d4e6ec3aa2cfb067115238291542ed662ef8bc6ba281d",
         "runtime_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
         "source_refs": [
@@ -167,10 +167,10 @@
           "selected": 685,
           "full_packet": 2055
         },
-        "completed_at": "2026-10-13T14:42:48.022Z",
-        "elapsed_ms": 3927,
+        "completed_at": "2026-10-13T15:42:32.472Z",
+        "elapsed_ms": 4060,
         "disclosure": "Public or synthetic fixture inputs. AI explanations can be wrong. Numeric statements come only from the deterministic calculator. This receipt is a project-generated record, not proof of model computation.",
-        "receipt_digest": "sha256:b9b9185d43086fbf67fd00d7e3f9458e67c6b86ca59ecfbec4d74a17c542a248"
+        "receipt_digest": "sha256:6ba9935243a000a848ae156257428a85a94705c17ff7acc1116a34e3edee3939"
       }
     },
     {
@@ -184,14 +184,14 @@
       "passed": true,
       "result": {
         "schema": "ai-passport.run.v1",
-        "run_id": "b7bacbe9-3fde-42ef-a8e0-66f3b8bf573f",
+        "run_id": "e52745aa-c0d3-41ce-b469-c9fe49a5ebd7",
         "task": "safety",
         "language": "en",
         "allowed": true,
         "inference_run": true,
         "model": "@cf/meta/llama-3.2-3b-instruct",
         "hosted_weights_attested": false,
-        "answer": "Here's your educational safety quiz answer in 100 words or less:\n\nWhen a stranger offers you cashback, never share your UPI PIN. A QR scan followed by a UPI PIN authorizes a payment, not receipt of money. Review the payee before authorizing a payment. Reject unexpected requests. No actual bank, phone, account, PIN, or payment is used in this learning game. Always be cautious of such offers and never share your sensitive information. Remember, bank support does not need your UPI PIN. Stay safe and secure with UPI transactions!",
+        "answer": "Here's your educational safety quiz answer in 100 words or less:\n\nWhen a stranger offers you cashback, never share your UPI PIN. A QR scan followed by a UPI PIN authorizes a payment, not receipt of money. Review the payee before authorizing a payment. Reject unexpected requests. No actual bank, phone, account, PIN, or payment is used in this learning game. Always be cautious and verify the authenticity of the request. Remember, your UPI PIN is for payment purposes only and should not be shared with anyone.",
         "answer_source": "model-and-validator",
         "model_commentary": null,
         "commentary_status": "not-applicable",
@@ -203,9 +203,9 @@
           "source": "https://www.npci.org.in/fraud-awareness"
         },
         "coding": null,
-        "graph_digest": "sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13",
-        "graph_read_block": "526419",
-        "read_block": "526419",
+        "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c",
+        "graph_read_block": "528211",
+        "read_block": "528212",
         "context_digest": "sha256:c0b157001706ca384b3048518bf5516c37dcfc9e92f52cf99482d14de615987d",
         "runtime_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
         "source_refs": [
@@ -235,10 +235,10 @@
           "selected": 938,
           "full_packet": 2541
         },
-        "completed_at": "2026-10-13T14:43:13.011Z",
-        "elapsed_ms": 1926,
+        "completed_at": "2026-10-13T15:42:58.514Z",
+        "elapsed_ms": 3493,
         "disclosure": "Public or synthetic fixture inputs. AI explanations can be wrong. Numeric statements come only from the deterministic calculator. This receipt is a project-generated record, not proof of model computation.",
-        "receipt_digest": "sha256:e3ff0095fc3241ced434d47dc08cb577c4f254428d42409402121f9aac5e9872"
+        "receipt_digest": "sha256:a15b11388d9d0cbc84f49311c655a8b34a27fabc3a04dbb5ca19d2812dbddb51"
       }
     },
     {
@@ -253,7 +253,7 @@
         "error": "An accepted issuer withdrew the required passport or review.",
         "status": "withdrawn",
         "inference_run": false,
-        "read_block": "526432"
+        "read_block": "528225"
       }
     },
     {
@@ -268,7 +268,7 @@
         "error": "The required passport or review has expired. Renewal needs fresh evidence.",
         "status": "expired",
         "inference_run": false,
-        "read_block": "526444"
+        "read_block": "528238"
       }
     },
     {
@@ -283,7 +283,7 @@
         "error": "The supplied bytes do not match the passport.",
         "status": "artifact-mismatch",
         "inference_run": false,
-        "read_block": "526456"
+        "read_block": "528251"
       }
     },
     {
@@ -298,7 +298,7 @@
         "error": "The packet is not bound to the current source snapshot.",
         "status": "stale-context",
         "inference_run": false,
-        "read_block": "526469"
+        "read_block": "528264"
       }
     },
     {
@@ -311,7 +311,7 @@
       "passed": true,
       "result": {
         "schema": "ai-passport.run.v1",
-        "run_id": "4983c403-485e-4914-9cef-1c0daec7f8f2",
+        "run_id": "af220b32-9f4e-4f83-b009-9cc33e54c7ba",
         "task": "numbers",
         "language": "hi",
         "allowed": true,
@@ -329,9 +329,9 @@
           "lakh": "2.5000"
         },
         "coding": null,
-        "graph_digest": "sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13",
-        "graph_read_block": "526480",
-        "read_block": "526480",
+        "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c",
+        "graph_read_block": "528276",
+        "read_block": "528277",
         "context_digest": "sha256:c609f75e2178fd8ada7d4e6ec3aa2cfb067115238291542ed662ef8bc6ba281d",
         "runtime_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
         "source_refs": [
@@ -360,14 +360,14 @@
           "selected": 685,
           "full_packet": 2055
         },
-        "completed_at": "2026-10-13T14:45:14.651Z",
-        "elapsed_ms": 1322,
+        "completed_at": "2026-10-13T15:45:06.973Z",
+        "elapsed_ms": 3543,
         "disclosure": "Public or synthetic fixture inputs. AI explanations can be wrong. Numeric statements come only from the deterministic calculator. This receipt is a project-generated record, not proof of model computation.",
-        "receipt_digest": "sha256:c06b9dc65e96975d557d42d087aa8394dcbb15985ecc286d51218bef6a78408b"
+        "receipt_digest": "sha256:ad0b39662a04e789bcb74bf4c298c8c10515ff144d02a44e4e7520c32fe645e4"
       }
     }
   ],
-  "completed_at": "2026-10-13T14:45:13.850Z",
+  "completed_at": "2026-10-13T15:45:07.354Z",
   "total": 8,
   "passed": 8
 }

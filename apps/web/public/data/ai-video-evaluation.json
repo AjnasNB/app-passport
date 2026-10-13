@@ -1,0 +1,19 @@
+{
+  "evaluated_at": "2026-10-13T15:48:04.443Z",
+  "renderer": "OpenMontage VideoCompose with original Remotion composition and a targeted scene repair",
+  "duration_seconds": 75.1,
+  "width": 1920,
+  "height": 1080,
+  "frame_rate": "30/1",
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "integrated_loudness_lufs": -16.04,
+  "true_peak_dbtp": -1.5,
+  "actual_public_website_recording": true,
+  "original_motion_graphics": true,
+  "synthetic_narration": true,
+  "slide_animation_used": false,
+  "manual_frame_review": true,
+  "automated_transcript_comparison": "not performed",
+  "scope": "Technical output checks and manual scene review; no independent ASR or audience study is claimed."
+}

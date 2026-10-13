@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-10-13T15:06:27.421Z",
+  "evaluated_at": "2026-10-13T15:17:32.743Z",
   "scope": "Public deployment browser flows: local uploads, tampering, source changes, expired/withdrawn reviews, provider outage recovery, current re-evaluation, mobile/theme and read-only API. Controlled outage responses are browser-local test simulations.",
   "url": "https://passport.ajnasnb.com",
   "passed": 12,
@@ -11,7 +11,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 10021
+          "duration_ms": 13188
         }
       ]
     },
@@ -21,7 +21,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5599
+          "duration_ms": 4055
         }
       ]
     },
@@ -31,7 +31,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4168
+          "duration_ms": 5614
         }
       ]
     },
@@ -41,7 +41,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3807
+          "duration_ms": 4644
         }
       ]
     },
@@ -51,7 +51,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 1082
+          "duration_ms": 893
         }
       ]
     },
@@ -61,7 +61,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 12192
+          "duration_ms": 19159
         }
       ]
     },
@@ -71,7 +71,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4488
+          "duration_ms": 7802
         }
       ]
     },
@@ -81,7 +81,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 10461
+          "duration_ms": 11581
         }
       ]
     },
@@ -91,7 +91,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3850
+          "duration_ms": 6056
         }
       ]
     },
@@ -101,7 +101,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 7943
+          "duration_ms": 4829
         }
       ]
     },
@@ -111,7 +111,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 7222
+          "duration_ms": 7290
         }
       ]
     },
@@ -121,7 +121,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4663
+          "duration_ms": 4428
         }
       ]
     }

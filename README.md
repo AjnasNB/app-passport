@@ -7,6 +7,7 @@ I built AI Passport to run useful AI tasks with selected Qarinah memory and an i
 - SDK: https://passport.ajnasnb.com/downloads/app-passport-sdk-0.2.1.tgz
 - Architecture: [ARCHITECTURE.md](ARCHITECTURE.md)
 - Evaluation PDF: https://passport.ajnasnb.com/downloads/ai-passport-evaluation.pdf
+- Motion demo: https://passport.ajnasnb.com/media/ai-passport-demo.mp4
 - Presentation: https://passport.ajnasnb.com/downloads/ai-passport-deck.pptx
 
 ## Three useful tasks
