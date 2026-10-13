@@ -1,0 +1,31 @@
+# Reproducible integration observations
+
+Environment: Windows, Node 24.15.0, @arkiv-network/sdk 0.8.1, Tiramisu chain 7738577. AppPassport integration built during the challenge.
+
+## Read and publisher separation
+
+Expected: a consumer can query records with no signing account; a publisher supplies its own funded wallet. Observed: producer and reviewer records were created with distinct project-controlled wallets and read back through direct RPC. Reproduce with `npm run arkiv:verify`; exact queries, blocks and keys are in the generated evidence files. This is operational separation, not proof of independent organizational adoption.
+
+## Readonly, creator and payload checks
+
+Expected: `$creator` identifies the original transaction author, including when ownership differs. Observed: the SDK exposes creator and owner separately. A readonly requirement, application signature, and attribute/payload equality are needed together for this consumer policy. Mutable entities and mismatches are rejected in the named SDK tests. Suggested documentation improvement: a compact example distinguishing wallet ownership, original authorship and readonly payload semantics for trust registries.
+
+## Expiration is not positive clearance
+
+Expected: expired storage disappears from live queries. Observed: a disappearance alone cannot distinguish an unknown record, deleted record or expired review. This demo separates signed review validity from storage lifetime, retaining the expired synthetic review long enough to inspect its reason. Reproduce with the public expired-context case and its entity creation transaction. Storage renewal must never renew an old signed assessment.
+
+## Corrections need explicit lifecycle semantics
+
+Expected: withdrawal applies only to the original author's exact target; later independently issued evidence can be evaluated normally. Observed: a policy that treats any historical withdrawal as an artifact-wide ban incorrectly prevents renewal. The SDK targets specific keys, filters withdrawn records and evaluates remaining current evidence. Tests cover same-author withdrawal, wrong author, wrong target, old ordering and fresh replacement. Two initially incomplete browser-tool reviews demonstrate this correction flow on chain.
+
+## Quota and transport failure
+
+Expected: public RPC works at its default quota; a Hub key increases quota. Observed: the application can keep the key in a server secret while independent readers use their own provider. Transport retries are disabled and timeouts are bounded so a quota/network problem produces unavailable rather than an old positive decision. The gateway exposes only semantic read requests, not arbitrary RPC forwarding or writes.
+
+## Adjacent MCP compatibility issue
+
+Our initial manual stdio client completed MCP initialization and tool listing but timed out on Playwright and Chrome controlled calls. Replacing it with the official @modelcontextprotocol/sdk 1.32.1 client, proper roots handling and an isolated Chrome profile completed those calls. This was our MCP integration issue, not an Arkiv defect. Actual before/after review transactions and the final protocol report are retained.
+
+## Current verification limitation
+
+The reader verifies application-level signatures but trusts the provider's protocol metadata and query completeness. A portable SDK example for state-proof verification and completeness limitations would help security applications explain this boundary accurately.

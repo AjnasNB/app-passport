@@ -1,0 +1,16 @@
+{
+  "evaluated_at": "2026-10-13T12:48:17.695Z",
+  "sdk_installed_from_tarball": true,
+  "qarinah_peer": "0.7.0",
+  "all_entrypoints_imported": true,
+  "original_validator_passed": true,
+  "website_backend_used": false,
+  "wallet_required": false,
+  "source_files_checked": 1,
+  "admission": "requirements-satisfied",
+  "context_delivered": true,
+  "inference_run": false,
+  "read_block": "522973",
+  "cli_passed": true,
+  "cli_provider": "https://rpc.tiramisu.db-chain.testnet.arkiv.network"
+}

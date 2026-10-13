@@ -1,0 +1,27 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {spawn} from 'node:child_process';
+const root=process.cwd(),directory=path.join(root,'.local/sdk-consumer');
+await fs.mkdir(directory,{recursive:true});
+await fs.writeFile(path.join(directory,'package.json'),JSON.stringify({name:'independent-app-passport-consumer',private:true,type:'module'},null,2));
+await fs.copyFile('apps/web/public/downloads/app-passport-sdk-0.1.0.tgz',path.join(directory,'sdk.tgz'));
+const run=(command,args,cwd=directory)=>new Promise((resolve,reject)=>{const child=spawn(command,args,{cwd,windowsHide:true,stdio:['ignore','pipe','pipe']});let out='',err='';child.stdout.on('data',b=>out+=b);child.stderr.on('data',b=>err+=b);child.on('error',reject);child.on('close',code=>code===0?resolve(out):reject(new Error('Consumer check failed ('+code+'); '+err.slice(-1000))));});
+await run(process.platform==='win32'?'cmd.exe':'npm',process.platform==='win32'?['/d','/s','/c','npm install ./sdk.tgz qarinah@0.7.0 --ignore-scripts --no-fund']:['install','./sdk.tgz','qarinah@0.7.0','--ignore-scripts','--no-fund']);
+await fs.writeFile(path.join(directory,'check.mjs'),`
+import fs from 'node:fs/promises';
+import {descriptorSchema,policySchema} from '@app-passport/sdk';
+import {readRecords} from '@app-passport/sdk/arkiv';
+import {inspectQarinahPacket,verifyQarinahHandoff} from '@app-passport/sdk/qarinah';
+const root=process.argv[2],load=async p=>JSON.parse(await fs.readFile(root+'/'+p,'utf8'));
+const packet=await load('apps/web/public/data/handoff-packet.json'),descriptor=descriptorSchema.parse(await load('apps/web/public/data/handoff-descriptor.json')),policy=policySchema.parse(await load('apps/web/public/data/policy.json'));
+inspectQarinahPacket(packet,descriptor.name,descriptor.version);
+const result=await verifyQarinahHandoff({packet,descriptor,repository:root+'/.local/context-fixture',connection:{policy}});
+if(!result.admission.allowed||!result.context)throw new Error('Context was not admitted');
+console.log(JSON.stringify({evaluated_at:new Date().toISOString(),sdk_installed_from_tarball:true,qarinah_peer:'0.7.0',all_entrypoints_imported:true,original_validator_passed:true,website_backend_used:false,wallet_required:false,source_files_checked:packet.repository.files.length,admission:result.admission.status,context_delivered:true,inference_run:false,read_block:result.read_block}));
+`);
+const output=await run(process.execPath,['check.mjs',root]);const report=JSON.parse(output.trim());
+const descriptor=JSON.parse(await fs.readFile('apps/web/public/data/handoff-descriptor.json','utf8'));
+const cli=await run(process.execPath,['node_modules/@app-passport/sdk/dist/cli.js','--descriptor',path.join(root,'apps/web/public/data/handoff-descriptor.json'),'--artifact',path.join(root,'apps/web/public/data/handoff-packet.json'),'--policy',path.join(root,'apps/web/public/data/policy.json'),'--repository-digest',descriptor.context.repository_digest]);
+const result=JSON.parse(cli);report.cli_passed=result.allowed;report.cli_provider=result.rpc_origin;
+await fs.writeFile('apps/web/public/data/consumer-evaluation.json',JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify(report));

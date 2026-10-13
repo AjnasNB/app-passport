@@ -1,0 +1,16 @@
+import {beforeEach,describe,it,expect,vi} from 'vitest';
+vi.mock('../packages/sdk/src/arkiv',()=>({readRecords:vi.fn()}));
+import {readRecords} from '../packages/sdk/src/arkiv';
+import worker from '../worker/index';
+const mock=vi.mocked(readRecords);
+const env={ARKIV_API_KEY:'private-test-quota-key',READ_LIMITER:{limit:vi.fn(async()=>({success:true}))},ASSETS:{fetch:vi.fn(async()=>new Response('<html>demo</html>',{headers:{'content-type':'text/html'}}))}};
+const request=(path:string,method='GET')=>worker.fetch(new Request('https://passport.example'+path,{method}),env);
+beforeEach(()=>{vi.clearAllMocks();env.READ_LIMITER.limit.mockResolvedValue({success:true});});
+describe('Public read gateway',()=>{
+ it('cannot publish or receive an upload',async()=>{expect((await request('/api/records','POST')).status).toBe(405);expect(mock).not.toHaveBeenCalled();expect((await request('/api/upload','POST')).status).toBe(404);});
+ it('rejects malformed identity and arbitrary provider selection',async()=>{for(const q of ['artifact=invalid','rpc=https://example.com','artifact=1&artifact=2'])expect((await request('/api/records?'+q)).status).toBe(400);expect(mock).not.toHaveBeenCalled();});
+ it('rate-limits before querying Arkiv',async()=>{env.READ_LIMITER.limit.mockResolvedValue({success:false});const r=await request('/api/records');expect(r.status).toBe(429);expect(r.headers.get('retry-after')).toBe('60');expect(mock).not.toHaveBeenCalled();});
+ it('does not expose credentials or provider errors',async()=>{mock.mockRejectedValue(new Error('X-API-KEY private-test-quota-key'));const r=await request('/api/records');expect(r.status).toBe(503);expect(await r.text()).not.toContain('private-test');});
+ it('returns verified records with no caching',async()=>{mock.mockResolvedValue({records:[],block:'123',read_at:'now',query:'fixed'} as any);const r=await request('/api/records');expect(r.status).toBe(200);expect(r.headers.get('cache-control')).toBe('no-store');expect((await r.json() as any).block).toBe('123');expect(mock).toHaveBeenCalledOnce();});
+ it('protects the browser document',async()=>{const r=await request('/');expect(r.headers.get('content-security-policy')).toContain("script-src 'self'");expect(r.headers.get('permissions-policy')).toContain('microphone=()');});
+});

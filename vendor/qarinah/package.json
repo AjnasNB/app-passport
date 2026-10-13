@@ -1,0 +1,118 @@
+{
+  "name": "qarinah",
+  "version": "0.6.0",
+  "description": "Proof-carrying task context with cited project memory, multi-language graphs, session receipts, recovery, temporal facts, and query-ranked repository symbols.",
+  "license": "Apache-2.0",
+  "author": "Ajnas NB",
+  "mcpName": "io.github.AjnasNB/qarinah",
+  "type": "module",
+  "sideEffects": false,
+  "main": "src/index.js",
+  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./codex": {
+      "types": "./types/codex.d.ts",
+      "default": "./src/hooks/codex.js"
+    },
+    "./claude": {
+      "types": "./types/claude.d.ts",
+      "default": "./src/hooks/claude.js"
+    },
+    "./mcp": {
+      "types": "./types/mcp.d.ts",
+      "default": "./src/mcp/server.js"
+    },
+    "./schemas/event.json": "./schemas/event.schema.json",
+    "./schemas/context-pack.json": "./schemas/context-pack.schema.json",
+    "./schemas/handoff-capsule.json": "./schemas/handoff-capsule.schema.json",
+    "./schemas/project-structure.json": "./schemas/project-structure.schema.json",
+    "./schemas/okf-export.json": "./schemas/okf-export.schema.json",
+    "./schemas/maqam-context-adapter.json": "./schemas/maqam-context-adapter.schema.json",
+    "./schemas/cockroach-source-record.json": "./schemas/cockroach-source-record.schema.json",
+    "./schemas/cockroach-browser-memory.json": "./schemas/cockroach-browser-memory.schema.json",
+    "./schemas/productloop-runtime-event.json": "./schemas/productloop-runtime-event.schema.json",
+    "./schemas/team-manifest.json": "./schemas/team-manifest.schema.json",
+    "./schemas/team-sync-service.json": "./schemas/team-sync-service.schema.json",
+    "./schemas/causal-receipt.json": "./schemas/causal-receipt.schema.json",
+    "./schemas/federated-context.json": "./schemas/federated-context.schema.json",
+    "./schemas/memory-attachment.json": "./schemas/memory-attachment.schema.json",
+    "./schemas/linked-project-memory.json": "./schemas/linked-project-memory.schema.json",
+    "./schemas/linked-project-query.json": "./schemas/linked-project-query.schema.json",
+    "./schemas/coding-context-harness.json": "./schemas/coding-context-harness.schema.json",
+    "./schemas/session-context-receipt.json": "./schemas/session-context-receipt.schema.json",
+    "./schemas/host-install-manifest.json": "./schemas/host-install-manifest.schema.json",
+    "./schemas/content-archive.json": "./schemas/content-archive.schema.json",
+    "./schemas/symbol-graph.json": "./schemas/symbol-graph.schema.json",
+    "./schemas/project-memory-cycle.json": "./schemas/project-memory-cycle.schema.json",
+    "./schemas/fact-consolidation.json": "./schemas/fact-consolidation.schema.json",
+    "./schemas/proof-context.json": "./schemas/proof-context.schema.json"
+  },
+  "files": [
+    "src/",
+    "types/",
+    "schemas/",
+    "LICENSE",
+    "NOTICE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "engines": {
+    "node": "^22.13.0 || ^24.0.0 || ^26.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AjnasNB/qarinah.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AjnasNB/qarinah/issues"
+  },
+  "homepage": "https://qarinah.io",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "tag": "next"
+  },
+  "keywords": [
+    "agent-context",
+    "agent-memory",
+    "ai-agent-memory",
+    "coding-agent-memory",
+    "cross-agent-context",
+    "universal-context-engine",
+    "agent-handoff",
+    "project-memory",
+    "git-worktree",
+    "worktree-context",
+    "context-graph",
+    "context-management",
+    "context-retrieval",
+    "context-compression",
+    "context-window",
+    "llm-context",
+    "token-optimization",
+    "token-efficiency",
+    "token-reduction",
+    "provenance",
+    "hybrid-retrieval",
+    "local-first",
+    "developer-tools",
+    "mcp-server",
+    "codex",
+    "claude-code",
+    "codex-plugin",
+    "claude-code-plugin",
+    "audit-log",
+    "knowledge-graph",
+    "context-engineering",
+    "open-knowledge-format"
+  ],
+  "dependencies": {
+    "ignore": "7.0.6",
+    "tree-sitter-wasms": "0.1.13",
+    "typescript-classic": "npm:typescript@5.9.3",
+    "web-tree-sitter": "0.20.8"
+  }
+}

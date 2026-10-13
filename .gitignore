@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.local/
+.wrangler/
+.dev.vars
+test-results/
+playwright-report/
+*.tsbuildinfo
+.qarinah/
+output/

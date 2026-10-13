@@ -1,0 +1,110 @@
+[
+  {
+    "id": "handoff",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "context",
+      "name": "Qarinah release handoff",
+      "version": "1",
+      "artifact_digest": "sha256:abe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d",
+      "source_url": "https://github.com/AjnasNB/qarinah",
+      "provenance": "synthetic-fixture",
+      "capabilities": [
+        "cited-context",
+        "source-identity",
+        "temporal-selection"
+      ],
+      "context": {
+        "manifest_hash": "sha256:1fff928e0a3a94e98d6b2b422a87458ed6c0ef43fa84d92168cc2bdeaec84220",
+        "repository_digest": "sha256:23740a3846a42aac9c9e137ec606cc1b83f059c1fb2841c915cd19a9ae828290",
+        "compiler_version": "qarinah-0.6.0"
+      }
+    },
+    "packet_url": "/data/handoff-packet.json",
+    "selected_events": 2,
+    "selected_files": 1,
+    "excluded_superseded": 1,
+    "budget": {
+      "maxTokens": 4096,
+      "usedTokens": 2502,
+      "estimator": {
+        "id": "portable-chars-div-4",
+        "version": "1",
+        "exact": false
+      },
+      "truncated": false
+    }
+  },
+  {
+    "id": "withdrawn",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "context",
+      "name": "Qarinah withdrawn demonstration",
+      "version": "1",
+      "artifact_digest": "sha256:20888afcd6866ee6061d9acf73b2b25b31c16a2a1739cf1848756f1663970eac",
+      "source_url": "https://github.com/AjnasNB/qarinah",
+      "provenance": "synthetic-fixture",
+      "capabilities": [
+        "cited-context",
+        "source-identity",
+        "temporal-selection"
+      ],
+      "context": {
+        "manifest_hash": "sha256:9fac6a103b0b5fd3678833b9aada4dab1069383cc73f216450f499664c44b30d",
+        "repository_digest": "sha256:23740a3846a42aac9c9e137ec606cc1b83f059c1fb2841c915cd19a9ae828290",
+        "compiler_version": "qarinah-0.6.0"
+      }
+    },
+    "packet_url": "/data/withdrawn-packet.json",
+    "selected_events": 2,
+    "selected_files": 1,
+    "excluded_superseded": 1,
+    "budget": {
+      "maxTokens": 4096,
+      "usedTokens": 2502,
+      "estimator": {
+        "id": "portable-chars-div-4",
+        "version": "1",
+        "exact": false
+      },
+      "truncated": false
+    }
+  },
+  {
+    "id": "expired",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "context",
+      "name": "Qarinah expired demonstration",
+      "version": "1",
+      "artifact_digest": "sha256:383ec6f8da4db3fed6ccd7ef4e1fc4b66b3cb44eb547315fbf8d77c150d57e3c",
+      "source_url": "https://github.com/AjnasNB/qarinah",
+      "provenance": "synthetic-fixture",
+      "capabilities": [
+        "cited-context",
+        "source-identity",
+        "temporal-selection"
+      ],
+      "context": {
+        "manifest_hash": "sha256:4af455c1fa26a9f92b86c74c3bbc67d58c69895f01980b157e041b4da4bf8a0d",
+        "repository_digest": "sha256:23740a3846a42aac9c9e137ec606cc1b83f059c1fb2841c915cd19a9ae828290",
+        "compiler_version": "qarinah-0.6.0"
+      }
+    },
+    "packet_url": "/data/expired-packet.json",
+    "selected_events": 2,
+    "selected_files": 1,
+    "excluded_superseded": 1,
+    "budget": {
+      "maxTokens": 4096,
+      "usedTokens": 2502,
+      "estimator": {
+        "id": "portable-chars-div-4",
+        "version": "1",
+        "exact": false
+      },
+      "truncated": false
+    }
+  }
+]

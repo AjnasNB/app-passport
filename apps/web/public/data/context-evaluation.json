@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-10-13T11:58:18.888Z",
+  "classification": "synthetic-fixture",
+  "qarinah_version": "0.6.0",
+  "original_source_commit": "1aa70228299de902d92fc97214766c0aea02be9d",
+  "synthetic_commit": "4fd675fe7013a32268825753ce10eee07c740ba4",
+  "packet_count": 3,
+  "validations_passed": 3,
+  "current_evidence_selected": true,
+  "superseded_evidence_excluded": true,
+  "manifest_hash": "sha256:1fff928e0a3a94e98d6b2b422a87458ed6c0ef43fa84d92168cc2bdeaec84220",
+  "repository_digest": "sha256:23740a3846a42aac9c9e137ec606cc1b83f059c1fb2841c915cd19a9ae828290",
+  "original_folders_modified": false
+}

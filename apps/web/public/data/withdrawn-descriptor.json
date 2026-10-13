@@ -1,0 +1,19 @@
+{
+  "schema": "app-passport.descriptor.v1",
+  "kind": "context",
+  "name": "Qarinah withdrawn demonstration",
+  "version": "1",
+  "artifact_digest": "sha256:20888afcd6866ee6061d9acf73b2b25b31c16a2a1739cf1848756f1663970eac",
+  "source_url": "https://github.com/AjnasNB/qarinah",
+  "provenance": "synthetic-fixture",
+  "capabilities": [
+    "cited-context",
+    "source-identity",
+    "temporal-selection"
+  ],
+  "context": {
+    "manifest_hash": "sha256:9fac6a103b0b5fd3678833b9aada4dab1069383cc73f216450f499664c44b30d",
+    "repository_digest": "sha256:23740a3846a42aac9c9e137ec606cc1b83f059c1fb2841c915cd19a9ae828290",
+    "compiler_version": "qarinah-0.6.0"
+  }
+}

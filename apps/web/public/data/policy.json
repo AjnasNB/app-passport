@@ -1,0 +1,9 @@
+{
+  "issuers": [
+    "0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC"
+  ],
+  "reviewers": [
+    "0xd153C0cC313884DA0065615BB411Dfb8b873fE54"
+  ],
+  "scope": "identity-and-protocol"
+}

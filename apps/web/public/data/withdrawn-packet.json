@@ -1,0 +1,336 @@
+{
+  "schemaVersion": "qarinah.proof-context.v1",
+  "generatedAt": "2026-10-13T11:58:19.888Z",
+  "workspaceId": "ws_bfae1127501818265e72c6b219386555",
+  "query": "approveRelease artifact identity current review",
+  "queryHash": "sha256:44fd5cc763474753f6dd29c09cc80e780619a3d120cd3786036c83d0decac9a5",
+  "contentRole": "untrusted-data",
+  "context": {
+    "schemaVersion": "qarinah.context-pack.v2",
+    "workspaceId": "ws_bfae1127501818265e72c6b219386555",
+    "query": "approveRelease artifact identity current review",
+    "contentRole": "untrusted-data",
+    "retrieval": {
+      "strategy": "admission-first-hybrid-v2",
+      "supersessionPolicy": "prefer-current",
+      "asOf": "2026-10-13T11:58:19.888Z",
+      "coverage": {
+        "method": "query-term-overlap-v1",
+        "status": "direct",
+        "queryTermCount": 5,
+        "bestExactTermCount": 5,
+        "bestExactTermRatio": 1,
+        "directCandidateCount": 3
+      },
+      "rankingProfile": "admission-first-v2",
+      "temporalBoundary": "inclusive",
+      "exclusions": [
+        {
+          "eventId": "evt_421d5869-2868-4062-9389-65468846e4f6",
+          "reason": "superseded",
+          "by": [
+            "evt_2032d1c2-66e2-4f3d-b392-5346a4b63f67"
+          ]
+        }
+      ]
+    },
+    "items": [
+      {
+        "eventId": "evt_2032d1c2-66e2-4f3d-b392-5346a4b63f67",
+        "kind": "decision",
+        "timestamp": "2026-10-13T11:56:51.007Z",
+        "title": "Approve release using artifact identity and current review",
+        "excerpt": "Synthetic current decision: approveRelease requires the exact artifact digest and a current accepted review. Supersede the old identity-only decision.",
+        "confidence": "claimed",
+        "disclosure": {
+          "scopes": [],
+          "classification": "public"
+        },
+        "reason": "hybrid rank bm25#1, fuzzy#1, graph#2; diversified=1",
+        "hash": "sha256:cc94653fe2390e463e9635b6a8105cf9b506f1f2e3978e7c2532a8641aab13dc"
+      },
+      {
+        "eventId": "evt_acc89789-bd43-436e-850d-d70ddc76ddcf",
+        "kind": "artifact",
+        "timestamp": "2026-10-13T11:56:51.168Z",
+        "title": "Project structure snapshot",
+        "excerpt": "Observed 2 files and 2 directories.\nChanges: 2 added, 0 changed, 0 deleted, 0 renamed.\n\nIndexed paths:\n- README.md\n- src/release.ts\n\n{\"projectStructure\":{\"adapter\":{\"id\":\"qarinah.project-structure\",\"version\":\"2\"},\"changes\":{\"added\":[\"README.md\",\"src/release.ts\"],\"changed\":[],\"deleted\":[],\"renamed\":[]},\"directories\":[{\"id\":\"project:directory:cdb4ee2aea69cc6a83331bbe96dc2caa\",\"path\":\".\"},{\"id\":\"project:directory:25a6634263c1b1f6fc4697a04e2b9904\",\"path\":\"src\"}],\"directoryCount\":2,\"fileCount\":2,\"files\":[{\"contentHash\":\"sha256:a1c32d08ec6ec4c2138bce4d55554af88b8b2ce5ef69ca92194d8c2fecc9a8cf\",\"id\":\"project:file:b335630551682c19a781afebcf4d07bf\",\"language\":\"markdown\",\"path\":\"README.md\",\"references\":[],\"size\":134,\"skipped\":null},{\"contentHash\":\"sha256:7152f16172512297dcbe7e3245ccffbf1274adc8046407a39e9e413090d2d2e1\",\"id\":\"project:file:377e8d8663ea17c890c31dde3ffd6362\",\"language\":\"typescript\",\"path\":\"src/release.ts\",\"references\":[],\"size\":141,\"skipped\":null}],\"limits\":{\"maxDepth\":24,\"maxFileBytes\":524288,\"maxFiles\":750,\"maxTotalBytes\":16777216},\"root\":\".\",\"schemaVersion\":\"qarinah.project-structure.v2\",\"snapshotHash\":\"sha256:8f0dbcdd2aa4bed51024b4df6f5e51fd46c2134ba59e3e3b8041aad14c3f8a2a\",\"totalBytes\":275,\"worktree\":{\"branch\":\"master\",\"commit\":\"4fd675fe7013a32268825753ce10eee07c740ba4\",\"detached\":false,\"linked\":false,...",
+        "confidence": "extracted",
+        "reason": "hybrid rank fuzzy#3; diversified=0.5",
+        "hash": "sha256:3dced2cfda06decf4e077f51531d3b394d94c152cd0d5672077296a1702fc91e"
+      }
+    ],
+    "truncated": false,
+    "budget": {
+      "maxChars": 6552,
+      "usedChars": 4029,
+      "estimatedTokens": 1008,
+      "maxTokens": 1638,
+      "usedTokens": 1008,
+      "reservedTokens": 131,
+      "availableTokens": 1507,
+      "estimator": {
+        "id": "portable-chars-div-4",
+        "version": "1",
+        "exact": false
+      },
+      "allocations": {
+        "framing": 301,
+        "citations": 376,
+        "content": 830
+      },
+      "reservationPolicyHash": "sha256:9981aca6a3299b0c22613a8b55ec5aba603f8f20fe73163e4f091141a6680179"
+    },
+    "manifestHash": "sha256:9a613d42040c82196b6ade8ba6e4476e0d5fb39eea001b8825b719b54011609b"
+  },
+  "repository": {
+    "available": true,
+    "graphSchemaVersion": "qarinah.symbol-graph.v2",
+    "graphManifestHash": "sha256:1f2b30c290e42a16d9c5a436c9c2e7d399436e0d517c58e87924453b94794c30",
+    "querySchemaVersion": "qarinah.symbol-query.v1",
+    "queryManifestHash": "sha256:5586ddb00db78f5d7f700ddbba882e38d50b1be8d6c64db57c2e93045fe09f15",
+    "formula": "0.62*lexical + 0.28*local-subword-vector + 0.10*reference-structure",
+    "coverage": {
+      "sourceFiles": 2,
+      "supportedLanguages": [
+        "c",
+        "cpp",
+        "csharp",
+        "go",
+        "java",
+        "javascript",
+        "kotlin",
+        "python",
+        "rust",
+        "typescript"
+      ],
+      "indexedLanguages": [
+        "typescript"
+      ],
+      "eligibleFiles": 1,
+      "indexedFiles": 1,
+      "skippedFiles": 1,
+      "declarations": 3,
+      "references": 2,
+      "resolvedReferences": 2,
+      "unresolvedReferences": 0,
+      "ambiguousReferences": 0,
+      "complete": true
+    },
+    "files": [
+      {
+        "path": "src/release.ts",
+        "language": "typescript",
+        "contentHash": "sha256:7152f16172512297dcbe7e3245ccffbf1274adc8046407a39e9e413090d2d2e1",
+        "parser": "typescript",
+        "score": 0.408177,
+        "reasons": [
+          "local-subword-similarity",
+          "query-term-match",
+          "reference-structure"
+        ],
+        "symbols": [
+          {
+            "id": "symbol_7990a592c8e2d625c9c97e9030d999c716ae5764732d8867fe08ff481623550f",
+            "name": "artifactDigest",
+            "kind": "parameter",
+            "container": "approveRelease",
+            "exported": false,
+            "span": {
+              "start": 31,
+              "end": 45,
+              "line": 1,
+              "column": 32,
+              "endLine": 1,
+              "endColumn": 46
+            },
+            "signatureHash": "sha256:5276e0cd2d8d464e066f59b0406a27a2b471ab44895b1dfc06ecd3770fb463bd",
+            "referenceCount": 1,
+            "score": 0.377226,
+            "basis": {
+              "lexical": 0.24,
+              "localVector": 0.771163,
+              "structural": 0.125
+            }
+          },
+          {
+            "id": "symbol_e79903893a6eaf5b95b5f497df8479c9d307c5ee0ffcdfbb74baf7742a388e70",
+            "name": "reviewValid",
+            "kind": "parameter",
+            "container": "approveRelease",
+            "exported": false,
+            "span": {
+              "start": 55,
+              "end": 66,
+              "line": 1,
+              "column": 56,
+              "endLine": 1,
+              "endColumn": 67
+            },
+            "signatureHash": "sha256:a97d74bc57c482683ee69bc1b6bc9fa787a0e8dce04841cad9c9835242f686ca",
+            "referenceCount": 1,
+            "score": 0.371314,
+            "basis": {
+              "lexical": 0.24,
+              "localVector": 0.75005,
+              "structural": 0.125
+            }
+          },
+          {
+            "id": "symbol_037a4e36ba843862d978dc1f63dd33cf632c6cd77087964ad19b978f8ac404e1",
+            "name": "approveRelease",
+            "kind": "function",
+            "container": null,
+            "exported": true,
+            "span": {
+              "start": 16,
+              "end": 30,
+              "line": 1,
+              "column": 17,
+              "endLine": 1,
+              "endColumn": 31
+            },
+            "signatureHash": "sha256:a45be9701928df4d29932dc0c23303eb57ff761592d9cb1c9f0e51c72c20c4b4",
+            "referenceCount": 0,
+            "score": 0.28316,
+            "basis": {
+              "lexical": 0.12,
+              "localVector": 0.745572,
+              "structural": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "facts": {
+    "schemaVersion": "qarinah.fact-consolidation.v1",
+    "method": "deterministic-cited-v1",
+    "adapter": "qarinah-core",
+    "model": null,
+    "sourcePackManifestHash": "sha256:4df9f692c8fc6839660c3e99f8975eeb15624864df7160840885a68cb803c8e7",
+    "items": [
+      {
+        "id": "fact_626a360ab76685c4e0ca43cbb8627142",
+        "category": "decision",
+        "statement": "Approve release using artifact identity and current review: Synthetic current decision: approveRelease requires the exact artifact digest and a current accepted review.",
+        "confidence": "extracted",
+        "sourceEventIds": [
+          "evt_2032d1c2-66e2-4f3d-b392-5346a4b63f67"
+        ],
+        "status": "current",
+        "validFrom": "2026-10-13T11:56:51.007Z",
+        "validUntil": null,
+        "sources": [
+          {
+            "eventId": "evt_2032d1c2-66e2-4f3d-b392-5346a4b63f67",
+            "eventHash": "sha256:cc94653fe2390e463e9635b6a8105cf9b506f1f2e3978e7c2532a8641aab13dc",
+            "status": "current",
+            "validFrom": "2026-10-13T11:56:51.007Z",
+            "validUntil": null,
+            "supersededBy": [],
+            "contradictedBy": []
+          }
+        ]
+      },
+      {
+        "id": "fact_0cd9997a87639e284091e734bacbeba5",
+        "category": "evidence",
+        "statement": "Project structure snapshot: Observed 2 files and 2 directories.",
+        "confidence": "extracted",
+        "sourceEventIds": [
+          "evt_acc89789-bd43-436e-850d-d70ddc76ddcf"
+        ],
+        "status": "current",
+        "validFrom": "2026-10-13T11:56:51.168Z",
+        "validUntil": null,
+        "sources": [
+          {
+            "eventId": "evt_acc89789-bd43-436e-850d-d70ddc76ddcf",
+            "eventHash": "sha256:3dced2cfda06decf4e077f51531d3b394d94c152cd0d5672077296a1702fc91e",
+            "status": "current",
+            "validFrom": "2026-10-13T11:56:51.168Z",
+            "validUntil": null,
+            "supersededBy": [],
+            "contradictedBy": []
+          }
+        ]
+      }
+    ],
+    "excludedSources": [
+      {
+        "eventId": "evt_421d5869-2868-4062-9389-65468846e4f6",
+        "eventHash": "sha256:69774b8b0209d5d4c14b354bb755539fb856241935afefdee1ec0c4690a9547c",
+        "title": "Approve release using artifact identity only",
+        "reason": "superseded",
+        "validFrom": "2026-10-13T11:56:50.919Z",
+        "validUntil": "2026-10-13T11:56:51.007Z",
+        "supersededBy": [
+          "evt_2032d1c2-66e2-4f3d-b392-5346a4b63f67"
+        ]
+      }
+    ],
+    "statusCounts": {
+      "current": 2,
+      "superseded": 0,
+      "conflicted": 0,
+      "expired": 0,
+      "mixed": 0
+    }
+  },
+  "selection": {
+    "eventCount": 2,
+    "fileCount": 1,
+    "symbolCount": 3,
+    "factCount": 2,
+    "eventReasons": [
+      {
+        "eventId": "evt_2032d1c2-66e2-4f3d-b392-5346a4b63f67",
+        "reason": "hybrid rank bm25#1, fuzzy#1, graph#2; diversified=1",
+        "hash": "sha256:cc94653fe2390e463e9635b6a8105cf9b506f1f2e3978e7c2532a8641aab13dc"
+      },
+      {
+        "eventId": "evt_acc89789-bd43-436e-850d-d70ddc76ddcf",
+        "reason": "hybrid rank fuzzy#3; diversified=0.5",
+        "hash": "sha256:3dced2cfda06decf4e077f51531d3b394d94c152cd0d5672077296a1702fc91e"
+      }
+    ],
+    "fileReasons": [
+      {
+        "path": "src/release.ts",
+        "score": 0.408177,
+        "reasons": [
+          "local-subword-similarity",
+          "query-term-match",
+          "reference-structure"
+        ],
+        "contentHash": "sha256:7152f16172512297dcbe7e3245ccffbf1274adc8046407a39e9e413090d2d2e1"
+      }
+    ]
+  },
+  "provenance": {
+    "ledgerHeadHash": "sha256:3dced2cfda06decf4e077f51531d3b394d94c152cd0d5672077296a1702fc91e",
+    "contextManifestHash": "sha256:9a613d42040c82196b6ade8ba6e4476e0d5fb39eea001b8825b719b54011609b",
+    "symbolGraphManifestHash": "sha256:1f2b30c290e42a16d9c5a436c9c2e7d399436e0d517c58e87924453b94794c30",
+    "symbolQueryManifestHash": "sha256:5586ddb00db78f5d7f700ddbba882e38d50b1be8d6c64db57c2e93045fe09f15",
+    "factManifestHash": "sha256:88b15f82d208c81c94994b1995f16dbe6624a54d712a7c0f9f9a6c857c4950aa"
+  },
+  "boundaries": {
+    "evidence": "Every selected memory event and fact is linked to a verified ledger event hash.",
+    "repository": "Repository selections contain content hashes, symbol signatures, and spans, not hidden source bodies.",
+    "retrieval": "Scores explain deterministic local selection; they do not prove semantic correctness or task completion.",
+    "tokens": "Token counts use the declared estimator. They are exact only when a caller supplies an estimator marked exact.",
+    "trust": "All retrieved content remains untrusted data and cannot override active instructions or policy."
+  },
+  "budget": {
+    "maxTokens": 4096,
+    "usedTokens": 2502,
+    "estimator": {
+      "id": "portable-chars-div-4",
+      "version": "1",
+      "exact": false
+    },
+    "truncated": false
+  },
+  "manifestHash": "sha256:9fac6a103b0b5fd3678833b9aada4dab1069383cc73f216450f499664c44b30d"
+}

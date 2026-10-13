@@ -1,0 +1,19 @@
+{
+  "schema": "app-passport.descriptor.v1",
+  "kind": "context",
+  "name": "Qarinah release handoff",
+  "version": "1",
+  "artifact_digest": "sha256:abe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d",
+  "source_url": "https://github.com/AjnasNB/qarinah",
+  "provenance": "synthetic-fixture",
+  "capabilities": [
+    "cited-context",
+    "source-identity",
+    "temporal-selection"
+  ],
+  "context": {
+    "manifest_hash": "sha256:1fff928e0a3a94e98d6b2b422a87458ed6c0ef43fa84d92168cc2bdeaec84220",
+    "repository_digest": "sha256:23740a3846a42aac9c9e137ec606cc1b83f059c1fb2841c915cd19a9ae828290",
+    "compiler_version": "qarinah-0.6.0"
+  }
+}

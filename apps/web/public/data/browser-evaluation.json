@@ -1,0 +1,69 @@
+{
+  "evaluated_at": "2026-10-13T12:57:42.777Z",
+  "scope": "Public deployment browser flows: local uploads, tampering, source changes, expired/withdrawn reviews, provider outage recovery, current re-evaluation, mobile/theme and read-only API. Controlled outage responses are browser-local test simulations.",
+  "url": "https://passport.ajnasnb.com",
+  "passed": 6,
+  "total": 6,
+  "results": [
+    {
+      "name": "live context admission, local tampering and source changes",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 9992
+        }
+      ]
+    },
+    {
+      "name": "uploaded files stay local and do not inherit an earlier approval",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 5883
+        }
+      ]
+    },
+    {
+      "name": "real tool artifact, unknown replacement, SDK and evidence links",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 7047
+        }
+      ]
+    },
+    {
+      "name": "provider outage removes an already displayed positive decision",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 4563
+        }
+      ]
+    },
+    {
+      "name": "fresh network reads reevaluate missing review status without a second user check",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 5996
+        }
+      ]
+    },
+    {
+      "name": "mobile layout, theme persistence and read-only API",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 8245
+        }
+      ]
+    }
+  ]
+}

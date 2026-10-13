@@ -1,0 +1,13 @@
+{
+  "reader": "local-context-consumer",
+  "website_backend_used": false,
+  "context_delivered": true,
+  "admission_status": "requirements-satisfied",
+  "read_block": "522900",
+  "artifact_digest": "sha256:abe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d",
+  "current_source_files_checked": 1,
+  "content_role": "untrusted-data",
+  "selected_event_count": 2,
+  "inference_run": false,
+  "note": "The example consumer receives an admitted context input. No second LLM run or independent organisation is claimed."
+}

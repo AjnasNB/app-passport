@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "app-passport.descriptor.v1"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "tool",
+        "context"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "artifact_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "source_url": {
+      "type": "string",
+      "maxLength": 1000,
+      "format": "uri"
+    },
+    "provenance": {
+      "type": "string",
+      "enum": [
+        "upstream-artifact-reference",
+        "publisher-attested",
+        "synthetic-fixture"
+      ]
+    },
+    "capabilities": {
+      "maxItems": 100,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "manifest_hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "repository_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "compiler_version": {
+          "type": "string",
+          "maxLength": 100
+        }
+      },
+      "required": [
+        "manifest_hash",
+        "repository_digest",
+        "compiler_version"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema",
+    "kind",
+    "name",
+    "version",
+    "artifact_digest",
+    "source_url",
+    "provenance",
+    "capabilities"
+  ],
+  "additionalProperties": false
+}

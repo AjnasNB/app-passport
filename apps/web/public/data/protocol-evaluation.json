@@ -1,0 +1,272 @@
+{
+  "evaluated_at": "2026-10-13T12:23:43.778Z",
+  "scope": "Pinned artifact identity, MCP initialization, tools/list and one controlled call. Not a malware audit, an operating-system sandbox, dependency-vulnerability audit, or proof of advertised capability enforcement.",
+  "dependency_lock_digest": "sha256:e6154afa369841bd1c53641c0a123d2bcb7c40285c1782d109e2560e2e0cdc1e",
+  "synthetic_repository": true,
+  "credentials_given_to_tools": false,
+  "results": [
+    {
+      "id": "qarinah",
+      "initialized": true,
+      "server_version": "0.6.0",
+      "tool_count": 3,
+      "tool_names": [
+        "context_status",
+        "context_doctor",
+        "context.query"
+      ],
+      "manifest_digest": "sha256:634513eebd33fc08c6d5eee809b5fb01bae6c3ec74ec616e80e04b7dcbeaabcb",
+      "smoke": {
+        "name": "context_status",
+        "passed": true,
+        "response_digest": "sha256:04bde24ca9a4713c17d6a94de8c58c5cd84143f592072759af00709c800398e6"
+      },
+      "passed": true
+    },
+    {
+      "id": "filesystem",
+      "initialized": true,
+      "server_version": "1.0.0",
+      "tool_count": 14,
+      "tool_names": [
+        "read_file",
+        "read_text_file",
+        "read_media_file",
+        "read_multiple_files",
+        "write_file",
+        "edit_file",
+        "create_directory",
+        "list_directory",
+        "list_directory_with_sizes",
+        "directory_tree",
+        "move_file",
+        "search_files",
+        "get_file_info",
+        "list_allowed_directories"
+      ],
+      "manifest_digest": "sha256:21b2ff7dbcfb07cdc81bbe8ac1d8c28f28586643ad09038767d38f641c75c94c",
+      "smoke": {
+        "name": "list_directory",
+        "passed": true,
+        "response_digest": "sha256:b74e6ee7aaa252cbbea2c2845d5afb08dc865380344cffdbf3ac775e7dc5ebcc"
+      },
+      "passed": true
+    },
+    {
+      "id": "memory",
+      "initialized": true,
+      "server_version": "1.0.0",
+      "tool_count": 9,
+      "tool_names": [
+        "create_entities",
+        "create_relations",
+        "add_observations",
+        "delete_entities",
+        "delete_observations",
+        "delete_relations",
+        "read_graph",
+        "search_nodes",
+        "open_nodes"
+      ],
+      "manifest_digest": "sha256:32714daf75630a5414425d7c739ff8bd51dc68f0b37f5bbba3470adfa51f3a1f",
+      "smoke": {
+        "name": "read_graph",
+        "passed": true,
+        "response_digest": "sha256:14555274a9a6b9517083aec2cc51a195d51ff8da258f01ec35f28b5298ccf2d1"
+      },
+      "passed": true
+    },
+    {
+      "id": "thinking",
+      "initialized": true,
+      "server_version": "1.0.0",
+      "tool_count": 1,
+      "tool_names": [
+        "sequentialthinking"
+      ],
+      "manifest_digest": "sha256:cab779b7269c9f3486cad91619983125b0c4cc274421db6c6cea50ccf5438323",
+      "smoke": {
+        "name": "sequentialthinking",
+        "passed": true,
+        "response_digest": "sha256:5dc74f336c3e719e7b5bb007772a2d1cf6c05fd11d74b5139f458aa06a909b98"
+      },
+      "passed": true
+    },
+    {
+      "id": "everything",
+      "initialized": true,
+      "server_version": "1.0.0",
+      "tool_count": 14,
+      "tool_names": [
+        "echo",
+        "get-annotated-message",
+        "get-env",
+        "get-resource-links",
+        "get-resource-reference",
+        "get-structured-content",
+        "get-sum",
+        "get-tiny-image",
+        "gzip-file-as-resource",
+        "toggle-simulated-logging",
+        "toggle-subscriber-updates",
+        "trigger-long-running-operation",
+        "get-roots-list",
+        "simulate-research-query"
+      ],
+      "manifest_digest": "sha256:a794cebe06729db6b5218ae4a70886e3fd0f094ad6b22ea7aba528a94ce9268a",
+      "smoke": {
+        "name": "echo",
+        "passed": true,
+        "response_digest": "sha256:6da6d062ef2becb2e966bfa1db577e781fbddff7c3588623c640b505b66597ae"
+      },
+      "passed": true
+    },
+    {
+      "id": "playwright",
+      "initialized": true,
+      "server_version": "1.64.0-alpha-1790635538000",
+      "tool_count": 25,
+      "tool_names": [
+        "browser_close",
+        "browser_resize",
+        "browser_console_messages",
+        "browser_handle_dialog",
+        "browser_emulate_media",
+        "browser_evaluate",
+        "browser_file_upload",
+        "browser_drop",
+        "browser_find",
+        "browser_fill_form",
+        "browser_press_key",
+        "browser_type",
+        "browser_navigate",
+        "browser_navigate_back",
+        "browser_network_requests",
+        "browser_network_request",
+        "browser_run_code_unsafe",
+        "browser_take_screenshot",
+        "browser_snapshot",
+        "browser_click",
+        "browser_drag",
+        "browser_hover",
+        "browser_select_option",
+        "browser_tabs",
+        "browser_wait_for"
+      ],
+      "manifest_digest": "sha256:2807b4f334b41012e1b0a6e037b9d4f7ad5e67d20b158a9026841ae2edcafc08",
+      "smoke": {
+        "name": "browser_tabs",
+        "passed": true,
+        "response_digest": "sha256:d976044010c8e1d31f0920030cc9428e720cf0cd12ecf279fd28e9c39d462d4e"
+      },
+      "passed": true
+    },
+    {
+      "id": "chrome",
+      "initialized": true,
+      "server_version": "1.10.1",
+      "tool_count": 30,
+      "tool_names": [
+        "click",
+        "close_page",
+        "drag",
+        "emulate",
+        "evaluate_script",
+        "fill",
+        "fill_form",
+        "get_console_message",
+        "get_css_styles",
+        "get_network_request",
+        "handle_dialog",
+        "hover",
+        "lighthouse_audit",
+        "list_console_messages",
+        "list_network_requests",
+        "list_pages",
+        "navigate_page",
+        "new_page",
+        "performance_analyze_insight",
+        "performance_start_trace",
+        "performance_stop_trace",
+        "press_key",
+        "resize_page",
+        "select_page",
+        "take_heapsnapshot",
+        "take_screenshot",
+        "take_snapshot",
+        "type_text",
+        "upload_file",
+        "wait_for"
+      ],
+      "manifest_digest": "sha256:45c32582ac63923ad66483ff33dc8febc0bc4f46f3936214829993b45dcef5be",
+      "smoke": {
+        "name": "list_pages",
+        "passed": true,
+        "response_digest": "sha256:c6deac6ae01d55e0e0e38bb83814bf8dbb8c93a750b0b557c4c9dc7e7b158922"
+      },
+      "passed": true
+    },
+    {
+      "id": "git",
+      "initialized": true,
+      "server_version": "2026.10.10",
+      "tool_count": 12,
+      "tool_names": [
+        "git_status",
+        "git_diff_unstaged",
+        "git_diff_staged",
+        "git_diff",
+        "git_commit",
+        "git_add",
+        "git_reset",
+        "git_log",
+        "git_create_branch",
+        "git_checkout",
+        "git_show",
+        "git_branch"
+      ],
+      "manifest_digest": "sha256:86ec61d98f63084159d31520eb9b70cf6bf461e4b387d55b17774ed618bdcc2b",
+      "smoke": {
+        "name": "git_status",
+        "passed": true,
+        "response_digest": "sha256:6b0cfab561411789e5a3967877485dfa8c53920322ef8fc6f77afb1955f9c092"
+      },
+      "passed": true
+    },
+    {
+      "id": "fetch",
+      "initialized": true,
+      "server_version": "2026.10.10",
+      "tool_count": 1,
+      "tool_names": [
+        "fetch"
+      ],
+      "manifest_digest": "sha256:893ab204e63eb0818a3c909bb715638c023f2b7f37dd1c07488675a5f0ac20df",
+      "smoke": {
+        "name": "fetch",
+        "passed": true,
+        "response_digest": "sha256:b7d65b3d8aac9aa3c589ab4df260e44d45875904b402a282ff2453169d24228c"
+      },
+      "passed": true
+    },
+    {
+      "id": "time",
+      "initialized": true,
+      "server_version": "2026.10.10",
+      "tool_count": 2,
+      "tool_names": [
+        "get_current_time",
+        "convert_time"
+      ],
+      "manifest_digest": "sha256:2055bb868de1df023c37979ea6528ebed1851a9764cbc1a6d3b316d26c9c45c8",
+      "smoke": {
+        "name": "get_current_time",
+        "passed": true,
+        "response_digest": "sha256:b1ada17a21b96f8b60c19d0f04b8118b30669f8912a12d21e9df5bc6c15cd74b"
+      },
+      "passed": true
+    }
+  ],
+  "passed": 10,
+  "total": 10
+}

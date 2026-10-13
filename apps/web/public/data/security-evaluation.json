@@ -1,0 +1,228 @@
+{
+  "evaluated_at": "2026-10-13T12:57:13.583Z",
+  "scope": "Signed artifact, policy, protocol metadata, Qarinah manifest, withdrawal, expiry and hostile JSON boundaries. Project-run tests, not an independent audit.",
+  "passed": 44,
+  "total": 44,
+  "results": [
+    {
+      "name": "Qarinah source adapter uses the original Qarinah validator",
+      "passed": true,
+      "duration_ms": 14.508899999999812
+    },
+    {
+      "name": "Qarinah source adapter hashes actual selected files",
+      "passed": true,
+      "duration_ms": 4.695699999999761
+    },
+    {
+      "name": "Qarinah source adapter detects changed source bytes in an independent checkout",
+      "passed": true,
+      "duration_ms": 6.429900000000089
+    },
+    {
+      "name": "Qarinah source adapter does not substitute stored source hashes when a file disappears",
+      "passed": true,
+      "duration_ms": 4.307099999999991
+    },
+    {
+      "name": "signed artifact and reviewer boundary admits an exact artifact with accepted current passport and review",
+      "passed": true,
+      "duration_ms": 17.50649999999996
+    },
+    {
+      "name": "signed artifact and reviewer boundary rejects changed artifact bytes",
+      "passed": true,
+      "duration_ms": 1.1698999999998705
+    },
+    {
+      "name": "signed artifact and reviewer boundary requires a reviewer even when a passport exists",
+      "passed": true,
+      "duration_ms": 5.883399999999938
+    },
+    {
+      "name": "signed artifact and reviewer boundary requires a passport even when a reviewer exists",
+      "passed": true,
+      "duration_ms": 5.1059999999999945
+    },
+    {
+      "name": "signed artifact and reviewer boundary rejects a correctly signed but unaccepted publisher",
+      "passed": true,
+      "duration_ms": 12.647400000000061
+    },
+    {
+      "name": "signed artifact and reviewer boundary rejects a correctly signed but unaccepted reviewer",
+      "passed": true,
+      "duration_ms": 13.144999999999982
+    },
+    {
+      "name": "signed artifact and reviewer boundary rejects a forged issuer label",
+      "passed": true,
+      "duration_ms": 4.361599999999953
+    },
+    {
+      "name": "signed artifact and reviewer boundary rejects modified review evidence after signing",
+      "passed": true,
+      "duration_ms": 5.22180000000003
+    },
+    {
+      "name": "signed artifact and reviewer boundary rejects unknown payload fields",
+      "passed": true,
+      "duration_ms": 1.6484999999997854
+    },
+    {
+      "name": "signed artifact and reviewer boundary rejects a copied signature from a different payload",
+      "passed": true,
+      "duration_ms": 3.5242000000000644
+    },
+    {
+      "name": "signed artifact and reviewer boundary expires a required review at its signed deadline",
+      "passed": true,
+      "duration_ms": 7.726100000000088
+    },
+    {
+      "name": "signed artifact and reviewer boundary cannot create satisfied review containing a failed check",
+      "passed": true,
+      "duration_ms": 2.5138999999999214
+    },
+    {
+      "name": "signed artifact and reviewer boundary reports an accepted negative review as requiring attention",
+      "passed": true,
+      "duration_ms": 10.325600000000122
+    },
+    {
+      "name": "signed artifact and reviewer boundary fails closed when the provider is unavailable",
+      "passed": true,
+      "duration_ms": 0.5197000000000571
+    },
+    {
+      "name": "signed artifact and reviewer boundary does not admit a future-dated review",
+      "passed": true,
+      "duration_ms": 11.996399999999994
+    },
+    {
+      "name": "withdrawals and chain metadata applies an authentic same-author withdrawal",
+      "passed": true,
+      "duration_ms": 13.432700000000068
+    },
+    {
+      "name": "withdrawals and chain metadata rejects another wallet trying to withdraw an accepted review",
+      "passed": true,
+      "duration_ms": 14.271999999999935
+    },
+    {
+      "name": "withdrawals and chain metadata does not withdraw a different target",
+      "passed": true,
+      "duration_ms": 15.7346
+    },
+    {
+      "name": "withdrawals and chain metadata does not apply a withdrawal older than its target",
+      "passed": true,
+      "duration_ms": 11.71160000000009
+    },
+    {
+      "name": "withdrawals and chain metadata allows a fresh review after withdrawing a specific older review",
+      "passed": true,
+      "duration_ms": 22.14449999999988
+    },
+    {
+      "name": "withdrawals and chain metadata accepts readonly chain entity bound to the signed payload",
+      "passed": true,
+      "duration_ms": 6.6603000000000065
+    },
+    {
+      "name": "withdrawals and chain metadata rejects mutable entities after ownership transfer",
+      "passed": true,
+      "duration_ms": 0.20069999999986976
+    },
+    {
+      "name": "withdrawals and chain metadata rejects protocol creator mismatch",
+      "passed": true,
+      "duration_ms": 3.771299999999883
+    },
+    {
+      "name": "withdrawals and chain metadata rejects query attribute and payload disagreement",
+      "passed": true,
+      "duration_ms": 3.9121000000000095
+    },
+    {
+      "name": "withdrawals and chain metadata rejects chain-expired records",
+      "passed": true,
+      "duration_ms": 1.3691999999998643
+    },
+    {
+      "name": "withdrawals and chain metadata rejects storage that ends before signed validity",
+      "passed": true,
+      "duration_ms": 1.4932000000001153
+    },
+    {
+      "name": "Qarinah and bounded JSON validates a genuine generated Qarinah packet",
+      "passed": true,
+      "duration_ms": 9.77209999999991
+    },
+    {
+      "name": "Qarinah and bounded JSON rejects a changed Qarinah packet manifest",
+      "passed": true,
+      "duration_ms": 4.308899999999994
+    },
+    {
+      "name": "Qarinah and bounded JSON detects a changed repository snapshot before admission",
+      "passed": true,
+      "duration_ms": 4.884900000000016
+    },
+    {
+      "name": "Qarinah and bounded JSON rejects cyclic values",
+      "passed": true,
+      "duration_ms": 0.9188999999998941
+    },
+    {
+      "name": "Qarinah and bounded JSON rejects accessors without invoking them",
+      "passed": true,
+      "duration_ms": 0.6541999999999462
+    },
+    {
+      "name": "Qarinah and bounded JSON rejects unsupported prototype instances",
+      "passed": true,
+      "duration_ms": 0.22080000000005384
+    },
+    {
+      "name": "Qarinah and bounded JSON rejects over-deep input",
+      "passed": true,
+      "duration_ms": 0.5289999999999964
+    },
+    {
+      "name": "Qarinah and bounded JSON rejects oversized input",
+      "passed": true,
+      "duration_ms": 5.668599999999969
+    },
+    {
+      "name": "Public read gateway cannot publish or receive an upload",
+      "passed": true,
+      "duration_ms": 33.572400000000016
+    },
+    {
+      "name": "Public read gateway rejects malformed identity and arbitrary provider selection",
+      "passed": true,
+      "duration_ms": 4.364999999999782
+    },
+    {
+      "name": "Public read gateway rate-limits before querying Arkiv",
+      "passed": true,
+      "duration_ms": 0.6684999999999945
+    },
+    {
+      "name": "Public read gateway does not expose credentials or provider errors",
+      "passed": true,
+      "duration_ms": 5.223899999999958
+    },
+    {
+      "name": "Public read gateway returns verified records with no caching",
+      "passed": true,
+      "duration_ms": 1.2231999999999061
+    },
+    {
+      "name": "Public read gateway protects the browser document",
+      "passed": true,
+      "duration_ms": 2.0948000000000775
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "verified_at": "2026-10-13T12:45:41.974Z",
+  "reader": "independent-sdk-direct-rpc",
+  "rpc_origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+  "website_backend_used": false,
+  "provider_state_proofs_checked": false,
+  "query": "namespace = str('app-passport-v1') AND schema_version = u64(1) AND $expiresAt > u64(522895) AND ($creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC) OR $creator = addr(0xd153C0cC313884DA0065615BB411Dfb8b873fE54))",
+  "block": "522895",
+  "records": 31,
+  "results": [
+    {
+      "id": "qarinah",
+      "expected": "requirements-satisfied",
+      "observed": "requirements-satisfied",
+      "passed": true,
+      "entity_keys": [
+        "0xb4ab35e638d061d31e36ac21da404a0e025d37f715aa8e615b0c1f3af8adaf61",
+        "0x602022d0150a495192f148c269b25e7b5441c758d222e444553181a2719f49f2"
+      ]
+    },
+    {
+      "id": "filesystem",
+      "expected": "requirements-satisfied",
+      "observed": "requirements-satisfied",
+      "passed": true,
+      "entity_keys": [
+        "0x7ab75a11cda8226cab6bbec028f30478d16e418732bb1b30c87932b56d911971",
+        "0xe3aefeeeee00c3bfcad7eb15c22c12674b06d082dfff3d017159f6c11e9b5c6a"
+      ]
+    },
+    {
+      "id": "memory",
+      "expected": "requirements-satisfied",
+      "observed": "requirements-satisfied",
+      "passed": true,
+      "entity_keys": [
+        "0x4533e4e7301a59d5582725c973d5af45d619d1c20fec200fe92787aa6b37551b",
+        "0xc3b231c9fdfdeb7891883d50f7d37ac6afac4d9ee3acf074320bc4eb861bec7b"
+      ]
+    },
+    {
+      "id": "thinking",
+      "expected": "requirements-satisfied",
+      "observed": "requirements-satisfied",
+      "passed": true,
+      "entity_keys": [
+        "0x294b5cfca63b101f28e3a5bd487d66bf14f04da765d5a20ec9dc6cd63aa33d80",
+        "0xa782727763b4f67f088ca33a3ef13ee14149ebfcded9bb57fe4838280fedad71"
+      ]
+    },
+    {
+      "id": "everything",
+      "expected": "requirements-satisfied",
+      "observed": "requirements-satisfied",
+      "passed": true,
+      "entity_keys": [
+        "0x4a8fc9691d1a35d3481a6d542f6244dcabbd1e400994d6c833f4b9e593d0f60b",
+        "0x9e20ebb03cabfd0073421a55b905c13e8f629543a43ef8d0b578212a4972e1ce"
+      ]
+    },
+    {
+      "id": "playwright",
+      "expected": "requirements-satisfied",
+      "observed": "requirements-satisfied",
+      "passed": true,
+      "entity_keys": [
+        "0xfe0b51e8973cb2f2ac449446ae173ea4cc8d241eb2cd49b2f29d0d54981975f4",
+        "0x8bde11f200fc7301a7bba74889cc9bfe22105c1a6d259d77d0e2784b2d6c976f",
+        "0xc9624dedda71e891924a9d7063292bf0651342b5955dd88c1106038254ea0cdb",
+        "0x3022419aeb709d10216af64e52ad9f231ffc9c63f7696e5a15c604b078abfe4e"
+      ]
+    },
+    {
+      "id": "chrome",
+      "expected": "requirements-satisfied",
+      "observed": "requirements-satisfied",
+      "passed": true,
+      "entity_keys": [
+        "0x6b9d0ad03ed1c7dc4211ad2f7ecd4924f6dcaf1ca62d03b227b45a6b32226b66",
+        "0x0457d0402769613808479b5a7fcfc42941132ab039c89bd932c730cc2c53d44e",
+        "0x58a3a349712cb43797b08b095b48eb746634af83b87b47a8290815b14afcf190",
+        "0xe408d8f7c5dce619088892185f231d90f32454dd38bea19b624a8d139f9c523e"
+      ]
+    },
+    {
+      "id": "git",
+      "expected": "requirements-satisfied",
+      "observed": "requirements-satisfied",
+      "passed": true,
+      "entity_keys": [
+        "0xae841c7516ee45a6b728c29c6137cccb9c7a9ed38d8bb50b749d8fa61315d589",
+        "0xf11b7df908bf7540c63825e6912f8b1e4693a610d4d8aab1303c672b07bcca21"
+      ]
+    },
+    {
+      "id": "fetch",
+      "expected": "requirements-satisfied",
+      "observed": "requirements-satisfied",
+      "passed": true,
+      "entity_keys": [
+        "0x22cbe89d761cc92eeca8b1aff3f6579298c954885344bddd9a24fb66cef856c9",
+        "0xbb16c9e2f842df0a52c794fe6203050815d7013fad7032d7759ce73112af47dc"
+      ]
+    },
+    {
+      "id": "time",
+      "expected": "requirements-satisfied",
+      "observed": "requirements-satisfied",
+      "passed": true,
+      "entity_keys": [
+        "0x9651cd7f94846c5d1c37928e7e8342aee415dc4d4bf4102f4c3bdadb53daabb3",
+        "0x6f6c702b49cd4fb2679bbddb386bc239a13428e641d80e5d3ff41a47a60689f5"
+      ]
+    },
+    {
+      "id": "handoff",
+      "expected": "requirements-satisfied",
+      "observed": "requirements-satisfied",
+      "passed": true,
+      "entity_keys": [
+        "0xd6fea30330203d5e90d8436ecffa4e3c4321ca1db533ea8e98db53ee377b18be",
+        "0x3ef9cd5ea372e0072436292cbd00b69bc54f66e26be4ae0defdbc371a2e1cc7e"
+      ]
+    },
+    {
+      "id": "withdrawn",
+      "expected": "withdrawn",
+      "observed": "withdrawn",
+      "passed": true,
+      "entity_keys": [
+        "0xcd6c5fceab5d09a77bc7268c92a8a9525d9089fa76fd601085d44c270482215b",
+        "0x9eb430c386bcce99265f63bd3506ff0e543ee285b0bc8ba0a0cfa13cb1077aa8",
+        "0xd4052430070ed3b03676fc4809fdab5dfa9820f13842e8a29c720ab89c45af3c"
+      ]
+    },
+    {
+      "id": "expired",
+      "expected": "expired",
+      "observed": "expired",
+      "passed": true,
+      "entity_keys": [
+        "0xee6da0447f99279be5d865d2fc2288291ce20dadbb6b09a6f45eb7e689cbfe5c",
+        "0xc6958dd7229292540565e55b6b64721c0be1ca548ce65fb87802fe06096ede85"
+      ]
+    }
+  ],
+  "passed": 13,
+  "total": 13
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "app-passport.descriptor.v1",
+  "kind": "context",
+  "name": "Qarinah expired demonstration",
+  "version": "1",
+  "artifact_digest": "sha256:383ec6f8da4db3fed6ccd7ef4e1fc4b66b3cb44eb547315fbf8d77c150d57e3c",
+  "source_url": "https://github.com/AjnasNB/qarinah",
+  "provenance": "synthetic-fixture",
+  "capabilities": [
+    "cited-context",
+    "source-identity",
+    "temporal-selection"
+  ],
+  "context": {
+    "manifest_hash": "sha256:4af455c1fa26a9f92b86c74c3bbc67d58c69895f01980b157e041b4da4bf8a0d",
+    "repository_digest": "sha256:23740a3846a42aac9c9e137ec606cc1b83f059c1fb2841c915cd19a9ae828290",
+    "compiler_version": "qarinah-0.6.0"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "app-passport-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/sdk",
+    "apps/web",
+    "vendor/qarinah"
+  ],
+  "scripts": {
+    "build:sdk": "npm run build --workspace @app-passport/sdk",
+    "build": "npm run build:sdk && npm run build --workspace @app-passport/web",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "fixtures": "tsx scripts/build-fixtures.ts",
+    "tools:inspect": "tsx scripts/inspect-tools.ts",
+    "arkiv:publish": "tsx scripts/publish.ts",
+    "arkiv:verify": "tsx scripts/verify-live.ts",
+    "handoff:consume": "tsx scripts/consume-handoff.ts",
+    "test:e2e": "playwright test",
+    "dev": "npm run dev --workspace @app-passport/web"
+  },
+  "dependencies": {
+    "qarinah": "0.6.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "@playwright/test": "1.56.0",
+    "@types/node": "24.19.2",
+    "tsx": "4.20.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11",
+    "wrangler": "4.150.0"
+  }
+}

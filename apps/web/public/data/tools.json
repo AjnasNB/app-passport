@@ -1,0 +1,243 @@
+[
+  {
+    "id": "qarinah",
+    "package_name": "qarinah",
+    "registry": "reviewed-source-snapshot",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "tool",
+      "name": "Qarinah",
+      "version": "0.6.0+1aa7022",
+      "artifact_digest": "sha256:3c8b3df0d1020a5b980e1362c3a18a44d5a4cad9530df27f81747815dc55db3b",
+      "source_url": "https://github.com/AjnasNB/qarinah/tree/1aa70228299de902d92fc97214766c0aea02be9d",
+      "provenance": "upstream-artifact-reference",
+      "capabilities": [
+        "local-project-memory",
+        "cited-context",
+        "proof-context-validation"
+      ]
+    },
+    "artifact_url": "/artifacts/qarinah-source-1aa7022.tgz",
+    "byte_length": 233241,
+    "registry_integrity_verified": false,
+    "source_commit": "1aa70228299de902d92fc97214766c0aea02be9d",
+    "inspection": "reviewed source snapshot; not an npm-published 0.6.0 release",
+    "publisher_endorsement": false
+  },
+  {
+    "id": "filesystem",
+    "package_name": "@modelcontextprotocol/server-filesystem",
+    "registry": "npm",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "tool",
+      "name": "MCP Filesystem",
+      "version": "1.0.0",
+      "artifact_digest": "sha256:ca60ed89a0acdf91a77a54ba21b1c41ea62e801c360320877035fa20ec4909ae",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+      "provenance": "upstream-artifact-reference",
+      "capabilities": [
+        "filesystem-read",
+        "filesystem-write",
+        "configured-root-access"
+      ]
+    },
+    "artifact_url": "/artifacts/filesystem-1.0.0.tgz",
+    "download_url": "https://registry.npmjs.org/@modelcontextprotocol/server-filesystem/-/server-filesystem-1.0.0.tgz",
+    "byte_length": 24693,
+    "registry_integrity_verified": true,
+    "inspection": "artifact identity and registry integrity; runtime protocol evaluation recorded separately",
+    "publisher_endorsement": false
+  },
+  {
+    "id": "memory",
+    "package_name": "@modelcontextprotocol/server-memory",
+    "registry": "npm",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "tool",
+      "name": "MCP Memory",
+      "version": "1.0.0",
+      "artifact_digest": "sha256:22547eddb9544b54c3db39e4c0ff87232d4fd18b09410c118616531c4c08a370",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+      "provenance": "upstream-artifact-reference",
+      "capabilities": [
+        "memory-read",
+        "memory-write"
+      ]
+    },
+    "artifact_url": "/artifacts/memory-1.0.0.tgz",
+    "download_url": "https://registry.npmjs.org/@modelcontextprotocol/server-memory/-/server-memory-1.0.0.tgz",
+    "byte_length": 14612,
+    "registry_integrity_verified": true,
+    "inspection": "artifact identity and registry integrity; runtime protocol evaluation recorded separately",
+    "publisher_endorsement": false
+  },
+  {
+    "id": "thinking",
+    "package_name": "@modelcontextprotocol/server-sequential-thinking",
+    "registry": "npm",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "tool",
+      "name": "MCP Sequential Thinking",
+      "version": "1.0.0",
+      "artifact_digest": "sha256:e39382cabd78716a54f3ab372aa5cddf1716dd4615ed3a9a02b4311b62f4616f",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+      "provenance": "upstream-artifact-reference",
+      "capabilities": [
+        "structured-thought-input"
+      ]
+    },
+    "artifact_url": "/artifacts/thinking-1.0.0.tgz",
+    "download_url": "https://registry.npmjs.org/@modelcontextprotocol/server-sequential-thinking/-/server-sequential-thinking-1.0.0.tgz",
+    "byte_length": 7402,
+    "registry_integrity_verified": true,
+    "inspection": "artifact identity and registry integrity; runtime protocol evaluation recorded separately",
+    "publisher_endorsement": false
+  },
+  {
+    "id": "everything",
+    "package_name": "@modelcontextprotocol/server-everything",
+    "registry": "npm",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "tool",
+      "name": "MCP Everything",
+      "version": "1.0.0",
+      "artifact_digest": "sha256:05087332283bd4700f1c63648b9e0a0179cbbe69916b1f49fd875910ca737e34",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/everything",
+      "provenance": "upstream-artifact-reference",
+      "capabilities": [
+        "reference-test-tools",
+        "resources",
+        "prompts"
+      ]
+    },
+    "artifact_url": "/artifacts/everything-1.0.0.tgz",
+    "download_url": "https://registry.npmjs.org/@modelcontextprotocol/server-everything/-/server-everything-1.0.0.tgz",
+    "byte_length": 53500,
+    "registry_integrity_verified": true,
+    "inspection": "artifact identity and registry integrity; runtime protocol evaluation recorded separately",
+    "publisher_endorsement": false
+  },
+  {
+    "id": "playwright",
+    "package_name": "@playwright/mcp",
+    "registry": "npm",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "tool",
+      "name": "Playwright MCP",
+      "version": "0.0.83",
+      "artifact_digest": "sha256:f0014a13361b1ee2d8607a4e187868ab9a6e8ac637dbcd66e4af43f738d0c8cb",
+      "source_url": "https://github.com/microsoft/playwright-mcp",
+      "provenance": "upstream-artifact-reference",
+      "capabilities": [
+        "browser-read",
+        "browser-actions"
+      ]
+    },
+    "artifact_url": "/artifacts/playwright-0.0.83.tgz",
+    "download_url": "https://registry.npmjs.org/@playwright/mcp/-/mcp-0.0.83.tgz",
+    "byte_length": 24095,
+    "registry_integrity_verified": true,
+    "inspection": "artifact identity and registry integrity; runtime protocol evaluation recorded separately",
+    "publisher_endorsement": false
+  },
+  {
+    "id": "chrome",
+    "package_name": "chrome-devtools-mcp",
+    "registry": "npm",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "tool",
+      "name": "Chrome DevTools MCP",
+      "version": "1.10.1",
+      "artifact_digest": "sha256:012cbcf6e832d4f6709dad0c21d7bef17089e94adee9cf33179d15ea0a9adf2b",
+      "source_url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "provenance": "upstream-artifact-reference",
+      "capabilities": [
+        "browser-inspection",
+        "browser-actions"
+      ]
+    },
+    "artifact_url": "/artifacts/chrome-1.10.1.tgz",
+    "download_url": "https://registry.npmjs.org/chrome-devtools-mcp/-/chrome-devtools-mcp-1.10.1.tgz",
+    "byte_length": 2632790,
+    "registry_integrity_verified": true,
+    "inspection": "artifact identity and registry integrity; runtime protocol evaluation recorded separately",
+    "publisher_endorsement": false
+  },
+  {
+    "id": "git",
+    "package_name": "mcp-server-git",
+    "registry": "pypi",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "tool",
+      "name": "MCP Git",
+      "version": "2026.10.10",
+      "artifact_digest": "sha256:5bd3dc5736d67ab01b664363055001b2ce84e945c17af98875e5e04b5823d335",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+      "provenance": "upstream-artifact-reference",
+      "capabilities": [
+        "repository-read",
+        "repository-write"
+      ]
+    },
+    "artifact_url": "/artifacts/mcp_server_git-2026.10.10-py3-none-any.whl",
+    "download_url": "https://files.pythonhosted.org/packages/d9/a7/d38c6db1df603d4fe4aa95400319384970b27b0afcfa15d7d28de7860e43/mcp_server_git-2026.10.10-py3-none-any.whl",
+    "byte_length": 13981,
+    "registry_integrity_verified": true,
+    "inspection": "artifact identity and registry integrity; runtime protocol evaluation recorded separately",
+    "publisher_endorsement": false
+  },
+  {
+    "id": "fetch",
+    "package_name": "mcp-server-fetch",
+    "registry": "pypi",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "tool",
+      "name": "MCP Fetch",
+      "version": "2026.10.10",
+      "artifact_digest": "sha256:d722c48bdc1de3e2a81727853bc490cf55c6c935e2038cdcad3c111b1d85db77",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+      "provenance": "upstream-artifact-reference",
+      "capabilities": [
+        "public-web-fetch"
+      ]
+    },
+    "artifact_url": "/artifacts/mcp_server_fetch-2026.10.10-py3-none-any.whl",
+    "download_url": "https://files.pythonhosted.org/packages/cd/67/a0065474431a2482107086e7a98baf3e6a9e33c804fb9c0d9fb0149957ed/mcp_server_fetch-2026.10.10-py3-none-any.whl",
+    "byte_length": 13055,
+    "registry_integrity_verified": true,
+    "inspection": "artifact identity and registry integrity; runtime protocol evaluation recorded separately",
+    "publisher_endorsement": false
+  },
+  {
+    "id": "time",
+    "package_name": "mcp-server-time",
+    "registry": "pypi",
+    "descriptor": {
+      "schema": "app-passport.descriptor.v1",
+      "kind": "tool",
+      "name": "MCP Time",
+      "version": "2026.10.10",
+      "artifact_digest": "sha256:32983d5193af219359ccdac46c558bed75f9c930360e7437cc040a73984cc17c",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+      "provenance": "upstream-artifact-reference",
+      "capabilities": [
+        "time-read",
+        "timezone-conversion"
+      ]
+    },
+    "artifact_url": "/artifacts/mcp_server_time-2026.10.10-py3-none-any.whl",
+    "download_url": "https://files.pythonhosted.org/packages/a2/ed/a4fed01271866397abcb8ca76f0f47a76e63122142ac177b99cc78e4e53b/mcp_server_time-2026.10.10-py3-none-any.whl",
+    "byte_length": 8462,
+    "registry_integrity_verified": true,
+    "inspection": "artifact identity and registry integrity; runtime protocol evaluation recorded separately",
+    "publisher_endorsement": false
+  }
+]
