@@ -1,0 +1,13 @@
+import {chromium} from '@playwright/test';
+import fs from 'node:fs/promises';
+await fs.mkdir('.local/passport-film/public',{recursive:true});
+const browser=await chromium.launch({executablePath:process.env.PASSPORT_CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:process.env.PASSPORT_DNS_IP?['--host-resolver-rules=MAP passport.ajnasnb.com '+process.env.PASSPORT_DNS_IP]:[]});
+const context=await browser.newContext({viewport:{width:1440,height:900},recordVideo:{dir:'.local/passport-film/capture',size:{width:1440,height:900}},reducedMotion:'reduce'});
+const page=await context.newPage();const begin=Date.now();await page.goto('https://passport.ajnasnb.com');
+await page.getByRole('button',{name:'Verify handoff',exact:true}).click();await page.locator('.result h4').filter({hasText:'Requirements satisfied'}).waitFor();await page.locator('.network-strip').scrollIntoViewIfNeeded();
+const start=(Date.now()-begin)/1000;await page.waitForTimeout(2500);
+await page.getByLabel('Compare with changed source').check();await page.getByRole('button',{name:'Verify handoff',exact:true}).click();await page.locator('.result h4').filter({hasText:'Source snapshot changed'}).waitFor();await page.waitForTimeout(2500);
+await page.getByLabel('Compare with changed source').uncheck();await page.getByLabel('Context packet',{exact:true}).selectOption('withdrawn');await page.getByRole('button',{name:'Verify handoff',exact:true}).click();await page.locator('.result h4').filter({hasText:'Review withdrawn'}).waitFor();await page.waitForTimeout(2500);
+await page.getByRole('button',{name:'AI tools',exact:true}).click();await page.locator('.tool-item').filter({hasText:'MCP Memory'}).click();await page.getByRole('button',{name:'Verify reference artifact',exact:true}).click();await page.locator('.result h4').filter({hasText:'Requirements satisfied'}).waitFor();await page.locator('.tool-detail').scrollIntoViewIfNeeded();const toolsAt=(Date.now()-begin)/1000;await page.waitForTimeout(2500);
+await page.locator('.tool-detail input[type=file]').setInputFiles({name:'changed-tool.tgz',mimeType:'application/octet-stream',buffer:Buffer.from('Changed public demo bytes')});await page.locator('.result h4').filter({hasText:'Artifact mismatch'}).waitFor();await page.waitForTimeout(2500);
+const video=page.video();await context.close();await video.saveAs('.local/passport-film/public/live-demo.webm');await browser.close();await fs.writeFile('.local/passport-film/capture.json',JSON.stringify({url:'https://passport.ajnasnb.com',real_browser_recording:true,start,toolsAt,duration:(Date.now()-begin)/1000},null,2));console.log(JSON.stringify({captured:true,start,toolsAt}));

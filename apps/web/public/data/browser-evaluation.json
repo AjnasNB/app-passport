@@ -1,9 +1,9 @@
 {
-  "evaluated_at": "2026-10-13T12:57:42.777Z",
+  "evaluated_at": "2026-10-13T13:35:50.848Z",
   "scope": "Public deployment browser flows: local uploads, tampering, source changes, expired/withdrawn reviews, provider outage recovery, current re-evaluation, mobile/theme and read-only API. Controlled outage responses are browser-local test simulations.",
   "url": "https://passport.ajnasnb.com",
-  "passed": 6,
-  "total": 6,
+  "passed": 7,
+  "total": 7,
   "results": [
     {
       "name": "live context admission, local tampering and source changes",
@@ -11,7 +11,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 9992
+          "duration_ms": 15195
         }
       ]
     },
@@ -21,7 +21,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5883
+          "duration_ms": 16662
         }
       ]
     },
@@ -31,7 +31,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 7047
+          "duration_ms": 6076
         }
       ]
     },
@@ -41,7 +41,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4563
+          "duration_ms": 6237
         }
       ]
     },
@@ -51,7 +51,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5996
+          "duration_ms": 5806
         }
       ]
     },
@@ -61,7 +61,17 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 8245
+          "duration_ms": 6799
+        }
+      ]
+    },
+    {
+      "name": "film plays and presentation/report downloads have the correct file formats",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 17102
         }
       ]
     }

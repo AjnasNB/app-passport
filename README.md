@@ -7,6 +7,9 @@ I built AppPassport to let applications check the exact AI tool or context packe
 - Contracts: https://passport.ajnasnb.com/contracts/app-passport-envelope.schema.json
 - Ten-tool evaluation: https://passport.ajnasnb.com/data/protocol-evaluation.json
 - Live independent-reader evidence: https://passport.ajnasnb.com/data/live-verification.json
+- Motion graphics and live website film: https://passport.ajnasnb.com/media/app-passport-demo.mp4
+- Evaluation report: https://passport.ajnasnb.com/downloads/app-passport-evaluation.pdf
+- Companion presentation: https://passport.ajnasnb.com/downloads/app-passport-deck.pptx
 
 ## What the demonstration proves
 
