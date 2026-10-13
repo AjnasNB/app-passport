@@ -1,0 +1,14 @@
+{
+  "schema": "app-passport.descriptor.v1",
+  "kind": "tool",
+  "name": "AI Passport bounded runtime",
+  "version": "1",
+  "artifact_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
+  "source_url": "https://github.com/AjnasNB/app-passport/blob/main/packages/sdk/src/tools.ts",
+  "provenance": "publisher-attested",
+  "capabilities": [
+    "exact-indian-arithmetic",
+    "upi-quiz-scoring",
+    "interpreted-release-guard"
+  ]
+}

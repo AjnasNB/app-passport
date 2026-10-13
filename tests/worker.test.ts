@@ -1,10 +1,11 @@
+vi.mock('cloudflare:workers',()=>({DurableObject:class {}}));
 import {beforeEach,describe,it,expect,vi} from 'vitest';
 vi.mock('../packages/sdk/src/arkiv',()=>({readRecords:vi.fn()}));
 import {readRecords} from '../packages/sdk/src/arkiv';
 import worker from '../worker/index';
 const mock=vi.mocked(readRecords);
 const env={ARKIV_API_KEY:'private-test-quota-key',READ_LIMITER:{limit:vi.fn(async()=>({success:true}))},ASSETS:{fetch:vi.fn(async()=>new Response('<html>demo</html>',{headers:{'content-type':'text/html'}}))}};
-const request=(path:string,method='GET')=>worker.fetch(new Request('https://passport.example'+path,{method}),env);
+const request=(path:string,method='GET')=>worker.fetch(new Request('https://passport.example'+path,{method}),env as any);
 beforeEach(()=>{vi.clearAllMocks();env.READ_LIMITER.limit.mockResolvedValue({success:true});});
 describe('Public read gateway',()=>{
  it('cannot publish or receive an upload',async()=>{expect((await request('/api/records','POST')).status).toBe(405);expect(mock).not.toHaveBeenCalled();expect((await request('/api/upload','POST')).status).toBe(404);});

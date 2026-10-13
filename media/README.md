@@ -11,3 +11,9 @@ Narration is locally generated synthetic speech using Kokoro (Apache-2.0 model) 
 Production scripts use a local OpenMontage checkout with the locked Remotion composer dependencies, Chrome, and a Python environment with kokoro-onnx, NumPy and SoundFile. Set OPENMONTAGE_ROOT to that checkout. Capture and generated assets go in ignored .local/passport-film. The renderer embeds the existing public font as a generated module; it does not require a system font or a remote font service. Media is not a dependency of the application runtime.
 
 The application records, schemas and SDK remain reproducible independently of the film.
+
+## AI Passport image-led deck
+
+`ai-deck.mjs` assembles eight slides from original built-in image-generation artwork, editable diagrams, an editable measured chart and an actual public website capture. Generated logo, cover and India illustration are in `apps/web/public/brand`. They are conceptual artwork and do not depict customers. Prompt specifications remain private; generated assets are included. The deck is not animated into a film.
+
+`capture-ai-demo.mjs` records a real coding run, working India tools and the live graph. The supplementary `ai-workspace-recording.mp4` is a silent live walkthrough, separately labelled from the earlier OpenMontage motion-graphics prototype. It does not imply that the earlier prototype film covers the new AI features.

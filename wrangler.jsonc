@@ -1,12 +1,67 @@
 {
- "$schema":"node_modules/wrangler/config-schema.json",
- "name":"app-passport",
- "account_id":"4fd82676dc0328c3ae8812138409e980",
- "main":"worker/index.ts",
- "compatibility_date":"2026-10-13",
- "workers_dev":true,
- "routes":[{"pattern":"passport.ajnasnb.com","custom_domain":true}],
- "assets":{"directory":"apps/web/dist","binding":"ASSETS","not_found_handling":"single-page-application","run_worker_first":true},
- "ratelimits":[{"name":"READ_LIMITER","namespace_id":"761467313","simple":{"limit":60,"period":60}}],
- "observability":{"enabled":true,"logs":{"enabled":true,"invocation_logs":false}}
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "app-passport",
+  "account_id": "4fd82676dc0328c3ae8812138409e980",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-13",
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "passport.ajnasnb.com",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": "apps/web/dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true
+  },
+  "ratelimits": [
+    {
+      "name": "READ_LIMITER",
+      "namespace_id": "761467313",
+      "simple": {
+        "limit": 60,
+        "period": 60
+      }
+    },
+    {
+      "name": "AI_LIMITER",
+      "namespace_id": "761467314",
+      "simple": {
+        "limit": 3,
+        "period": 60
+      }
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": false
+    }
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "AI_BUDGET",
+        "class_name": "AiBudget"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "ai-v1",
+      "new_sqlite_classes": [
+        "AiBudget"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ai-passport.graph.v1"
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "nodes": {
+      "minItems": 1,
+      "maxItems": 200,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9:._-]{0,119}$"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "application",
+              "tool",
+              "context",
+              "source",
+              "model",
+              "review",
+              "decision",
+              "run"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "source_path": {
+            "type": "string",
+            "pattern": "^\\/sources\\/[a-z0-9._-]+$"
+          },
+          "artifact_digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "detail": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "label",
+          "digest",
+          "detail"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "edges": {
+      "maxItems": 500,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9:._-]{0,119}$"
+          },
+          "from": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9:._-]{0,119}$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9:._-]{0,119}$"
+          },
+          "relation": {
+            "type": "string",
+            "enum": [
+              "uses",
+              "compiled-from",
+              "reviewed-by",
+              "cites",
+              "derived-from",
+              "produced",
+              "supersedes"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "from",
+          "to",
+          "relation"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "label",
+    "nodes",
+    "edges"
+  ],
+  "additionalProperties": false
+}

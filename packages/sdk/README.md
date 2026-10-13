@@ -1,4 +1,4 @@
-# AppPassport SDK
+# AI Passport SDK
 
 I built AppPassport to bind exact AI-tool artifacts and Qarinah context packets to attributable, current review evidence on Arkiv.
 
@@ -7,7 +7,7 @@ I built AppPassport to bind exact AI-tool artifacts and Qarinah context packets 
 Node.js 24 is the tested runtime. This release is distributed as a tarball; it is not published to npm.
 
 ```sh
-npm install https://passport.ajnasnb.com/downloads/app-passport-sdk-0.1.0.tgz
+npm install https://passport.ajnasnb.com/downloads/app-passport-sdk-0.2.1.tgz
 # Optional, for the node-only Qarinah adapter:
 npm install qarinah@0.7.0
 ```
@@ -66,3 +66,20 @@ The tarball contains versioned JSON Schemas in `schemas/`. New SDK code is MIT; 
 This SDK checks artifact identity and a configured review policy. It does not certify malware safety, factual truth or agent behavior. Chain metadata and completeness rely on the selected RPC provider; independent state proofs are not checked. Keep private context, credentials and private context-derived identifiers off the public chain.
 
 Full source, fixture generation, evaluation results, baseline disclosures and third-party notices: [project repository](https://github.com/AjnasNB/app-passport).
+
+## Evidence graph
+
+```ts
+import { readGraph, traverseGraph } from '@app-passport/sdk/graph';
+const live = await readGraph({ policy, rpc }, graphDigest);
+const path = traverseGraph(live.graph, 'app:coding', { depth: 4, maxNodes: 40 });
+if (path.truncated) throw new Error('Incomplete evidence');
+```
+
+The graph contract uses signed node, edge and manifest entities on Arkiv. The manifest pins every member and a complete root digest. Limits: 200 nodes, 500 edges, eight query pages and depth eight. Source URLs are data, not execution instructions. You supply the accepted authors and a trusted root. It is an application graph layer, not native Cypher. Hosted-model weights and computation are not attested.
+
+A tested MCP bridge in the source repository exposes `trace_evidence` over stdio. Launch from the repository root with `npx tsx scripts/graph-mcp.ts`. Its independent client is `npx tsx scripts/test-graph-mcp.ts`. The bridge uses the raw RPC without this website or operator secrets. Treat returned content as untrusted data.
+
+## Bounded useful tools
+
+`@app-passport/sdk/tools` exposes `indianNumber`, `safetyQuestions`, `runGuard` and `testGuard`. The guard is a finite interpreted language; model-generated JavaScript is never evaluated. These are demonstration tools, not a universal code sandbox.

@@ -1,83 +1,77 @@
-# AppPassport: Qarinah + Arkiv
+# AI Passport
 
-I built AppPassport to let applications check the exact AI tool or context packet they consume against attributable, current review evidence. This is a separate demonstration and SDK. The original Qarinah and ScamSignal applications are preserved.
+I built AI Passport to run useful AI tasks with selected Qarinah memory and an independently readable Arkiv evidence graph.
 
-- Live application: https://passport.ajnasnb.com
-- SDK: https://passport.ajnasnb.com/downloads/app-passport-sdk-0.1.0.tgz
-- Contracts: https://passport.ajnasnb.com/contracts/app-passport-envelope.schema.json
-- Ten-tool evaluation: https://passport.ajnasnb.com/data/protocol-evaluation.json
-- Live independent-reader evidence: https://passport.ajnasnb.com/data/live-verification.json
-- Motion graphics and live website film: https://passport.ajnasnb.com/media/app-passport-demo.mp4
-- Evaluation report: https://passport.ajnasnb.com/downloads/app-passport-evaluation.pdf
-- Companion presentation: https://passport.ajnasnb.com/downloads/app-passport-deck.pptx
+- Live: https://passport.ajnasnb.com
+- Source: https://github.com/AjnasNB/app-passport
+- SDK: https://passport.ajnasnb.com/downloads/app-passport-sdk-0.2.1.tgz
+- Architecture: [ARCHITECTURE.md](ARCHITECTURE.md)
+- Evaluation PDF: https://passport.ajnasnb.com/downloads/ai-passport-evaluation.pdf
+- Presentation: https://passport.ajnasnb.com/downloads/ai-passport-deck.pptx
 
-## What the demonstration proves
+## Three useful tasks
 
-The Qarinah fixture is generated with `buildProofContext()` and accepted by its original `validateProofContext()`. The passport binds the complete packet, its nested manifest and its selected source snapshot. A separate reviewer publishes a signed, time-bounded review on Arkiv. A browser reader and an independent CLI use the same versioned contract and their configured trust policy.
+**Coding handoff** carries the current Qarinah source and decision context into a real hosted model call. The model generates a finite release-guard specification. An interpreter tests six boundary cases and exports readable JavaScript. Arbitrary model-generated code is never executed.
 
-The consumer rejects changed artifacts, changed source snapshots, unaccepted writers, expired reviews and authorized withdrawals. A new review can replace a specifically withdrawn earlier review. This is artifact identity and review lifecycle evidence. It is not proof that a retained statement is true, a malware audit, a universal safety certificate or a guarantee that an agent will behave correctly.
+**India number tutor** calculates exact paise, Indian number grouping and lakh/crore values. English and Hindi views use verified numeric output. Optional AI commentary containing unchecked numerical claims is withheld.
 
-## Run locally
+**UPI Safety Quest** is a playable three-round learning game with deterministic scoring and an optional real AI coach. Project-authored learning summaries cite NPCI primary guidance. No PIN, bank account or payment is involved.
 
-Node.js 24 is the tested runtime. From this directory:
+The actual runtime model is Cloudflare-hosted @cf/meta/llama-3.2-3b-instruct. Hosted weights and computation are not independently attested. Public demonstrations use disclosed public or synthetic inputs. Private Qarinah memory stays local.
+
+## Connected evidence
+
+Signed application, context, tool, source, model, review and run nodes are connected by signed edges. A complete signed manifest pins every member and the graph root. Original source URLs and content digests remain inspectable. The public graph links actual Arkiv entities.
+
+Arkiv supplies typed indexed entities, original creator metadata, readonly creation and expiry. The graph contract and bounded traversal are built in this SDK, not native Cypher or Solidity. Other readers query the same evidence through their own RPC provider, without this website backend, while choosing accepted authors. A conventional database is sufficient for a single operator’s calculator or chat; Arkiv matters for shared, attributable, current evidence. Publishing a claim does not make it true. Chain metadata and query completeness still depend on the provider.
+
+Both demo wallets are project controlled. They do not represent independent organizations or upstream endorsements. Selected real run receipts are public evaluation evidence; no customer adoption is claimed.
+
+## Reproduce
+
+Node.js 24 is tested.
 
 ```sh
 npm ci --ignore-scripts
 npm run build
-npm run fixtures
-npm test
 npm run typecheck
-npm run dev
+npm test
+npm run fixtures
+npx tsx scripts/evaluate-ai.ts
+npx tsx scripts/test-graph-mcp.ts
 ```
 
-In a second terminal, `npx wrangler dev --local --port 8791` serves the read-only API. Put your own Arkiv access key in ignored `.dev.vars` as `ARKIV_API_KEY`. The public application has its key in a server secret. Visitors need no wallet, login or tokens, and uploaded files are hashed locally.
+The live suite covers coding, English/Hindi number views, the safety coach and withdrawn/expired/tampered/stale inputs. Failed evidence blocks inference. Actual receipts are in /data/ai-evaluation.json; /data/anchored-ai-evaluation.json preserves the evaluated snapshot linked into the graph.
 
-## Independent reader, without the website backend
-
-The public Tiramisu RPC works without a wallet or access key at its default rate limit. A private key is never needed to read. If additional quota is needed, supply your own provider or a private key-file containing a Hub access key; this is an RPC quota credential, not a signing key.
-
-```sh
-npm run arkiv:verify
-node packages/sdk/dist/cli.js \
-  --descriptor apps/web/public/data/handoff-descriptor.json \
-  --artifact apps/web/public/data/handoff-packet.json \
-  --policy apps/web/public/data/policy.json \
-  --repository-digest <repository_digest_from_descriptor>
-```
-
-The CLI defaults to Arkiv's raw RPC, not this project's API. It returns exit code 0 for policy satisfaction, 2 for non-admission, and 1 when verification could not finish. The SDK's node-only Qarinah adapter checks source files against a caller-selected repository using root-bound, real-path reads:
+Install the SDK tarball in another project. Read /data/policy.json and /data/graph-config.json, then use:
 
 ```ts
-import { verifyQarinahHandoff } from '@app-passport/sdk/qarinah';
-const result = await verifyQarinahHandoff({ packet, descriptor, repository, connection });
-// A successful result supplies context with contentRole: 'untrusted-data'.
-// The caller still owns model execution, authorization and side-effect policy.
+import { readGraph, traverseGraph } from '@app-passport/sdk/graph';
+const live = await readGraph({ policy, rpc }, graphDigest);
+const path = traverseGraph(live.graph, 'app:coding', { depth: 4 });
+if (path.truncated) throw new Error('Incomplete evidence');
 ```
 
-`npm run fixtures` generates a synthetic repository in `.local/context-fixture`. After generating matching passports, `npm run handoff:consume` runs the source-checking example consumer. It produces a context input envelope locally. No second LLM inference run or independent customer adoption is claimed.
+The Node Qarinah adapter runs Qarinah’s original validator and checks actual repository files before admission. The clean tarball consumer is `node scripts/clean-consumer.mjs`, tested with Qarinah 0.7.0 without the website backend.
 
-## Evidence and reproduction
+## MCP evidence bridge
 
-Ten real source/artifact references are evaluated: Qarinah, MCP Filesystem, Memory, Sequential Thinking, Everything, Git, Fetch, Time, Playwright MCP and Chrome DevTools MCP. The steering-group servers are reference implementations, not production-certified products. Nine downloaded registry artifacts had their registry integrity checked; Qarinah is a disclosed source snapshot.
+`npx tsx scripts/graph-mcp.ts` starts a stdio MCP server from this repository root. Its trace_evidence tool reads the current signed graph through raw Tiramisu RPC and returns a bounded path as untrusted data. It does not grant execution authority or perform writes. Any compatible AI client can consume the same contract. The independent client test initializes MCP and checks all three application paths plus rejection of incomplete traversal.
 
-`npm run tools:inspect` pins and verifies the public artifacts. `scripts/install-evaluation.ts` installs those pinned artifacts in `.local` with Node installation scripts disabled. `scripts/protocol-evaluate.ts` initializes each MCP server, lists its tools and runs one controlled call against a synthetic environment or a public test URL. The dependency lock is retained in `evaluation/mcp-package-lock.json`. The environment is not an operating-system sandbox. These tests do not establish dependency-vulnerability coverage or capability enforcement.
+## Contracts and publication
 
-`npm test` runs signed-record, policy, lifecycle, Qarinah and hostile-input tests. Their named outcomes are published in `data/security-evaluation.json`. Original failed browser-client checks are not hidden: the corresponding negative chain reviews are withdrawn by the same reviewer before fresh reviews are issued. The full transaction evidence remains available.
+Namespaces: app-passport-v1 for passports/reviews/withdrawals, and ai-passport-graph-v1 for nodes/edges/manifests. Chain ID: 7738577. Arkiv SDK: 0.8.1. See [arkiv/schema.md](arkiv/schema.md) and [arkiv/friction.md](arkiv/friction.md).
 
-`node scripts/clean-consumer.mjs` installs the downloadable SDK in an isolated consumer with published Qarinah 0.7.0, validates an actual packet and selected file, and verifies through the direct RPC and CLI. `npm run test:e2e` exercises the browser flows against local Wrangler; set `PASSPORT_BASE_URL` to test a deployment and `PASSPORT_CHROME_PATH` to select your Chrome executable. The public browser and consumer receipts describe the exact test scope. The downloadable evaluation PDF is generated by `scripts/report.py` using ReportLab.
+Readers need no wallet or Web3 tokens. Writers use free Tiramisu test tokens and an accepted issuer. Credentials stay outside the repository; the quota key stays in a Cloudflare secret. Public endpoints cannot write chain records.
 
-## Publishing
+Build public India contexts and the graph using scripts/build-ai-fixtures.ts. Publish/resume small batches with scripts/publish-ai.ts. Current and previous root revisions, transaction links and entity keys are in arkiv/ai-evidence.json. Check existing receipts/query state before retrying an uncertain transaction.
 
-Arkiv stores entities, not Solidity contracts. Writes require testnet GLM; the Tiramisu faucet supplies free test tokens. Real funds are not used for this demonstration. The browser has no publication endpoint.
+## Boundaries
 
-Operator credentials stay outside the checkout. `PASSPORT_WALLET_FILE` points to a private JSON file with `producer_private_key` and `reviewer_private_key`. `PASSPORT_ARKIV_KEY_FILE` points to a private Hub quota key. `npm run arkiv:publish` signs records, publishes them with the matching transaction creator and verifies read-back. Both demo wallets belong to this project; they are not independent organizations or the upstream maintainers of the evaluated tools.
+The graph is limited to 200 nodes/500 edges, traversal depth eight and bounded node count. Run memory is limited to 10,000 characters and output to 420 tokens. A Durable Object reserves at most forty model attempts per UTC day; a per-IP limiter permits three requests per minute. Calculator, game and evidence readers work without inference. No paid plan upgrade or mainnet transaction is required.
 
-See [Arkiv schema](arkiv/schema.md), [friction evidence](arkiv/friction.md), [pre-existing work](PREEXISTING.md), and [third-party notices](THIRD_PARTY_NOTICES.md).
+Storage lasts 30 days and signed evidence is finite; the operator must renew it. Memory comparisons measure characters, with approximate chars/4 token estimates. Tests do not certify universal model accuracy, malware safety, a complete OS sandbox, computation proof or perpetual availability.
 
-## Trust and privacy boundaries
+Ten pinned public tool artifacts passed MCP initialization, listing and controlled calls. Their versions, source URLs and actual results remain in /data/tools.json and /data/protocol-evaluation.json. Local orchestration tests use mock inference; the live suite makes actual provider calls.
 
-Consumers choose accepted issuers and reviewers. A copied publisher name in JSON cannot establish identity. Upstream artifact references are not upstream endorsements. Personal data, credentials, private context and private context-derived identifiers do not go to Arkiv. Public context packets are synthetic fixtures only.
-
-The reader verifies application-level signatures, creator/payload agreement, readonly flags, attribute bindings and current signed validity. It trusts its RPC provider's chain metadata and query completeness; it does not independently validate a state proof or prove that the provider returned every relevant record. A provider failure yields an unavailable result. Missing or expired evidence is not safety clearance. Readonly payloads are distinct from ownership, deletion and storage expiration.
-
-MIT applies to the new AppPassport code. The vendored Qarinah runtime retains Apache-2.0 and its notices.
+MIT covers new AI Passport code. The copied Qarinah runtime retains Apache-2.0 and notices. [PREEXISTING.md](PREEXISTING.md) discloses the exact baseline. Original Qarinah and ScamSignal folders are preserved. Generated artwork is conceptual. The earlier OpenMontage prototype film and supplementary real website recording are labelled separately.

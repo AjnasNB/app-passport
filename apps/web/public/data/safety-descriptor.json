@@ -1,0 +1,19 @@
+{
+  "schema": "app-passport.descriptor.v1",
+  "kind": "context",
+  "name": "UPI safety game memory",
+  "version": "1",
+  "artifact_digest": "sha256:c0b157001706ca384b3048518bf5516c37dcfc9e92f52cf99482d14de615987d",
+  "source_url": "https://github.com/AjnasNB/qarinah",
+  "provenance": "synthetic-fixture",
+  "capabilities": [
+    "cited-context",
+    "source-identity",
+    "temporal-selection"
+  ],
+  "context": {
+    "manifest_hash": "sha256:d9d475f0e45400a8adfe248d9a91acea5d1b3d3232283d34d3c80b8c721ec054",
+    "repository_digest": "sha256:d5c56af3e266d7fb1016bcfe1c9a6572b553a4be326c2f98df983f9019b30091",
+    "compiler_version": "qarinah-0.6.0"
+  }
+}

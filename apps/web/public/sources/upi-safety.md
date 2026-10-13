@@ -1,0 +1,2 @@
+# UPI safety learning reference
+Project-authored educational summary, checked against NPCI public guidance on 2026-10-13. A QR scan followed by a UPI PIN authorizes a payment, not receipt of money. Never share your UPI PIN. Bank support does not need it. Review the payee before authorizing a payment. Reject unexpected requests. No actual bank, phone, account, PIN or payment is used in this learning game. Sources: https://www.npci.org.in/fraud-awareness and https://www.npci.org.in/what-we-do/upi/faqs . The project signature attests to this summary, not NPCI endorsement.

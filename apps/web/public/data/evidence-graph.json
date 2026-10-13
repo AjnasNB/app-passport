@@ -1,0 +1,497 @@
+{
+  "schema": "ai-passport.graph.v1",
+  "label": "AI Passport evidence graph",
+  "nodes": [
+    {
+      "id": "model:llama",
+      "type": "model",
+      "label": "Llama 3.2 · 3B",
+      "digest": "sha256:95fd17f121cd87472fda5f18129cf63d684e1eb2168ce38fdc57eafdba8a4af4",
+      "source_url": "https://developers.cloudflare.com/workers-ai/models/llama-3.2-3b-instruct/",
+      "detail": "Cloudflare-hosted alias @cf/meta/llama-3.2-3b-instruct. We cannot hash or attest the hosted model weights. Provider identity is declared, not independently verified."
+    },
+    {
+      "id": "source:release",
+      "type": "source",
+      "label": "release.ts",
+      "digest": "sha256:7152f16172512297dcbe7e3245ccffbf1274adc8046407a39e9e413090d2d2e1",
+      "source_url": "https://github.com/AjnasNB/app-passport/blob/main/apps/web/public/sources/release.ts",
+      "source_path": "/sources/release.ts",
+      "detail": "Public project-authored source fixture."
+    },
+    {
+      "id": "source:numbers",
+      "type": "source",
+      "label": "india-numbers.md",
+      "digest": "sha256:c532fe22b1765eb4d5c2c5b3f015b38dbbb92c6686d3cefb75bb3d97720bfc5d",
+      "source_url": "https://github.com/AjnasNB/app-passport/blob/main/apps/web/public/sources/india-numbers.md",
+      "source_path": "/sources/india-numbers.md",
+      "detail": "Public project-authored source fixture."
+    },
+    {
+      "id": "source:safety",
+      "type": "source",
+      "label": "upi-safety.md",
+      "digest": "sha256:3af054775e751b0e773eb8dcc1dfbffc90db2c958d8257faee585b02f4d604a2",
+      "source_url": "https://www.npci.org.in/fraud-awareness",
+      "source_path": "/sources/upi-safety.md",
+      "detail": "Project-authored paraphrase of NPCI guidance; original links retained."
+    },
+    {
+      "id": "tool:runtime",
+      "type": "tool",
+      "label": "Bounded educational runtime",
+      "digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
+      "source_url": "https://github.com/AjnasNB/app-passport/blob/main/packages/sdk/src/tools.ts",
+      "source_path": "/sources/tools.ts",
+      "detail": "Pure arithmetic, safety scoring and interpreted release guard. No model-generated JavaScript execution."
+    },
+    {
+      "id": "source:india-reference",
+      "type": "source",
+      "label": "india-reference.ts",
+      "digest": "sha256:2758dbdcfa718b2e9e53dc100247fa6357cd2a4c89f741b5944f9f400975c85c",
+      "source_url": "https://github.com/AjnasNB/app-passport/blob/main/apps/web/public/sources/india-reference.ts",
+      "source_path": "/sources/india-reference.ts",
+      "detail": "Original public source selected by Qarinah."
+    },
+    {
+      "id": "context:handoff",
+      "type": "context",
+      "label": "Qarinah release handoff",
+      "digest": "sha256:abe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d",
+      "artifact_digest": "sha256:abe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d",
+      "detail": "Genuine Qarinah packet compiled from a public/synthetic repository."
+    },
+    {
+      "id": "context:numbers",
+      "type": "context",
+      "label": "India number tutor memory",
+      "digest": "sha256:c609f75e2178fd8ada7d4e6ec3aa2cfb067115238291542ed662ef8bc6ba281d",
+      "artifact_digest": "sha256:c609f75e2178fd8ada7d4e6ec3aa2cfb067115238291542ed662ef8bc6ba281d",
+      "detail": "Genuine Qarinah packet compiled from a public/synthetic repository."
+    },
+    {
+      "id": "context:safety",
+      "type": "context",
+      "label": "UPI safety game memory",
+      "digest": "sha256:c0b157001706ca384b3048518bf5516c37dcfc9e92f52cf99482d14de615987d",
+      "artifact_digest": "sha256:c0b157001706ca384b3048518bf5516c37dcfc9e92f52cf99482d14de615987d",
+      "detail": "Genuine Qarinah packet compiled from a public/synthetic repository."
+    },
+    {
+      "id": "app:coding",
+      "type": "application",
+      "label": "Coding handoff",
+      "digest": "sha256:0e890baf3e75768c8f3440d149198eed36f484fdb79d39154e400776f88e9fe0",
+      "detail": "Runnable demo, project evaluation; no customer adoption claimed."
+    },
+    {
+      "id": "app:numbers",
+      "type": "application",
+      "label": "India number tutor",
+      "digest": "sha256:7806521e37e16e9fdd1a3b14f54df9853fd49b2ae4f6abec0bf8c7112d09b31b",
+      "detail": "Runnable demo, project evaluation; no customer adoption claimed."
+    },
+    {
+      "id": "app:safety",
+      "type": "application",
+      "label": "UPI Safety Quest",
+      "digest": "sha256:bbc05a9d632c87e54d7359bf6f149316b54ca9b2b716fccb3d2ebe5a927c267e",
+      "detail": "Runnable demo, project evaluation; no customer adoption claimed."
+    },
+    {
+      "id": "tool:qarinah",
+      "type": "tool",
+      "label": "Qarinah",
+      "digest": "sha256:3c8b3df0d1020a5b980e1362c3a18a44d5a4cad9530df27f81747815dc55db3b",
+      "source_url": "https://github.com/AjnasNB/qarinah/tree/1aa70228299de902d92fc97214766c0aea02be9d",
+      "artifact_digest": "sha256:3c8b3df0d1020a5b980e1362c3a18a44d5a4cad9530df27f81747815dc55db3b",
+      "detail": "Pinned public artifact; controlled MCP call passed. Catalog reference, not invoked in each coding run. Project review, not upstream endorsement."
+    },
+    {
+      "id": "tool:filesystem",
+      "type": "tool",
+      "label": "MCP Filesystem",
+      "digest": "sha256:ca60ed89a0acdf91a77a54ba21b1c41ea62e801c360320877035fa20ec4909ae",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+      "artifact_digest": "sha256:ca60ed89a0acdf91a77a54ba21b1c41ea62e801c360320877035fa20ec4909ae",
+      "detail": "Pinned public artifact; controlled MCP call passed. Catalog reference, not invoked in each coding run. Project review, not upstream endorsement."
+    },
+    {
+      "id": "tool:memory",
+      "type": "tool",
+      "label": "MCP Memory",
+      "digest": "sha256:22547eddb9544b54c3db39e4c0ff87232d4fd18b09410c118616531c4c08a370",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+      "artifact_digest": "sha256:22547eddb9544b54c3db39e4c0ff87232d4fd18b09410c118616531c4c08a370",
+      "detail": "Pinned public artifact; controlled MCP call passed. Catalog reference, not invoked in each coding run. Project review, not upstream endorsement."
+    },
+    {
+      "id": "tool:thinking",
+      "type": "tool",
+      "label": "MCP Sequential Thinking",
+      "digest": "sha256:e39382cabd78716a54f3ab372aa5cddf1716dd4615ed3a9a02b4311b62f4616f",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+      "artifact_digest": "sha256:e39382cabd78716a54f3ab372aa5cddf1716dd4615ed3a9a02b4311b62f4616f",
+      "detail": "Pinned public artifact; controlled MCP call passed. Catalog reference, not invoked in each coding run. Project review, not upstream endorsement."
+    },
+    {
+      "id": "tool:everything",
+      "type": "tool",
+      "label": "MCP Everything",
+      "digest": "sha256:05087332283bd4700f1c63648b9e0a0179cbbe69916b1f49fd875910ca737e34",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/everything",
+      "artifact_digest": "sha256:05087332283bd4700f1c63648b9e0a0179cbbe69916b1f49fd875910ca737e34",
+      "detail": "Pinned public artifact; controlled MCP call passed. Catalog reference, not invoked in each coding run. Project review, not upstream endorsement."
+    },
+    {
+      "id": "tool:playwright",
+      "type": "tool",
+      "label": "Playwright MCP",
+      "digest": "sha256:f0014a13361b1ee2d8607a4e187868ab9a6e8ac637dbcd66e4af43f738d0c8cb",
+      "source_url": "https://github.com/microsoft/playwright-mcp",
+      "artifact_digest": "sha256:f0014a13361b1ee2d8607a4e187868ab9a6e8ac637dbcd66e4af43f738d0c8cb",
+      "detail": "Pinned public artifact; controlled MCP call passed. Catalog reference, not invoked in each coding run. Project review, not upstream endorsement."
+    },
+    {
+      "id": "tool:chrome",
+      "type": "tool",
+      "label": "Chrome DevTools MCP",
+      "digest": "sha256:012cbcf6e832d4f6709dad0c21d7bef17089e94adee9cf33179d15ea0a9adf2b",
+      "source_url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "artifact_digest": "sha256:012cbcf6e832d4f6709dad0c21d7bef17089e94adee9cf33179d15ea0a9adf2b",
+      "detail": "Pinned public artifact; controlled MCP call passed. Catalog reference, not invoked in each coding run. Project review, not upstream endorsement."
+    },
+    {
+      "id": "tool:git",
+      "type": "tool",
+      "label": "MCP Git",
+      "digest": "sha256:5bd3dc5736d67ab01b664363055001b2ce84e945c17af98875e5e04b5823d335",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+      "artifact_digest": "sha256:5bd3dc5736d67ab01b664363055001b2ce84e945c17af98875e5e04b5823d335",
+      "detail": "Pinned public artifact; controlled MCP call passed. Catalog reference, not invoked in each coding run. Project review, not upstream endorsement."
+    },
+    {
+      "id": "tool:fetch",
+      "type": "tool",
+      "label": "MCP Fetch",
+      "digest": "sha256:d722c48bdc1de3e2a81727853bc490cf55c6c935e2038cdcad3c111b1d85db77",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+      "artifact_digest": "sha256:d722c48bdc1de3e2a81727853bc490cf55c6c935e2038cdcad3c111b1d85db77",
+      "detail": "Pinned public artifact; controlled MCP call passed. Catalog reference, not invoked in each coding run. Project review, not upstream endorsement."
+    },
+    {
+      "id": "tool:time",
+      "type": "tool",
+      "label": "MCP Time",
+      "digest": "sha256:32983d5193af219359ccdac46c558bed75f9c930360e7437cc040a73984cc17c",
+      "source_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+      "artifact_digest": "sha256:32983d5193af219359ccdac46c558bed75f9c930360e7437cc040a73984cc17c",
+      "detail": "Pinned public artifact; controlled MCP call passed. Catalog reference, not invoked in each coding run. Project review, not upstream endorsement."
+    },
+    {
+      "id": "review:policy",
+      "type": "review",
+      "label": "Project review policy",
+      "digest": "sha256:7a285fe9960fcc0e5a1276c2c9f64232ed039d16ff0aebb92864b93627466d0d",
+      "detail": "Accepted producer/reviewer are separate project-controlled demo wallets. A live accepted review is required; authorship does not establish factual truth."
+    },
+    {
+      "id": "run:coding-en",
+      "type": "run",
+      "label": "coding · en evaluated run",
+      "digest": "sha256:ea9a3ad58502386ebf5f518a41ee199f4d026f24596f072cc0fd068384af8e77",
+      "source_url": "https://passport.ajnasnb.com/sources/run-coding-en.json",
+      "source_path": "/sources/run-coding-en.json",
+      "detail": "Actual project-run hosted inference and deterministic-tool receipt. It references graph sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13. Not a computation proof or adoption claim."
+    },
+    {
+      "id": "run:numbers-en",
+      "type": "run",
+      "label": "numbers · en evaluated run",
+      "digest": "sha256:8eec1a4ee51ed4ccb9006b73b2cc5a84ed0b0f6261e1bbffc1dcbc31f6a3a130",
+      "source_url": "https://passport.ajnasnb.com/sources/run-numbers-en.json",
+      "source_path": "/sources/run-numbers-en.json",
+      "detail": "Actual project-run hosted inference and deterministic-tool receipt. It references graph sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13. Not a computation proof or adoption claim."
+    },
+    {
+      "id": "run:safety-en",
+      "type": "run",
+      "label": "safety · en evaluated run",
+      "digest": "sha256:de45d1fec82184db356fa5e915e3f29a5de13f9bc63396a8c711f8ab7b5a8ddf",
+      "source_url": "https://passport.ajnasnb.com/sources/run-safety-en.json",
+      "source_path": "/sources/run-safety-en.json",
+      "detail": "Actual project-run hosted inference and deterministic-tool receipt. It references graph sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13. Not a computation proof or adoption claim."
+    },
+    {
+      "id": "run:numbers-hi",
+      "type": "run",
+      "label": "numbers · hi evaluated run",
+      "digest": "sha256:265d6d0d154ab623909fce252f7f237df9498fa6afe41636a5fcf7182176813c",
+      "source_url": "https://passport.ajnasnb.com/sources/run-numbers-hi.json",
+      "source_path": "/sources/run-numbers-hi.json",
+      "detail": "Actual project-run hosted inference and deterministic-tool receipt. It references graph sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13. Not a computation proof or adoption claim."
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:0",
+      "from": "context:handoff",
+      "to": "source:release",
+      "relation": "compiled-from"
+    },
+    {
+      "id": "edge:1",
+      "from": "context:numbers",
+      "to": "source:india-reference",
+      "relation": "compiled-from"
+    },
+    {
+      "id": "edge:2",
+      "from": "context:numbers",
+      "to": "source:numbers",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:3",
+      "from": "context:safety",
+      "to": "source:india-reference",
+      "relation": "compiled-from"
+    },
+    {
+      "id": "edge:4",
+      "from": "context:safety",
+      "to": "source:safety",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:5",
+      "from": "app:coding",
+      "to": "model:llama",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:6",
+      "from": "app:coding",
+      "to": "context:handoff",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:7",
+      "from": "app:coding",
+      "to": "tool:runtime",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:8",
+      "from": "app:numbers",
+      "to": "model:llama",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:9",
+      "from": "app:numbers",
+      "to": "context:numbers",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:10",
+      "from": "app:numbers",
+      "to": "tool:runtime",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:11",
+      "from": "app:safety",
+      "to": "model:llama",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:12",
+      "from": "app:safety",
+      "to": "context:safety",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:13",
+      "from": "app:safety",
+      "to": "tool:runtime",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:14",
+      "from": "app:coding",
+      "to": "tool:qarinah",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:15",
+      "from": "app:coding",
+      "to": "tool:filesystem",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:16",
+      "from": "app:coding",
+      "to": "tool:memory",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:17",
+      "from": "app:coding",
+      "to": "tool:thinking",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:18",
+      "from": "app:coding",
+      "to": "tool:everything",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:19",
+      "from": "app:coding",
+      "to": "tool:playwright",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:20",
+      "from": "app:coding",
+      "to": "tool:chrome",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:21",
+      "from": "app:coding",
+      "to": "tool:git",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:22",
+      "from": "app:coding",
+      "to": "tool:fetch",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:23",
+      "from": "app:coding",
+      "to": "tool:time",
+      "relation": "cites"
+    },
+    {
+      "id": "edge:24",
+      "from": "context:handoff",
+      "to": "review:policy",
+      "relation": "reviewed-by"
+    },
+    {
+      "id": "edge:25",
+      "from": "context:numbers",
+      "to": "review:policy",
+      "relation": "reviewed-by"
+    },
+    {
+      "id": "edge:26",
+      "from": "context:safety",
+      "to": "review:policy",
+      "relation": "reviewed-by"
+    },
+    {
+      "id": "edge:27",
+      "from": "app:coding",
+      "to": "run:coding-en",
+      "relation": "produced"
+    },
+    {
+      "id": "edge:28",
+      "from": "run:coding-en",
+      "to": "context:handoff",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:29",
+      "from": "run:coding-en",
+      "to": "model:llama",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:30",
+      "from": "run:coding-en",
+      "to": "source:release",
+      "relation": "derived-from"
+    },
+    {
+      "id": "edge:31",
+      "from": "app:numbers",
+      "to": "run:numbers-en",
+      "relation": "produced"
+    },
+    {
+      "id": "edge:32",
+      "from": "run:numbers-en",
+      "to": "context:numbers",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:33",
+      "from": "run:numbers-en",
+      "to": "model:llama",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:34",
+      "from": "run:numbers-en",
+      "to": "source:india-reference",
+      "relation": "derived-from"
+    },
+    {
+      "id": "edge:35",
+      "from": "app:safety",
+      "to": "run:safety-en",
+      "relation": "produced"
+    },
+    {
+      "id": "edge:36",
+      "from": "run:safety-en",
+      "to": "context:safety",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:37",
+      "from": "run:safety-en",
+      "to": "model:llama",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:38",
+      "from": "run:safety-en",
+      "to": "source:india-reference",
+      "relation": "derived-from"
+    },
+    {
+      "id": "edge:39",
+      "from": "app:numbers",
+      "to": "run:numbers-hi",
+      "relation": "produced"
+    },
+    {
+      "id": "edge:40",
+      "from": "run:numbers-hi",
+      "to": "context:numbers",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:41",
+      "from": "run:numbers-hi",
+      "to": "model:llama",
+      "relation": "uses"
+    },
+    {
+      "id": "edge:42",
+      "from": "run:numbers-hi",
+      "to": "source:india-reference",
+      "relation": "derived-from"
+    }
+  ]
+}

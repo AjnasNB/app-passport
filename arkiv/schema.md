@@ -49,3 +49,11 @@ Both are project-controlled demonstration roles. The public policy is `/data/pol
 WebSocket events trigger bounded reloads; a 60-second fallback refresh handles expiry and unavailable sockets. Reads are independently reproducible, but the current client does not verify cryptographic chain state proofs or query completeness.
 
 Private context stays local. The only published context identities describe generated synthetic data. Software artifact digests describe publicly available code. No personal identifiers or their hashes are published.
+
+## AI evidence graph v1
+
+Namespace `ai-passport-graph-v1`. Signed node, edge and manifest entities share an indexed `graph_hash: bytes32`. Node attributes: `node_id: str`, `node_type: str`. Edge attributes: `from_id: str`, `to_id: str`, `relation: str`. `kind: str` and `schema_version: u64` are bound to the payload. The EIP-191 message is `AI Passport graph record v1` plus newline and canonical JSON. Readonly creation and accepted original creator are required.
+
+The signed manifest lists every node/edge ID and canonical digest; the pinned root identifies the complete graph. Reconstruction rejects missing, duplicate, changed, extra, expired or unaccepted members. Runtime schema checks reject dangling edges and unsafe source paths. `/contracts/app-passport-graph.schema.json` and `/contracts/app-passport-graph-envelope.schema.json` are exported schemas; semantic/cryptographic validation additionally runs in the SDK.
+
+Current demo: 27 nodes, 43 edges, 71 current graph entities, including four real project-run AI receipts. Previous graph revisions remain in `arkiv/ai-evidence.json`. Storage lasts 30 days; signed validity lasts 14 days. Revisions use a new root rather than silently changing existing members. Traversal is an SDK feature, not native Cypher. See ARCHITECTURE.md for the full data/execution contract.

@@ -29,3 +29,15 @@ Our initial manual stdio client completed MCP initialization and tool listing bu
 ## Current verification limitation
 
 The reader verifies application-level signatures but trusts the provider's protocol metadata and query completeness. A portable SDK example for state-proof verification and completeness limitations would help security applications explain this boundary accurately.
+
+## Graph representation and complete membership
+
+Expected: tools can connect a context packet, source files and reviewed execution evidence. Observed: typed attributes support application-level node/edge indexing. We use `graph_hash`, `node_id`, `from_id`, `to_id` and `relation`, then implement bounded traversal in the SDK. This is not a native recursive graph query. A signed manifest lets a reader detect a missing or changed member relative to a pinned graph root. It does not independently prove chain metadata or global query completeness. Reproduce using `scripts/test-graph-mcp.ts` and the public graph manifest/source contracts.
+
+## Large publication batch and transport failure
+
+An initial 51-create `executeBatch` failed with an HTTP transport error during RPC execution. We cannot infer a protocol batch limit from that error. Publishing resumable batches of five succeeded; the next revision's 71 graph entities were read back and verified. Exact entity keys and transaction links are retained in `arkiv/ai-evidence.json`, including the previous graph revision. A documented recommended batch size and example for reconciling an uncertain transaction outcome would improve publisher recovery.
+
+## Model output boundary is separate from Arkiv
+
+Workers AI returned a structured guard object where our first integration expected a response string. Accepting the strict guard schema fixed the coding flow. A Hindi answer also contained an incorrect numeric conversion. The calculator now supplies all displayed numeric statements; unchecked numerical AI commentary is withheld. These are inference/application issues, not Arkiv defects. The corrected eight-case live report and explicit mock-inference unit scope are public.

@@ -1,0 +1,36 @@
+{
+  "evaluated_at": "2026-10-13T15:06:55.854Z",
+  "transport": "actual MCP stdio via raw Tiramisu RPC, without website backend or quota secret",
+  "passed": 4,
+  "total": 4,
+  "results": [
+    {
+      "task": "coding",
+      "passed": true,
+      "nodes": 17,
+      "edges": 19,
+      "read_block": "527129",
+      "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c"
+    },
+    {
+      "task": "numbers",
+      "passed": true,
+      "nodes": 9,
+      "edges": 14,
+      "read_block": "527130",
+      "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c"
+    },
+    {
+      "task": "safety",
+      "passed": true,
+      "nodes": 8,
+      "edges": 10,
+      "read_block": "527130",
+      "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c"
+    },
+    {
+      "task": "bounded-truncation",
+      "passed": true
+    }
+  ]
+}

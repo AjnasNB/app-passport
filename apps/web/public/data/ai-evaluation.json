@@ -1,0 +1,373 @@
+{
+  "schema": "ai-passport.evaluation.v1",
+  "started_at": "2026-10-13T14:42:16.914Z",
+  "base_url": "https://passport.ajnasnb.com",
+  "disclosure": "Project-run evaluation of real hosted model calls and public/synthetic inputs. No adoption or universal answer accuracy is claimed.",
+  "results": [
+    {
+      "input": {
+        "task": "coding",
+        "contextCase": "current"
+      },
+      "http_status": 200,
+      "passed": true,
+      "result": {
+        "schema": "ai-passport.run.v1",
+        "run_id": "72deef29-931f-4709-8e40-36888bc34c37",
+        "task": "coding",
+        "language": "en",
+        "allowed": true,
+        "inference_run": true,
+        "model": "@cf/meta/llama-3.2-3b-instruct",
+        "hosted_weights_attested": false,
+        "answer": "The generated guard passed all six boundary cases.",
+        "answer_source": "model-and-validator",
+        "model_commentary": null,
+        "commentary_status": "not-applicable",
+        "tool_result": {
+          "baseline": "approveRelease currently accepts a bare sha256: prefix. The current decision requires exact artifact identity and current review."
+        },
+        "coding": {
+          "passed": true,
+          "cases": [
+            {
+              "name": "Exact hash and current review",
+              "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "review": true,
+              "expected": true,
+              "actual": true
+            },
+            {
+              "name": "Withdrawn review",
+              "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "review": false,
+              "expected": false,
+              "actual": false
+            },
+            {
+              "name": "Bare prefix",
+              "digest": "sha256:",
+              "review": true,
+              "expected": false,
+              "actual": false
+            },
+            {
+              "name": "Wrong algorithm",
+              "digest": "md5:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "review": true,
+              "expected": false,
+              "actual": false
+            },
+            {
+              "name": "Non-hex identity",
+              "digest": "sha256:zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+              "review": true,
+              "expected": false,
+              "actual": false
+            },
+            {
+              "name": "Short identity",
+              "digest": "sha256:a",
+              "review": true,
+              "expected": false,
+              "actual": false
+            }
+          ],
+          "code": "export function approveRelease(artifactDigest, reviewValid) {\n  return /^sha256:[0-9a-f]{64}$/.test(artifactDigest) && reviewValid === true;\n}"
+        },
+        "graph_digest": "sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13",
+        "graph_read_block": "526393",
+        "read_block": "526394",
+        "context_digest": "sha256:abe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d",
+        "runtime_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
+        "source_refs": [
+          {
+            "path": "/sources/release.ts",
+            "digest": "sha256:7152f16172512297dcbe7e3245ccffbf1274adc8046407a39e9e413090d2d2e1"
+          },
+          {
+            "path": "/sources/tools.ts",
+            "digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31"
+          }
+        ],
+        "selected_event_ids": [
+          "evt_2032d1c2-66e2-4f3d-b392-5346a4b63f67",
+          "evt_acc89789-bd43-436e-850d-d70ddc76ddcf"
+        ],
+        "memory_chars": 1371,
+        "full_packet_chars": 10096,
+        "token_estimate": {
+          "method": "chars-div-4",
+          "exact": false,
+          "selected": 343,
+          "full_packet": 2524
+        },
+        "completed_at": "2026-10-13T14:42:21.192Z",
+        "elapsed_ms": 1896,
+        "disclosure": "Public or synthetic fixture inputs. AI explanations can be wrong. Numeric statements come only from the deterministic calculator. This receipt is a project-generated record, not proof of model computation.",
+        "receipt_digest": "sha256:e702a53a883b3b549c4aa1e54adae1a9dffdbf14c5989633e83dd054b8466b77"
+      }
+    },
+    {
+      "input": {
+        "task": "numbers",
+        "amount": "1234567.89",
+        "language": "en"
+      },
+      "http_status": 200,
+      "passed": true,
+      "result": {
+        "schema": "ai-passport.run.v1",
+        "run_id": "df2f8fbc-3072-42d3-a095-1458ec730a86",
+        "task": "numbers",
+        "language": "en",
+        "allowed": true,
+        "inference_run": true,
+        "model": "@cf/meta/llama-3.2-3b-instruct",
+        "hosted_weights_attested": false,
+        "answer": "₹12,34,567.89\nExact paise: 123456789\nLakh: 12.3457\nCrore: 0.1235",
+        "answer_source": "deterministic-tool",
+        "model_commentary": null,
+        "commentary_status": "withheld-numerical-claims",
+        "tool_result": {
+          "formatted": "12,34,567.89",
+          "paise": "123456789",
+          "crore": "0.1235",
+          "lakh": "12.3457"
+        },
+        "coding": null,
+        "graph_digest": "sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13",
+        "graph_read_block": "526406",
+        "read_block": "526407",
+        "context_digest": "sha256:c609f75e2178fd8ada7d4e6ec3aa2cfb067115238291542ed662ef8bc6ba281d",
+        "runtime_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
+        "source_refs": [
+          {
+            "path": "/sources/india-numbers.md",
+            "digest": "sha256:c532fe22b1765eb4d5c2c5b3f015b38dbbb92c6686d3cefb75bb3d97720bfc5d"
+          },
+          {
+            "path": "/sources/tools.ts",
+            "digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31"
+          },
+          {
+            "path": "/sources/india-reference.ts",
+            "digest": "sha256:2758dbdcfa718b2e9e53dc100247fa6357cd2a4c89f741b5944f9f400975c85c"
+          }
+        ],
+        "selected_event_ids": [
+          "evt_386863a5-2a0c-4e5e-8619-4d9e401091db",
+          "evt_24ab793c-4466-4db2-ab7a-c0676c830701"
+        ],
+        "memory_chars": 2740,
+        "full_packet_chars": 8219,
+        "token_estimate": {
+          "method": "chars-div-4",
+          "exact": false,
+          "selected": 685,
+          "full_packet": 2055
+        },
+        "completed_at": "2026-10-13T14:42:48.022Z",
+        "elapsed_ms": 3927,
+        "disclosure": "Public or synthetic fixture inputs. AI explanations can be wrong. Numeric statements come only from the deterministic calculator. This receipt is a project-generated record, not proof of model computation.",
+        "receipt_digest": "sha256:b9b9185d43086fbf67fd00d7e3f9458e67c6b86ca59ecfbec4d74a17c542a248"
+      }
+    },
+    {
+      "input": {
+        "task": "safety",
+        "question": 0,
+        "choice": 1,
+        "language": "en"
+      },
+      "http_status": 200,
+      "passed": true,
+      "result": {
+        "schema": "ai-passport.run.v1",
+        "run_id": "b7bacbe9-3fde-42ef-a8e0-66f3b8bf573f",
+        "task": "safety",
+        "language": "en",
+        "allowed": true,
+        "inference_run": true,
+        "model": "@cf/meta/llama-3.2-3b-instruct",
+        "hosted_weights_attested": false,
+        "answer": "Here's your educational safety quiz answer in 100 words or less:\n\nWhen a stranger offers you cashback, never share your UPI PIN. A QR scan followed by a UPI PIN authorizes a payment, not receipt of money. Review the payee before authorizing a payment. Reject unexpected requests. No actual bank, phone, account, PIN, or payment is used in this learning game. Always be cautious of such offers and never share your sensitive information. Remember, bank support does not need your UPI PIN. Stay safe and secure with UPI transactions!",
+        "answer_source": "model-and-validator",
+        "model_commentary": null,
+        "commentary_status": "not-applicable",
+        "tool_result": {
+          "question": "A stranger offers ₹2,000 cashback and asks you to scan a QR code and enter your UPI PIN. What do you do?",
+          "selected": "Decline the request",
+          "correct": true,
+          "explanation": "A QR scan followed by a UPI PIN authorizes a payment. You do not enter a UPI PIN to receive money.",
+          "source": "https://www.npci.org.in/fraud-awareness"
+        },
+        "coding": null,
+        "graph_digest": "sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13",
+        "graph_read_block": "526419",
+        "read_block": "526419",
+        "context_digest": "sha256:c0b157001706ca384b3048518bf5516c37dcfc9e92f52cf99482d14de615987d",
+        "runtime_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
+        "source_refs": [
+          {
+            "path": "/sources/upi-safety.md",
+            "digest": "sha256:3af054775e751b0e773eb8dcc1dfbffc90db2c958d8257faee585b02f4d604a2"
+          },
+          {
+            "path": "/sources/tools.ts",
+            "digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31"
+          },
+          {
+            "path": "/sources/india-reference.ts",
+            "digest": "sha256:2758dbdcfa718b2e9e53dc100247fa6357cd2a4c89f741b5944f9f400975c85c"
+          }
+        ],
+        "selected_event_ids": [
+          "evt_ead706fd-f7bb-47ea-9c67-1144c3f569cd",
+          "evt_24ab793c-4466-4db2-ab7a-c0676c830701",
+          "evt_386863a5-2a0c-4e5e-8619-4d9e401091db"
+        ],
+        "memory_chars": 3752,
+        "full_packet_chars": 10161,
+        "token_estimate": {
+          "method": "chars-div-4",
+          "exact": false,
+          "selected": 938,
+          "full_packet": 2541
+        },
+        "completed_at": "2026-10-13T14:43:13.011Z",
+        "elapsed_ms": 1926,
+        "disclosure": "Public or synthetic fixture inputs. AI explanations can be wrong. Numeric statements come only from the deterministic calculator. This receipt is a project-generated record, not proof of model computation.",
+        "receipt_digest": "sha256:e3ff0095fc3241ced434d47dc08cb577c4f254428d42409402121f9aac5e9872"
+      }
+    },
+    {
+      "input": {
+        "task": "coding",
+        "contextCase": "withdrawn"
+      },
+      "http_status": 409,
+      "passed": true,
+      "result": {
+        "allowed": false,
+        "error": "An accepted issuer withdrew the required passport or review.",
+        "status": "withdrawn",
+        "inference_run": false,
+        "read_block": "526432"
+      }
+    },
+    {
+      "input": {
+        "task": "coding",
+        "contextCase": "expired"
+      },
+      "http_status": 409,
+      "passed": true,
+      "result": {
+        "allowed": false,
+        "error": "The required passport or review has expired. Renewal needs fresh evidence.",
+        "status": "expired",
+        "inference_run": false,
+        "read_block": "526444"
+      }
+    },
+    {
+      "input": {
+        "task": "coding",
+        "contextCase": "tampered"
+      },
+      "http_status": 409,
+      "passed": true,
+      "result": {
+        "allowed": false,
+        "error": "The supplied bytes do not match the passport.",
+        "status": "artifact-mismatch",
+        "inference_run": false,
+        "read_block": "526456"
+      }
+    },
+    {
+      "input": {
+        "task": "coding",
+        "contextCase": "stale"
+      },
+      "http_status": 409,
+      "passed": true,
+      "result": {
+        "allowed": false,
+        "error": "The packet is not bound to the current source snapshot.",
+        "status": "stale-context",
+        "inference_run": false,
+        "read_block": "526469"
+      }
+    },
+    {
+      "input": {
+        "task": "numbers",
+        "amount": "250000",
+        "language": "hi"
+      },
+      "http_status": 200,
+      "passed": true,
+      "result": {
+        "schema": "ai-passport.run.v1",
+        "run_id": "4983c403-485e-4914-9cef-1c0daec7f8f2",
+        "task": "numbers",
+        "language": "hi",
+        "allowed": true,
+        "inference_run": true,
+        "model": "@cf/meta/llama-3.2-3b-instruct",
+        "hosted_weights_attested": false,
+        "answer": "₹2,50,000.00\nपैसे: 25000000\nलाख: 2.5000\nकरोड़: 0.0250",
+        "answer_source": "deterministic-tool",
+        "model_commentary": null,
+        "commentary_status": "withheld-numerical-claims",
+        "tool_result": {
+          "formatted": "2,50,000.00",
+          "paise": "25000000",
+          "crore": "0.0250",
+          "lakh": "2.5000"
+        },
+        "coding": null,
+        "graph_digest": "sha256:ce41aa4aabaffdb378c43775b2d20a84fff95618d481e678c25402da62106e13",
+        "graph_read_block": "526480",
+        "read_block": "526480",
+        "context_digest": "sha256:c609f75e2178fd8ada7d4e6ec3aa2cfb067115238291542ed662ef8bc6ba281d",
+        "runtime_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
+        "source_refs": [
+          {
+            "path": "/sources/india-numbers.md",
+            "digest": "sha256:c532fe22b1765eb4d5c2c5b3f015b38dbbb92c6686d3cefb75bb3d97720bfc5d"
+          },
+          {
+            "path": "/sources/tools.ts",
+            "digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31"
+          },
+          {
+            "path": "/sources/india-reference.ts",
+            "digest": "sha256:2758dbdcfa718b2e9e53dc100247fa6357cd2a4c89f741b5944f9f400975c85c"
+          }
+        ],
+        "selected_event_ids": [
+          "evt_386863a5-2a0c-4e5e-8619-4d9e401091db",
+          "evt_24ab793c-4466-4db2-ab7a-c0676c830701"
+        ],
+        "memory_chars": 2737,
+        "full_packet_chars": 8219,
+        "token_estimate": {
+          "method": "chars-div-4",
+          "exact": false,
+          "selected": 685,
+          "full_packet": 2055
+        },
+        "completed_at": "2026-10-13T14:45:14.651Z",
+        "elapsed_ms": 1322,
+        "disclosure": "Public or synthetic fixture inputs. AI explanations can be wrong. Numeric statements come only from the deterministic calculator. This receipt is a project-generated record, not proof of model computation.",
+        "receipt_digest": "sha256:c06b9dc65e96975d557d42d087aa8394dcbb15985ecc286d51218bef6a78408b"
+      }
+    }
+  ],
+  "completed_at": "2026-10-13T14:45:13.850Z",
+  "total": 8,
+  "passed": 8
+}

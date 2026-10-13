@@ -1,17 +1,67 @@
 {
-  "evaluated_at": "2026-10-13T13:35:50.848Z",
+  "evaluated_at": "2026-10-13T15:06:27.421Z",
   "scope": "Public deployment browser flows: local uploads, tampering, source changes, expired/withdrawn reviews, provider outage recovery, current re-evaluation, mobile/theme and read-only API. Controlled outage responses are browser-local test simulations.",
   "url": "https://passport.ajnasnb.com",
-  "passed": 7,
-  "total": 7,
+  "passed": 12,
+  "total": 12,
   "results": [
+    {
+      "name": "real coding inference reaches the browser, exports a receipt and blocks withdrawn memory",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 10021
+        }
+      ]
+    },
+    {
+      "name": "useful number tool and complete safety game work without inference",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 5599
+        }
+      ]
+    },
+    {
+      "name": "graph is live, keyboard selectable and links original sources",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 4168
+        }
+      ]
+    },
+    {
+      "name": "mobile AI workspace and graph contain horizontal overflow",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 3807
+        }
+      ]
+    },
+    {
+      "name": "AI request validation rejects unsupported input and cross-origin requests",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 1082
+        }
+      ]
+    },
     {
       "name": "live context admission, local tampering and source changes",
       "passed": true,
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 15195
+          "duration_ms": 12192
         }
       ]
     },
@@ -21,7 +71,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 16662
+          "duration_ms": 4488
         }
       ]
     },
@@ -31,7 +81,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6076
+          "duration_ms": 10461
         }
       ]
     },
@@ -41,7 +91,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6237
+          "duration_ms": 3850
         }
       ]
     },
@@ -51,7 +101,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5806
+          "duration_ms": 7943
         }
       ]
     },
@@ -61,7 +111,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6799
+          "duration_ms": 7222
         }
       ]
     },
@@ -71,7 +121,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 17102
+          "duration_ms": 4663
         }
       ]
     }
