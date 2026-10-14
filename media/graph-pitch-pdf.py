@@ -13,7 +13,7 @@ for i in range(1, 8):
         raise RuntimeError('Final PPT slide image missing')
     c.drawImage(str(image), 0, 0, 1440, 810)
     if i == 7:
-        c.linkURL('https://passport.ajnasnb.com/', (70, 145, 620, 215), relative=0)
+        c.linkURL('https://arkivgraph.ajnasnb.com/', (70, 145, 620, 215), relative=0)
     c.showPage()
 c.save()
 assert len(PdfReader(str(output)).pages) == 7

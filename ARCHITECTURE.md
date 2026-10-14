@@ -41,7 +41,7 @@ flowchart TB
 
 ### 1. Capture and compilation
 
-Qarinah compiles genuine packets from generated public/synthetic fixture repositories. Its original validator runs when fixtures are built. Selected decision events retain their original event IDs and hashes. Superseded context is excluded in the coding fixture. This task itself also uses Qarinah's project-local summary retrieval instead of repeatedly loading old history.
+Qarinah compiles genuine packets from generated public/synthetic fixture repositories. Its original validator runs when fixtures are built. Selected decision events retain their original event IDs and hashes. Superseded context is excluded in the coding fixture.
 
 Private operator memory never enters the demo. Public fixture packets are downloadable for reproduction. The Worker uses the SDK's browser-compatible packet identity validator and recomputes the selected repository digest from current public source bytes. The Node adapter additionally invokes Qarinah's original validator and reads real repository files with root-bound path checks.
 

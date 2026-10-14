@@ -1,0 +1,21 @@
+{
+  "composition": "Original locally generated music and MIDI via Showtime audio compose, seed 314, Cm, 90 BPM.",
+  "composition_license": "generated",
+  "commercial_use": "The composition contains no catalog recording or reference-song material. Showtime's generated sidecars classify the composition as free.",
+  "voices_or_song_samples": false,
+  "instrumentation": {
+    "piano_and_rhodes": "FluidR3Mono_GM.sf3, through the installed tinysoundfont backend",
+    "soundfont_license": "MIT, installed license notice preserved verbatim in SoundFont-LICENSE.md",
+    "copyright_notices": "FluidR3 by Frank Wen; mono conversion by Michael Cowgill; installed notice also credits S. Christian Collins, Ethan Winer, and Michael Schorsch.",
+    "synthesized_parts": "Showtime numpy kick/snare/808 bass and procedural tick"
+  },
+  "credits_file": "credits.txt",
+  "source_provenance": [
+    "groove-source.wav.license.json",
+    "piano-source.wav.license.json",
+    "groove-source.beats.json",
+    "piano-source.beats.json",
+    "gate-tick.sfx.json"
+  ],
+  "final_file": "music-2.wav"
+}

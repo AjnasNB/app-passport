@@ -1,4 +1,16 @@
-# AppPassport film
+# Arkiv Graph launch
+
+The current launch film is `/media/arkiv-graph-launch.mp4`: 72 seconds of original motion graphics and actual product capture, with original music and synthetic narration. AI Passport is shown as the reference application. Graph storage and indexing are supplied by Arkiv; graph assembly, complete-manifest verification, bounded traversal and context selection run in the SDK.
+
+`graph-film.tsx` and `graph-motion.tsx` are original React/Remotion scenes rendered through OpenMontage. The film is not an animated presentation. Real recorded results show six coding guard cases, exact paise calculation, the NPCI-linked learning game and a withdrawn review blocking the model call. Manifest removal is an explicitly labeled illustration, using the actual published graph counts.
+
+`../scripts/capture-graph-demo.mjs` and `../scripts/capture-gate-detail.mjs` record the deployed app into ignored `.local/graph-recording`. `narrate-graph.py` generates generic Kokoro `af_heart` narration. `render-graph.py` stages scenes, the self-hosted DM Sans font and real read results into a local OpenMontage checkout. Set `OPENMONTAGE_ROOT` to that checkout, install its composer dependencies, then run the Python renderer from the repository root. The renderer uses Chrome on Windows; update its executable path for another platform. It requires the captured media, local Kokoro model/voice files, `kokoro-onnx`, NumPy and SoundFile.
+
+The original piano/hip-hop score drops out at refusal and ends with a chime. Mastering is performed with Showtime's `audio mix`; `master-graph.py` attaches the bounded master through OpenMontage without changing picture timing. `caption-graph.py` builds disjoint readable subtitle clauses from measured voice timing and an independent local speech read-back. It expects the latter at `.local/graph-launch/voice/readback-final.json`.
+
+Three independent visual critique rounds were completed. Final file QA found zero failures; deliberate result-reading holds, the refusal pause and final URL hold remain documented warnings. Automated phone typography QA is partial; proof crops were separately reviewed at full size. See `/data/launch-evaluation.json` for the public scope and `/media/arkiv-graph/credits.txt` for media licenses. The generated pitch deck uses original concept illustrations and editable diagrams, separately from the film.
+
+## Earlier AppPassport film
 
 I built the public SDK and Qarinah-Arkiv demo. This 70-second film combines motion graphics and a real browser recording of the deployed application.
 

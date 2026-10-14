@@ -1,0 +1,31 @@
+{
+  "evaluated_at": "2026-10-14T23:06:54",
+  "url": "https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4",
+  "sha256": "52bd1d52b6d7f35f5ddfd55066d887b43e3232e722869e18d2208a22b6912b58",
+  "bytes": 5546494,
+  "duration_seconds": 71.99,
+  "width": 1920,
+  "height": 1080,
+  "renderer": "Original React motion scenes rendered with OpenMontage and Remotion",
+  "independent_review_rounds": 3,
+  "final_round_preference": "Both independent reviewers preferred the revised film",
+  "media_qa": {
+    "verdict": "WARN",
+    "fail": 0,
+    "warn": 10,
+    "info": 1,
+    "passed": 10,
+    "remaining_warnings": "Planned reading holds, final URL hold and intentional inference-refusal pause. Full-size proof crops were independently reviewed; automated phone typography check is partial.",
+    "audio_summary": "voice 14-27 dB over the bed, 130-186 wpm, 0 quiet stretches, 0 level jumps at cuts (> 6 LU), ending fades or ends, on a phone speaker: -18.9 LUFS, 2.8 LU under the mix",
+    "integrated_lufs": -16.08,
+    "true_peak_dbtp": -1.87
+  },
+  "subtitles": {
+    "cues": 15,
+    "maximum_line_characters": 42,
+    "maximum_characters_per_second": 18.14,
+    "overlaps": 0
+  },
+  "credits_url": "/media/arkiv-graph/credits.txt",
+  "scope": "Project-run media QA. The motion film contains real product recordings plus labeled structural illustrations. It does not prove universal security or customer adoption."
+}

@@ -7,8 +7,8 @@ I built Arkiv Graph as reusable infrastructure for connected records on Arkiv. A
 - Graph SDK: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-sdk-0.2.0.tgz
 - AI Passport adapter: https://arkivgraph.ajnasnb.com/downloads/app-passport-sdk-0.4.0.tgz (install with the graph tarball)
 - Architecture: [ARCHITECTURE.md](ARCHITECTURE.md)
-- Evaluation PDF: https://arkivgraph.ajnasnb.com/downloads/ai-passport-evaluation.pdf
-- Motion demo: https://arkivgraph.ajnasnb.com/media/ai-passport-demo.mp4
+- Evaluation PDF: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-evaluation.pdf
+- Launch film: https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4
 - Graphical pitch: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pptx
 - Pitch PDF: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pdf
 
@@ -42,9 +42,10 @@ npm test
 npm run fixtures
 npx tsx scripts/evaluate-ai.ts
 npx tsx scripts/test-graph-mcp.ts
+node scripts/consume-graph-infra.mjs
 ```
 
-The live suite covers coding, English/Hindi number views, the safety coach and withdrawn/expired/tampered/stale inputs. Failed evidence blocks inference. Actual receipts are in /data/ai-evaluation.json; /data/anchored-ai-evaluation.json preserves the evaluated snapshot linked into the graph.
+The live suite covers coding, English/Hindi number views, the safety coach and withdrawn/expired/tampered/stale inputs. Failed evidence blocks inference. Actual receipts are in /data/ai-evaluation.json; /data/anchored-ai-evaluation.json preserves the evaluated snapshot linked into the graph. Release evidence includes 89 local tests, eight direct SDK/MCP checks and sixteen hosted browser flows. See the JSON reports for scope and results.
 
 Install the SDK tarball in another project. Read /data/policy.json and /data/graph-config.json, then use:
 
@@ -63,7 +64,7 @@ The Node Qarinah adapter runs Qarinah’s original validator and checks actual r
 
 ## Contracts and publication
 
-Namespaces: app-passport-v1 for passports/reviews/withdrawals, and ai-passport-graph-v1 for nodes/edges/manifests. Chain ID: 7738577. Arkiv SDK: 0.8.1. See [arkiv/schema.md](arkiv/schema.md) and [arkiv/friction.md](arkiv/friction.md).
+Namespaces: app-passport-v1 for passports/reviews/withdrawals, ai-passport-graph-v1 for the reference app graph, and arkiv-graph-v1 for reusable infrastructure. Chain ID: 7738577. Arkiv SDK: 0.8.1. See [arkiv/schema.md](arkiv/schema.md) and [arkiv/friction.md](arkiv/friction.md).
 
 Readers need no wallet or Web3 tokens. Writers use free Tiramisu test tokens and an accepted issuer. Credentials stay outside the repository; the quota key stays in a Cloudflare secret. Public endpoints cannot write chain records.
 
@@ -77,5 +78,5 @@ Storage lasts 30 days and signed evidence is finite; the operator must renew it.
 
 Ten pinned public tool artifacts passed MCP initialization, listing and controlled calls. Their versions, source URLs and actual results remain in /data/tools.json and /data/protocol-evaluation.json. Local orchestration tests use mock inference; the live suite makes actual provider calls.
 
-MIT covers new AI Passport code. The copied Qarinah runtime retains Apache-2.0 and notices. [PREEXISTING.md](PREEXISTING.md) discloses the exact baseline. Original Qarinah and ScamSignal folders are preserved. Generated artwork is conceptual. The earlier OpenMontage prototype film and supplementary real website recording are labelled separately.
+MIT covers new Arkiv Graph and AI Passport code. The copied Qarinah runtime retains Apache-2.0 and notices. [PREEXISTING.md](PREEXISTING.md) discloses the exact baseline. Original Qarinah and ScamSignal folders are preserved. Generated artwork is conceptual. The current 72-second launch film uses original motion scenes and music with actual product captures; earlier films remain separate. Production sources and credits are in [media/README.md](media/README.md).
 

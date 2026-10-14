@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+import {chromium} from 'playwright';
+const b=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+const c=await b.newContext({viewport:{width:1600,height:900},deviceScaleFactor:4}),p=await c.newPage();
+await p.goto('https://arkivgraph.ajnasnb.com/app/');await p.getByText('Test the evidence gate',{exact:true}).click();await p.getByLabel('Context condition').selectOption('withdrawn');
+const response=p.waitForResponse(r=>r.url().endsWith('/api/run'));await p.getByRole('button',{name:'Generate and test guard'}).click();const receipt=await(await response).json();
+if(receipt.inference_run!==false||receipt.status!=='withdrawn')throw new Error('Expected a real refused inference');
+await p.locator('.ai-result .notice').waitFor();await p.locator('.ai-result').scrollIntoViewIfNeeded();
+const box=await p.locator('.ai-result').boundingBox();await p.screenshot({path:'.local/graph-recording/gate-detail.png',clip:{x:box.x,y:box.y,width:box.width,height:160},scale:'device'});
+const status=await p.locator('.ai-result .small').evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);const r=range.getBoundingClientRect();return {x:r.x-12,y:r.y-12,width:r.width+24,height:r.height+24};});
+await p.screenshot({path:'.local/graph-recording/gate-status.png',clip:status,scale:'device'});
+await fs.writeFile('.local/graph-recording/gate-detail.json',JSON.stringify({url:p.url(),captured_at:new Date().toISOString(),device_scale_factor:4,receipt,scope:'Unmodified live refusal UI, high resolution browser detail; screenshot used alongside the original website recording.'},null,2));await c.close();await b.close();console.log('Captured actual refusal details at high pixel density');

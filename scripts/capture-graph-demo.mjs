@@ -1,0 +1,16 @@
+import fs from 'node:fs/promises';
+import {chromium} from 'playwright';
+const root='.local/graph-recording';await fs.mkdir(root,{recursive:true});await fs.mkdir('.local/screenshots',{recursive:true});
+const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+const context=await browser.newContext({viewport:{width:1600,height:900},recordVideo:{dir:root,size:{width:1600,height:900}}}),page=await context.newPage();
+const began=Date.now(),events={},errors=[],receipts=[];page.on('pageerror',e=>errors.push(e.message));
+page.on('response',async r=>{if(r.url().endsWith('/api/run')){try{receipts.push(await r.json());}catch{}}});
+const mark=name=>events[name]=(Date.now()-began)/1000;
+await page.goto('https://arkivgraph.ajnasnb.com/');await page.getByRole('heading',{name:'Graphs built for AI context.'}).waitFor();await page.screenshot({path:root+'/home.png'});
+await page.getByRole('button',{name:'AI context',exact:true}).click();await page.getByRole('button',{name:'Build graph context'}).click();await page.locator('.context-result .run-status').waitFor({timeout:60000});await page.locator('.context-workspace').scrollIntoViewIfNeeded();mark('context');await page.locator('.context-sources summary').click();await page.waitForTimeout(1600);await page.screenshot({path:root+'/context.png'});
+await page.getByRole('button',{name:'Open AI Passport'}).click();await page.locator('.ai-workspace').scrollIntoViewIfNeeded();await page.getByRole('button',{name:'Generate and test guard'}).click();await page.locator('.run-status').filter({hasText:'AI run complete'}).waitFor({timeout:90000});await page.locator('.ai-workspace').scrollIntoViewIfNeeded();mark('coding');await page.waitForTimeout(4500);await page.screenshot({path:root+'/coding.png'});
+await page.getByRole('button',{name:'India number tutor',exact:false}).click();mark('numbers');await page.getByLabel('Amount in rupees').fill('250000.75');await page.waitForTimeout(3500);await page.screenshot({path:root+'/numbers.png'});
+await page.getByRole('button',{name:'UPI Safety Quest',exact:false}).click();mark('safety');await page.waitForTimeout(400);await page.getByRole('button',{name:'Decline the request',exact:true}).click();await page.waitForTimeout(3500);await page.screenshot({path:root+'/safety.png'});
+await page.getByRole('button',{name:'Coding handoff',exact:false}).click();await page.getByText('Test the evidence gate',{exact:true}).click();await page.getByLabel('Context condition').selectOption('withdrawn');mark('gate_click');await page.getByRole('button',{name:'Generate and test guard'}).click();await page.locator('.ai-result .notice').waitFor({timeout:60000});mark('gate');await page.waitForTimeout(6200);await page.screenshot({path:root+'/gate.png'});
+const video=page.video();await context.close();await browser.close();if(errors.length)throw new Error('Browser errors: '+errors.join(';'));
+await fs.writeFile(root+'/capture.json',JSON.stringify({url:'https://arkivgraph.ajnasnb.com',recorded_at:new Date().toISOString(),events,video:await video.path(),browser_errors:errors,receipts},null,2));console.log(JSON.stringify({captured:true,events,receipt_statuses:receipts.map(r=>({status:r.status,inference_run:r.inference_run}))}));

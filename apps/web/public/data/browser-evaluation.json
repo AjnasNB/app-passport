@@ -1,9 +1,19 @@
 {
-  "evaluated_at": "2026-10-14T08:50:49.511Z",
-  "scope": "Public deployment browser flows: local uploads, tampering, source changes, expired/withdrawn reviews, provider outage recovery, current re-evaluation, mobile/theme and read-only API. Controlled outage responses are browser-local test simulations.",
-  "url": "https://passport.ajnasnb.com",
-  "passed": 13,
-  "total": 13,
+  "evaluated_at": "2026-10-14T17:39:34.720Z",
+  "evaluation_runs": [
+    {
+      "started_at": "2026-10-14T16:33:12.118Z",
+      "duration_ms": 85896.659
+    },
+    {
+      "started_at": "2026-10-14T17:39:34.720Z",
+      "duration_ms": 18557.178
+    }
+  ],
+  "scope": "Public deployment browser flows: graph switching, source-byte verified context, bounded export, hosted coding inference, local uploads, tampering, source changes, expired/withdrawn reviews, provider outage recovery, current re-evaluation, mobile/theme, migration, read-only API, launch video playback and downloads. Controlled outage responses are browser-local test simulations.",
+  "url": "https://arkivgraph.ajnasnb.com",
+  "passed": 16,
+  "total": 16,
   "results": [
     {
       "name": "real coding inference reaches the browser, exports a receipt and blocks withdrawn memory",
@@ -11,7 +21,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 12195
+          "duration_ms": 10037
         }
       ]
     },
@@ -21,7 +31,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 2662
+          "duration_ms": 2876
         }
       ]
     },
@@ -31,7 +41,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3658
+          "duration_ms": 3777
         }
       ]
     },
@@ -41,7 +51,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 2304
+          "duration_ms": 3501
         }
       ]
     },
@@ -51,7 +61,37 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 1079
+          "duration_ms": 526
+        }
+      ]
+    },
+    {
+      "name": "infrastructure overview, graph datasets and architecture are usable",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 6010
+        }
+      ]
+    },
+    {
+      "name": "graph context checks loaded source bytes, exports a bounded packet within a smaller budget",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 10415
+        }
+      ]
+    },
+    {
+      "name": "new hostname works, old site redirects and context endpoint rejects uncontrolled inputs",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 2361
         }
       ]
     },
@@ -61,7 +101,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 12066
+          "duration_ms": 13385
         }
       ]
     },
@@ -71,7 +111,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6063
+          "duration_ms": 4237
         }
       ]
     },
@@ -81,7 +121,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6831
+          "duration_ms": 5938
         }
       ]
     },
@@ -91,7 +131,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6738
+          "duration_ms": 5676
         }
       ]
     },
@@ -101,7 +141,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3889
+          "duration_ms": 3484
         }
       ]
     },
@@ -111,17 +151,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4589
-        }
-      ]
-    },
-    {
-      "name": "film plays and presentation/report downloads have the correct file formats",
-      "passed": true,
-      "attempts": [
-        {
-          "status": "passed",
-          "duration_ms": 1989
+          "duration_ms": 6884
         }
       ]
     },
@@ -131,7 +161,17 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4583
+          "duration_ms": 4384
+        }
+      ]
+    },
+    {
+      "name": "film plays and presentation/report downloads have the correct file formats",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 16592
         }
       ]
     }
