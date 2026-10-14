@@ -7,7 +7,7 @@ An MIT developer infrastructure package for connected records on Arkiv. AI Passp
 This release is distributed as a downloadable tarball. It is **not published on the npm registry**.
 
 ```sh
-npm install https://passport.ajnasnb.com/downloads/arkiv-graph-sdk-0.1.0.tgz
+npm install https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-sdk-0.2.0.tgz
 ```
 
 ```js
@@ -55,3 +55,12 @@ Each revision has one signed manifest listing every node and edge digest. Reader
 Limits: 200 nodes, 500 edges, eight pages of 100 entities, directed traversal depth at most eight, signed validity at most 30 days. Current writer helper reserves one day of its 30-day storage period beyond the signed expiry. No native Cypher engine, arbitrary property queries, automatic mutation/merge, hosted graph service or scale benchmark is claimed. Callers must choose accepted authors and refresh their root configuration when adopting a new revision. Within a revision the manifest detects missing members; it cannot prove an RPC has exposed every possible graph revision.
 
 Qarinah selection and passport review/withdrawal admission remain separate application layers. Equipment and document examples demonstrate the generic schema locally and do not claim customer adoption.
+
+
+## AI context adapter (0.2.0)
+
+`@arkiv-graph/sdk/context` exports `readGraphContext(connection, graphDigest, start, options)`. It authenticates a current complete pinned graph before traversing a bounded path. The optional caller-controlled `loadSource(node)` must return original bytes, which are checked against the signed node digest before a labelled excerpt is included. The SDK never opens arbitrary files or fetches source URLs on its own. Without a loader, source references are explicitly unverified.
+
+Context carries `contentRole: untrusted-data`, `execution_authority: false`, the graph root and read block, selected node/edge identities, source references and a context digest. Character limits are 512–12,000 and source excerpts at most 2,000 characters. Whole source byte limits are 2 MiB per source and 4 MiB total. Invalid, incomplete, changed or over-budget paths fail. Token counts are rough character estimates. Source truth and review admission remain separate application responsibilities.
+
+The CLI adds `arkiv-graph context reader.json starting-node`. The stdio MCP server provides `trace_graph` and `read_context`; both verify current graph membership and reject incomplete paths. MCP source references are not downloaded and do not claim byte verification.
