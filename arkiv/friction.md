@@ -54,4 +54,3 @@ The useful gap was an application-level connected-data convention and complete-m
 New evidence: a separate generic namespace has 6 nodes, 6 edges and 13 entities. A fresh tarball consumer reads both roots directly, verifies two CLI profiles, and runs four real MCP success/truncation cases. No website backend, access key or wallet is used by that consumer. Generic equipment types are exercised locally; equipment customers and production scale are not claimed.
 
 Both new packages are tarball releases rather than npm publications. Installing the AI Passport 0.3.0 application adapter requires installing the generic graph tarball in the same command. Reader configurations explicitly pin a root and accepted issuers; automatic latest-root discovery remains future work.
-

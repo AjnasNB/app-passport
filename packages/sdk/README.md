@@ -83,4 +83,3 @@ A tested MCP bridge in the source repository exposes `trace_evidence` over stdio
 ## Bounded useful tools
 
 `@app-passport/sdk/tools` exposes `indianNumber`, `safetyQuestions`, `runGuard` and `testGuard`. The guard is a finite interpreted language; model-generated JavaScript is never evaluated. These are demonstration tools, not a universal code sandbox.
-

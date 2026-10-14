@@ -81,5 +81,3 @@ const sources = traverseGraph(live.graph, 'app:coding', { depth: 4 });`}</code><
 }
 function Result({verdict,checking}:{verdict:Admission|null;checking:boolean}){return <div className={`result ${verdict?.allowed?'positive':verdict?'blocked':''}`} aria-live="polite">{checking?<><ReloadIcon/><h4>Checking signatures and current review…</h4></>:verdict?<><div className="result-label">{verdict.allowed?<CheckIcon/>:<Cross2Icon/>}<h4>{labels[verdict.status]}</h4></div><p>{verdict.reason}</p><span className="decision">{verdict.allowed?'Admission permitted by this policy':'Admission not permitted by this policy'}</span></>:<><h4>Ready to verify</h4><p>A passport alone is insufficient. Check its exact artifact and current accepted review.</p></>}</div>;}
 createRoot(document.getElementById('root')!).render(<App/>);
-
-

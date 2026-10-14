@@ -2,3 +2,6 @@
 *.tgz binary
 *.png binary
 *.woff2 binary
+*.pdf binary
+*.pptx binary
+*.mp4 binary

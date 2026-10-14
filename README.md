@@ -78,5 +78,3 @@ Storage lasts 30 days and signed evidence is finite; the operator must renew it.
 Ten pinned public tool artifacts passed MCP initialization, listing and controlled calls. Their versions, source URLs and actual results remain in /data/tools.json and /data/protocol-evaluation.json. Local orchestration tests use mock inference; the live suite makes actual provider calls.
 
 MIT covers new AI Passport code. The copied Qarinah runtime retains Apache-2.0 and notices. [PREEXISTING.md](PREEXISTING.md) discloses the exact baseline. Original Qarinah and ScamSignal folders are preserved. Generated artwork is conceptual. The earlier OpenMontage prototype film and supplementary real website recording are labelled separately.
-
-
