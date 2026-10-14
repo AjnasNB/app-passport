@@ -45,7 +45,7 @@ npx tsx scripts/test-graph-mcp.ts
 node scripts/consume-graph-infra.mjs
 ```
 
-The live suite covers coding, English/Hindi number views, the safety coach and withdrawn/expired/tampered/stale inputs. Failed evidence blocks inference. Actual receipts are in /data/ai-evaluation.json; /data/anchored-ai-evaluation.json preserves the evaluated snapshot linked into the graph. Release evidence includes 89 local tests, eight direct SDK/MCP checks and sixteen hosted browser flows. See the JSON reports for scope and results.
+The live suite covers coding, English/Hindi number views, the safety coach and withdrawn/expired/tampered/stale inputs. Failed evidence blocks inference. Actual receipts are in /data/ai-evaluation.json; /data/anchored-ai-evaluation.json preserves the evaluated snapshot linked into the graph. Release evidence includes 96 local tests, eight direct SDK/MCP checks and sixteen hosted browser flows. Browser media checks cover playback and forward/backward seeking. See the JSON reports for scope and results.
 
 Install the SDK tarball in another project. Read /data/policy.json and /data/graph-config.json, then use:
 

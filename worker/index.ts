@@ -5,6 +5,8 @@ import infrastructureConfig from '../apps/web/public/data/arkiv-graph-reader.jso
 import {createGraphKit} from '../packages/arkiv-graph/src/index';
 import {AI_PASSPORT_PROFILE} from '../packages/arkiv-graph/src/index';
 import {readGraphContext} from '../packages/arkiv-graph/src/context';
+import {videoRange} from './media';
+import launchAsset from '../apps/web/public/data/launch-evaluation.json';
 export {AiBudget} from './budget';
 import {readRecords} from '../packages/sdk/src/arkiv';
 import {digestSchema,policySchema} from '../packages/sdk/src/index';
@@ -47,7 +49,9 @@ export default {async fetch(request:Request,env:Env):Promise<Response>{
   try{const result=await aiRun(raw,env,url.origin);return new Response(JSON.stringify(result.body),{status:result.status,headers});}catch(e){return new Response(JSON.stringify({allowed:false,inference_run:e instanceof AiBoundaryError?e.inferenceStarted:false,boundary:e instanceof AiBoundaryError?e.boundary:'EVIDENCE_UNAVAILABLE',error:'The AI run could not complete. Evidence or the model provider is unavailable; no answer is substituted.'}),{status:503,headers});}
  }
  if(url.pathname.startsWith('/api/'))return new Response(JSON.stringify({error:'Endpoint not found'}),{status:404,headers});
- const response=await env.ASSETS.fetch(request);const safe=new Response(response.body,response);
+ let response=await env.ASSETS.fetch(request);
+ if(url.pathname==='/media/arkiv-graph-launch.mp4')response=await videoRange(request,response,launchAsset.bytes);
+ const safe=new Response(response.body,response);
  safe.headers.set('X-Content-Type-Options','nosniff');safe.headers.set('Referrer-Policy','strict-origin-when-cross-origin');safe.headers.set('Permissions-Policy','camera=(), microphone=(), geolocation=()');
  safe.headers.set('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' wss://rpc.tiramisu.db-chain.testnet.arkiv.network; object-src 'none'; base-uri 'self'; frame-ancestors 'none'");
  return safe;

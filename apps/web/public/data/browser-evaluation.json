@@ -1,13 +1,13 @@
 {
-  "evaluated_at": "2026-10-14T17:39:34.720Z",
+  "evaluated_at": "2026-10-14T17:51:56.503Z",
   "evaluation_runs": [
     {
       "started_at": "2026-10-14T16:33:12.118Z",
       "duration_ms": 85896.659
     },
     {
-      "started_at": "2026-10-14T17:39:34.720Z",
-      "duration_ms": 18557.178
+      "started_at": "2026-10-14T17:51:56.503Z",
+      "duration_ms": 8135.139999999999
     }
   ],
   "scope": "Public deployment browser flows: graph switching, source-byte verified context, bounded export, hosted coding inference, local uploads, tampering, source changes, expired/withdrawn reviews, provider outage recovery, current re-evaluation, mobile/theme, migration, read-only API, launch video playback and downloads. Controlled outage responses are browser-local test simulations.",
@@ -171,7 +171,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 16592
+          "duration_ms": 6497
         }
       ]
     }

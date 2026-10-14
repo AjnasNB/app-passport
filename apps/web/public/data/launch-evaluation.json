@@ -27,5 +27,13 @@
     "overlaps": 0
   },
   "credits_url": "/media/arkiv-graph/credits.txt",
-  "scope": "Project-run media QA. The motion film contains real product recordings plus labeled structural illustrations. It does not prove universal security or customer adoption."
+  "scope": "Project-run media QA. The motion film contains real product recordings plus labeled structural illustrations. It does not prove universal security or customer adoption.",
+  "hosted_playback": {
+    "browser_flow_passed": true,
+    "forward_seek_seconds": 50,
+    "backward_seek_seconds": 2,
+    "byte_ranges": "206 partial content for the bounded launch asset",
+    "captions": "English VTT sidecar",
+    "scope": "Observed hosted Playwright playback and forward/backward seeking; exact byte-range response independently inspected."
+  }
 }
