@@ -6,9 +6,9 @@ export function GraphSDK(){
  async function read(){setLive(null);setError('');setBusy(true);try{const r=await fetch('/api/infrastructure-graph',{cache:'no-store',signal:AbortSignal.timeout(30000)});if(!r.ok)throw new Error();const data=await r.json() as Live;if(!data.graph?.nodes||!data.block)throw new Error();setLive(data);}catch{setError('The current infrastructure graph could not be verified. Retry the live read.');}finally{setBusy(false);}}
  useEffect(()=>{read();},[]);
  return <div className="graph-sdk"><h2>Arkiv Graph SDK</h2><p>Connected records that independent readers can verify. Use any domain-specific node types and relationships. AI Passport uses the same engine through a compatible profile.</p>
- <div className="actions"><a className="primary" href="/downloads/arkiv-graph-sdk-0.1.0.tgz"><DownloadIcon/>Download Arkiv Graph</a><a className="secondary" href="/data/arkiv-graph-reader.json">Reader configuration <DownloadIcon/></a><a className="secondary" href="/contracts/arkiv-graph.schema.json">Graph schema <ExternalLinkIcon/></a><a className="secondary" href="https://github.com/AjnasNB/app-passport/blob/main/ARKIV_GRAPH.md" target="_blank" rel="noreferrer">Setup and architecture <ExternalLinkIcon/></a></div>
- <pre><code>{`npm install https://passport.ajnasnb.com/downloads/arkiv-graph-sdk-0.1.0.tgz
-curl -o reader.json https://passport.ajnasnb.com/data/arkiv-graph-reader.json
+ <div className="actions"><a className="primary" href="/downloads/arkiv-graph-sdk-0.2.0.tgz"><DownloadIcon/>Download Arkiv Graph</a><a className="secondary" href="/data/arkiv-graph-reader.json">Reader configuration <DownloadIcon/></a><a className="secondary" href="/contracts/arkiv-graph.schema.json">Graph schema <ExternalLinkIcon/></a><a className="secondary" href="https://github.com/AjnasNB/arkiv-graph/blob/main/ARKIV_GRAPH.md" target="_blank" rel="noreferrer">Setup and architecture <ExternalLinkIcon/></a></div>
+ <pre><code>{`npm install https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-sdk-0.2.0.tgz
+curl -o reader.json https://arkivgraph.ajnasnb.com/data/arkiv-graph-reader.json
 npx arkiv-graph verify reader.json
 npx arkiv-graph trace reader.json application:ai-passport
 npx arkiv-graph mcp reader.json`}</code></pre>
@@ -19,3 +19,4 @@ npx arkiv-graph mcp reader.json`}</code></pre>
  <a className="secondary" href="/data/graph-infrastructure-evaluation.json">Fresh package, CLI and MCP evaluation <ExternalLinkIcon/></a><hr/><h2>AI Passport application SDK</h2>
  </div>;
 }
+

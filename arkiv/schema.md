@@ -57,3 +57,13 @@ Namespace `ai-passport-graph-v1`. Signed node, edge and manifest entities share 
 The signed manifest lists every node/edge ID and canonical digest; the pinned root identifies the complete graph. Reconstruction rejects missing, duplicate, changed, extra, expired or unaccepted members. Runtime schema checks reject dangling edges and unsafe source paths. `/contracts/app-passport-graph.schema.json` and `/contracts/app-passport-graph-envelope.schema.json` are exported schemas; semantic/cryptographic validation additionally runs in the SDK.
 
 Current demo: 27 nodes, 43 edges, 71 current graph entities, including four real project-run AI receipts. Previous graph revisions remain in `arkiv/ai-evidence.json`. Storage lasts 30 days; signed validity lasts 14 days. Revisions use a new root rather than silently changing existing members. Traversal is an SDK feature, not native Cypher. See ARCHITECTURE.md for the full data/execution contract.
+
+## Generic Arkiv Graph v1
+
+The primary infrastructure SDK uses namespace `arkiv-graph-v1`, schema `arkiv.graph.v1`, and signing message `Arkiv Graph record v1` plus newline and canonical JSON. It uses the same indexed graph hash, node identity/type and edge endpoint/relation attributes. Developer-defined node types and relation names are supported. The complete manifest and root are verified before traversal. Current infrastructure revision: 7 nodes, 8 edges and 16 signed entities; exact keys, transactions and previous revisions are in `arkiv/graph-infrastructure.json`. Exported schemas are `/contracts/arkiv-graph.schema.json` and `/contracts/arkiv-graph-envelope.schema.json`.
+
+## Bounded AI context adapter
+
+SDK 0.2.0 exports `@arkiv-graph/sdk/context`. Its derived packet schema is `arkiv.graph-context.v1`: a pinned graph digest, starting node, read block, selected nodes and edges, and source references with explicit byte-verification flags. A caller-controlled loader may supply original source bytes; the SDK checks the complete file digest before selecting an excerpt. No source is downloaded implicitly by the CLI or MCP server. The web gateway restricts its loader to four public demo source paths.
+
+Context is marked `contentRole: untrusted-data`, `truth: not-attested`, and `execution_authority: false`. It grants no tool permission. The adapter rejects truncated paths, source changes, oversized source bytes and character-budget overflow. The packet is a derived client result, not a separate automatically published Arkiv entity. AI Passport separately checks current accepted reviews before inference; only four selected actual run receipts are published in the reference graph.

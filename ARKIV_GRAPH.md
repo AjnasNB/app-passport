@@ -31,8 +31,8 @@ Arkiv could adopt the SDK to reduce the amount of relationship, manifest and tra
 ## Setup in another project
 
 ```sh
-npm install https://passport.ajnasnb.com/downloads/arkiv-graph-sdk-0.1.0.tgz
-curl -o reader.json https://passport.ajnasnb.com/data/arkiv-graph-reader.json
+npm install https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-sdk-0.2.0.tgz
+curl -o reader.json https://arkivgraph.ajnasnb.com/data/arkiv-graph-reader.json
 npx arkiv-graph verify reader.json
 npx arkiv-graph trace reader.json application:ai-passport
 npx arkiv-graph mcp reader.json
@@ -40,20 +40,20 @@ npx arkiv-graph mcp reader.json
 
 The reader configuration chooses the root and accepted issuer. Downloaded configuration is a starting example, not an automatically trusted policy. The default CLI uses Tiramisu. Custom Arkiv chains and custom profiles are supported through the TypeScript API.
 
-To also install the application SDK 0.3.0, install **both tarballs in the same npm command** because neither new package is published to npm:
+To also install the application SDK 0.4.0, install **both tarballs in the same npm command** because neither new package is published to npm:
 
 ```sh
-npm install https://passport.ajnasnb.com/downloads/arkiv-graph-sdk-0.1.0.tgz https://passport.ajnasnb.com/downloads/app-passport-sdk-0.3.0.tgz
+npm install https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-sdk-0.2.0.tgz https://arkivgraph.ajnasnb.com/downloads/app-passport-sdk-0.4.0.tgz
 ```
 
 Readers need no wallet or gas tokens. Publishing uses a dedicated funded Tiramisu testnet wallet. Public record fields contain no API key or private key.
 
 ## Evidence and limits
 
-- Infrastructure graph: six nodes, six edges, thirteen signed entities in `arkiv-graph-v1`.
+- Infrastructure graph: seven nodes, eight edges, sixteen signed entities in `arkiv-graph-v1`.
 - AI reference graph: 27 nodes, 43 edges, 71 signed entities. Four selected actual run receipts are part of this graph.
 - Generic equipment domain, missing members, signing-domain isolation, unsafe paths and compatibility checks run in the local unit suite.
-- `scripts/consume-graph-infra.mjs` installs the release tarballs in a fresh isolated consumer and tests both live roots, two CLI profiles, and four actual stdio MCP success/truncation cases.
+- `scripts/consume-graph-infra.mjs` installs the release tarballs in a fresh isolated consumer and tests both live roots, two CLI profiles, and eight actual stdio MCP trace/context success/budget cases.
 - The previous application AI evaluations and browser checks remain separate evidence. Local inference orchestration uses mocks. Real hosted model calls are measured by the public live suite.
 
 Graph limits are 200 nodes, 500 edges, eight pages of 100 records, depth at most eight and signed validity at most 30 days. Current roots are explicit configuration. The RPC can affect availability and discovery of other revisions. Both public graph publishers are project-controlled demo roles.
@@ -64,8 +64,9 @@ Main pitch: **Arkiv Graph: connected records that independent readers can verify
 
 Proof application: **AI Passport: useful AI with traceable selected context and current reviews.**
 
-The current 75-second film demonstrates the AI Passport reference app. Its narration still says AI Passport. The new Arkiv Graph deck explains the infrastructure positioning separately.
+The 72-second Arkiv Graph launch film uses original motion, a real recorded AI Passport flow, actual SDK/MCP evidence and an original composed score.
 
-- Graphical pitch: https://passport.ajnasnb.com/downloads/arkiv-graph-pitch.pptx
-- PDF pitch: https://passport.ajnasnb.com/downloads/arkiv-graph-pitch.pdf
-- Individual pitch page images: https://passport.ajnasnb.com/downloads/arkiv-graph-pitch-pages/slide-1.png (pages 1–7)
+- Graphical pitch: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pptx
+- PDF pitch: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pdf
+- Individual pitch page images: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch-pages/slide-1.png (pages 1–7)
+

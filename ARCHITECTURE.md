@@ -1,6 +1,6 @@
 # AI Passport: selected memory, useful tools, connected evidence
 
-Built by Ajnas NB. Live application: https://passport.ajnasnb.com. The original Qarinah repositories are preserved; this project integrates an Apache-2.0 licensed copy at the disclosed baseline in PREEXISTING.md.
+Built by Ajnas NB. Live application: https://arkivgraph.ajnasnb.com. The original Qarinah repositories are preserved; this project integrates an Apache-2.0 licensed copy at the disclosed baseline in PREEXISTING.md.
 
 ## Reusable infrastructure and reference application
 
@@ -99,3 +99,4 @@ To read the graph independently, install the SDK tarball from `/downloads/app-pa
 - Actual hosted model: https://developers.cloudflare.com/workers-ai/models/llama-3.2-3b-instruct/
 - Workers AI free allocation: https://developers.cloudflare.com/workers-ai/platform/pricing/
 - NPCI educational references: https://www.npci.org.in/fraud-awareness and https://www.npci.org.in/what-we-do/upi/faqs
+

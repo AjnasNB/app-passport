@@ -1,96 +1,13 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Passport architecture</title><link rel="stylesheet" href="/architecture.css"><body><header><a href="/">← AI Passport</a><h1>Source to answer,<br>with an evidence trail.</h1><p>Qarinah selects memory. Arkiv supplies shared evidence. The runtime controls what executes.</p></header><main><h2>The execution path</h2><ol class="architecture-flow"><li><span>01</span><strong>Select a task</strong></li><li><span>02</span><strong>Read live graph</strong></li><li><span>03</span><strong>Verify source bytes</strong></li><li><span>04</span><strong>Admit context & runtime</strong></li><li><span>05</span><strong>Run scoped tool</strong></li><li><span>06</span><strong>Select cited memory</strong></li><li><span>07</span><strong>Call real model</strong></li><li><span>08</span><strong>Validate output</strong></li></ol><div class="boundary"><h2>Private boundary</h2><p>Private source bodies, memory, credentials and admission policy remain local. This public demo runs only disclosed public and synthetic fixtures.</p><h2>Shared evidence</h2><p>Signed nodes, edges and a complete graph manifest connect tools, context, original sources and selected real run receipts.</p></div><a href="https://github.com/AjnasNB/app-passport/blob/main/ARCHITECTURE.md">Rendered architecture and source on GitHub</a><details><summary>Complete technical architecture and reproduction</summary><pre># AI Passport: selected memory, useful tools, connected evidence
-
-Built by Ajnas NB. Live application: https://passport.ajnasnb.com. The original Qarinah repositories are preserved; this project integrates an Apache-2.0 licensed copy at the disclosed baseline in PREEXISTING.md.
-
-## The product
-
-Three working tasks share one admission and evidence layer:
-
-1. Coding handoff: a real hosted model generates a small release-guard specification. A deterministic interpreter tests six boundary cases and exports readable JavaScript. Arbitrary generated code is never executed.
-2. India number tutor: exact paise calculation, Indian grouping, lakh/crore conversion, then a real AI explanation in English or Hindi.
-3. UPI Safety Quest: a three-round playable educational game with immediate deterministic feedback and an optional AI coach. Public NPCI references support the project-authored learning summary. This is not a payment app or fraud-detection certification.
-
-## Layered architecture
-
-```mermaid
-flowchart TB
-  A[User: coding / number tutor / safety game] --&gt; B[React workspace]
-  B --&gt; C[Bounded request and origin validation]
-  C --&gt; D[Live Arkiv graph reader]
-  D --&gt; E[Signatures + creator/index bindings + root manifest]
-  E --&gt; F[Bounded directed graph traversal]
-  F --&gt; G[Original public source bytes and SHA-256]
-  G --&gt; H[Qarinah packet identity + source snapshot]
-  H --&gt; I[Current producer passport + accepted review]
-  I --&gt; J{Admitted?}
-  J --&gt;|No| K[Block before inference]
-  J --&gt;|Yes| L[Deterministic scoped tool]
-  L --&gt; M[Compact cited memory projection]
-  M --&gt; N[Atomic free-demo allowance]
-  N --&gt; O[Cloudflare-hosted Llama 3.2 3B]
-  O --&gt; P[Output validation / guard boundary tests]
-  P --&gt; Q[Answer + source links + input/output receipt]
-  Q --&gt; R[Operator publishes selected public evaluation evidence]
-```
-
-### 1. Capture and compilation
-
-Qarinah compiles genuine packets from generated public/synthetic fixture repositories. Its original validator runs when fixtures are built. Selected decision events retain their original event IDs and hashes. Superseded context is excluded in the coding fixture. This task itself also uses Qarinah's project-local summary retrieval instead of repeatedly loading old history.
-
-Private operator memory never enters the demo. Public fixture packets are downloadable for reproduction. The Worker uses the SDK's browser-compatible packet identity validator and recomputes the selected repository digest from current public source bytes. The Node adapter additionally invokes Qarinah's original validator and reads real repository files with root-bound path checks.
-
-### 2. Graph representation on Arkiv
-
-Arkiv provides entities, indexed typed attributes, creators, lifetimes and queries. AI Passport supplies the graph contract and traversal. It does not claim native Cypher, server-side recursive joins, or a separate Solidity graph contract.
-
-Node types: application, context, tool, source, model, review, decision and run. Edge relations: uses, compiled-from, reviewed-by, cites, derived-from, produced and supersedes. A tool-catalog reference uses `cites`; it is not falsely represented as a tool executed in every AI call.
-
-Each node and edge is a separately signed immutable entity. A signed manifest lists every member ID and canonical content digest. The consumer pins the root graph digest, verifies accepted authorship, checks creator and indexed attributes against signed payloads, rejects missing/duplicate/extra members, then reconstructs the exact root. Source nodes contain original-source URLs and content digests. A source link alone never grants execution authority.
-
-Queries use `namespace: str`, `schema_version: u64`, `graph_hash: bytes32`, `kind: str`, `node_id/node_type/from_id/to_id/relation: str` and live `$expiresAt`. Storage lasts 30 days; signed graph validity is 14 days. New revisions produce a new pinned root. Expired evidence must be renewed by the operator; no permanent-availability claim is made.
-
-The SDK bounds a graph to 200 nodes/500 edges, eight query pages and traversal depth eight. A run uses depth four and at most forty selected nodes. A truncated traversal is rejected. These are tested MVP boundaries, not a large-scale benchmark.
-
-### 3. Independent review and admission
-
-Context and runtime passports use the existing `app-passport-v1` contract. Producers and reviewers sign separately. Both demonstration wallets are controlled by this project; they are not independent organizations or upstream endorsers. Admission requires exact artifact identity, the current source snapshot, accepted current review, and no applicable withdrawal.
-
-Two consumers can choose different trusted reviewers over the same graph. This is where Arkiv adds value: shared, attributable, queryable evidence and current review/withdrawal state that another reader can obtain without this website's database. A conventional database remains sufficient for a single operator's calculator or chat application. Arkiv is not necessary for arithmetic or inference. Our SDK provides interoperability and authorship checks; it does not make factual claims true merely by publishing them.
-
-### 4. Controlled tool execution and inference
-
-The Worker chooses a fixed task from a strict request schema; clients cannot supply a provider URL, shell command, arbitrary prompt or filesystem path. The runtime performs arithmetic, quiz scoring or interpreted release-guard tests. The actual model is `@cf/meta/llama-3.2-3b-instruct` on Workers AI. The project cannot hash or attest hosted model weights, and explicitly reports this.
-
-Selected event excerpts and source bodies are passed as untrusted data. The prompt is bounded to 10,000 memory characters and 420 output tokens. Approximate token counts use chars/4 and are labelled estimates. The UI compares selected-memory characters against full-packet characters; this is not a benchmark claiming exact token savings or improved model accuracy.
-
-A SQLite Durable Object reserves at most forty model attempts per UTC day before inference. It stores only a count and deletes itself after a short retention period. A per-IP limiter allows three run requests per minute. No payment, plan upgrade or mainnet transaction is required by visitors. Public free quotas may run out; the calculator, game and graph remain usable.
-
-### 5. Results and evidence
-
-Successful receipts contain graph/context/runtime identities, the actual chain read blocks, selected event IDs, source content digests, model alias, bounded tool results and output. The canonical receipt digest binds that report. A receipt is not a zero-knowledge proof of computation or a provider-signed inference certificate.
-
-Model output is plain text in the browser. Coding output must match a strict finite guard language, then pass six substantive tests; otherwise it is rejected. No generated code is passed to eval, Function, a shell, or an arbitrary remote tool.
-
-Visitor receipts remain in the browser unless downloaded. Only operator-selected evaluations with public/synthetic inputs are added to public graph evidence. No account, PIN, private source document, personal chat, credential, or hash of personal data is published on Arkiv.
-
-## Reproduction
-
-```sh
-npm ci --ignore-scripts
-npm run build
-npm run typecheck
-npm test
-npx tsx scripts/build-ai-fixtures.ts
-npx tsx scripts/evaluate-ai.ts
-```
-
-To read the graph independently, install the SDK tarball from `/downloads/app-passport-sdk-0.2.1.tgz` and call `readGraph({policy,rpc}, graphDigest)`, then `traverseGraph(graph, 'app:coding', {depth:4})`. The public policy and pinned root are in `/data/policy.json` and `/data/graph-config.json`. The raw Tiramisu RPC requires no website account; use your own quota access key if the provider requires it. A writer needs an accepted issuer wallet and free Tiramisu test tokens. Credentials must remain outside the repository.
-
-## Primary references
-
-- Arkiv queries and typed attributes: https://docs.arkiv.network/json-rpc/querying-data/
-- Arkiv JavaScript SDK: https://github.com/Arkiv-Network/arkiv-sdk-js
-- Actual hosted model: https://developers.cloudflare.com/workers-ai/models/llama-3.2-3b-instruct/
-- Workers AI free allocation: https://developers.cloudflare.com/workers-ai/platform/pricing/
-- NPCI educational references: https://www.npci.org.in/fraud-awareness and https://www.npci.org.in/what-we-do/upi/faqs
-</pre></details><section><h2>Arkiv Graph infrastructure</h2><p>Arkiv Graph is the reusable graph SDK. AI Passport is the reference application. The generic namespace supports domain-specific types and relations, with a packaged independent CLI and MCP reader. The application keeps its historical signing domain through a compatibility adapter.</p><p><a href="https://github.com/AjnasNB/app-passport/blob/main/ARKIV_GRAPH.md">Standalone SDK setup and boundaries</a> &nbsp; <a href="/data/graph-infrastructure-evaluation.json">Fresh independent reader evidence</a> &nbsp; <a href="/downloads/arkiv-graph-pitch.pptx">Graphical pitch deck</a></p></section></main></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Arkiv Graph architecture</title><meta name="description" content="The graph protocol, AI context adapter, independent readers and AI Passport execution path."><link rel="stylesheet" href="/architecture-v2.css"><link rel="icon" type="image/svg+xml" href="/brand/arkiv-graph-mark.svg"></head><body><main><header><nav><a href="/">Arkiv Graph</a><a href="/app/">AI Passport</a><a href="/contracts/arkiv-graph.schema.json">Graph schema</a><a href="/data/graph-infrastructure-evaluation.json">Independent reader evidence</a></nav><h1>Connected records, verified context, useful AI</h1><p>Arkiv Graph is a graph SDK and AI-context layer on Arkiv's indexed entities. AI Passport is the reference application that uses it with Qarinah context and a real hosted model.</p></header>
+<h2>The system in one view</h2><svg class="architecture-diagram" viewBox="0 0 1080 760" role="img" aria-label="Two branches connect shared Arkiv records to graph verification, source-bound AI context, and AI Passport review admission and model execution"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#99dab0"/></marker></defs><g fill="#225b4b" stroke="#669981"><rect x="85" y="70" width="910" height="90" rx="12"/><rect x="85" y="235" width="410" height="100" rx="12"/><rect x="585" y="235" width="410" height="100" rx="12"/><rect x="85" y="410" width="410" height="100" rx="12"/><rect x="585" y="410" width="410" height="100" rx="12"/><rect x="85" y="585" width="410" height="100" rx="12"/><rect x="585" y="585" width="410" height="100" rx="12"/></g><g fill="none" stroke="#99dab0" stroke-width="3" marker-end="url(#arrow)"><path d="M290 160V235"/><path d="M790 160V235"/><path d="M290 335V410"/><path d="M790 335V410"/><path d="M290 510V585"/><path d="M790 510V585"/><path d="M495 460H585"/></g><g text-anchor="middle"><text class="diagram-label" x="540" y="108">Arkiv entities and indexed queries</text><text class="diagram-detail" x="540" y="137">Creator metadata, expiry, readonly records, pinned graph roots</text><text class="diagram-label" x="290" y="272">Arkiv Graph verifier</text><text class="diagram-detail" x="290" y="307">Signatures, accepted authors, complete manifest</text><text class="diagram-label" x="790" y="272">Passport review reader</text><text class="diagram-detail" x="790" y="307">Current reviews, withdrawals and source snapshot</text><text class="diagram-label" x="290" y="447">Bounded AI context</text><text class="diagram-detail" x="290" y="482">Connected path, original byte checks, untrusted packet</text><text class="diagram-label" x="790" y="447">AI Passport admission</text><text class="diagram-detail" x="790" y="482">Current context and runtime review must pass</text><text class="diagram-label" x="290" y="622">Independent consumers</text><text class="diagram-detail" x="290" y="657">SDK, CLI and MCP with reader-chosen policy</text><text class="diagram-label" x="790" y="622">Useful AI and validated output</text><text class="diagram-detail" x="790" y="657">Scoped tools, hosted model, six guard tests, receipt</text></g></svg>
+<section class="layer"><h2>1. Original evidence and Qarinah context</h2><p>Public source documents and synthetic coding fixtures provide the demo evidence. Qarinah compiles selected cited events and source identities. Its full private store remains local. This public application sends only selected public or synthetic context to hosted inference.</p><p>The copied Qarinah baseline and its Apache-2.0 notices are disclosed. Original Qarinah project folders and commits remain unchanged.</p></section>
+<section class="layer"><h2>2. Graph records on Arkiv</h2><p>Each node, edge and manifest is a separately signed readonly entity. Typed indexes include <code>namespace</code>, <code>schema_version</code>, <code>graph_hash</code>, <code>kind</code>, <code>node_id</code>, <code>node_type</code>, <code>from_id</code>, <code>to_id</code> and <code>relation</code>. The generic profile accepts domain-specific node and relationship names.</p><p>The generic namespace is <code>arkiv-graph-v1</code>. The reference application's historical <code>ai-passport-graph-v1</code> signing domain stays compatible through an adapter. New revisions have new root digests. Content-addressed source paths preserve the exact code behind historical revisions.</p></section>
+<section class="layer"><h2>3. Complete graph verification</h2><p>The reader queries live entities for a pinned root, then verifies EIP-191 signatures, accepted issuer wallets and creator agreement. One current accepted manifest must list every node and edge digest. Duplicate keys, ambiguous members, dangling edges, extra members, wrong roots and expired records fail verification.</p><p>The reconstructed graph must match the pinned canonical SHA-256 root. Traversal is a bounded directed breadth-first search in the SDK. The protocol does not claim native Cypher, server-side recursive joins or production-scale graph performance.</p></section>
+<section class="layer"><h2>4. Graph AI-context adapter</h2><p><code>readGraphContext</code> verifies the complete graph before selecting a connected path. Truncated paths fail. A caller-controlled loader can supply original source bytes, which must match the signed node digest before a labelled excerpt enters the packet. The SDK never fetches arbitrary source URLs or opens files on its own.</p><p>The packet carries the graph root, block, selected nodes and relationships, source references, verification flags and its own digest. It declares <code>contentRole: untrusted-data</code> and <code>execution_authority: false</code>. A source reference without loaded bytes is explicitly unverified.</p><p>The public <code>/api/context</code> reader allows three predefined context paths and four fixed source files. It accepts no arbitrary URL, provider, upload or filesystem path. Character budgets cap output; token estimates are labelled approximate.</p></section>
+<section class="layer"><h2>5. AI Passport admission</h2><p>A graph signature establishes identity and attribution. AI Passport separately checks the current accepted context and runtime reviews, same-author targeted withdrawals, expiry and current source snapshot. Failed evidence blocks the model call. Readers choose their accepted issuers and reviewers.</p><p>Both demo roles are project-controlled wallets. They do not represent independent organizations, upstream endorsement or a universal safety certificate.</p></section>
+<section class="layer"><h2>6. Useful tools and hosted inference</h2><p>The actual model is Cloudflare-hosted Meta Llama 3.2 3B. It receives a compact selected context and a fixed task. Generated release guards use a finite interpreted specification and pass six boundary tests before display. Arbitrary generated JavaScript is never executed.</p><p>India number learning calculates exact integer paise and Indian grouping deterministically. Rounded lakh/crore ratios are labelled display values. UPI Safety Quest uses deterministic scoring and project-authored NPCI reference questions. Optional AI commentary cannot replace verified numeric results.</p></section>
+<section class="layer"><h2>7. Output validation and receipts</h2><p>Successful receipts bind the reported context, runtime, graph root, source digests, read blocks, model alias and output. A receipt is project-generated evidence of the reported run, not a proof of hosted model computation. Visitor receipts stay in the browser unless downloaded. Only selected public or synthetic evaluation runs are anchored.</p></section>
+<section class="layer"><h2>8. Independent SDK, CLI and MCP</h2><p>An installed consumer can query the same graph through its own Arkiv RPC without this website backend, wallet or project access key. The CLI verifies and traces graphs and exports graph context. The stdio MCP server exposes <code>trace_graph</code> and <code>read_context</code>, both with explicit budgets and untrusted result roles.</p><p>The fresh consumer evaluation installs actual release tarballs, exercises both protocol profiles and checks success and incomplete-path boundaries. Reader configuration explicitly pins a root and accepted authors; automatic latest-root discovery is future work.</p></section>
+<h2>Operational boundaries</h2><table><thead><tr><th>Boundary</th><th>Current implementation</th></tr></thead><tbody><tr><td>Graph size</td><td>At most 200 nodes and 500 edges. Eight pages of 100 entities.</td></tr><tr><td>Traversal</td><td>Directed, cycle-safe, depth at most eight. Context rejects incomplete paths.</td></tr><tr><td>AI context</td><td>512–12,000 characters. Excerpts at most 2,000 characters. Loaded bytes at most 2 MiB per source and 4 MiB total.</td></tr><tr><td>Validity</td><td>Demo signed validity 14 days, storage 30 days. Expired evidence requires renewal.</td></tr><tr><td>Inference</td><td>Fixed tasks, input validation, per-IP rate limit and a 40-attempt daily budget. Provider availability and free quota can limit hosted inference.</td></tr><tr><td>Privacy</td><td>Private credentials and full memory stores stay outside the repo and public graph. Public/synthetic demo context only.</td></tr><tr><td>Trust</td><td>Accepted wallet identities and pinned roots are local consumer policy. Signatures do not establish source truth.</td></tr></tbody></table>
+<aside class="scope"><h3>Why Arkiv matters here</h3><p>Different applications can independently retrieve the same attributable, indexed connected records. Arkiv Graph provides a common manifest and context contract over that shared state. A conventional database remains sufficient for a single operator's private application. Graph structure alone does not require a blockchain.</p></aside>
+<h2>Reproduce the implementation</h2><nav><a href="https://github.com/AjnasNB/arkiv-graph">Source repository</a><a href="/data/graph-infrastructure-evaluation.json">SDK and MCP evaluation</a><a href="/data/security-evaluation.json">Local test cases</a><a href="/data/browser-evaluation.json">Public browser checks</a><a href="/data/ai-evaluation.json">Actual AI evaluations</a><a href="https://docs.arkiv.network/typescript-sdk/querying-data/">Arkiv query documentation</a></nav><footer>I built Arkiv Graph and its AI Passport reference application. Built by Ajnas NB. New code MIT, disclosed Qarinah baseline Apache-2.0.</footer></main></body></html>

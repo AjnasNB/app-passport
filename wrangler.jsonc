@@ -7,8 +7,12 @@
   "workers_dev": true,
   "routes": [
     {
-      "pattern": "passport.ajnasnb.com",
-      "custom_domain": true
+      "custom_domain": true,
+      "pattern": "arkivgraph.ajnasnb.com"
+    },
+    {
+      "custom_domain": true,
+      "pattern": "passport.ajnasnb.com"
     }
   ],
   "assets": {
