@@ -7,7 +7,7 @@ I built AppPassport to bind exact AI-tool artifacts and Qarinah context packets 
 Node.js 24 is the tested runtime. This release is distributed as a tarball; it is not published to npm.
 
 ```sh
-npm install https://passport.ajnasnb.com/downloads/app-passport-sdk-0.2.1.tgz
+npm install https://passport.ajnasnb.com/downloads/arkiv-graph-sdk-0.1.0.tgz https://passport.ajnasnb.com/downloads/app-passport-sdk-0.3.0.tgz
 # Optional, for the node-only Qarinah adapter:
 npm install qarinah@0.7.0
 ```
@@ -83,3 +83,4 @@ A tested MCP bridge in the source repository exposes `trace_evidence` over stdio
 ## Bounded useful tools
 
 `@app-passport/sdk/tools` exposes `indianNumber`, `safetyQuestions`, `runGuard` and `testGuard`. The guard is a finite interpreted language; model-generated JavaScript is never evaluated. These are demonstration tools, not a universal code sandbox.
+

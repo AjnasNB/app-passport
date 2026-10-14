@@ -4,12 +4,13 @@
   "private": true,
   "type": "module",
   "workspaces": [
+    "packages/arkiv-graph",
     "packages/sdk",
     "apps/web",
     "vendor/qarinah"
   ],
   "scripts": {
-    "build:sdk": "npm run build --workspace @app-passport/sdk",
+    "build:sdk": "npm run build --workspace @arkiv-graph/sdk && npm run build --workspace @app-passport/sdk",
     "build": "npm run build:sdk && npm run build --workspace @app-passport/web",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",

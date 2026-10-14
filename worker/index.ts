@@ -1,6 +1,8 @@
 import {aiRun,runInputSchema,AiBoundaryError} from './ai';
 import {readGraph} from '../packages/sdk/src/graph';
 import graphConfig from '../apps/web/public/data/graph-config.json';
+import infrastructureConfig from '../apps/web/public/data/arkiv-graph-reader.json';
+import {createGraphKit} from '../packages/arkiv-graph/src/index';
 export {AiBudget} from './budget';
 import {readRecords} from '../packages/sdk/src/arkiv';
 import {digestSchema,policySchema} from '../packages/sdk/src/index';
@@ -8,7 +10,7 @@ import policy from '../apps/web/public/data/policy.json';
 const headers={'content-type':'application/json','cache-control':'no-store','x-content-type-options':'nosniff'};
 export default {async fetch(request:Request,env:Env):Promise<Response>{
  const url=new URL(request.url);
- if(url.pathname==='/api/health'){if(request.method!=='GET')return new Response(JSON.stringify({error:'Read-only endpoint'}),{status:405,headers});return new Response(JSON.stringify({service:'AI Passport',network:'Tiramisu',write_access:'operator-only',public_uploads:false}),{headers});}
+ if(url.pathname==='/api/health'){if(request.method!=='GET')return new Response(JSON.stringify({error:'Read-only endpoint'}),{status:405,headers});return new Response(JSON.stringify({service:'Arkiv Graph + AI Passport',network:'Tiramisu',write_access:'operator-only',public_uploads:false}),{headers});}
  if(url.pathname==='/api/records'){
   if(request.method!=='GET')return new Response(JSON.stringify({error:'Read-only endpoint'}),{status:405,headers});
   const limit=await env.READ_LIMITER.limit({key:request.headers.get('CF-Connecting-IP')||'anonymous'});if(!limit.success)return new Response(JSON.stringify({error:'Please retry shortly'}),{status:429,headers:{...headers,'retry-after':'60'}});
@@ -18,6 +20,13 @@ export default {async fetch(request:Request,env:Env):Promise<Response>{
   catch{return new Response(JSON.stringify({error:'Current Arkiv evidence could not be verified'}),{status:503,headers});}
  }
  if(url.pathname==='/api/graph'){if(request.method!=='GET')return new Response(JSON.stringify({error:'Read-only endpoint'}),{status:405,headers});if(url.search) return new Response(JSON.stringify({error:'Unsupported parameter'}),{status:400,headers});const limit=await env.READ_LIMITER.limit({key:request.headers.get('CF-Connecting-IP')||'anonymous'});if(!limit.success)return new Response(JSON.stringify({error:'Please retry shortly'}),{status:429,headers});try{return new Response(JSON.stringify(await readGraph({policy:policySchema.parse(policy),headers:{'X-API-KEY':env.ARKIV_API_KEY}},graphConfig.graph_digest)),{headers});}catch{return new Response(JSON.stringify({error:'Current graph is incomplete or unavailable'}),{status:503,headers});}}
+ if(url.pathname==='/api/infrastructure-graph'){
+  if(request.method!=='GET')return new Response(JSON.stringify({error:'Read-only endpoint'}),{status:405,headers});
+  if(url.search)return new Response(JSON.stringify({error:'Unsupported parameter'}),{status:400,headers});
+  if(!(await env.READ_LIMITER.limit({key:request.headers.get('CF-Connecting-IP')||'anonymous'})).success)return new Response(JSON.stringify({error:'Please retry shortly'}),{status:429,headers});
+  try{const kit=createGraphKit(),data=await kit.readGraph({issuers:infrastructureConfig.issuers,headers:{'X-API-KEY':env.ARKIV_API_KEY}},infrastructureConfig.graph_digest);return new Response(JSON.stringify({...data,graph_digest:infrastructureConfig.graph_digest}),{headers});}
+  catch{return new Response(JSON.stringify({error:'Current infrastructure graph is incomplete or unavailable'}),{status:503,headers});}
+ }
  if(url.pathname==='/api/run'){
   if(request.method!=='POST')return new Response(JSON.stringify({error:'Use POST'}),{status:405,headers});
   const origin=request.headers.get('Origin');if(origin&&origin!==url.origin)return new Response(JSON.stringify({error:'Origin not allowed'}),{status:403,headers});

@@ -45,3 +45,13 @@ Workers AI returned a structured guard object where our first integration expect
 ## Correctly named runtime checks
 
 The first runtime review reused a Qarinah-validator description intended for context packets. We withdrew that review and issued four correctly named checks backed by actual source hashing, deterministic arithmetic calls, six interpreted guard cases and quiz-reference shape checks. The original record, withdrawal and replacement remain inspectable in ai-evidence.json. The publisher now distinguishes context validation from runtime controlled calls; this is an application review-description correction, not an Arkiv defect.
+# Arkiv Graph infrastructure addition
+
+The first graph implementation mixed a reusable graph contract with AI Passport-specific type names, namespace and admission policy. I extracted the engine into `@arkiv-graph/sdk`, added a generic protocol profile, and kept the existing application signing domain through a compatibility adapter. That preserves all previously published graph signatures and roots.
+
+The useful gap was an application-level connected-data convention and complete-manifest reader. Arkiv's indexed entities supply persistence and queries. Recursive traversal, pinned revision policy and completeness verification run in the SDK. There is no native Cypher engine or server-side graph join in this project.
+
+New evidence: a separate generic namespace has 6 nodes, 6 edges and 13 entities. A fresh tarball consumer reads both roots directly, verifies two CLI profiles, and runs four real MCP success/truncation cases. No website backend, access key or wallet is used by that consumer. Generic equipment types are exercised locally; equipment customers and production scale are not claimed.
+
+Both new packages are tarball releases rather than npm publications. Installing the AI Passport 0.3.0 application adapter requires installing the generic graph tarball in the same command. Reader configurations explicitly pin a root and accepted issuers; automatic latest-root discovery remains future work.
+

@@ -1,0 +1,9 @@
+{
+  "schema": "arkiv-graph.reader.v1",
+  "profile": "arkiv-graph-v1",
+  "rpc": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+  "graph_digest": "sha256:da0e7bb82395bf38a78a7b121a775111140a199b7615ed6421ab52313435abe3",
+  "issuers": [
+    "0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC"
+  ]
+}

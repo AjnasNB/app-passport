@@ -1,6 +1,6 @@
 {
   "name": "@app-passport/sdk",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "type": "module",
   "license": "MIT",
   "description": "Signed Arkiv evidence graphs, AI tool/context admission and Qarinah adapters.",
@@ -41,7 +41,8 @@
   "dependencies": {
     "@arkiv-network/sdk": "0.8.1",
     "viem": "2.57.5",
-    "zod": "4.1.0"
+    "zod": "4.1.0",
+    "@arkiv-graph/sdk": "0.1.0"
   },
   "peerDependencies": {
     "qarinah": ">=0.6.0 <0.8.0"

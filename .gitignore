@@ -8,3 +8,4 @@ playwright-report/
 *.tsbuildinfo
 .qarinah/
 output/
+/.chart-data*/

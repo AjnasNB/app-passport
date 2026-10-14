@@ -46,10 +46,12 @@
           },
           "source_url": {
             "type": "string",
+            "maxLength": 1000,
             "format": "uri"
           },
           "source_path": {
             "type": "string",
+            "maxLength": 240,
             "pattern": "^\\/sources\\/[a-z0-9._-]+$"
           },
           "artifact_digest": {

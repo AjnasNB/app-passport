@@ -1,4 +1,4 @@
-name: AppPassport
+name: Arkiv Graph + AI Passport
 on: [push, pull_request]
 permissions:
   contents: read

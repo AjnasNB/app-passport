@@ -2,7 +2,13 @@
 
 Built by Ajnas NB. Live application: https://passport.ajnasnb.com. The original Qarinah repositories are preserved; this project integrates an Apache-2.0 licensed copy at the disclosed baseline in PREEXISTING.md.
 
-## The product
+## Reusable infrastructure and reference application
+
+Arkiv Graph is the domain-neutral infrastructure SDK in `packages/arkiv-graph`. It owns signed nodes, edges, complete manifests, typed indexes, verified assembly and bounded traversal. Its packaged CLI exposes verify/trace commands and a stdio MCP server. The generic graph uses `arkiv-graph-v1`. Domain-specific node types and relationship names make it reusable outside AI.
+
+AI Passport imports the shared engine through `packages/sdk/src/graph.ts`, preserving its existing graph namespace, record signatures and root. Qarinah context selection, passport review admission and hosted inference remain application layers. See [ARKIV_GRAPH.md](ARKIV_GRAPH.md) for installation and the independently reproduced two-profile evidence.
+
+## The reference application
 
 Three working tasks share one admission and evidence layer:
 

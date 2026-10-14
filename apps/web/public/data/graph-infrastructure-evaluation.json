@@ -1,0 +1,49 @@
+{
+  "evaluated_at": "2026-10-14T08:42:09.894Z",
+  "generic_sdk": "0.1.0",
+  "application_sdk": "0.3.0",
+  "installed_from_tarballs": true,
+  "website_backend_used": false,
+  "api_key_used": false,
+  "wallet_required": false,
+  "generic_graph": {
+    "nodes": 6,
+    "edges": 6,
+    "entities": 13,
+    "graph_digest": "sha256:da0e7bb82395bf38a78a7b121a775111140a199b7615ed6421ab52313435abe3",
+    "read_block": "558784"
+  },
+  "compatibility_graph": {
+    "nodes": 27,
+    "edges": 43,
+    "entities": 71,
+    "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c"
+  },
+  "compatibility_adapter_matched": true,
+  "mcp": [
+    {
+      "profile": "generic",
+      "case": "complete-path",
+      "passed": true
+    },
+    {
+      "profile": "generic",
+      "case": "bounded-path-rejected",
+      "passed": true
+    },
+    {
+      "profile": "compatibility",
+      "case": "complete-path",
+      "passed": true
+    },
+    {
+      "profile": "compatibility",
+      "case": "bounded-path-rejected",
+      "passed": true
+    }
+  ],
+  "passed": 4,
+  "total": 4,
+  "scope": "Real direct RPC and actual stdio MCP calls. Both graphs are project-published. No customer adoption or scalability benchmark.",
+  "cli_profiles_verified": 2
+}

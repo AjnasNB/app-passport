@@ -1,14 +1,16 @@
-# AI Passport
+# Arkiv Graph + AI Passport
 
-I built AI Passport to run useful AI tasks with selected Qarinah memory and an independently readable Arkiv evidence graph.
+I built Arkiv Graph as reusable infrastructure for connected records on Arkiv. AI Passport is its working reference application, with useful AI tasks and selected Qarinah memory. See [ARKIV_GRAPH.md](ARKIV_GRAPH.md) for the separate SDK, protocol, live infrastructure graph and setup.
 
 - Live: https://passport.ajnasnb.com
 - Source: https://github.com/AjnasNB/app-passport
-- SDK: https://passport.ajnasnb.com/downloads/app-passport-sdk-0.2.1.tgz
+- Graph SDK: https://passport.ajnasnb.com/downloads/arkiv-graph-sdk-0.1.0.tgz
+- AI Passport adapter: https://passport.ajnasnb.com/downloads/app-passport-sdk-0.3.0.tgz (install with the graph tarball)
 - Architecture: [ARCHITECTURE.md](ARCHITECTURE.md)
 - Evaluation PDF: https://passport.ajnasnb.com/downloads/ai-passport-evaluation.pdf
 - Motion demo: https://passport.ajnasnb.com/media/ai-passport-demo.mp4
-- Presentation: https://passport.ajnasnb.com/downloads/ai-passport-deck.pptx
+- Graphical pitch: https://passport.ajnasnb.com/downloads/arkiv-graph-pitch.pptx
+- Pitch PDF: https://passport.ajnasnb.com/downloads/arkiv-graph-pitch.pdf
 
 ## Three useful tasks
 
@@ -76,3 +78,5 @@ Storage lasts 30 days and signed evidence is finite; the operator must renew it.
 Ten pinned public tool artifacts passed MCP initialization, listing and controlled calls. Their versions, source URLs and actual results remain in /data/tools.json and /data/protocol-evaluation.json. Local orchestration tests use mock inference; the live suite makes actual provider calls.
 
 MIT covers new AI Passport code. The copied Qarinah runtime retains Apache-2.0 and notices. [PREEXISTING.md](PREEXISTING.md) discloses the exact baseline. Original Qarinah and ScamSignal folders are preserved. Generated artwork is conceptual. The earlier OpenMontage prototype film and supplementary real website recording are labelled separately.
+
+
