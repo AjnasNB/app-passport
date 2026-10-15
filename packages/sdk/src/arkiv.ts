@@ -6,7 +6,7 @@ import {http,webSocket,type Hex} from 'viem';
 import {NAMESPACE,verifyEnvelope,envelopeSchema,policySchema,type Envelope,type Policy,type VerifiedRecord} from './index';
 export const RPC='https://rpc.tiramisu.db-chain.testnet.arkiv.network';
 export const EXPLORER='https://tiramisu.explorer.arkiv.network';
-export interface Connection {rpc?:string;headers?:Record<string,string>;policy:Policy;}
+export interface Connection {rpc?:string;headers?:Record<string,string>;policy:Policy;atBlock?:bigint;}
 const hexDigest=(d:string)=>`0x${d.slice(7)}` as Hex;
 function client(c:Connection){return createPublicClient({chain:tiramisu,transport:http(c.rpc||RPC,{timeout:15000,retryCount:0,...(c.headers?{fetchOptions:{headers:c.headers}}:{})})});}
 export async function decodeEntity(entity:any,block:bigint):Promise<VerifiedRecord|null>{
@@ -20,12 +20,15 @@ export async function decodeEntity(entity:any,block:bigint):Promise<VerifiedReco
   }catch{return null;}
 }
 export async function readRecords(c:Connection,artifactDigest?:string){
-  const policy=policySchema.parse(c.policy),reader=client(c),timing=await reader.getBlockTiming();
+  const policy=policySchema.parse(c.policy);
+  if(c.atBlock!==undefined&&(typeof c.atBlock!=='bigint'||c.atBlock<0n))throw new Error('Invalid review snapshot block');
+  const reader=client(c),timing=await reader.getBlockTiming(),snapshot=c.atBlock??timing.currentBlock;
+  if(snapshot>timing.currentBlock)throw new Error('Review snapshot is ahead of the RPC head');
   const writers=[...new Set([...policy.issuers,...policy.reviewers].map(a=>a.toLowerCase()))];
-  const filters:Expression[]=[eq('namespace',str(NAMESPACE)),eq('schema_version',u64(1)),gt('$expiresAt',u64(timing.currentBlock)),or(writers.map(a=>eq('$creator',addr(a as Hex))))];
+  const filters:Expression[]=[eq('namespace',str(NAMESPACE)),eq('schema_version',u64(1)),gt('$expiresAt',u64(snapshot)),or(writers.map(a=>eq('$creator',addr(a as Hex))))];
   if(artifactDigest)filters.push(eq('artifact_hash',bytes32(hexDigest(artifactDigest))));
-  const query=reader.select().where(...filters).limit(100);let page=await query.fetch();let pageCount=0,ignored=0;const records:VerifiedRecord[]=[];
-  while(true){for(const e of page.entities){const decoded=await decodeEntity(e,timing.currentBlock);if(decoded)records.push(decoded);else ignored++;}if(!page.hasNextPage())break;if(++pageCount>=10)throw new Error('Incomplete query: pagination limit reached');page=await page.next();}
+  const query=reader.select().where(...filters).limit(100).atBlock(snapshot);let page=await query.fetch();let pageCount=0,ignored=0;const records:VerifiedRecord[]=[];
+  while(true){if(page.blockNumber!==snapshot)throw new Error('RPC returned a different review snapshot block');for(const e of page.entities){const decoded=await decodeEntity(e,snapshot);if(decoded)records.push(decoded);else ignored++;}if(!page.hasNextPage())break;if(++pageCount>=10)throw new Error('Incomplete query: pagination limit reached');page=await page.next();}
   return {records,ignored,block:String(page.blockNumber),query:query.toString(),read_at:new Date().toISOString()};
 }
 export function entityInput(envelope:Envelope,storageDays=30){

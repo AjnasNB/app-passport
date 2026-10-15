@@ -4,7 +4,7 @@ import {beforeAll,describe,expect,it,vi} from 'vitest';
 import {generatePrivateKey,privateKeyToAccount} from 'viem/accounts';
 import {contextDescriptor,descriptorSchema,digestBytes,digestJson,NAMESPACE,recordSchema,signRecord,type VerifiedRecord} from '../packages/sdk/src/index';
 import {AI_PASSPORT_PROFILE,createGraphKit} from '../packages/arkiv-graph/src/index';
-import {createTwoClientConsumer,verifyTwoClientSession,type TwoClientRead,type TwoClientSession,type TwoClientSubject,type TwoClientReceipt} from '../apps/web/src/two-client-model';
+import {createTwoClientConsumer,verifyTwoClientSession,twoClientLiveCheckpointSchema,type TwoClientRead,type TwoClientSession,type TwoClientSubject,type TwoClientReceipt,type TwoClientTrustStore} from '../apps/web/src/two-client-model';
 import {TWO_CLIENT_PLAN} from '../scripts/two-client-demo';
 
 const producer=privateKeyToAccount(generatePrivateKey()),reviewer=privateKeyToAccount(generatePrivateKey()),stranger=privateKeyToAccount(generatePrivateKey());
@@ -93,6 +93,74 @@ describe('two independently instantiated graph and review consumers',()=>{
     const fresh={...await record('review'),key:'0x'+'9'.repeat(64),created_at_block:'112'};
     const result=await createTwoClientConsumer('B',async()=>current([passport,review,withdrawal,fresh])).request(subject);
     expect(result.admission.allowed).toBe(true);
+  });
+});
+
+describe('live consumer persisted withdrawal and block observations',()=>{
+  function memoryStore(){let saved:unknown|null=null;const store:TwoClientTrustStore={load:async()=>structuredClone(saved),save:async(_subject,_id,value)=>{saved=structuredClone(value);}};return {store,get saved(){return saved;},replace(value:unknown){saved=value;}};}
+  function fresh(records:VerifiedRecord[],height:string){return current(records,{block:height,graph:{...structuredClone(graph),block:height,read_at:new Date().toISOString()}});}
+  it('refuses a later omission after an authenticated withdrawal was observed',async()=>{
+    const memory=memoryStore();let records=[passport,review,withdrawal],height='120';
+    const A=createTwoClientConsumer('A',async()=>fresh(records,height),{trustStore:memory.store});
+    expect((await A.request(subject)).admission.status).toBe('withdrawn');
+    expect(twoClientLiveCheckpointSchema.parse(memory.saved).withdrawals).toHaveLength(1);
+    records=[passport,review];height='121';const result=await A.request(subject);
+    expect(result.admission.status).toBe('withdrawn');expect(result.output).toBeNull();expect(result.task_executed).toBe(false);
+  });
+  it('retains the signed target and withdrawal across reload into a new consumer instance',async()=>{
+    const memory=memoryStore(),first=createTwoClientConsumer('B',async()=>fresh([passport,review,withdrawal],'120'),{trustStore:memory.store});
+    expect((await first.request(subject)).admission.status).toBe('withdrawn');
+    const reloaded=createTwoClientConsumer('B',async()=>fresh([passport],'121'),{trustStore:memory.store});
+    const result=await reloaded.request(subject);expect(result.admission.status).toBe('withdrawn');expect(result.task_executed).toBe(false);
+  });
+  it('retains a withdrawal first observed without its target, then refuses a restored old target',async()=>{
+    const memory=memoryStore();const first=await createTwoClientConsumer('A',async()=>fresh([passport,withdrawal],'120'),{trustStore:memory.store}).request(subject);
+    expect(first.admission.allowed).toBe(false);expect(twoClientLiveCheckpointSchema.parse(memory.saved).unpaired_withdrawals).toHaveLength(1);
+    const second=await createTwoClientConsumer('A',async()=>fresh([passport,review],'121'),{trustStore:memory.store}).request(subject);
+    expect(second.admission.status).toBe('withdrawn');expect(second.task_executed).toBe(false);expect(twoClientLiveCheckpointSchema.parse(memory.saved).withdrawals).toHaveLength(1);
+  });
+  it('does not revive an observed target when later RPC metadata shortens withdrawal retention',async()=>{
+    const memory=memoryStore();await createTwoClientConsumer('A',async()=>fresh([passport,review,withdrawal],'120'),{trustStore:memory.store}).request(subject);
+    const shorter={...withdrawal,expires_at_block:'120'};
+    const result=await createTwoClientConsumer('A',async()=>fresh([passport,review,shorter],'121'),{trustStore:memory.store}).request(subject);
+    expect(result.admission.status).toBe('withdrawn');expect(twoClientLiveCheckpointSchema.parse(memory.saved).withdrawals[0]!.withdrawal.expires_at_block).toBe(withdrawal.expires_at_block);
+  });
+  it('rejects a current RPC record substituting signed bytes at a cached immutable entity key',async()=>{
+    const memory=memoryStore();await createTwoClientConsumer('A',async()=>fresh([passport,review,withdrawal],'120'),{trustStore:memory.store}).request(subject);
+    const replacement={...await record('review',reviewer,{issued_at:new Date().toISOString()}),key:review.key};
+    const result=await createTwoClientConsumer('A',async()=>fresh([passport,replacement],'121'),{trustStore:memory.store}).request(subject);
+    expect(result.admission.status).toBe('unavailable');expect(result.task_executed).toBe(false);
+  });
+  it('permits a fresh separately keyed review without deleting the old withdrawal journal',async()=>{
+    const memory=memoryStore();await createTwoClientConsumer('A',async()=>fresh([passport,review,withdrawal],'120'),{trustStore:memory.store}).request(subject);
+    const replacement={...await record('review'),key:'0x'+'9'.repeat(64),created_at_block:'121'};
+    const result=await createTwoClientConsumer('A',async()=>fresh([passport,review,replacement],'122'),{trustStore:memory.store}).request(subject);
+    expect(result.admission.allowed).toBe(true);expect(twoClientLiveCheckpointSchema.parse(memory.saved).withdrawals).toHaveLength(1);
+  });
+  it('fails closed on rollback, same-block state changes and malformed or cross-scope saved state',async()=>{
+    for(const scenario of ['older review block','older graph block','same block omitted withdrawal','malformed','cross scope','tampered withdrawal','clock rollback']){
+      const memory=memoryStore();await createTwoClientConsumer('A',async()=>fresh([passport,review,withdrawal],'120'),{trustStore:memory.store}).request(subject);
+      let response=fresh([passport,review,withdrawal],'121');
+      if(scenario==='older review block')response.block='119';
+      if(scenario==='older graph block')response.graph.block='119';
+      if(scenario==='same block omitted withdrawal')response=fresh([passport,review],'120');
+      if(scenario==='malformed')memory.replace({schema:'bad'});
+      if(scenario==='cross scope')memory.replace({...twoClientLiveCheckpointSchema.parse(memory.saved),scope_digest:digestJson('other session policy')});
+      if(scenario==='tampered withdrawal'){const state=twoClientLiveCheckpointSchema.parse(memory.saved);state.withdrawals[0]!.withdrawal.envelope.signature='0x'+'0'.repeat(130);memory.replace(state);}
+      if(scenario==='clock rollback')memory.replace({...twoClientLiveCheckpointSchema.parse(memory.saved),last_verified_at:new Date(Date.now()+120000).toISOString()});
+      const before=digestJson(memory.saved),result=await createTwoClientConsumer('A',async()=>response,{trustStore:memory.store}).request(subject);
+      expect(result.admission.status,scenario).toBe('unavailable');expect(result.task_executed,scenario).toBe(false);expect(digestJson(memory.saved),scenario).toBe(before);
+    }
+  });
+  it('refuses if local persistence cannot load or save before task execution',async()=>{
+    for(const failure of ['load','save']){
+      const store:TwoClientTrustStore={load:async()=>{if(failure==='load')throw new Error('Storage blocked');return null;},save:async()=>{if(failure==='save')throw new Error('Storage full');}};
+      const result=await createTwoClientConsumer('A',async()=>fresh([passport,review],'120'),{trustStore:store}).request(subject);expect(result.admission.status).toBe('unavailable');expect(result.task_executed).toBe(false);
+    }
+  });
+  it('treats reordered entity results as the same checkpointed snapshot',async()=>{
+    const memory=memoryStore();await createTwoClientConsumer('A',async()=>fresh([passport,review],'120'),{trustStore:memory.store}).request(subject);
+    const result=await createTwoClientConsumer('A',async()=>fresh([review,passport],'120'),{trustStore:memory.store}).request(subject);expect(result.admission.allowed).toBe(true);
   });
 });
 

@@ -55,17 +55,20 @@ async function assembleGraph(records:GraphRecord[],expectedDigest:string,issuers
  if(accepted.length!==1+m.nodes.length+m.edges.length)throw new Error('Unlisted graph member');
  const graph=graphSchema.parse({schema:profile.graphSchema,label:m.label,nodes:pick(m.nodes,nodeItems),edges:pick(m.edges,edgeItems)});if(digestJson(graph)!==expectedDigest)throw new Error('Graph root identity mismatch');return graph;
 }
-async function readGraph(c:{rpc?:string;chain?:Chain;headers?:Record<string,string>;issuers:string[]},graphDigest:string){
+async function readGraph(c:{rpc?:string;chain?:Chain;headers?:Record<string,string>;issuers:string[];atBlock?:bigint},graphDigest:string){
  digestSchema.parse(graphDigest);
  const issuers=z.array(z.string().regex(/^0x[0-9a-fA-F]{40}$/)).min(1).max(20).parse(c.issuers);
  const allowedCreators=new Set(issuers.map(a=>a.toLowerCase()));
+ if(c.atBlock!==undefined&&(typeof c.atBlock!=='bigint'||c.atBlock<0n))throw new Error('Invalid graph snapshot block');
  const reader=createPublicClient({chain:c.chain??tiramisu,transport:http(c.rpc||DEFAULT_RPC,{timeout:15000,retryCount:0,...(c.headers?{fetchOptions:{headers:c.headers}}:{})})}),timing=await reader.getBlockTiming();
  // Namespace/root attributes are permissionless. Filter the indexed, immutable protocol creator
  // before pagination so other publishers cannot consume the bounded reader's eight pages.
  // https://docs.arkiv.network/typescript-sdk/querying-data/#filter-by-owner-creator-key-and-expiry
- const query=reader.select({key:true,creator:true,payload:true,attributes:true,creationFlags:true}).where(eq('namespace',str(GRAPH_NAMESPACE)),eq('schema_version',u64(1)),eq('graph_hash',bytes32(`0x${graphDigest.slice(7)}` as Hex)),gt('$expiresAt',u64(timing.currentBlock)),or([...allowedCreators].map(a=>eq('$creator',addr(a)))));
+ const snapshot=c.atBlock??timing.currentBlock;
+ if(snapshot>timing.currentBlock)throw new Error('Graph snapshot is ahead of the RPC head');
+ const query=reader.select({key:true,creator:true,payload:true,attributes:true,creationFlags:true}).where(eq('namespace',str(GRAPH_NAMESPACE)),eq('schema_version',u64(1)),eq('graph_hash',bytes32(`0x${graphDigest.slice(7)}` as Hex)),gt('$expiresAt',u64(snapshot)),or([...allowedCreators].map(a=>eq('$creator',addr(a))))).atBlock(snapshot);
  let page=await query.limit(100).fetch(),pages=0;const records:GraphRecord[]=[];
- while(true){for(const entity of page.entities){if(!entity.creationFlags?.readonly||!allowedCreators.has(entity.creator.toLowerCase()))continue;const parsed=graphEnvelopeSchema.safeParse(entity.toJson());if(!parsed.success)continue;const envelope=parsed.data;const p=envelope.payload,v=(k:string)=>entity.attributes[k]?.value;
+ while(true){if(page.blockNumber!==snapshot)throw new Error('RPC returned a different graph snapshot block');for(const entity of page.entities){if(!entity.creationFlags?.readonly||!allowedCreators.has(entity.creator.toLowerCase()))continue;const parsed=graphEnvelopeSchema.safeParse(entity.toJson());if(!parsed.success)continue;const envelope=parsed.data;const p=envelope.payload,v=(k:string)=>entity.attributes[k]?.value;
   if(v('namespace')!==GRAPH_NAMESPACE||v('schema_version')!==1n||v('graph_hash')!==`0x${graphDigest.slice(7)}`||v('kind')!==p.kind)continue;
   if(p.kind==='node'&&(v('node_id')!==p.node.id||v('node_type')!==p.node.type))continue;if(p.kind==='edge'&&(v('from_id')!==p.edge.from||v('to_id')!==p.edge.to||v('relation')!==p.edge.relation))continue;
   records.push({key:entity.key,creator:entity.creator,envelope});}

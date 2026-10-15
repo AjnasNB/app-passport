@@ -10,4 +10,4 @@ export type GraphNode=z.infer<typeof graphNodeSchema>;
 export type GraphPayload=z.infer<typeof graphPayloadSchema>;
 export type GraphEnvelope=z.infer<typeof graphEnvelopeSchema>;
 export type GraphRecord={key:string;creator:string;envelope:GraphEnvelope};
-export function readGraph(c:{rpc?:string;headers?:Record<string,string>;policy:Policy},graphDigest:string){return kit.readGraph({rpc:c.rpc,headers:c.headers,issuers:c.policy.issuers},graphDigest);}
+export function readGraph(c:{rpc?:string;headers?:Record<string,string>;policy:Policy;atBlock?:bigint},graphDigest:string){return kit.readGraph({rpc:c.rpc,headers:c.headers,issuers:c.policy.issuers,atBlock:c.atBlock},graphDigest);}

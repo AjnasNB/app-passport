@@ -1,0 +1,169 @@
+{
+  "schema": "arkiv.graph-trust-safeguards.v1",
+  "started_at": "2026-10-15T12:16:01.525Z",
+  "completed_at": "2026-10-15T12:16:09.575Z",
+  "passed": 19,
+  "total": 19,
+  "checks": [
+    {
+      "name": "Live registry and signed current graph",
+      "passed": true,
+      "evidence_kind": "live-rpc",
+      "detail": "Official public Tiramisu RPC, explicit same snapshot, authenticated registry, every manifest-listed graph member."
+    },
+    {
+      "name": "Both actual published graph revisions readable",
+      "passed": true,
+      "evidence_kind": "live-rpc",
+      "detail": "Each distinct root is independently reconstructed from signed Arkiv entities at the registry snapshot."
+    },
+    {
+      "name": "Serialized checkpoint accepts the same signed head",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay",
+      "detail": "A returning client reloads the serialized monotonic root checkpoint."
+    },
+    {
+      "name": "Hidden latest revision rejected after checkpoint",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay",
+      "detail": "Provider omission simulated by removing the actual sequence-two head from a previously observed chain."
+    },
+    {
+      "name": "Tampered live root payload rejected",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay",
+      "detail": "One byte-bound field is changed while retaining the original real signature."
+    },
+    {
+      "name": "Chain, registry, policy and profile substitutions rejected",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay",
+      "detail": "Existing actual revision signatures cannot cross the pinned scope."
+    },
+    {
+      "name": "Expired head refuses new use",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay",
+      "detail": "Verification clock deliberately moved beyond the signed head deadline; historical links are not rewritten."
+    },
+    {
+      "name": "Unauthorized signed root rejected",
+      "passed": true,
+      "evidence_kind": "synthetic-fault-injection",
+      "detail": "A fresh in-memory test signer cannot replace the pinned authority. No key is stored or published."
+    },
+    {
+      "name": "Different correctly signed branch rejected at checkpoint",
+      "passed": true,
+      "evidence_kind": "synthetic-fault-injection",
+      "detail": "A separate ephemeral authority signs two valid branches solely to test fork detection; no network write occurs."
+    },
+    {
+      "name": "Single live provider remains explicitly labeled",
+      "passed": true,
+      "evidence_kind": "live-rpc",
+      "detail": "The real official endpoint counts as one operator. This is not quorum or non-omission proof."
+    },
+    {
+      "name": "Older RPC snapshot rejected after local checkpoint",
+      "passed": true,
+      "evidence_kind": "synthetic-fault-injection",
+      "detail": "The real observation is locally altered to an older block; the retained checkpoint refuses it."
+    },
+    {
+      "name": "Stale chain time rejected",
+      "passed": true,
+      "evidence_kind": "synthetic-fault-injection",
+      "detail": "The real observation is locally altered to a five-minute-old chain time."
+    },
+    {
+      "name": "Configured operators disagree: fail closed",
+      "passed": true,
+      "evidence_kind": "synthetic-fault-injection",
+      "detail": "Two simulated operator observations differ in state at one block. No second live provider is claimed."
+    },
+    {
+      "name": "Endpoint aliases cannot create independent operator quorum",
+      "passed": true,
+      "evidence_kind": "synthetic-fault-injection",
+      "detail": "Two locally configured endpoint IDs sharing one operator are rejected under minimum-two policy."
+    },
+    {
+      "name": "Published signed withdrawal retained before task",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay",
+      "detail": "Actual public session envelopes and source evidence are replayed locally; this does not broadcast or assert a new chain read."
+    },
+    {
+      "name": "Reloaded consumer refuses omission of observed withdrawal",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay",
+      "detail": "A new consumer loads the same serialized checkpoint while a simulated later response omits the actual withdrawal."
+    },
+    {
+      "name": "Withdrawal seen without target survives later target restoration",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay",
+      "detail": "Actual signed withdrawal is first returned without its review; a later controlled response restores that review and omits the withdrawal."
+    },
+    {
+      "name": "Tampered cached signature refuses without overwriting state",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay",
+      "detail": "Cached real withdrawal signature is damaged locally; task remains blocked and failed verification preserves existing stored state."
+    },
+    {
+      "name": "Persistence failure prevents task admission",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay",
+      "detail": "A local store write is deliberately refused before the deterministic task can execute."
+    }
+  ],
+  "live": {
+    "rpc": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+    "chain_id": 7738577,
+    "block": "608398",
+    "block_time": "2026-10-15T12:16:02.000Z",
+    "registry_entities": [
+      "0xb7b50ef2e894288a4114074903cba28ea028f5b387b73200b28438b8a14cc7a3",
+      "0x9d9b2d609cb0f67b9942113f9e4cec21c1e0560d0a82a02e297887077753d65c"
+    ],
+    "revision_count": 2,
+    "current_root": "sha256:8a036fdee3daac844c8b4ab0d78eedd792ae4b8d6d22bcfafb2f054fe9da0520",
+    "graph_revisions": [
+      {
+        "sequence": 1,
+        "root": "sha256:e1deadbe5f4b916abddc5b663830b9d70d223c7669426b96bcab9ad61e117d8d",
+        "block": "608398",
+        "nodes": 1,
+        "edges": 0,
+        "entities": 2
+      },
+      {
+        "sequence": 2,
+        "root": "sha256:8a036fdee3daac844c8b4ab0d78eedd792ae4b8d6d22bcfafb2f054fe9da0520",
+        "block": "608398",
+        "nodes": 2,
+        "edges": 1,
+        "entities": 4
+      }
+    ],
+    "root_scope": "sha256:7a687b810993be4c343f620540b5a1029ddaa89c22e0a3d2627921221a0bbeb8",
+    "provider_count": 1
+  },
+  "withdrawal": {
+    "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
+    "transaction": "0xfc8d4ae3df1948b1497e2b090476a2954f43f997bc122e923c155768fed6bc62",
+    "scope": "The journal tests replay actual public signed session envelopes with controlled local response omission. They do not claim a new withdrawal publication or an external independent consumer."
+  },
+  "limitations": [
+    "The official public Tiramisu endpoint remains one provider. No independent live-provider quorum or cryptographic query-completeness proof is implemented.",
+    "Authenticated revision chains and local checkpoints prevent tampering and observed rollback/forks. They cannot discover an unseen newer head omitted by every source.",
+    "Local browser storage is client-controlled. Deleting/resetting it loses observed history; local compromise is not prevented.",
+    "Provider timestamps, chain metadata and indexed query completeness remain provider assumptions; the local freshness check uses the client clock.",
+    "Synthetic fault injection and public-signed-evidence replay are labeled separately from actual current RPC reads."
+  ],
+  "reproduce": "npm run build:sdk && npx tsx scripts/verify-trust-safeguards.ts",
+  "source_status": "SDK/source functionality in this checkout; npm release version must be checked independently."
+}

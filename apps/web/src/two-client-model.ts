@@ -1,6 +1,6 @@
 import {z} from 'zod';
 import {createGraphKit,AI_PASSPORT_PROFILE} from '@ajnasnb/arkiv-graph';
-import {canonicalJson,descriptorSchema,digestBytes,digestJson,digestSchema,envelopeSchema,evaluateAdmission,policySchema,repositoryDigest,validateContextPacket,type Admission} from '@ajnasnb/ai-passport';
+import {canonicalJson,descriptorSchema,digestBytes,digestJson,digestSchema,envelopeSchema,evaluateAdmission,policySchema,repositoryDigest,validateContextPacket,verifyEnvelope,type Admission,type VerifiedRecord} from '@ajnasnb/ai-passport';
 import {testGuard} from '@ajnasnb/ai-passport/tools';
 
 const kit=createGraphKit(AI_PASSPORT_PROFILE);
@@ -62,6 +62,78 @@ export const twoClientSessionSchema=z.object({
 }).strict();
 export type TwoClientSession=z.infer<typeof twoClientSessionSchema>;
 export type TwoClientSubject=Pick<TwoClientSession,'session_id'|'descriptor'|'policy'|'graph'>;
+const withdrawalMemorySchema=z.object({withdrawal:twoClientRecordSchema,target:twoClientRecordSchema}).strict();
+export const twoClientLiveCheckpointSchema=z.object({
+  schema:z.literal('app-passport.two-client-checkpoint.v1'),scope_digest:digestSchema,
+  review_block:block,graph_block:block,review_digest:digestSchema,graph_digest:digestSchema,last_verified_at:instant,
+  withdrawals:z.array(withdrawalMemorySchema).max(200),
+  unpaired_withdrawals:z.array(twoClientRecordSchema).max(200).default([]),
+}).strict();
+export type TwoClientLiveCheckpoint=z.infer<typeof twoClientLiveCheckpointSchema>;
+export interface TwoClientTrustStore {
+  load(subject:TwoClientSubject,id:'A'|'B'):Promise<unknown|null>;
+  save(subject:TwoClientSubject,id:'A'|'B',checkpoint:TwoClientLiveCheckpoint):Promise<void>;
+}
+export function twoClientTrustScope(subject:TwoClientSubject):string{return digestJson({session_id:subject.session_id,descriptor:subject.descriptor,policy:subject.policy,graph:subject.graph});}
+const recordSetDigest=(records:{key:string}[])=>digestJson([...records].sort((a,b)=>a.key.toLowerCase().localeCompare(b.key.toLowerCase())));
+/** Live-only, locally retained observations. Remote omission before the first observation remains possible. */
+export async function verifyTwoClientLiveCheckpoint(subject:TwoClientSubject,current:TwoClientRead,saved:unknown|null,now=Date.now()):Promise<{checkpoint:TwoClientLiveCheckpoint;records:VerifiedRecord[]}>{
+  if(saved!==null)canonicalJson(saved);
+  const scope=twoClientTrustScope(subject),prior=saved===null?null:twoClientLiveCheckpointSchema.parse(saved);
+  const reviewDigest=recordSetDigest(current.records),graphDigest=recordSetDigest(current.graph.records);
+  if(prior){
+    if(prior.scope_digest!==scope||Date.parse(prior.last_verified_at)>now+30000)throw new Error('Live checkpoint scope or clock rollback');
+    if(BigInt(current.block)<BigInt(prior.review_block)||BigInt(current.graph.block)<BigInt(prior.graph_block))throw new Error('Live RPC block rollback');
+    if(current.block===prior.review_block&&reviewDigest!==prior.review_digest||current.graph.block===prior.graph_block&&graphDigest!==prior.graph_digest)throw new Error('Live RPC data changed at a checkpointed block');
+  }
+  const unique=new Map<string,VerifiedRecord>();
+  for(const record of current.records){const key=record.key.toLowerCase();if(unique.has(key))throw new Error('Duplicate live record key');unique.set(key,record);}
+  const expectedDescriptor=digestJson(subject.descriptor);
+  async function verifiedWithdrawal(withdrawal:VerifiedRecord){
+    const p=withdrawal.envelope.payload;
+    return p.kind==='withdrawal'&&p.issuer.toLowerCase()===withdrawal.creator.toLowerCase()&&[...subject.policy.issuers,...subject.policy.reviewers].some(a=>a.toLowerCase()===p.issuer.toLowerCase())&&p.artifact_digest===subject.descriptor.artifact_digest&&p.descriptor_digest===expectedDescriptor&&Date.parse(p.issued_at)<=now+60000&&Boolean(await verifyEnvelope(withdrawal.envelope));
+  }
+  async function verifiedPair(value:z.infer<typeof withdrawalMemorySchema>){
+    const {withdrawal,target}=value,w=withdrawal.envelope.payload,t=target.envelope.payload;
+    if(w.kind!=='withdrawal'||t.kind==='withdrawal'||w.target_key.toLowerCase()!==target.key.toLowerCase()||withdrawal.creator.toLowerCase()!==target.creator.toLowerCase())return false;
+    const accepted=t.kind==='passport'?subject.policy.issuers:subject.policy.reviewers;
+    if(!accepted.some(a=>a.toLowerCase()===target.creator.toLowerCase()))return false;
+    for(const record of [withdrawal,target]){
+      const p=record.envelope.payload;
+      if(p.issuer.toLowerCase()!==record.creator.toLowerCase()||p.artifact_digest!==subject.descriptor.artifact_digest||p.descriptor_digest!==expectedDescriptor||Date.parse(p.issued_at)>now+60000||!await verifyEnvelope(record.envelope))return false;
+    }
+    return Date.parse(w.valid_until)>=Date.parse(t.valid_until)&&BigInt(withdrawal.created_at_block)>=BigInt(target.created_at_block)&&BigInt(withdrawal.expires_at_block)>=BigInt(target.expires_at_block);
+  }
+  const withdrawals:z.infer<typeof withdrawalMemorySchema>[]=[],seen=new Set<string>();
+  for(const pair of prior?.withdrawals??[]){
+    if(!await verifiedPair(pair))throw new Error('Invalid cached signed withdrawal');
+    const identity=pair.withdrawal.key.toLowerCase()+':'+digestJson(pair.withdrawal.envelope);
+    if(!seen.has(identity)){seen.add(identity);withdrawals.push(pair);}
+  }
+  const unpaired:VerifiedRecord[]=[],pendingSeen=new Set<string>();
+  for(const withdrawal of [...(prior?.unpaired_withdrawals??[]),...current.records.filter(r=>r.envelope.payload.kind==='withdrawal')]){
+    const payload=withdrawal.envelope.payload;if(payload.kind!=='withdrawal')throw new Error('Invalid pending withdrawal kind');
+    const cachedPending=(prior?.unpaired_withdrawals??[]).includes(withdrawal);
+    if(!await verifiedWithdrawal(withdrawal)){if(cachedPending)throw new Error('Invalid cached pending withdrawal');continue;}
+    const identity=withdrawal.key.toLowerCase()+':'+digestJson(withdrawal.envelope);
+    if(seen.has(identity))continue;
+    const target=current.records.find(r=>r.key.toLowerCase()===payload.target_key.toLowerCase())??withdrawals.find(pair=>pair.target.key.toLowerCase()===payload.target_key.toLowerCase())?.target;
+    if(!target){if(!pendingSeen.has(identity)){pendingSeen.add(identity);unpaired.push(withdrawal);}if(unpaired.length>200)throw new Error('Pending withdrawal memory budget exceeded');continue;}
+    if(target.creator.toLowerCase()!==withdrawal.creator.toLowerCase())continue;
+    const pair={withdrawal,target};
+    if(!await verifiedPair(pair))throw new Error('Observed withdrawal target coverage cannot be established');
+    if(!seen.has(identity)){seen.add(identity);withdrawals.push(pair);}
+    if(withdrawals.length>200)throw new Error('Live withdrawal memory budget exceeded');
+  }
+  // Keep the authenticated pair originally observed, including its retention observation. A later
+  // RPC response cannot shorten that cached lifetime, substitute signed bytes or erase the pair.
+  for(const cached of [...withdrawals.flatMap(pair=>[pair.target,pair.withdrawal]),...unpaired]){
+    const existing=unique.get(cached.key.toLowerCase());
+    if(existing&&(digestJson(existing.envelope)!==digestJson(cached.envelope)||existing.creator.toLowerCase()!==cached.creator.toLowerCase()))throw new Error('Live RPC substituted a cached immutable record');
+    unique.set(cached.key.toLowerCase(),cached);
+  }
+  return {records:[...unique.values()],checkpoint:{schema:'app-passport.two-client-checkpoint.v1',scope_digest:scope,review_block:current.block,graph_block:current.graph.block,review_digest:reviewDigest,graph_digest:graphDigest,last_verified_at:new Date(now).toISOString(),withdrawals,unpaired_withdrawals:unpaired}};
+}
 
 /** Authenticate a complete graph, its selected path, the Qarinah packet and exact public source bytes. */
 export async function verifyTwoClientEvidence(subject:TwoClientSubject,current:TwoClientRead,now=Date.now()){
@@ -93,7 +165,7 @@ export async function verifyTwoClientEvidence(subject:TwoClientSubject,current:T
 }
 
 /** Each instance owns its sequence and obtains a new graph/context/admission read on every request. */
-export function createTwoClientConsumer(id:'A'|'B',read:(subject:TwoClientSubject)=>Promise<unknown>){
+export function createTwoClientConsumer(id:'A'|'B',read:(subject:TwoClientSubject)=>Promise<unknown>,options:{trustStore?:TwoClientTrustStore}={}){
   let requestNo=0;
   return {
     async request(subject:TwoClientSubject,phase:TwoClientReceipt['phase']='live'):Promise<TwoClientReceipt>{
@@ -105,8 +177,14 @@ export function createTwoClientConsumer(id:'A'|'B',read:(subject:TwoClientSubjec
         current=twoClientReadSchema.parse(await read(subject));
         for(const at of [current.read_at,current.graph.read_at])if(Date.parse(at)<Date.parse(requested_at)-60000||Date.parse(at)>Date.now()+60000)throw new Error('Current read timestamp is stale');
         evidence=await verifyTwoClientEvidence(subject,current);
+        let records:VerifiedRecord[]=current.records;
+        if(options.trustStore){
+          const retained=await verifyTwoClientLiveCheckpoint(subject,current,await options.trustStore.load(subject,id));
+          // Storage failures refuse before the task; never erase or replace a checkpoint on a failed read.
+          await options.trustStore.save(subject,id,retained.checkpoint);records=retained.records;
+        }
         admission=await evaluateAdmission({descriptor:subject.descriptor,policy:subject.policy,
-          observedDigest:evidence.packet_digest,currentRepositoryDigest:evidence.repository_digest,records:current.records});
+          observedDigest:evidence.packet_digest,currentRepositoryDigest:evidence.repository_digest,records});
       }catch{
         admission={status:'unavailable',allowed:false,reason:'This consumer could not verify the current graph, source and review evidence. The task did not run.',records:[]};
       }

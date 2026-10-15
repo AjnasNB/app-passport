@@ -7,7 +7,7 @@ An MIT TypeScript SDK for complete signed graph manifests, typed relationships a
 Node.js 24 or later is required for this tested release. Readers need no wallet or signing key.
 
 ```sh
-npm install @ajnasnb/arkiv-graph@0.3.0
+npm install @ajnasnb/arkiv-graph@0.4.0
 ```
 
 Save this public configuration as `reader.json` (the fixture expires; use your own root for a persistent integration):
@@ -69,7 +69,13 @@ Each revision has one signed manifest listing every node and edge digest. Reader
 
 `createGraphKit(profile)` allows application namespaces and protocol domains. `AI_PASSPORT_PROFILE` preserves existing AI Passport record signatures and graph roots. Changing a profile defines a different protocol. Both parties must agree on the profile.
 
-Limits: 200 nodes, 500 edges, eight pages of 100 entities, directed traversal depth at most eight, signed validity at most 30 days. Current writer helper reserves one day of its 30-day storage period beyond the signed expiry. No native Cypher engine, arbitrary property queries, automatic mutation/merge, hosted graph service or scale benchmark is claimed. Callers must choose accepted authors and refresh their root configuration when adopting a new revision. Within a revision the manifest detects missing members; it cannot prove an RPC has exposed every possible graph revision.
+Limits: 200 nodes, 500 edges, eight pages of 100 entities, directed traversal depth at most eight, signed validity at most 30 days. Current writer helper reserves one day of its 30-day storage period beyond the signed expiry. No native Cypher engine, arbitrary property queries, automatic mutation/merge or hosted graph service is claimed. Every read pins one explicit block and rejects mismatched pages. Within a revision the manifest detects missing members; it cannot prove an RPC has exposed every possible graph revision.
+
+## Authenticated root updates
+
+The optional `@ajnasnb/arkiv-graph/trust` entry point exports `readRootRegistry`, `verifyRootRevisions`, `verifyRpcObservations` and `mergeWithdrawalJournal`. Pin an authority/configuration out of band. Revisions bind the chain, profile, policy and previous signed revision; retain the returned checkpoint only after complete graph verification. Returning readers reject a shorter or conflicting history. Use an exclusive lock around the full load/read/verify/save operation when sharing persistent state across tabs or processes.
+
+The [setup guide](https://github.com/AjnasNB/arkiv-graph/blob/main/docs/TRUST_SETUP.md) and [live root-update demonstration](https://arkivgraph.ajnasnb.com/?view=trust) include actual testnet records. The public demo uses one provider. Configured-provider comparisons and local retained withdrawals do not prove global history completeness; deleting local storage loses observed rollback history. Bootstrap authority/policy rotation remains an explicit consumer decision.
 
 Qarinah selection and passport review/withdrawal admission remain separate application layers. Equipment and document examples demonstrate the generic schema locally and do not claim customer adoption.
 

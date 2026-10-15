@@ -1,0 +1,114 @@
+{
+  "schema": "arkiv-graph.rpc-capabilities.v1",
+  "evaluated_at": "2026-10-15T12:06:00.893Z",
+  "endpoint": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+  "chain_id": 7738577,
+  "anonymous": true,
+  "scope": "A project-run read-only capability probe of the single documented anonymous Tiramisu endpoint. It is not a provider quorum, state-proof verifier or completeness proof. A different endpoint or future deployment may expose different methods.",
+  "checks": [
+    {
+      "name": "Expected Tiramisu chain",
+      "passed": true,
+      "observed": "0x7614d1"
+    },
+    {
+      "name": "Head timing is readable",
+      "passed": true,
+      "block": "608096"
+    },
+    {
+      "name": "Explicit atBlock query returns the requested snapshot",
+      "passed": true,
+      "block": "608096",
+      "records": 1
+    },
+    {
+      "name": "eth_getProof availability",
+      "available": false,
+      "error": {
+        "code": -32601,
+        "message": "the method eth_getProof does not exist/is not available"
+      },
+      "note": "The endpoint did not expose an account-proof result. No independent state proof is checked by this project."
+    }
+  ],
+  "trust_boundary": "Signatures and manifests bind returned content to an accepted author and root. Snapshot/freshness checks and retained client checkpoints mitigate inconsistent reads and rollback of previously observed state. They cannot establish that a fresh client received every current or historical matching record. No independently operated second provider was verified for the demo.",
+  "sources": [
+    {
+      "url": "https://docs.arkiv.network/networks/tiramisu/",
+      "relevance": "Official chain ID and public HTTP/WebSocket endpoint."
+    },
+    {
+      "url": "https://docs.arkiv.network/json-rpc/querying-data/",
+      "relevance": "atBlock query option and returned snapshot block number."
+    },
+    {
+      "url": "https://docs.arkiv.network/typescript-sdk/querying-data/",
+      "relevance": "Pagination snapshot semantics and historical retained-range limits."
+    },
+    {
+      "url": "https://docs.arkiv.network/start-here/access-keys/",
+      "relevance": "Access keys change quota on the same endpoint, not provider independence."
+    },
+    {
+      "url": "https://github.com/Arkiv-Network/arkiv-op-reth/blob/develop/docs/3_query.md",
+      "relevance": "Lower-level development design describes eth_getProof/eth_getCode verification recipes; these are not implemented by this SDK or established by this capability probe."
+    }
+  ],
+  "observations": [
+    {
+      "method": "eth_chainId",
+      "params": [],
+      "duration_ms": 1110,
+      "result": "0x7614d1"
+    },
+    {
+      "method": "arkiv_getBlockTiming",
+      "params": [],
+      "duration_ms": 361,
+      "result": {
+        "current_block": 608096,
+        "current_block_time": 1792065958,
+        "duration": 2
+      }
+    },
+    {
+      "method": "arkiv_query",
+      "params": [
+        "namespace = str('arkiv-graph-v1') AND graph_hash = bytes32(0x724614507a2f0ddaccf7eb58fcc9e4981f3a344776c6f906986a057d05f80297) AND $creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC)",
+        {
+          "atBlock": "0x94760",
+          "limit": "0x1",
+          "select": {
+            "key": true,
+            "creator": true
+          }
+        }
+      ],
+      "duration_ms": 371,
+      "result": {
+        "data": [
+          {
+            "key": "0x63783306775d90f3e948b5432dbe75dbc52fee91ad4b7470c707fcae3aa2a3da",
+            "creator": "0x4feade3ff513a7954e9f7420aaa7bdedc0ba4bdc"
+          }
+        ],
+        "blockNumber": "0x94760",
+        "cursor": "b64:wRv-Pum9a7IAAAAAAAww-w"
+      }
+    },
+    {
+      "method": "eth_getProof",
+      "params": [
+        "0x0000000000000000000000000000000000000000",
+        [],
+        "latest"
+      ],
+      "duration_ms": 336,
+      "error": {
+        "code": -32601,
+        "message": "the method eth_getProof does not exist/is not available"
+      }
+    }
+  ]
+}

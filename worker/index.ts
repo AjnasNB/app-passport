@@ -8,6 +8,8 @@ import {readGraphContext} from '../packages/arkiv-graph/src/context';
 import {videoRange} from './media';
 import launchAsset from '../apps/web/public/data/launch-evaluation.json';
 import {twoClientRead} from './two-client';
+import {readRootRegistry} from '../packages/arkiv-graph/src/root-registry';
+import rootTrustConfig from '../apps/web/public/data/root-trust-config.json';
 export {AiBudget} from './budget';
 import {readRecords} from '../packages/sdk/src/arkiv';
 import {digestSchema,policySchema} from '../packages/sdk/src/index';
@@ -17,6 +19,13 @@ export default {async fetch(request:Request,env:Env):Promise<Response>{
  const url=new URL(request.url);
  if(url.hostname==='passport.ajnasnb.com'&&(request.method==='GET'||request.method==='HEAD')){url.hostname='arkivgraph.ajnasnb.com';return Response.redirect(url.href,308);}
  if(url.pathname==='/api/health'){if(request.method!=='GET')return new Response(JSON.stringify({error:'Read-only endpoint'}),{status:405,headers});return new Response(JSON.stringify({service:'Arkiv Graph + AI Passport',network:'Tiramisu',write_access:'operator-only',public_uploads:false}),{headers});}
+ if(url.pathname==='/api/trust'){
+  if(request.method!=='GET')return new Response(JSON.stringify({error:'Read-only endpoint'}),{status:405,headers});
+  if(url.search)return new Response(JSON.stringify({error:'Unsupported parameter'}),{status:400,headers});
+  if(!(await env.READ_LIMITER.limit({key:request.headers.get('CF-Connecting-IP')||'anonymous'})).success)return new Response(JSON.stringify({error:'Please retry shortly'}),{status:429,headers});
+  try{return new Response(JSON.stringify(await readRootRegistry(rootTrustConfig as any,{headers:{'X-API-KEY':env.ARKIV_API_KEY}})),{headers});}
+  catch{return new Response(JSON.stringify({error:'Current signed root update or graph could not be verified. No cached acceptance returned.'}),{status:503,headers});}
+ }
  if(url.pathname==='/api/two-client/records'){
   if(request.method!=='GET')return new Response(JSON.stringify({error:'Read-only endpoint'}),{status:405,headers});
   if([...url.searchParams.keys()].some(key=>key!=='consumer')||url.searchParams.getAll('consumer').length!==1||!['A','B'].includes(url.searchParams.get('consumer')||''))return new Response(JSON.stringify({error:'Select consumer A or B'}),{status:400,headers});
