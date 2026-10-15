@@ -1,0 +1,17 @@
+{
+  "slides": [
+    {"key":"cover","path":"apps/web/public/brand/arkiv-graph/trust-release/01-cover.png"},
+    {"key":"why-arkiv","path":"apps/web/public/brand/arkiv-graph/trust-release/02-why-arkiv.png"},
+    {"key":"root-update","path":"apps/web/public/brand/arkiv-graph/trust-release/03-root-update.png"},
+    {"key":"withdrawal","path":"apps/web/public/brand/arkiv-graph/trust-release/04-withdrawal.png"},
+    {"key":"ai-india","path":"apps/web/public/brand/arkiv-graph/trust-release/05-ai-india.png"},
+    {"key":"evidence","path":"apps/web/public/brand/arkiv-graph/trust-release/06-evidence.png"},
+    {"key":"toolkit","path":"apps/web/public/brand/arkiv-graph/trust-release/07-toolkit.png"}
+  ],
+  "screenshots": {
+    "ai":"apps/web/public/brand/arkiv-graph/trust-release/ai-result.png",
+    "trust":"apps/web/public/brand/arkiv-graph/trust-release/root-reader.png",
+    "mobile":"apps/web/public/brand/arkiv-graph/trust-release/mobile-viewport.png"
+  },
+  "scope":"Original generated conceptual artwork, actual cropped owned-product screenshots. Generation is not customer or topology evidence. Run the deck builder from the repository root with this manifest."
+}
