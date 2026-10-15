@@ -15,7 +15,9 @@ import {inspectQarinahPacket,verifyQarinahHandoff} from '@ajnasnb/ai-passport/qa
 const root=process.argv[2],load=async p=>JSON.parse(await fs.readFile(root+'/'+p,'utf8'));
 const packet=await load('apps/web/public/data/handoff-packet.json'),descriptor=descriptorSchema.parse(await load('apps/web/public/data/handoff-descriptor.json')),policy=policySchema.parse(await load('apps/web/public/data/policy.json'));
 inspectQarinahPacket(packet,descriptor.name,descriptor.version);
-const result=await verifyQarinahHandoff({packet,descriptor,repository:root+'/.local/context-fixture',connection:{policy}});
+const repository=process.cwd()+'/source-snapshot';await fs.mkdir(repository+'/src',{recursive:true});
+await fs.copyFile(root+'/apps/web/public/sources/release.ts',repository+'/src/release.ts');
+const result=await verifyQarinahHandoff({packet,descriptor,repository,connection:{policy}});
 const graphConfig=await load('apps/web/public/data/graph-config.json');
 const graph=await readGraph({policy},graphConfig.graph_digest);const graphPath=traverseGraph(graph.graph,'app:coding',{depth:4,maxNodes:40});if(graphPath.truncated||!graphPath.nodes.some(n=>n.type==='source')||indianNumber('0.01').paise!=='1'||!testGuard({operation:'all',checks:['sha256-format','review-current']}).passed)throw new Error('Graph/tool adapter failed');
 if(!result.admission.allowed||!result.context)throw new Error('Context was not admitted');
