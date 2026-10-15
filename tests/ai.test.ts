@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import {aiRun,MODEL,runInputSchema} from '../worker/ai';
 import {readGraph} from '../packages/sdk/src/graph';
 import {readRecords} from '../packages/sdk/src/arkiv';
-import {evaluateAdmission} from '../packages/sdk/src/index';
+import {evaluateAdmission,digestBytes} from '../packages/sdk/src/index';
 vi.mock('../packages/sdk/src/graph',async()=>({...await vi.importActual('../packages/sdk/src/graph'),readGraph:vi.fn()}));
 vi.mock('../packages/sdk/src/arkiv',()=>({readRecords:vi.fn()}));
 vi.mock('../packages/sdk/src/index',async()=>({...await vi.importActual('../packages/sdk/src/index'),evaluateAdmission:vi.fn()}));
@@ -11,6 +11,15 @@ const graph=JSON.parse(await fs.readFile('apps/web/public/data/evidence-graph.js
 const env={ARKIV_API_KEY:'private-test-key',ASSETS:{fetch:vi.fn(async(r:RequestInfo|URL)=>new Response(await fs.readFile('apps/web/public'+new URL(r instanceof Request?r.url:String(r)).pathname)))},AI:{run:vi.fn(async()=>({response:'{"operation":"all","checks":["sha256-format","review-current"]}'}))},AI_BUDGET:{getByName:vi.fn(()=>({fetch:vi.fn(async()=>new Response('reserved'))}))}};
 beforeEach(()=>{vi.clearAllMocks();vi.mocked(readGraph).mockResolvedValue({graph,records:[],block:'123',query:'fixed',read_at:'now'});vi.mocked(readRecords).mockResolvedValue({records:[],block:'124',query:'fixed',read_at:'now',ignored:0});vi.mocked(evaluateAdmission).mockResolvedValue({allowed:true,status:'requirements-satisfied',reason:'test',records:[]});env.AI.run.mockResolvedValue({response:'{"operation":"all","checks":["sha256-format","review-current"]}'});});
 describe('AI orchestration boundaries (mock inference)',()=>{
+ it('exports the exact bounded evidence message actually passed to the model',async()=>{
+  const r=await aiRun({task:'coding'},env,'https://example.com');const body=r.body as any;
+  const call=env.AI.run.mock.calls[0] as unknown as [string,{messages:{role:string;content:string}[]}];
+  const message=call[1].messages.find(m=>m.role==='user')!.content;
+  expect(JSON.stringify(body.model_evidence)).toBe(message);expect(body.evidence_message_sha256).toBe(digestBytes(new TextEncoder().encode(message)));expect(body.memory_chars).toBe(message.length);expect(body.model_evidence.contentRole).toBe('untrusted-data');expect(body.admission_checks).toEqual({context:'requirements-satisfied',runtime:'requirements-satisfied'});expect(body.graph_selection.nodes).toBeGreaterThan(0);expect(body.model_evidence.sources.every((s:any)=>body.source_refs.some((ref:any)=>ref.path===s.path&&ref.digest===s.digest))).toBe(true);
+ });
+ it('does not export or send a model evidence message when review admission fails',async()=>{
+  vi.mocked(evaluateAdmission).mockResolvedValue({allowed:false,status:'withdrawn',reason:'withdrawn',records:[]});const r=await aiRun({task:'coding'},env,'https://example.com');expect(r.status).toBe(409);expect(r.body).not.toHaveProperty('model_evidence');expect(env.AI.run).not.toHaveBeenCalled();
+ });
  it('runs a validated coding guard after graph, sources and admission',async()=>{const r=await aiRun({task:'coding'},env,'https://example.com');expect(r.status).toBe(200);expect((r.body as any).coding.passed).toBe(true);expect(env.AI.run).toHaveBeenCalledWith(MODEL,expect.objectContaining({max_tokens:420}));expect((r.body as any).source_refs.length).toBeGreaterThan(0);});
  it('prevents inference if a context or tool review is rejected',async()=>{vi.mocked(evaluateAdmission).mockResolvedValue({allowed:false,status:'withdrawn',reason:'withdrawn',records:[]});const r=await aiRun({task:'coding'},env,'https://example.com');expect(r.status).toBe(409);expect(env.AI.run).not.toHaveBeenCalled();expect(env.AI_BUDGET.getByName).not.toHaveBeenCalled();});
  it('prevents inference when the signed graph cannot be read',async()=>{vi.mocked(readGraph).mockRejectedValue(new Error('unavailable'));await expect(aiRun({task:'coding'},env,'https://example.com')).rejects.toThrow();expect(env.AI.run).not.toHaveBeenCalled();});
