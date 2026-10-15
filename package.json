@@ -10,8 +10,8 @@
     "vendor/qarinah"
   ],
   "scripts": {
-    "build:sdk": "npm run build --workspace @arkiv-graph/sdk && npm run build --workspace @app-passport/sdk",
-    "build": "npm run build:sdk && npm run build --workspace @app-passport/web",
+    "build:sdk": "npm run build --workspace @ajnasnb/arkiv-graph && npm run build --workspace @ajnasnb/ai-passport",
+    "build": "npm run check:runtime && npm run build:sdk && npm run build --workspace @app-passport/web",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "fixtures": "tsx scripts/build-fixtures.ts",
@@ -20,7 +20,8 @@
     "arkiv:verify": "tsx scripts/verify-live.ts",
     "handoff:consume": "tsx scripts/consume-handoff.ts",
     "test:e2e": "playwright test",
-    "dev": "npm run dev --workspace @app-passport/web"
+    "dev": "npm run dev --workspace @app-passport/web",
+    "check:runtime": "node scripts/check-runtime-binding.mjs"
   },
   "dependencies": {
     "qarinah": "0.6.0"

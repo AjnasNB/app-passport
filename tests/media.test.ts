@@ -8,6 +8,7 @@ describe('seekable launch video',()=>{
  });
  it('fails if the complete asset differs from the declared release length',async()=>{
   await expect(videoRange(request('bytes=1-2'),new Response(new Uint8Array([0,1,2,3])),5)).rejects.toThrow('length mismatch');
+  const oversized=await videoRange(request('bytes=1-2'),new Response(new Uint8Array([0,1,2,3])),16*1024*1024+1);expect(oversized.status).toBe(200);expect((await oversized.arrayBuffer()).byteLength).toBe(4);
  });
  it('serves the exact requested middle bytes with their complete-file offsets',async()=>{
   const r=await videoRange(request('bytes=3-6'),asset());expect(r.status).toBe(206);expect(r.headers.get('content-range')).toBe('bytes 3-6/10');expect([...new Uint8Array(await r.arrayBuffer())]).toEqual([3,4,5,6]);

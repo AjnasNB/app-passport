@@ -1,36 +1,53 @@
-# Arkiv Graph SDK
+# Arkiv Graph
 
-An MIT developer infrastructure package for connected records on Arkiv. AI Passport is its reference application, not a dependency or required domain.
+An MIT TypeScript SDK for complete signed graph manifests, typed relationships and bounded independent readers on Arkiv. AI Passport is a reference application; the default graph protocol accepts other domains.
 
-## Install
+## Install and verify a public graph
 
-This release is distributed as a downloadable tarball. It is **not published on the npm registry**.
+Node.js 24 or later is required for this tested release. Readers need no wallet or signing key.
 
 ```sh
-npm install https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-sdk-0.2.0.tgz
+npm install @ajnasnb/arkiv-graph@0.3.0
 ```
 
-```js
-import {createGraphKit, digestJson} from '@arkiv-graph/sdk';
-const kit = createGraphKit();
-const graph = kit.graphSchema.parse({
-  schema: 'arkiv.graph.v1', label: 'Equipment maintenance',
-  nodes: [
-    {id:'equipment:pump',type:'equipment',label:'Pump',digest:digestJson({serial:'demo-01'}),detail:'Synthetic example'},
-    {id:'inspection:one',type:'inspection',label:'Inspection',digest:digestJson({checked:true}),detail:'Synthetic example'}
-  ],
-  edges: [{id:'edge:inspection',from:'equipment:pump',to:'inspection:one',relation:'inspected-by'}]
-});
-const payloads = kit.graphPayloads(graph, account.address, issuedAt, validUntil);
-const signed = await Promise.all(payloads.map(p => kit.signGraph(p, account)));
-const inputs = signed.map(kit.graphEntityInput);
-// Submit inputs with an Arkiv wallet client. Small resumable batches are recommended.
-const live = await kit.readGraph({rpc, issuers:[account.address]}, digestJson(graph));
-const path = kit.traverseGraph(live.graph, 'equipment:pump', {depth:4,maxNodes:40});
-if (path.truncated) throw new Error('Incomplete path');
+Save this public configuration as `reader.json` (the fixture expires; use your own root for a persistent integration):
+
+```json
+{
+  "schema": "arkiv-graph.reader.v1",
+  "profile": "arkiv-graph-v1",
+  "rpc": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+  "graph_digest": "sha256:724614507a2f0ddaccf7eb58fcc9e4981f3a344776c6f906986a057d05f80297",
+  "issuers": [
+    "0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC"
+  ]
+}
 ```
 
-Writers need testnet gas tokens. Readers need no wallet. The public demo uses free Tiramisu tokens and independent raw RPC readers. Production chain costs and RPC quotas depend on the provider.
+```sh
+npx arkiv-graph verify reader.json
+npx arkiv-graph trace reader.json application:ai-passport
+npx arkiv-graph context reader.json application:ai-passport
+```
+
+Expected verification: `verified: true`, 7 nodes, 8 edges, 16 entities and the observed read block. Counts describe this project-published fixture, not outside adoption. A quota, timeout, expired fixture or incomplete graph produces an error; never substitute an old positive result. Choose your own RPC/provider and accepted authors for real use.
+
+The complete JavaScript reader is packaged at `examples/read.mjs`:
+
+```sh
+node node_modules/@ajnasnb/arkiv-graph/examples/read.mjs reader.json
+```
+
+## Publish your own synthetic graph
+
+The complete `examples/publish.mjs` creates two synthetic equipment/inspection nodes, one relationship and one manifest, signs every member, submits four actual entities, writes a public reader configuration and verifies it through Arkiv. Set `ARKIV_GRAPH_PRIVATE_KEY` using a private environment or secret manager, fund that dedicated account with free Tiramisu testnet tokens through [Arkiv Hub](https://hub.arkiv.network/), then explicitly broadcast:
+
+```sh
+node node_modules/@ajnasnb/arkiv-graph/examples/publish.mjs --publish
+npx arkiv-graph verify graph-reader.json
+```
+
+Optional environment: `ARKIV_GRAPH_RPC` (HTTPS) and `ARKIV_GRAPH_API_KEY` (private provider quota). Neither secret is written to the generated public configuration. Never commit a private key, access key, private source content or personal data. The synthetic graph has seven-day signed validity and 30-day storage; renewals require a new deliberate publication. If a transaction outcome is uncertain, inspect its printed transaction ID before retrying. Independent readers choose whether to trust the public creator; publication grants no universal authority.
 
 ## Reader CLI and MCP
 
@@ -38,7 +55,7 @@ Download a public `arkiv-graph.reader.v1` configuration. It pins the root, proto
 
 ```sh
 npx arkiv-graph verify reader.json
-npx arkiv-graph trace reader.json app:coding
+npx arkiv-graph trace reader.json application:ai-passport
 npx arkiv-graph mcp reader.json
 ```
 
@@ -57,9 +74,9 @@ Limits: 200 nodes, 500 edges, eight pages of 100 entities, directed traversal de
 Qarinah selection and passport review/withdrawal admission remain separate application layers. Equipment and document examples demonstrate the generic schema locally and do not claim customer adoption.
 
 
-## AI context adapter (0.2.0)
+## AI context adapter
 
-`@arkiv-graph/sdk/context` exports `readGraphContext(connection, graphDigest, start, options)`. It authenticates a current complete pinned graph before traversing a bounded path. The optional caller-controlled `loadSource(node)` must return original bytes, which are checked against the signed node digest before a labelled excerpt is included. The SDK never opens arbitrary files or fetches source URLs on its own. Without a loader, source references are explicitly unverified.
+`@ajnasnb/arkiv-graph/context` exports `readGraphContext(connection, graphDigest, start, options)`. It authenticates a current complete pinned graph before traversing a bounded path. The optional caller-controlled `loadSource(node)` must return original bytes, which are checked against the signed node digest before a labelled excerpt is included. The SDK never opens arbitrary files or fetches source URLs on its own. Without a loader, source references are explicitly unverified.
 
 Context carries `contentRole: untrusted-data`, `execution_authority: false`, the graph root and read block, selected node/edge identities, source references and a context digest. Character limits are 512–12,000 and source excerpts at most 2,000 characters. Whole source byte limits are 2 MiB per source and 4 MiB total. Invalid, incomplete, changed or over-budget paths fail. Token counts are rough character estimates. Source truth and review admission remain separate application responsibilities.
 

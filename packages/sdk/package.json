@@ -1,6 +1,6 @@
 {
-  "name": "@app-passport/sdk",
-  "version": "0.4.0",
+  "name": "@ajnasnb/ai-passport",
+  "version": "0.5.0",
   "type": "module",
   "license": "MIT",
   "description": "Signed Arkiv evidence graphs, AI tool/context admission and Qarinah adapters.",
@@ -42,7 +42,7 @@
     "@arkiv-network/sdk": "0.8.1",
     "viem": "2.57.5",
     "zod": "4.1.0",
-    "@arkiv-graph/sdk": "0.2.0"
+    "@ajnasnb/arkiv-graph": "0.3.0"
   },
   "peerDependencies": {
     "qarinah": ">=0.6.0 <0.8.0"
@@ -54,5 +54,28 @@
   },
   "devDependencies": {
     "tsup": "8.5.0"
-  }
+  },
+  "author": "Ajnas NB",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AjnasNB/arkiv-graph.git",
+    "directory": "packages/sdk"
+  },
+  "homepage": "https://arkivgraph.ajnasnb.com/",
+  "bugs": {
+    "url": "https://github.com/AjnasNB/arkiv-graph/issues"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "arkiv",
+    "graph",
+    "ai",
+    "mcp",
+    "evidence"
+  ]
 }

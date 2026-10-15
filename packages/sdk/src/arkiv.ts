@@ -43,6 +43,9 @@ export async function publishEnvelope(c:Connection,account:any,envelope:Envelope
   if(envelope.payload.kind==='withdrawal'){
     const r=createPublicClient({chain:tiramisu,transport});const target=await decodeEntity(await r.getEntity(envelope.payload.target_key as Hex),(await r.getBlockTiming()).currentBlock);
     if(!target||target.creator.toLowerCase()!==account.address.toLowerCase()||target.envelope.payload.kind==='withdrawal'||target.envelope.payload.artifact_digest!==envelope.payload.artifact_digest||target.envelope.payload.descriptor_digest!==envelope.payload.descriptor_digest||Date.parse(envelope.payload.valid_until)<Date.parse(target.envelope.payload.valid_until))throw new Error('Withdrawal must be by the target issuer, bound to its artifact, and cover target validity');
+    const days=Math.max(30,Math.ceil((Date.parse(envelope.payload.valid_until)-Date.now()+120000)/86400000));
+    const input=entityInput(envelope,days);
+    return createWalletClient({chain:tiramisu,account,transport}).createEntity({...input,expires:ExpirationTime.atBlock(BigInt(target.expires_at_block),{atLeast:input.expires})});
   }
   return createWalletClient({chain:tiramisu,account,transport}).createEntity(entityInput(envelope));
 }

@@ -7,6 +7,7 @@ import {AI_PASSPORT_PROFILE} from '../packages/arkiv-graph/src/index';
 import {readGraphContext} from '../packages/arkiv-graph/src/context';
 import {videoRange} from './media';
 import launchAsset from '../apps/web/public/data/launch-evaluation.json';
+import {twoClientRead} from './two-client';
 export {AiBudget} from './budget';
 import {readRecords} from '../packages/sdk/src/arkiv';
 import {digestSchema,policySchema} from '../packages/sdk/src/index';
@@ -16,6 +17,13 @@ export default {async fetch(request:Request,env:Env):Promise<Response>{
  const url=new URL(request.url);
  if(url.hostname==='passport.ajnasnb.com'&&(request.method==='GET'||request.method==='HEAD')){url.hostname='arkivgraph.ajnasnb.com';return Response.redirect(url.href,308);}
  if(url.pathname==='/api/health'){if(request.method!=='GET')return new Response(JSON.stringify({error:'Read-only endpoint'}),{status:405,headers});return new Response(JSON.stringify({service:'Arkiv Graph + AI Passport',network:'Tiramisu',write_access:'operator-only',public_uploads:false}),{headers});}
+ if(url.pathname==='/api/two-client/records'){
+  if(request.method!=='GET')return new Response(JSON.stringify({error:'Read-only endpoint'}),{status:405,headers});
+  if([...url.searchParams.keys()].some(key=>key!=='consumer')||url.searchParams.getAll('consumer').length!==1||!['A','B'].includes(url.searchParams.get('consumer')||''))return new Response(JSON.stringify({error:'Select consumer A or B'}),{status:400,headers});
+  if(!(await env.READ_LIMITER.limit({key:request.headers.get('CF-Connecting-IP')||'anonymous'})).success)return new Response(JSON.stringify({error:'Please retry shortly'}),{status:429,headers:{...headers,'retry-after':'60'}});
+  try{return new Response(JSON.stringify(await twoClientRead(env,url.origin)),{headers});}
+  catch{return new Response(JSON.stringify({error:'This request could not verify its current session graph and review. No cached admission is returned.'}),{status:503,headers});}
+ }
  if(url.pathname==='/api/records'){
   if(request.method!=='GET')return new Response(JSON.stringify({error:'Read-only endpoint'}),{status:405,headers});
   const limit=await env.READ_LIMITER.limit({key:request.headers.get('CF-Connecting-IP')||'anonymous'});if(!limit.success)return new Response(JSON.stringify({error:'Please retry shortly'}),{status:429,headers:{...headers,'retry-after':'60'}});

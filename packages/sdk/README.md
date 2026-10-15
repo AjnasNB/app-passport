@@ -4,10 +4,10 @@ I built AppPassport to bind exact AI-tool artifacts and Qarinah context packets 
 
 ## Install
 
-Node.js 24 is the tested runtime. This release is distributed as a tarball; it is not published to npm.
+Node.js 24 is the tested runtime. The application adapter uses the separately published Arkiv Graph package.
 
 ```sh
-npm install https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-sdk-0.2.0.tgz https://arkivgraph.ajnasnb.com/downloads/app-passport-sdk-0.4.0.tgz
+npm install @ajnasnb/ai-passport@0.5.0
 # Optional, for the node-only Qarinah adapter:
 npm install qarinah@0.7.0
 ```
@@ -15,8 +15,8 @@ npm install qarinah@0.7.0
 ## Read and admit
 
 ```ts
-import { readRecords } from '@app-passport/sdk/arkiv';
-import { evaluateAdmission } from '@app-passport/sdk';
+import { readRecords } from '@ajnasnb/ai-passport/arkiv';
+import { evaluateAdmission } from '@ajnasnb/ai-passport';
 
 const live = await readRecords({ policy, rpc }, descriptor.artifact_digest);
 const decision = await evaluateAdmission({
@@ -35,7 +35,7 @@ Policies specify accepted issuer and reviewer wallet addresses. Record signature
 ## Qarinah adapter
 
 ```ts
-import { verifyQarinahHandoff } from '@app-passport/sdk/qarinah';
+import { verifyQarinahHandoff } from '@ajnasnb/ai-passport/qarinah';
 const result = await verifyQarinahHandoff({
   packet, descriptor,
   repository: '/your/selected/repository',
@@ -70,7 +70,7 @@ Full source, fixture generation, evaluation results, baseline disclosures and th
 ## Evidence graph
 
 ```ts
-import { readGraph, traverseGraph } from '@app-passport/sdk/graph';
+import { readGraph, traverseGraph } from '@ajnasnb/ai-passport/graph';
 const live = await readGraph({ policy, rpc }, graphDigest);
 const path = traverseGraph(live.graph, 'app:coding', { depth: 4, maxNodes: 40 });
 if (path.truncated) throw new Error('Incomplete evidence');
@@ -82,5 +82,9 @@ A tested MCP bridge in the source repository exposes `trace_evidence` over stdio
 
 ## Bounded useful tools
 
-`@app-passport/sdk/tools` exposes `indianNumber`, `safetyQuestions`, `runGuard` and `testGuard`. The guard is a finite interpreted language; model-generated JavaScript is never evaluated. These are demonstration tools, not a universal code sandbox.
+`@ajnasnb/ai-passport/tools` exposes `indianNumber`, `safetyQuestions`, `runGuard` and `testGuard`. The guard is a finite interpreted language; model-generated JavaScript is never evaluated. These are demonstration tools, not a universal code sandbox.
 
+
+## Withdrawal retention
+
+An authenticated same-author withdrawal must cover its exact target signed deadline and storage expiry. An insufficient withdrawal makes admission unavailable while observable, including after that short signed deadline. A proper covering replacement can repair the target and a new separately reviewed record can be admitted. Readers trust the selected RPC for metadata and completeness; expired/deleted/omitted historical withdrawals cannot be reconstructed from a current-only query. This is not permanent revocation or independent chain-state proof.

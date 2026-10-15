@@ -1,5 +1,5 @@
 import React,{useEffect,useRef,useState} from 'react';
-import {createGraphKit,AI_PASSPORT_PROFILE,type EvidenceGraph,type GraphRecord} from '@arkiv-graph/sdk';
+import {createGraphKit,AI_PASSPORT_PROFILE,type EvidenceGraph,type GraphRecord} from '@ajnasnb/arkiv-graph';
 import {ExternalLinkIcon,ReloadIcon} from '@radix-ui/react-icons';
 type Dataset='infrastructure'|'reference';
 type Live={graph:EvidenceGraph;records:GraphRecord[];block:string;dataset:Dataset};

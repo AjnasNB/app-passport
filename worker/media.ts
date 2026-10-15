@@ -1,5 +1,5 @@
 // Workers Assets may ignore Range. The short launch clip still needs seekable playback.
-const MAX_VIDEO_BYTES=8*1024*1024;
+const MAX_VIDEO_BYTES=16*1024*1024;
 export async function videoRange(request:Request,response:Response,assetBytes?:number):Promise<Response>{
  if(response.status!==200||request.method!=='GET')return response;
  const headers=new Headers(response.headers);headers.set('Accept-Ranges','bytes');

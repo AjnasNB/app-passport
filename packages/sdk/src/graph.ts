@@ -1,5 +1,5 @@
 /** Compatibility adapter: preserves existing AI Passport signatures and graph roots. */
-import {createGraphKit,AI_PASSPORT_PROFILE} from '@arkiv-graph/sdk';
+import {createGraphKit,AI_PASSPORT_PROFILE} from '@ajnasnb/arkiv-graph';
 import type {Policy} from './index';
 import type {z} from 'zod';
 const kit=createGraphKit(AI_PASSPORT_PROFILE);

@@ -35,7 +35,7 @@ export type Envelope=z.infer<typeof envelopeSchema>;
 export const policySchema=z.object({issuers:z.array(address).min(1).max(20),reviewers:z.array(address).min(1).max(20),scope:z.literal('identity-and-protocol')}).strict();
 export type Policy=z.infer<typeof policySchema>;
 export interface VerifiedRecord {key:string;creator:string;owner:string;created_at_block:string;expires_at_block:string;envelope:Envelope;}
-export interface Admission {status:'requirements-satisfied'|'unknown'|'expired'|'withdrawn'|'artifact-mismatch'|'stale-context'|'attention-required'|'unavailable';allowed:boolean;reason:string;records:VerifiedRecord[];}
+export interface Admission {status:'requirements-satisfied'|'unknown'|'expired'|'withdrawn'|'artifact-mismatch'|'stale-context'|'attention-required'|'unavailable';allowed:boolean;reason:string;records:VerifiedRecord[];valid_until?:string;}
 
 /** Bounded canonical JSON. Accessors, cycles, prototypes and unsupported values are rejected. */
 export function canonicalJson(value:unknown):string {
@@ -96,8 +96,19 @@ export async function evaluateAdmission(input:{descriptor:Descriptor;observedDig
   const relevant=authenticated.filter(r=>r.envelope.payload.artifact_digest===descriptor.artifact_digest&&r.envelope.payload.descriptor_digest===descriptorHash&&r.envelope.payload.issuer.toLowerCase()===r.creator.toLowerCase());
   const role=(r:VerifiedRecord)=>r.envelope.payload.kind==='passport'?policy.issuers:r.envelope.payload.kind==='review'?policy.reviewers:[...policy.issuers,...policy.reviewers];
   const trusted=relevant.filter(r=>role(r).some(a=>a.toLowerCase()===r.creator.toLowerCase()));
-  const live=trusted.filter(r=>Date.parse(r.envelope.payload.valid_until)>now&&Date.parse(r.envelope.payload.issued_at)<=now+60000);
-  const withdrawn=(target:VerifiedRecord)=>live.some(r=>r.envelope.payload.kind==='withdrawal'&&r.envelope.payload.target_key.toLowerCase()===target.key.toLowerCase()&&r.creator.toLowerCase()===target.creator.toLowerCase()&&BigInt(r.created_at_block)>=BigInt(target.created_at_block));
+  const issued=trusted.filter(r=>Date.parse(r.envelope.payload.issued_at)<=now+60000);
+  const live=issued.filter(r=>Date.parse(r.envelope.payload.valid_until)>now);
+  const targets=live.filter(r=>r.envelope.payload.kind!=='withdrawal');
+  const matches=(withdrawal:VerifiedRecord,target:VerifiedRecord)=>withdrawal.envelope.payload.kind==='withdrawal'&&withdrawal.envelope.payload.target_key.toLowerCase()===target.key.toLowerCase()&&withdrawal.creator.toLowerCase()===target.creator.toLowerCase()&&BigInt(withdrawal.created_at_block)>=BigInt(target.created_at_block);
+  const covers=(withdrawal:VerifiedRecord,target:VerifiedRecord)=>Date.parse(withdrawal.envelope.payload.valid_until)>=Date.parse(target.envelope.payload.valid_until)&&BigInt(withdrawal.expires_at_block)>=BigInt(target.expires_at_block);
+  // Inspect issued withdrawals even after their signed deadline: a malformed short
+  // withdrawal must never transiently revoke, then silently revive a live target.
+  // A proper covering replacement can repair the malformed withdrawal's target.
+  for(const target of targets){
+    const related=issued.filter(r=>matches(r,target));
+    if(related.length&&!related.some(r=>covers(r,target)))return answer('unavailable','An accepted withdrawal does not cover its target validity and storage. Current admission cannot be established.',trusted);
+  }
+  const withdrawn=(target:VerifiedRecord)=>issued.some(r=>matches(r,target)&&covers(r,target));
   const passports=live.filter(r=>r.envelope.payload.kind==='passport');const reviews=live.filter(r=>r.envelope.payload.kind==='review');
   const currentPassport=passports.find(r=>!withdrawn(r));const currentReviews=reviews.filter(r=>!withdrawn(r));
   if(currentReviews.some(r=>r.envelope.payload.kind==='review'&&r.envelope.payload.conclusion==='attention-required'))return answer('attention-required','An accepted reviewer reports a check requiring attention.',trusted);
@@ -106,5 +117,6 @@ export async function evaluateAdmission(input:{descriptor:Descriptor;observedDig
     const expired=trusted.some(r=>r.envelope.payload.kind!=='withdrawal'&&Date.parse(r.envelope.payload.valid_until)<=now);
     return expired?answer('expired','The required passport or review has expired. Renewal needs fresh evidence.',trusted):answer('unknown','An accepted current passport and review are both required.',trusted);
   }
-  return answer('requirements-satisfied','Artifact identity and current review satisfy this policy. This is not a safety certification.',trusted);
+  const reviewDeadline=Math.max(...currentReviews.map(r=>Date.parse(r.envelope.payload.valid_until)));
+  return {...answer('requirements-satisfied','Artifact identity and current review satisfy this policy. This is not a safety certification.',trusted),valid_until:new Date(Math.min(Date.parse(currentPassport.envelope.payload.valid_until),reviewDeadline)).toISOString()};
 }

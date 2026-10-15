@@ -1,7 +1,7 @@
 import React,{useState,useRef,useEffect} from 'react';
 import {ArrowRightIcon,CheckIcon,DownloadIcon,ExternalLinkIcon,CodeIcon} from '@radix-ui/react-icons';
-import {indianNumber,safetyQuestions} from '@app-passport/sdk/tools';
-import {digestJson,digestBytes} from '@app-passport/sdk';
+import {indianNumber,safetyQuestions} from '@ajnasnb/ai-passport/tools';
+import {digestJson,digestBytes} from '@ajnasnb/ai-passport';
 import {AIJourney} from './AIJourney';
 import './journey.css';
 export function AILab({openGraph}:{openGraph:()=>void}){
