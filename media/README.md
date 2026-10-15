@@ -1,8 +1,22 @@
 # Arkiv Graph launch
 
-The current launch film is `/media/arkiv-graph-launch.mp4`: 128 seconds of original motion graphics and actual product capture, with original music and synthetic narration. AI Passport is shown as the reference application. Graph storage and indexing are supplied by Arkiv; graph assembly, complete-manifest verification, bounded traversal and context selection run in the SDK.
+The current launch film is `/media/arkiv-graph-launch.mp4`: 162 seconds of original motion graphics and actual product capture, with original music and generic synthetic narration. AI Passport is the reference application. Arkiv supplies indexed public entities; graph assembly, signed complete manifests, bounded traversal and context selection run in the SDK.
 
-## Live withdrawal and public SDK release
+## Signed roots, retained withdrawals and mobile evidence
+
+`trust-launch-motion.tsx`, `render-trust-launch.py` and `trust-launch-audio.py` build the current film through OpenMontage/Remotion. The film uses native animated graphs, revision links, a retained-withdrawal journal, an actual mobile-lab chart and recordings of the deployed website. It is not an animated deck. `trust-pitch-deck.mjs` and `trust-pitch-pdf.py` separately create seven image-led pitch pages with editable labels, a native chart, real screenshots and source/caveat notes. The generated artwork is conceptual, not evidence of customers or deployed topology.
+
+The root demonstration publishes two signed revisions and six graph records together in one atomic transaction. These are tiny synthetic graphs, separate from AI Passport's pinned 71-entity graph. The live UI verifies both signed revisions and reconstructs the complete selected current graph. Older-head and edited-root controls are explicitly local replay tests. They do not claim an attack against the official provider.
+
+The recorded three-transaction withdrawal lifecycle is historical. New website recordings make fresh reads and refuse the already withdrawn review. Both readers and signing wallets are project-operated. The journal animation explains separately tested pending-target retention, persistence before admission and same-origin tab coordination. Clearing local history removes that retained protection. One live RPC remains trusted for metadata and completeness; unseen omissions are not solved.
+
+Mobile numbers come from 18 project-run Lighthouse audits: three cold-load runs per route and phase on desktop Chrome with simulated mobile settings. The before/after medians are Overview 87/98, Context 88/98 and Two-client 41/96. These are lab measurements, not physical-phone or field results. The recorded phone viewport illustrates layout only.
+
+Capture provenance, source hashes, exact final file bytes, caption timings, measured audio and the scope of visual/automated review are published in `/data/launch-evaluation.json`. Production intermediates and private receipts stay outside the public source. Use the exact evidence manifest and local prerequisites to render; readers can reproduce the application independently of the media toolchain.
+
+`trust-pitch-assets.json` references all seven generated artworks and the real screenshot crops included in the public checkout. Pass it to `node media/trust-pitch-deck.mjs media/trust-pitch-assets.json` from the repository root. The deck tool requires the presentation artifact runtime, its Python validator and the presentation skill directory through `ARTIFACT_NODE_MODULES`, `ARTIFACT_PYTHON` and `ARTIFACT_PRESENTATIONS_SKILL`. It does not install these production tools into the SDK. The companion PDF is made from the inspected slide renders; labels and the measurement chart stay editable in the PPTX.
+
+## Earlier 128-second withdrawal and public SDK release
 
 `two-client-motion.tsx`, `render-release-chapter.py`, `release-audio.py`, `assemble-release.py` and `caption-release.py` extend the source-to-model journey with actual two-client capture, a native branching/withdrawal sequence, the public npm installation and a clean native brand close. The first 78 seconds retain the real AI reference journey; the next 36 show the separate deterministic guard lifecycle, followed by eight seconds of npm and a six-second close. No model inference runs in the two-client chapter. Both readers and signing wallets are project-operated; provider metadata and query completeness remain trusted.
 
@@ -48,4 +62,4 @@ The application records, schemas and SDK remain reproducible independently of th
 
 `ai-film.tsx`, `narrate-ai.py` and `render-ai.py` produce a 75-second original motion film through OpenMontage and its Remotion renderer. It shows the real coding/gate/India-tool website flow and a moving source/context/run graph. The original 70-second prototype is preserved separately. A targeted graph-scene repair removes a footer overlap. Narration uses local Kokoro af_heart and is synthetic. Final audio is normalized and measured; waveform metadata and real render evidence are in `/data/ai-video-evaluation.json`. No PPT slide is animated into the film.
 
-The current trust/mobile release keeps the reviewed 128-second film unchanged. Its recorded npm scene shows the actual earlier 0.3.0 release; current 0.4.0/0.6.0 package bytes, signed root updates and mobile measurements have separate live website, PDF and JSON evidence. The film does not claim to demonstrate the newly added root-update controls.
+The earlier trust/mobile evidence release retained its reviewed 128-second film. The current 162-second film replaces that presentation with actual root-update controls, retained-withdrawal explanations, current 0.4.0/0.6.0 package versions and the measured mobile results. Earlier source files and dated observations remain historical references.

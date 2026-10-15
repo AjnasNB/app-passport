@@ -1,6 +1,6 @@
 # Reproducible integration observations
 
-Environment: Windows, Node 24.15.0, `@arkiv-network/sdk` 0.8.1, Tiramisu chain 7738577. Release packages: `@ajnasnb/arkiv-graph` 0.3.0 and `@ajnasnb/ai-passport` 0.5.0. The integration observations below distinguish application issues from Arkiv behavior.
+Environment: Windows, Node 24.15.0, `@arkiv-network/sdk` 0.8.1, Tiramisu chain 7738577. Current release packages: `@ajnasnb/arkiv-graph` 0.4.0 and `@ajnasnb/ai-passport` 0.6.0. Earlier observations retain their original version and date where stated. The integration observations below distinguish application issues from Arkiv behavior.
 
 ## Reproduction map and observed results
 

@@ -5,6 +5,7 @@ root=Path(__file__).resolve().parent.parent
 parser=argparse.ArgumentParser()
 parser.add_argument('--work',default=str(root/'.local/graph-release'))
 parser.add_argument('--final',default=str(root/'.local/graph-release-final'))
+parser.add_argument('--duration',type=float,default=128)
 args=parser.parse_args()
 work=Path(args.work);final=Path(args.final)
 final.mkdir(exist_ok=True)
@@ -30,7 +31,7 @@ for row in timing:
     cues.append({'start':max(0,start-.05),'end':end,'text':' '.join(x[1] for x in group)})
   lines.append({'id':str(row['id']),'start':a,'end':b,'text':caption_text})
 for i,cue in enumerate(cues):
-  next_start=cues[i+1]['start'] if i+1<len(cues) else 127.8
+  next_start=cues[i+1]['start'] if i+1<len(cues) else args.duration-.2
   cue['end']=min(next_start-.03,max(cue['end'],cue['start']+len(cue['text'])/19.5))
   if cue['end']<=cue['start']:raise RuntimeError('Invalid caption interval')
 def ts(seconds):

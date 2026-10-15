@@ -1,0 +1,213 @@
+{
+  "schema": "arkiv-graph.launch-capture-evidence.v1",
+  "recorded_at": "2026-10-15T13:28:41.221Z",
+  "completed_at": "2026-10-15T13:32:28.450Z",
+  "base_url": "https://arkivgraph.ajnasnb.com",
+  "browser_errors": [],
+  "scope": "Actual owned live website, ordinary UI actions, no content injection or network response substitution. Screen-emulated mobile UI is not a physical-device or performance measurement.",
+  "clips": {
+    "ai": {
+      "sha256": "c2b824b4685e1fea2ec6062b8920503ecb4a038b4a6f5a7fa0e6cd81ce170687",
+      "start": 6.426,
+      "duration": 15.597999999999999,
+      "width": 1600,
+      "height": 900,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 1600,
+        "height": 900
+      },
+      "url": "https://arkivgraph.ajnasnb.com/app/",
+      "evidence_kind": "recorded-live-ai",
+      "recording_events": {
+        "run_clicked": 2.917,
+        "result_verified": 5.802,
+        "selected_start": 6.426,
+        "inputs": 11.893,
+        "model_evidence": 15.251,
+        "checked_result": 18.515
+      },
+      "notes": [
+        "One actual hosted admitted coding inference. Six deterministic boundary cases passed. Source context and returned evidence-message digest verified. Crop metadata for slide screenshot is in screenshot_crops."
+      ]
+    },
+    "root-read": {
+      "sha256": "fbc23bb10d252f2a83d164a18bad8940c6f236c8af3db770a06abbc42b56cd5a",
+      "start": 12.98,
+      "duration": 8,
+      "width": 1600,
+      "height": 900,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 1600,
+        "height": 900
+      },
+      "url": "https://arkivgraph.ajnasnb.com/?view=trust",
+      "evidence_kind": "fresh-live-rpc",
+      "recording_events": {
+        "click": 10.579,
+        "verified": 12.348,
+        "selected_start": 12.98
+      },
+      "notes": [
+        "Fresh /api/trust read of two real signed revisions. Publication remains one historical transaction; this recording makes no chain write.",
+        "Observed block 610595 at 2026-10-15T13:29:16.317Z"
+      ]
+    },
+    "root-controls": {
+      "sha256": "ab2d1aa9d532438b4e0ca396a0d7f72461dec8047c0c318ae29e0042316a6fb2",
+      "start": 8.957,
+      "duration": 8.770000000000001,
+      "width": 1600,
+      "height": 900,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 1600,
+        "height": 900
+      },
+      "url": "https://arkivgraph.ajnasnb.com/?view=trust",
+      "evidence_kind": "controlled-signed-evidence-replay",
+      "recording_events": {
+        "selected_start": 8.957,
+        "rollback": 9.064,
+        "tamper": 13.42
+      },
+      "notes": [
+        "Actual product test controls replay/truncate and alter the authentic fetched signed evidence locally. No provider attack or chain writes."
+      ]
+    },
+    "two-client-refusal": {
+      "sha256": "2e5908cec708fa1de25bb0ef526a50fdf20a91f243594ed6bcf12fbd1b2619be",
+      "start": 6.742,
+      "duration": 14,
+      "width": 1600,
+      "height": 900,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 1600,
+        "height": 900
+      },
+      "url": "https://arkivgraph.ajnasnb.com/two-client/",
+      "evidence_kind": "fresh-live-rpc",
+      "recording_events": {
+        "read_clicked": 3.175,
+        "refused": 6.199,
+        "selected_start": 6.742
+      },
+      "notes": [
+        "Both project-operated clients make new requests; both refuse the already withdrawn exact review. The completed historical accepted lifecycle remains separately identified. No inference and no chain writes."
+      ]
+    },
+    "mobile": {
+      "sha256": "aa54fd9c4c7098f77997497e7f8e2b04938c6f313d67e52c6224785b9b106af4",
+      "start": 2.365,
+      "duration": 10,
+      "width": 412,
+      "height": 823,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 412,
+        "height": 823
+      },
+      "url": "https://arkivgraph.ajnasnb.com/?view=context",
+      "evidence_kind": "recorded-mobile-ui",
+      "recording_events": {
+        "selected_start": 2.365,
+        "scroll": 7.611
+      },
+      "notes": [
+        "Actual current UI at 412×823 screen emulation. This recording is not a Lighthouse measurement, physical-phone test, field INP or latency benchmark."
+      ]
+    }
+  },
+  "ai": {
+    "run_id": "351a5039-ff2e-403d-abfc-5363e4120e98",
+    "completed_at": "2026-10-15T13:28:47.348Z",
+    "model": "@cf/meta/llama-3.2-3b-instruct",
+    "inference_run": true,
+    "allowed": true,
+    "coding": {
+      "passed": true,
+      "cases": [
+        {
+          "name": "Exact hash and current review",
+          "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "review": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "Withdrawn review",
+          "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "review": false,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "Bare prefix",
+          "digest": "sha256:",
+          "review": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "Wrong algorithm",
+          "digest": "md5:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "review": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "Non-hex identity",
+          "digest": "sha256:zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+          "review": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "Short identity",
+          "digest": "sha256:a",
+          "review": true,
+          "expected": false,
+          "actual": false
+        }
+      ],
+      "code": "export function approveRelease(artifactDigest, reviewValid) {\n  return /^sha256:[0-9a-f]{64}$/.test(artifactDigest) && reviewValid === true;\n}"
+    },
+    "memory_chars": 1371,
+    "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c",
+    "graph_read_block": "610579",
+    "read_block": "610579",
+    "evidence_message_sha256": "sha256:90cb45d353026059907f43005af925f4911373ac667ef9f9a9b4eebfe7873ae6",
+    "hosted_weights_attested": false
+  },
+  "root": {
+    "root": "sha256:8a036fdee3daac844c8b4ab0d78eedd792ae4b8d6d22bcfafb2f054fe9da0520",
+    "block": "610595",
+    "block_time": "2026-10-15T13:29:16.000Z",
+    "read_at": "2026-10-15T13:29:16.317Z",
+    "scope": "One configured provider; authenticated updates and complete pinned graph membership, not a cryptographic query-completeness proof.",
+    "revision_count": 2,
+    "query": "namespace = str('arkiv-graph-roots-v1') AND schema_version = u64(1) AND scope_hash = bytes32(0x7a687b810993be4c343f620540b5a1029ddaa89c22e0a3d2627921221a0bbeb8) AND $creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC) AND $expiresAt > u64(610595)"
+  },
+  "two_client_current_reads": [
+    {
+      "url": "https://arkivgraph.ajnasnb.com/api/two-client/records?consumer=A",
+      "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
+      "block": "610650",
+      "read_at": "2026-10-15T13:31:07.094Z"
+    },
+    {
+      "url": "https://arkivgraph.ajnasnb.com/api/two-client/records?consumer=B",
+      "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
+      "block": "610650",
+      "read_at": "2026-10-15T13:31:06.903Z"
+    }
+  ],
+  "method": "Actual owned-product UI, project-operated clients and wallets. Root controls are local signed-evidence replays. Mobile recording is viewport emulation, not the Lighthouse data."
+}

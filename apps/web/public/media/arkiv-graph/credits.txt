@@ -12,4 +12,6 @@ Motion and product: Ajnas NB. Font: DM Sans, SIL OFL 1.1. Reference video used f
 
 The 96-second release rearranges the original score with an additional 24-second source-to-model chapter.
 
-The current 128-second release adds original branching and withdrawal motion, actual project-operated two-client capture, and the public npm release. Waiting time is edited out; the request sequence is preserved. The two-client guard is deterministic and runs no model inference. Narration and score use the same disclosed local tools and licensed instrument source.
+The earlier 128-second release added original branching and withdrawal motion, actual project-operated two-client capture, and the public npm release. Waiting time was edited out; request order was preserved. The two-client guard is deterministic and runs no model inference.
+
+The current 162-second trust release uses native OpenMontage/Remotion motion graphics, fresh recordings of the actual deployed app, a historical testnet lifecycle illustration, root-update and withdrawal safeguard illustrations, and a chart of measured Lighthouse lab results. Original score passages are arranged with short crossfades. Narration remains generic synthetic Kokoro af_heart; no voice identity is cloned. Seven new presentation illustrations are generated conceptual artwork, not product screenshots or customer evidence. Editable charts and labels contain sourced measurements. The pitch deck is separate from the film.
