@@ -4,8 +4,8 @@ import {indianNumber,safetyQuestions} from '@ajnasnb/ai-passport/tools';
 import {digestJson,digestBytes} from '@ajnasnb/ai-passport';
 import {AIJourney} from './AIJourney';
 import './journey.css';
-export function AILab({openGraph}:{openGraph:()=>void}){
- const [task,setTask]=useState('coding'),[scenario,setScenario]=useState('current'),[lang,setLang]=useState('en'),[amount,setAmount]=useState('1234567.89'),[round,setRound]=useState(0),[answers,setAnswers]=useState<Record<number,number>>({}),[receipt,setReceipt]=useState<any>(null),[busy,setBusy]=useState(false),[error,setError]=useState('');const generation=useRef(0),abort=useRef<AbortController|null>(null);
+export function AILab({openGraph,initialTask='coding'}:{openGraph:()=>void;initialTask?:string}){
+ const [task,setTask]=useState(initialTask),[scenario,setScenario]=useState('current'),[lang,setLang]=useState('en'),[amount,setAmount]=useState('1234567.89'),[round,setRound]=useState(0),[answers,setAnswers]=useState<Record<number,number>>({}),[receipt,setReceipt]=useState<any>(null),[busy,setBusy]=useState(false),[error,setError]=useState('');const generation=useRef(0),abort=useRef<AbortController|null>(null);
  useEffect(()=>{generation.current++;abort.current?.abort();setReceipt(null);setError('');setBusy(false);},[task,scenario,lang,amount,round,answers]);
  useEffect(()=>()=>{abort.current?.abort();},[]);
  const q=safetyQuestions[round]!,selected=answers[round];let calculation:ReturnType<typeof indianNumber>|null=null,numberError='';try{calculation=indianNumber(amount);}catch{numberError='Use digits and up to two decimals, for example 1234567.89';}
