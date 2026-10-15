@@ -1,6 +1,6 @@
 # Reproducible integration observations
 
-Environment: Windows, Node 24.15.0, @arkiv-network/sdk 0.8.1, Tiramisu chain 7738577. AppPassport integration built during the challenge.
+Environment: Windows, Node 24.15.0, `@arkiv-network/sdk` 0.8.1, Tiramisu chain 7738577. Release packages: `@ajnasnb/arkiv-graph` 0.3.0 and `@ajnasnb/ai-passport` 0.5.0. The integration observations below distinguish application issues from Arkiv behavior.
 
 ## Read and publisher separation
 
@@ -45,15 +45,17 @@ Workers AI returned a structured guard object where our first integration expect
 ## Correctly named runtime checks
 
 The first runtime review reused a Qarinah-validator description intended for context packets. We withdrew that review and issued four correctly named checks backed by actual source hashing, deterministic arithmetic calls, six interpreted guard cases and quiz-reference shape checks. The original record, withdrawal and replacement remain inspectable in ai-evidence.json. The publisher now distinguishes context validation from runtime controlled calls; this is an application review-description correction, not an Arkiv defect.
-# Arkiv Graph infrastructure addition
+## Arkiv Graph infrastructure addition
 
-The first graph implementation mixed a reusable graph contract with AI Passport-specific type names, namespace and admission policy. I extracted the engine into `@arkiv-graph/sdk`, added a generic protocol profile, and kept the existing application signing domain through a compatibility adapter. That preserves all previously published graph signatures and roots.
+The first graph implementation mixed a reusable graph contract with AI Passport-specific type names, namespace and admission policy. I extracted the engine into `@ajnasnb/arkiv-graph`, added a generic protocol profile, and kept the existing application signing domain through `@ajnasnb/ai-passport`'s compatibility adapter. That preserves all previously published graph signatures and roots.
 
 The useful gap was an application-level connected-data convention and complete-manifest reader. Arkiv's indexed entities supply persistence and queries. Recursive traversal, pinned revision policy and completeness verification run in the SDK. There is no native Cypher engine or server-side graph join in this project.
 
 New evidence: a separate generic namespace has 7 nodes, 8 edges and 16 entities. A fresh tarball consumer reads both roots directly, verifies two CLI profiles, and runs eight real MCP trace/context success/budget cases. No website backend, access key or wallet is used by that consumer. Generic equipment types are exercised locally; equipment customers and production scale are not claimed.
 
-Both new packages are tarball releases rather than npm publications. Installing the AI Passport 0.4.0 application adapter requires installing the generic graph tarball in the same command. Reader configurations explicitly pin a root and accepted issuers; automatic latest-root discovery remains future work.
+Both 0.3.0/0.5.0 release tarballs passed a fresh install outside the workspace, standalone TypeScript compilation, all seven runtime entrypoint imports, two packaged graph CLI profiles and eight actual MCP checks. The separate application consumer passed original Qarinah validation, exact source hashing and the admission CLI with Qarinah 0.7.0. No workspace symlinks or `NODE_PATH` were used. Both packages are now public npm releases; unauthenticated registry metadata and tarball checks match the reviewed bytes in `npm-release.json`. Install exact versions from npm, or install both renamed tarballs together when using the adapter. Tarball consumer results are in `graph-infrastructure-evaluation.json` and `consumer-evaluation.json`; `--registry` reruns the gates anonymously with empty npm configs and a fresh cache, producing separate reports. Publication and these project-run installs do not establish external adoption or download counts. Reader configurations explicitly pin a root and accepted issuers; automatic latest-root discovery remains future work.
+
+The two anonymous registry gates also completed successfully. `graph-infrastructure-evaluation-registry.json` records both graph profiles, two CLI checks and eight MCP cases; `consumer-evaluation-registry.json` records original Qarinah/source checks and the admission CLI. Both report exact installed package versions, all seven runtime imports and successful standalone TypeScript compilation. Their direct RPC evaluation read block 604241. Each install used empty user/global npm configuration, a fresh cache and a platform-essential-only child environment, without inherited authentication credentials.
 
 ## Making creator checks visible to a consumer
 
@@ -62,3 +64,27 @@ Expected: users can distinguish Arkiv's protocol creator from an issuer field in
 ## Inspectable AI evidence is an application boundary
 
 Expected: a graph/context identity should be traceable into the actual evidence message used for inference. Observed: the Worker now returns the same bounded JSON evidence it passes to `AI.run`, plus its byte digest. The browser verifies the receipt and evidence-message digests before rendering a successful run. Reproduce with the coding handoff, `Inspect AI inputs`, and `Download model evidence`; the first recorded run in this iteration used two selected events, one source excerpt and 1371 characters. Tests in `tests/ai.test.ts` compare the exported message to the actual mocked provider-call argument and verify that review rejection sends none. The hosted browser test uses real inference. This is application transparency, not an Arkiv inference feature or provider computation attestation. No Arkiv defect is claimed.
+
+## Withdrawal retention must cover the target
+
+Expected: a withdrawn review must not reappear as admissible while its target record remains live. A fixed 30-day duration for the withdrawal can end before an already long-lived or extended target, even if their signed validity agrees. The publisher now uses the target's observed expiry block with a fresh storage floor, and the evaluator requires coverage of both signed validity and target storage. An accepted malformed short withdrawal causes `unavailable`, including after its short signed deadline, rather than briefly withdrawing and later reviving a still-live target. A correctly covering replacement can repair that condition. Storage extension alone cannot renew a signed assessment. Reproduce with the withdrawal coverage and publisher tests; the completed session's review expires at block 1899792 and its withdrawal at 1899917.
+
+## Two consumers need fresh decisions
+
+Expected: a second consumer's next task request observes an exact-target review withdrawal without receiving the first consumer's cached decision. Completed session `77000888-ffdc-4ecf-beb8-df529adfb952` publishes a passport at block 603788, review at 603792 and same-author withdrawal at 603917. A and B independently admitted at 603794 and 603795. After a separate bounded visibility observation, B's next request refused at 603919 and A's next refused at 603920. The [session report](https://arkivgraph.ajnasnb.com/data/two-client-session.json) retains all signed snapshots, times, creators and transaction hashes.
+
+Each client assembles the pinned graph through the generic SDK, checks the coding Qarinah packet and exact public source bytes, then evaluates a unique session descriptor and current review before deterministic guard execution. The request does not invoke a model. The browser clients share the read-only relay/provider; the operator consumers call RPC directly. Both wallets and client instances are operated by this project, without an independent-organisation or external-adoption claim.
+
+Reproduce with `npx tsx scripts/two-client-demo.ts --plan`, then `npx tsx scripts/two-client-demo.ts --publish --hold-before-withdrawal` using two dedicated wallets funded with free Tiramisu testnet GLM. No custom contracts are required. The CLI saves the accepted report before pausing; Enter publishes the third transaction. An unknown broadcast is journaled, never automatically retried. Public endpoints cannot write records. A past accepted result remains a timestamped observation; withdrawal is checked at the next task request, not instantaneously.
+
+## Admission deadline and runtime drift
+
+Async signature checks can cross a signed deadline. Allowed decisions now expose `valid_until`; consumers check it again immediately before starting the task. The two-client flow also bounds admission by the graph deadline and removes positive presentation after that deadline. A fresh graph signature does not by itself prove that the deployed runtime matches its declared artifact. The AI Worker separately checks task edges, the exact signed model declaration, runtime descriptor, graph node, original runtime source and deployed source identity before inference. These are application bindings and drift protection, not proof of hosted model weights.
+
+## Creator filtering and bounded queries
+
+Unrelated publishers can use the same permissionless namespace and root attributes. Filtering accepted creators only after a query's page ceiling lets unrelated records consume the reader's budget. Both graph and admission readers now include the protocol `$creator` allowlist in the query before pagination, then verify issuer/creator agreement locally. The bound remains finite and a quota or incomplete read fails closed. This reduces unrelated-publisher page exhaustion; it does not independently prove RPC metadata or query completeness.
+
+## Local CPU benchmark scope
+
+`graph-benchmark.json` measures synthetic 20-, 100- and 200-node graphs on one Windows machine. The 20-node traversal case showed no improvement: scan and indexed medians were 0.1144 and 0.1148 ms. The 200-node/500-edge case measured 1.5017 and 1.0701 ms. Full signature, manifest and root verification was timed separately at 285.5, 1687.3 and 2843.6 ms for 80, 400 and 701 records. Signature/authentication work dominates these local graph operations. The benchmark excludes RPC, network, storage, gas and signing setup; its small samples do not establish production latency, throughput or distributed-scale behavior. Reproduce with `node --import tsx scripts/benchmark-graph.ts`.

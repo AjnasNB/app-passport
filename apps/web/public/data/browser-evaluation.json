@@ -1,19 +1,15 @@
 {
-  "evaluated_at": "2026-10-15T07:24:03.808Z",
+  "evaluated_at": "2026-10-15T09:49:19.799Z",
   "evaluation_runs": [
     {
-      "started_at": "2026-10-15T06:41:58.215Z",
-      "duration_ms": 153876.34699999998
-    },
-    {
-      "started_at": "2026-10-15T07:24:03.808Z",
-      "duration_ms": 17308.019
+      "started_at": "2026-10-15T09:49:19.799Z",
+      "duration_ms": 108540.471
     }
   ],
   "scope": "Public deployment browser flows: graph switching, source-byte verified context, bounded export, hosted coding inference, local uploads, tampering, source changes, expired/withdrawn reviews, provider outage recovery, current re-evaluation, mobile/theme, migration, read-only API, launch video playback and downloads. Controlled outage responses are browser-local test simulations.",
   "url": "https://arkivgraph.ajnasnb.com",
-  "passed": 16,
-  "total": 16,
+  "passed": 18,
+  "total": 18,
   "results": [
     {
       "name": "real coding inference reaches the browser, exports a receipt and blocks withdrawn memory",
@@ -21,7 +17,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 16684
+          "duration_ms": 12683
         }
       ]
     },
@@ -31,7 +27,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6328
+          "duration_ms": 2103
         }
       ]
     },
@@ -41,7 +37,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5856
+          "duration_ms": 3148
         }
       ]
     },
@@ -51,7 +47,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5012
+          "duration_ms": 3421
         }
       ]
     },
@@ -61,7 +57,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 1824
+          "duration_ms": 743
         }
       ]
     },
@@ -71,7 +67,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6853
+          "duration_ms": 6579
         }
       ]
     },
@@ -81,7 +77,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 11232
+          "duration_ms": 8479
         }
       ]
     },
@@ -91,7 +87,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3108
+          "duration_ms": 2996
         }
       ]
     },
@@ -101,7 +97,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 16251
+          "duration_ms": 12345
         }
       ]
     },
@@ -111,7 +107,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 7257
+          "duration_ms": 6387
         }
       ]
     },
@@ -121,7 +117,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 8958
+          "duration_ms": 5275
         }
       ]
     },
@@ -131,7 +127,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 8160
+          "duration_ms": 4692
         }
       ]
     },
@@ -141,7 +137,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5928
+          "duration_ms": 4475
         }
       ]
     },
@@ -151,17 +147,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 11324
-        }
-      ]
-    },
-    {
-      "name": "standalone infrastructure graph reads live and release downloads work",
-      "passed": true,
-      "attempts": [
-        {
-          "status": "passed",
-          "duration_ms": 9752
+          "duration_ms": 7756
         }
       ]
     },
@@ -171,9 +157,41 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 15477
+          "duration_ms": 8604
+        }
+      ]
+    },
+    {
+      "name": "standalone infrastructure graph reads live and release downloads work",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 6271
+        }
+      ]
+    },
+    {
+      "name": "two client UI preserves historical results and rereads B before refusing a withdrawn task",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 4108
+        }
+      ]
+    },
+    {
+      "name": "a failed new read removes the earlier positive result and does not share another client decision",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 2555
         }
       ]
     }
-  ]
+  ],
+  "two_client_regression_scope": "Two browser tests use locally signed synthetic fixtures and intercepted responses to exercise state transitions and provider failure. They are regression tests, not chain proof.",
+  "actual_two_client_evidence": "/data/two-client-browser-evaluation.json"
 }

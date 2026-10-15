@@ -1,83 +1,102 @@
 # Arkiv Graph + AI Passport
 
-I built Arkiv Graph as reusable infrastructure for connected records on Arkiv. AI Passport is its working reference application, with useful AI tasks and selected Qarinah memory. See [ARKIV_GRAPH.md](ARKIV_GRAPH.md) for the separate SDK, protocol, live infrastructure graph and setup.
+Arkiv Graph is an MIT TypeScript SDK for signed, connected records on Arkiv: indexed nodes and edges, a complete revision manifest, bounded traversal, a CLI and a stdio MCP server. AI Passport is the working reference application, combining Qarinah context, exact source checks, current review admission and useful AI tasks.
 
-- Live: https://arkivgraph.ajnasnb.com
-- Source: https://github.com/AjnasNB/arkiv-graph
-- Graph SDK: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-sdk-0.2.0.tgz
-- AI Passport adapter: https://arkivgraph.ajnasnb.com/downloads/app-passport-sdk-0.4.0.tgz (install with the graph tarball)
-- Architecture: [ARCHITECTURE.md](ARCHITECTURE.md)
-- Judge evidence guide: https://arkivgraph.ajnasnb.com/judges.html
-- Evaluation PDF: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-evaluation.pdf
-- Launch film: https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4
-- Graphical pitch: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pptx
-- Pitch PDF: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pdf
+- [Live two-client demo](https://arkivgraph.ajnasnb.com/two-client/)
+- [AI reference application](https://arkivgraph.ajnasnb.com/app/)
+- [Judge evidence guide](https://arkivgraph.ajnasnb.com/judges.html)
+- [SDK setup and limits](ARKIV_GRAPH.md), [architecture](ARCHITECTURE.md), [data contract](arkiv/schema.md)
+- [Source](https://github.com/AjnasNB/arkiv-graph), [evaluation PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-evaluation.pdf), [launch film](https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4), [pitch PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pdf)
 
-## Three useful tasks
+## Release
 
-**Coding handoff** carries the current Qarinah source and decision context into a real hosted model call. The model generates a finite release-guard specification. An interpreter tests six boundary cases and exports readable JavaScript. Arbitrary model-generated code is never executed.
+The public npm releases are **[`@ajnasnb/arkiv-graph` 0.3.0](https://www.npmjs.com/package/@ajnasnb/arkiv-graph)** and **[`@ajnasnb/ai-passport` 0.5.0](https://www.npmjs.com/package/@ajnasnb/ai-passport)**. Both registry tarballs were fetched without authentication and matched the reviewed builds; [release evidence](https://arkivgraph.ajnasnb.com/data/npm-release.json) records their versions, hashes and publication times. Publication does not establish external adoption or verified download statistics.
 
-**India number tutor** calculates exact paise, Indian number grouping and lakh/crore values. English and Hindi views use verified numeric output. Optional AI commentary containing unchecked numerical claims is withheld.
+```sh
+npm install @ajnasnb/arkiv-graph@0.3.0 @ajnasnb/ai-passport@0.5.0 qarinah@0.7.0
+```
 
-**UPI Safety Quest** is a playable three-round learning game with deterministic scoring and an optional real AI coach. Project-authored learning summaries cite NPCI primary guidance. No PIN, bank account or payment is involved.
+Both tarball release gates also passed in fresh folders outside the workspace, with Qarinah 0.7.0, no workspace symlinks or `NODE_PATH`, all seven package entrypoints imported, and a standalone TypeScript consumer compiled. The same builds remain downloadable:
 
-The actual runtime model is Cloudflare-hosted @cf/meta/llama-3.2-3b-instruct. `Inspect AI inputs` follows original sources, the pinned graph, current reviews, exact model evidence, the provider call and checked result. Download the actual evidence-message bytes and run receipt. The browser verifies both reported identities. These checks do not attest hosted weights or provider computation. Public demonstrations use disclosed public or synthetic inputs. Private Qarinah memory stays local.
+```sh
+npm install https://arkivgraph.ajnasnb.com/downloads/ajnasnb-arkiv-graph-0.3.0.tgz https://arkivgraph.ajnasnb.com/downloads/ajnasnb-ai-passport-0.5.0.tgz qarinah@0.7.0
+```
 
-## Connected evidence
+Install both tarballs together because the application adapter depends on the exact graph release. The generic graph package alone has no Qarinah, passport or model dependency.
 
-Signed application, context, tool, source, model, review and run nodes are connected by signed edges. A complete signed manifest pins every member and the graph root. Original source URLs and content digests remain inspectable. The public graph links actual Arkiv entities.
+## A real review withdrawal, two separate consumers
 
-Arkiv supplies typed indexed entities, original creator metadata, readonly creation and expiry. The graph contract and bounded traversal are built in this SDK, not native Cypher or Solidity. Other readers query the same evidence through their own RPC provider, without this website backend, while choosing accepted authors. A conventional database is sufficient for a single operator’s calculator or chat; Arkiv matters for shared, attributable, current evidence. Publishing a claim does not make it true. Chain metadata and query completeness still depend on the provider.
+Open the [two-client page](https://arkivgraph.ajnasnb.com/two-client/) and select **Read both clients**. Every request independently reads the current graph and session review, assembles the signed manifest through the generic SDK, traverses `context:handoff`, validates the Qarinah packet and checks the exact public `release.ts` bytes. Only admitted evidence permits the six deterministic release-guard tests. This demonstration runs no model inference.
 
-Both demo wallets are project controlled. They do not represent independent organizations or upstream endorsements. Selected real run receipts are public evaluation evidence; no customer adoption is claimed.
+Completed session `77000888-ffdc-4ecf-beb8-df529adfb952` created three actual Tiramisu transactions: a passport, a review and an exact-target review withdrawal. A and B first admitted their own requests at blocks 603794 and 603795. After withdrawal at block 603917 and a separate query-visibility check, B's next request refused at block 603919; A independently refused at 603920. Inspect the [signed evidence and operator observations](https://arkivgraph.ajnasnb.com/data/two-client-session.json) for timestamps, creators, transaction hashes and complete read snapshots.
 
-## Reproduce
+The clients are separate SDK instances operated by this project. Both signing wallets are project-controlled. The public browser clients share a read-only relay and configured RPC provider; the operator CLI reads RPC directly. These observations establish neither independent people nor external adoption. A displayed result describes one request at its timestamp. A later withdrawal is checked on the next request; historical acceptance does not authorize a current task.
 
-Node.js 24 is tested.
+## Repeat the three-transaction session
+
+Node.js 24 is tested. From this repository:
 
 ```sh
 npm ci --ignore-scripts
 npm run build
 npm run typecheck
 npm test
-npm run fixtures
-npx tsx scripts/evaluate-ai.ts
-npx tsx scripts/test-graph-mcp.ts
-node scripts/consume-graph-infra.mjs
+npx tsx scripts/two-client-demo.ts --plan
+npx tsx scripts/two-client-demo.ts --publish --hold-before-withdrawal
 ```
 
-The live suite covers coding, English/Hindi number views, the safety coach and withdrawn/expired/tampered/stale inputs. Failed evidence blocks inference. Actual receipts are in /data/ai-evaluation.json; /data/anchored-ai-evaluation.json preserves the evaluated snapshot linked into the graph. Release evidence includes 98 local tests, eight direct SDK/MCP checks and sixteen hosted browser flows. Browser media checks cover playback and forward/backward seeking. See the JSON reports for scope and results.
+Fund two dedicated Tiramisu wallets with free testnet GLM. Set `TWO_CLIENT_PRODUCER_KEY` and `TWO_CLIENT_REVIEWER_KEY` in your local process, or use the existing private operator helper with credential files outside the repository. Optional provider settings are `TWO_CLIENT_RPC` and `TWO_CLIENT_API_KEY`. No custom contract deployment is required.
 
-Install the SDK tarball in another project. Read /data/policy.json and /data/graph-config.json, then use:
+The CLI creates a unique descriptor version so earlier reviews of the same packet cannot admit the new session. It publishes the passport and review, runs A and B separately, saves the accepted-phase public report, then pauses for Enter. The operator can serve that report and inspect both clients before resuming. Enter publishes the exact review withdrawal. A bounded observer waits for query visibility, then B's next task request and A's next request each reread and decide. Omit `--hold-before-withdrawal` to run the complete sequence without the pause.
+
+Only `--publish` broadcasts. The default command and `--plan` describe the operation. The public report is `apps/web/public/data/two-client-session.json`; a local journal retains pending signed intent, any known transaction hash, all task receipts and bounded visibility attempts. An uncertain transaction is not automatically rebroadcast. Public endpoints cannot publish records, accept wallet keys or upload private context.
+
+## Verify the packages without the website backend
+
+```sh
+node scripts/consume-graph-infra.mjs
+node scripts/clean-consumer.mjs
+```
+
+Each command installs the two release tarballs and Qarinah 0.7.0 in a new OS temporary folder, compiles standalone NodeNext TypeScript and imports every exported entrypoint. The graph consumer reads both pinned roots directly, verifies two packaged CLI profiles, and passes eight actual MCP trace/context success and budget-rejection cases. The application consumer verifies Qarinah with its original validator, hashes the selected repository source, reads the reference graph and passes the packaged admission CLI.
+
+Successful actual tarball runs produced [graph/CLI/MCP results](https://arkivgraph.ajnasnb.com/data/graph-infrastructure-evaluation.json) and [application consumer results](https://arkivgraph.ajnasnb.com/data/consumer-evaluation.json). Both anonymous registry gates also passed: [registry graph/CLI/MCP](https://arkivgraph.ajnasnb.com/data/graph-infrastructure-evaluation-registry.json) and [registry application consumer](https://arkivgraph.ajnasnb.com/data/consumer-evaluation-registry.json). Reproduce with `--registry` on either command; it installs the exact npm versions with empty npm configs, a fresh cache and no inherited credentials. A failed check does not replace a successful report with a success claim.
 
 ```ts
-import { readGraph, traverseGraph } from '@app-passport/sdk/graph';
-const live = await readGraph({ policy, rpc }, graphDigest);
-const path = traverseGraph(live.graph, 'app:coding', { depth: 4 });
+import { createGraphKit } from '@ajnasnb/arkiv-graph';
+
+const kit = createGraphKit();
+const live = await kit.readGraph({ rpc, issuers }, graphDigest);
+const path = kit.traverseGraph(live.graph, 'application:ai-passport', {
+  depth: 4, maxNodes: 40,
+});
 if (path.truncated) throw new Error('Incomplete evidence');
 ```
 
-The Node Qarinah adapter runs Qarinah’s original validator and checks actual repository files before admission. The clean tarball consumer is `node scripts/clean-consumer.mjs`, tested with Qarinah 0.7.0 without the website backend.
+Root and accepted issuers are explicit consumer policy. Downloaded example configurations are not automatically trusted policy.
 
-## MCP evidence bridge
+## The AI reference application
 
-`npx tsx scripts/graph-mcp.ts` starts a stdio MCP server from this repository root. Its trace_evidence tool reads the current signed graph through raw Tiramisu RPC and returns a bounded path as untrusted data. It does not grant execution authority or perform writes. Any compatible AI client can consume the same contract. The independent client test initializes MCP and checks all three application paths plus rejection of incomplete traversal.
+**Coding handoff** carries selected Qarinah source and decision evidence into a real hosted model request. A strict finite release-guard specification passes six interpreted boundary tests before readable JavaScript is exported. Generated JavaScript is not executed.
 
-## Contracts and publication
+**India number tutor** calculates exact paise, Indian grouping and lakh/crore values, with English and Hindi views. Deterministic calculations supply displayed numeric claims. **UPI Safety Quest** is a three-round game with deterministic scoring and an optional AI coach, using project-authored summaries linked to NPCI guidance. It requests no PIN, payment or bank account.
 
-Namespaces: app-passport-v1 for passports/reviews/withdrawals, ai-passport-graph-v1 for the reference app graph, and arkiv-graph-v1 for reusable infrastructure. Chain ID: 7738577. Arkiv SDK: 0.8.1. See [arkiv/schema.md](arkiv/schema.md) and [arkiv/friction.md](arkiv/friction.md).
+The hosted model alias is `@cf/meta/llama-3.2-3b-instruct`. **Inspect AI inputs** shows checked sources, the pinned graph, selected events, the exact evidence message and the resulting receipt. Browser digest checks do not attest hosted weights, provider computation or factual truth. The Worker also binds the runtime descriptor, graph node, original source and deployed source identity before inference. Public examples use public or synthetic inputs; private Qarinah memory stays local.
 
-Readers need no wallet or Web3 tokens. Writers use free Tiramisu test tokens and an accepted issuer. Credentials stay outside the repository; the quota key stays in a Cloudflare secret. Public endpoints cannot write chain records.
+## What Arkiv contributes
 
-Build public India contexts and the graph using scripts/build-ai-fixtures.ts. Publish/resume small batches with scripts/publish-ai.ts. Current and previous root revisions, transaction links and entity keys are in arkiv/ai-evidence.json. Check existing receipts/query state before retrying an uncertain transaction.
+Arkiv supplies indexed entities, original creator metadata, readonly creation and expiry. This SDK adds signed graph conventions, complete revision manifests and bounded directed traversal. The infrastructure graph has 7 nodes, 8 edges and 16 signed entities; the AI reference graph has 27 nodes, 43 edges and 71 signed entities, including four selected historical AI run receipts. Visitor runs are not automatically published.
 
-## Boundaries
+The reader filters accepted protocol creators in the query before bounded pagination, then checks signed issuer agreement, attributes, readonly status, validity, complete membership and root identity. AI Passport additionally evaluates current reviews. A withdrawal targets its original author's exact record and must cover both the target's signed validity and storage expiry. Extending storage cannot renew an old signed assessment.
 
-The graph is limited to 200 nodes/500 edges, traversal depth eight and bounded node count. Run memory is limited to 10,000 characters and output to 420 tokens. A Durable Object reserves at most forty model attempts per UTC day; a per-IP limiter permits three requests per minute. Calculator, game and evidence readers work without inference. No paid plan upgrade or mainnet transaction is required.
+A single operator's calculator can use an ordinary database. Arkiv is useful here as a shared, attributable record layer readable by compatible consumers through their own providers. Graph traversal is SDK code, not native Cypher or a Solidity deployment. Signatures do not make a source true. RPC metadata and query completeness remain trusted; no independent state proof is checked.
 
-Storage lasts 30 days and signed evidence is finite; the operator must renew it. Memory comparisons measure characters, with approximate chars/4 token estimates. Tests do not certify universal model accuracy, malware safety, a complete OS sandbox, computation proof or perpetual availability.
+## Evidence and limits
 
-Ten pinned public tool artifacts passed MCP initialization, listing and controlled calls. Their versions, source URLs and actual results remain in /data/tools.json and /data/protocol-evaluation.json. Local orchestration tests use mock inference; the live suite makes actual provider calls.
+The [local CPU benchmark](https://arkivgraph.ajnasnb.com/data/graph-benchmark.json) measures synthetic graphs of 20, 100 and 200 nodes on one machine. At 20 nodes, indexed traversal was effectively unchanged from scanning (0.1148 versus 0.1144 ms median). At the 200-node/500-edge limit, medians were 1.0701 versus 1.5017 ms. Full signature, manifest and root verification was measured separately at 285.5, 1687.3 and 2843.6 ms for the three sizes. These are local CPU measurements, excluding RPC, storage and gas; they are not production latency, throughput or distributed-scale results.
 
-MIT covers new Arkiv Graph and AI Passport code. The copied Qarinah runtime retains Apache-2.0 and notices. [PREEXISTING.md](PREEXISTING.md) discloses the exact baseline. Original Qarinah and ScamSignal folders are preserved. Generated artwork is conceptual. The current 96-second launch film uses original motion scenes and music with actual product captures; earlier films remain separate. Production sources and credits are in [media/README.md](media/README.md).
+The release local suite passed 198 tests covering signed graph/admission boundaries, storage coverage, exact runtime binding and malformed or unavailable evidence. [Test reports](https://arkivgraph.ajnasnb.com/data/security-evaluation.json) retain their own dates and scope. The [18 browser checks](https://arkivgraph.ajnasnb.com/data/browser-evaluation.json) comprise sixteen existing flows and two UI regressions using generated signed fixtures and mocked responses; they are not eighteen independent live-network checks. The [actual two-client browser report](https://arkivgraph.ajnasnb.com/data/two-client-browser-evaluation.json) separately records four requests and zero browser errors. Mock inference in local tests is distinct from the [real hosted AI evaluation](https://arkivgraph.ajnasnb.com/data/ai-evaluation.json).
 
+Graphs are bounded to 200 nodes/500 edges, eight query pages and depth eight. AI evidence is bounded to 10,000 characters and output to 420 tokens. Model attempts have daily and per-IP limits; deterministic tools and readers also work without inference. Signed validity and chain storage are finite and require operator renewal. No external customer adoption, security certification, perpetual availability or hosted computation proof is claimed.
+
+MIT covers the new graph SDK, adapter and application. Qarinah retains Apache-2.0 and its notices; [PREEXISTING.md](PREEXISTING.md) discloses the baseline. Original Qarinah and ScamSignal folders are preserved. See [integration observations](arkiv/friction.md) and [media sources and credits](media/README.md).

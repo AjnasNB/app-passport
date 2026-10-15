@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-10-15T09:55:40.240Z",
+  "registry": "https://registry.npmjs.org",
+  "authentication_used_for_verification": false,
+  "packages": [
+    {
+      "name": "@ajnasnb/arkiv-graph",
+      "version": "0.3.0",
+      "published": true,
+      "registry_url": "https://registry.npmjs.org/@ajnasnb/arkiv-graph/0.3.0",
+      "package_url": "https://www.npmjs.com/package/@ajnasnb/arkiv-graph",
+      "published_at": "2026-10-15T09:51:10.359Z",
+      "integrity": "sha512-a0+l8SjzGugXMEe3yR1yTD6YUAxuMvXhnaRVitLB5YTeJqPFf83425Ya1RM6NF2o3vfwQNPKxw8IMlLeU+bAmQ==",
+      "reviewed_tarball_match": true,
+      "bytes": 16741,
+      "provenance_attestation": "not-claimed",
+      "downloads": {
+        "available": false,
+        "reason": "Registry statistics not yet available"
+      }
+    },
+    {
+      "name": "@ajnasnb/ai-passport",
+      "version": "0.5.0",
+      "published": true,
+      "registry_url": "https://registry.npmjs.org/@ajnasnb/ai-passport/0.5.0",
+      "package_url": "https://www.npmjs.com/package/@ajnasnb/ai-passport",
+      "published_at": "2026-10-15T09:52:41.358Z",
+      "integrity": "sha512-a3UDnZmewbscF2ljrmWKnrWVmfS5yBaEGG9Gprg1LXTkE7viN+D/VNWekKUwAdphVIHYQjdLwl1i8v462UyPBw==",
+      "reviewed_tarball_match": true,
+      "bytes": 18511,
+      "provenance_attestation": "not-claimed",
+      "downloads": {
+        "available": false,
+        "reason": "Registry statistics not yet available"
+      }
+    }
+  ],
+  "external_adoption_verified": false,
+  "scope": "Two public package releases and exact registry byte integrity; installs and downloads are not evidence of independent use."
+}

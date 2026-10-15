@@ -1,8 +1,7 @@
 {
-  "evaluated_at": "2026-10-14T15:57:46.760Z",
-  "generic_sdk": "0.2.0",
-  "application_sdk": "0.4.0",
-  "installed_from_tarballs": true,
+  "evaluated_at": "2026-10-15T09:44:36.006Z",
+  "generic_sdk": "0.3.0",
+  "application_sdk": "0.5.0",
   "website_backend_used": false,
   "api_key_used": false,
   "wallet_required": false,
@@ -11,7 +10,7 @@
     "edges": 8,
     "entities": 16,
     "graph_digest": "sha256:724614507a2f0ddaccf7eb58fcc9e4981f3a344776c6f906986a057d05f80297",
-    "read_block": "571851"
+    "read_block": "603848"
   },
   "compatibility_graph": {
     "nodes": 27,
@@ -65,5 +64,29 @@
   "passed": 8,
   "total": 8,
   "scope": "Real direct RPC and actual stdio MCP calls. Both graphs are project-published. No customer adoption or scalability benchmark.",
-  "cli_profiles_verified": 2
+  "cli_profiles_verified": 2,
+  "installation": {
+    "source": "release-tarballs",
+    "packages": {
+      "@ajnasnb/arkiv-graph": "0.3.0",
+      "@ajnasnb/ai-passport": "0.5.0",
+      "qarinah": "0.7.0"
+    },
+    "isolated_from_workspace": true,
+    "workspace_symlinks_used": false,
+    "node_path_used": false,
+    "typescript_consumer_passed": true,
+    "typescript_version": "5.9.3",
+    "all_entrypoints_runtime_imported": true,
+    "entrypoints": [
+      "@ajnasnb/arkiv-graph",
+      "@ajnasnb/arkiv-graph/context",
+      "@ajnasnb/ai-passport",
+      "@ajnasnb/ai-passport/arkiv",
+      "@ajnasnb/ai-passport/graph",
+      "@ajnasnb/ai-passport/tools",
+      "@ajnasnb/ai-passport/qarinah"
+    ]
+  },
+  "installed_from_tarballs": true
 }

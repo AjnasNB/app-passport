@@ -1,0 +1,142 @@
+{
+  "passed": true,
+  "events": [
+    {
+      "event": "page-ready",
+      "seconds": 6.924
+    },
+    {
+      "event": "both-accepted",
+      "seconds": 10.71
+    },
+    {
+      "event": "withdrawal-query-visible",
+      "seconds": 111.591
+    },
+    {
+      "event": "B-next-refused",
+      "seconds": 113.675
+    },
+    {
+      "event": "A-next-refused",
+      "seconds": 117.68
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "url": "https://arkivgraph.ajnasnb.com/api/two-client/records?consumer=B",
+      "status": 200,
+      "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
+      "read_at": "2026-10-15T09:45:24.527Z",
+      "block": "603879",
+      "graph_block": "603879",
+      "records": [
+        {
+          "key": "0xfc2cf2cf04baca162e14441954881dba6bf1b4d3b09a9db717399f5637e8f99e",
+          "kind": "review"
+        },
+        {
+          "key": "0xb8fa987f4c6993245a4f987fc8916a1960d5f1c93051b58542581b36b053567c",
+          "kind": "passport"
+        },
+        {
+          "key": "0xd6fea30330203d5e90d8436ecffa4e3c4321ca1db533ea8e98db53ee377b18be",
+          "kind": "review"
+        },
+        {
+          "key": "0x3ef9cd5ea372e0072436292cbd00b69bc54f66e26be4ae0defdbc371a2e1cc7e",
+          "kind": "passport"
+        }
+      ]
+    },
+    {
+      "url": "https://arkivgraph.ajnasnb.com/api/two-client/records?consumer=A",
+      "status": 200,
+      "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
+      "read_at": "2026-10-15T09:45:24.636Z",
+      "block": "603879",
+      "graph_block": "603879",
+      "records": [
+        {
+          "key": "0xfc2cf2cf04baca162e14441954881dba6bf1b4d3b09a9db717399f5637e8f99e",
+          "kind": "review"
+        },
+        {
+          "key": "0xb8fa987f4c6993245a4f987fc8916a1960d5f1c93051b58542581b36b053567c",
+          "kind": "passport"
+        },
+        {
+          "key": "0xd6fea30330203d5e90d8436ecffa4e3c4321ca1db533ea8e98db53ee377b18be",
+          "kind": "review"
+        },
+        {
+          "key": "0x3ef9cd5ea372e0072436292cbd00b69bc54f66e26be4ae0defdbc371a2e1cc7e",
+          "kind": "passport"
+        }
+      ]
+    },
+    {
+      "url": "https://arkivgraph.ajnasnb.com/api/two-client/records?consumer=B",
+      "status": 200,
+      "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
+      "read_at": "2026-10-15T09:47:07.508Z",
+      "block": "603930",
+      "graph_block": "603930",
+      "records": [
+        {
+          "key": "0xaec8f06e6c172bda8bd44c95d120985c5571dfb1362074320305c68090462378",
+          "kind": "withdrawal"
+        },
+        {
+          "key": "0xfc2cf2cf04baca162e14441954881dba6bf1b4d3b09a9db717399f5637e8f99e",
+          "kind": "review"
+        },
+        {
+          "key": "0xb8fa987f4c6993245a4f987fc8916a1960d5f1c93051b58542581b36b053567c",
+          "kind": "passport"
+        },
+        {
+          "key": "0xd6fea30330203d5e90d8436ecffa4e3c4321ca1db533ea8e98db53ee377b18be",
+          "kind": "review"
+        },
+        {
+          "key": "0x3ef9cd5ea372e0072436292cbd00b69bc54f66e26be4ae0defdbc371a2e1cc7e",
+          "kind": "passport"
+        }
+      ]
+    },
+    {
+      "url": "https://arkivgraph.ajnasnb.com/api/two-client/records?consumer=A",
+      "status": 200,
+      "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
+      "read_at": "2026-10-15T09:47:11.790Z",
+      "block": "603932",
+      "graph_block": "603932",
+      "records": [
+        {
+          "key": "0xaec8f06e6c172bda8bd44c95d120985c5571dfb1362074320305c68090462378",
+          "kind": "withdrawal"
+        },
+        {
+          "key": "0xfc2cf2cf04baca162e14441954881dba6bf1b4d3b09a9db717399f5637e8f99e",
+          "kind": "review"
+        },
+        {
+          "key": "0xb8fa987f4c6993245a4f987fc8916a1960d5f1c93051b58542581b36b053567c",
+          "kind": "passport"
+        },
+        {
+          "key": "0xd6fea30330203d5e90d8436ecffa4e3c4321ca1db533ea8e98db53ee377b18be",
+          "kind": "review"
+        },
+        {
+          "key": "0x3ef9cd5ea372e0072436292cbd00b69bc54f66e26be4ae0defdbc371a2e1cc7e",
+          "kind": "passport"
+        }
+      ]
+    }
+  ],
+  "page": "https://arkivgraph.ajnasnb.com/two-client/",
+  "scope": "Actual public website reads around a fresh Tiramisu withdrawal; project-run clients, deterministic guard, no inference."
+}
