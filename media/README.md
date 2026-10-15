@@ -1,6 +1,6 @@
 # Arkiv Graph launch
 
-The current launch film is `/media/arkiv-graph-launch.mp4`: 72 seconds of original motion graphics and actual product capture, with original music and synthetic narration. AI Passport is shown as the reference application. Graph storage and indexing are supplied by Arkiv; graph assembly, complete-manifest verification, bounded traversal and context selection run in the SDK.
+The current launch film is `/media/arkiv-graph-launch.mp4`: 96 seconds of original motion graphics and actual product capture, with original music and synthetic narration. AI Passport is shown as the reference application. Graph storage and indexing are supplied by Arkiv; graph assembly, complete-manifest verification, bounded traversal and context selection run in the SDK.
 
 `graph-film.tsx` and `graph-motion.tsx` are original React/Remotion scenes rendered through OpenMontage. The film is not an animated presentation. Real recorded results show six coding guard cases, exact paise calculation, the NPCI-linked learning game and a withdrawn review blocking the model call. Manifest removal is an explicitly labeled illustration, using the actual published graph counts.
 
@@ -8,7 +8,11 @@ The current launch film is `/media/arkiv-graph-launch.mp4`: 72 seconds of origin
 
 The original piano/hip-hop score drops out at refusal and ends with a chime. Mastering is performed with Showtime's `audio mix`; `master-graph.py` attaches the bounded master through OpenMontage without changing picture timing. `caption-graph.py` builds disjoint readable subtitle clauses from measured voice timing and an independent local speech read-back. It expects the latter at `.local/graph-launch/voice/readback-final.json`.
 
-Three independent visual critique rounds were completed. Final file QA found zero failures; deliberate result-reading holds, the refusal pause and final URL hold remain documented warnings. Automated phone typography QA is partial; proof crops were separately reviewed at full size. See `/data/launch-evaluation.json` for the public scope and `/media/arkiv-graph/credits.txt` for media licenses. The generated pitch deck uses original concept illustrations and editable diagrams, separately from the film.
+The earlier 72-second release completed three independent visual critique rounds. The 96-second AI journey release has its own review and measured report. Final file QA found zero failures; deliberate result-reading holds, the refusal pause and final URL hold remain documented warnings. Automated phone typography QA is partial; proof crops were separately reviewed at full size. See `/data/launch-evaluation.json` for the public scope and `/media/arkiv-graph/credits.txt` for media licenses. The generated pitch deck uses original concept illustrations and editable diagrams, separately from the film.
+
+## AI journey extension
+
+`ai-journey-motion.tsx`, `render-journey.py`, `journey-audio.py`, `assemble-journey.py` and `caption-journey.py` add a 24-second native motion chapter at 32-56s. The number-learning scene includes its actual published app/context/source relationship, separate from deterministic arithmetic. The recording and input counts come from `scripts/capture-ai-journey.mjs`, including an actual admitted model run and the exact bounded evidence message. Original source objects, selected events and an untrusted-data envelope lead into a real inspector recording, then a model/validator/project-generated receipt explanation. It explicitly does not attest provider computation. The earlier 72-second film is retained separately. Set `OPENMONTAGE_ROOT` and use the same local composer, fonts and Kokoro prerequisites described above.
 
 ## Earlier AppPassport film
 

@@ -1,39 +1,46 @@
 {
-  "evaluated_at": "2026-10-14T23:06:54",
+  "evaluated_at": "2026-10-15T12:41:10",
   "url": "https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4",
-  "sha256": "52bd1d52b6d7f35f5ddfd55066d887b43e3232e722869e18d2208a22b6912b58",
-  "bytes": 5546494,
-  "duration_seconds": 71.99,
+  "sha256": "1c2edcee5cc151d6d75d2c82f9ca47347dce7147fd3df2ea6618a0f1df33a4ac",
+  "bytes": 8075492,
+  "duration_seconds": 96,
   "width": 1920,
   "height": 1080,
-  "renderer": "Original React motion scenes rendered with OpenMontage and Remotion",
-  "independent_review_rounds": 3,
-  "final_round_preference": "Both independent reviewers preferred the revised film",
+  "renderer": "Original React motion scenes rendered and composed with OpenMontage/Remotion; actual AI journey recording",
+  "independent_review_rounds": 2,
+  "final_round_preference": "Split preference: both independent reviewers found both 96s versions postable, with no material findings. The published version retains the visible source-path evidence and AI Passport bridge.",
   "media_qa": {
     "verdict": "WARN",
     "fail": 0,
     "warn": 10,
     "info": 1,
     "passed": 10,
-    "remaining_warnings": "Planned reading holds, final URL hold and intentional inference-refusal pause. Full-size proof crops were independently reviewed; automated phone typography check is partial.",
-    "audio_summary": "voice 14-27 dB over the bed, 130-186 wpm, 0 quiet stretches, 0 level jumps at cuts (> 6 LU), ending fades or ends, on a phone speaker: -18.9 LUFS, 2.8 LU under the mix",
-    "integrated_lufs": -16.08,
+    "remaining_warnings": "Planned result-reading/URL holds and intentional inference-refusal pause; automated phone typography check is partial.",
+    "audio_summary": "voice 12-27 dB over the bed, 120-182 wpm, 0 quiet stretches, 0 level jumps at cuts (> 6 LU), ending fades or ends, on a phone speaker: -18.8 LUFS, 2.8 LU under the mix",
+    "integrated_lufs": -16.06,
     "true_peak_dbtp": -1.87
   },
   "subtitles": {
-    "cues": 15,
+    "cues": 21,
     "maximum_line_characters": 42,
-    "maximum_characters_per_second": 18.14,
+    "maximum_characters_per_second": 18.99,
     "overlaps": 0
   },
   "credits_url": "/media/arkiv-graph/credits.txt",
   "scope": "Project-run media QA. The motion film contains real product recordings plus labeled structural illustrations. It does not prove universal security or customer adoption.",
   "hosted_playback": {
     "browser_flow_passed": true,
-    "forward_seek_seconds": 50,
+    "checked_at": "2026-10-15T07:24:03.808Z",
+    "forward_seek_seconds": [
+      50,
+      92
+    ],
     "backward_seek_seconds": 2,
     "byte_ranges": "206 partial content for the bounded launch asset",
     "captions": "English VTT sidecar",
-    "scope": "Observed hosted Playwright playback and forward/backward seeking; exact byte-range response independently inspected."
-  }
+    "scope": "Observed hosted Playwright playback and seeking in the 96-second release. File-format downloads also passed; exact public bytes are checked separately."
+  },
+  "fps": 30,
+  "earlier_release": "/media/arkiv-graph-launch-72s.mp4",
+  "new_feature": "Inspectable exact model evidence and actual on-chain creator UX; source-to-model journey shown with native motion and actual UI."
 }

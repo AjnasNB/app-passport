@@ -9,5 +9,6 @@
   "software_license": "MIT",
   "model_license": "Apache-2.0",
   "source_code": "media/narrate-graph.py",
-  "generated_audio_sha256": "e03f229a8961de7d741d77705a82bc1840e9fa0d1e6e7e25acfdb5ce72b03fae"
+  "generated_audio_sha256": "9838f2e0413d5e8b53229cf0db8a0e3a5a1c133e58176026ab101b6e189736c5",
+  "duration_seconds": 96
 }

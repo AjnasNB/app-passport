@@ -1,0 +1,131 @@
+{
+  "schema": "ai-passport.run.v1",
+  "run_id": "1b39e224-f568-4bd2-bff1-056378a2b990",
+  "task": "coding",
+  "language": "en",
+  "allowed": true,
+  "inference_run": true,
+  "model": "@cf/meta/llama-3.2-3b-instruct",
+  "hosted_weights_attested": false,
+  "answer": "The generated guard passed all six boundary cases.",
+  "answer_source": "model-and-validator",
+  "model_commentary": null,
+  "commentary_status": "not-applicable",
+  "tool_result": {
+    "baseline": "approveRelease currently accepts a bare sha256: prefix. The current decision requires exact artifact identity and current review."
+  },
+  "coding": {
+    "passed": true,
+    "cases": [
+      {
+        "name": "Exact hash and current review",
+        "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "review": true,
+        "expected": true,
+        "actual": true
+      },
+      {
+        "name": "Withdrawn review",
+        "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "review": false,
+        "expected": false,
+        "actual": false
+      },
+      {
+        "name": "Bare prefix",
+        "digest": "sha256:",
+        "review": true,
+        "expected": false,
+        "actual": false
+      },
+      {
+        "name": "Wrong algorithm",
+        "digest": "md5:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "review": true,
+        "expected": false,
+        "actual": false
+      },
+      {
+        "name": "Non-hex identity",
+        "digest": "sha256:zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+        "review": true,
+        "expected": false,
+        "actual": false
+      },
+      {
+        "name": "Short identity",
+        "digest": "sha256:a",
+        "review": true,
+        "expected": false,
+        "actual": false
+      }
+    ],
+    "code": "export function approveRelease(artifactDigest, reviewValid) {\n  return /^sha256:[0-9a-f]{64}$/.test(artifactDigest) && reviewValid === true;\n}"
+  },
+  "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c",
+  "graph_selection": {
+    "nodes": 17,
+    "edges": 19,
+    "total_nodes": 27
+  },
+  "graph_read_block": "598110",
+  "read_block": "598111",
+  "context_digest": "sha256:abe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d",
+  "runtime_digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31",
+  "source_refs": [
+    {
+      "path": "/sources/release.ts",
+      "digest": "sha256:7152f16172512297dcbe7e3245ccffbf1274adc8046407a39e9e413090d2d2e1"
+    },
+    {
+      "path": "/sources/tools.ts",
+      "digest": "sha256:f6824153e9295d48f6ce2b21bcff766f6f4da8410aacb210158e4e493c7a5e31"
+    }
+  ],
+  "selected_event_ids": [
+    "evt_2032d1c2-66e2-4f3d-b392-5346a4b63f67",
+    "evt_acc89789-bd43-436e-850d-d70ddc76ddcf"
+  ],
+  "model_evidence": {
+    "contentRole": "untrusted-data",
+    "selected_events": [
+      {
+        "id": "evt_2032d1c2-66e2-4f3d-b392-5346a4b63f67",
+        "title": "Approve release using artifact identity and current review",
+        "excerpt": "Synthetic current decision: approveRelease requires the exact artifact digest and a current accepted review. Supersede the old identity-only decision."
+      },
+      {
+        "id": "evt_acc89789-bd43-436e-850d-d70ddc76ddcf",
+        "title": "Project structure snapshot",
+        "excerpt": "Observed 2 files and 2 directories.\nChanges: 2 added, 0 changed, 0 deleted, 0 renamed.\n\nIndexed paths:\n- README.md\n- src/release.ts\n\n{\"projectStructure\":{\"adapter\":{\"id\":\"qarinah.project-structure\",\"version\":\"2\"},\"changes\":{\"added\":[\"README.md\",\"src/release.ts\"],\"changed\":[],\"deleted\":[],\"renamed\":[]},\"directories\":[{\"id\":\"project:directory:cdb4ee2aea69cc6a83331bbe96dc2caa\",\"path\":\".\"},{\"id\":\"project:directory:25a6634263c1b1f6fc4697a04e2b9904\",\"p"
+      }
+    ],
+    "sources": [
+      {
+        "path": "/sources/release.ts",
+        "digest": "sha256:7152f16172512297dcbe7e3245ccffbf1274adc8046407a39e9e413090d2d2e1",
+        "text": "export function approveRelease(artifactDigest: string, reviewValid: boolean) { return artifactDigest.startsWith(\"sha256:\") && reviewValid; }\n"
+      }
+    ],
+    "tool_result": {
+      "baseline": "approveRelease currently accepts a bare sha256: prefix. The current decision requires exact artifact identity and current review."
+    }
+  },
+  "evidence_message_sha256": "sha256:90cb45d353026059907f43005af925f4911373ac667ef9f9a9b4eebfe7873ae6",
+  "admission_checks": {
+    "context": "requirements-satisfied",
+    "runtime": "requirements-satisfied"
+  },
+  "memory_chars": 1371,
+  "full_packet_chars": 10096,
+  "token_estimate": {
+    "method": "chars-div-4",
+    "exact": false,
+    "selected": 343,
+    "full_packet": 2524
+  },
+  "completed_at": "2026-10-15T06:33:10.998Z",
+  "elapsed_ms": 4723,
+  "disclosure": "Public or synthetic fixture inputs. The inspectable model_evidence is exactly the evidence message sent to the model; separate task instructions are not included. Its byte digest is checked in the browser. AI explanations can be wrong. Numeric statements come only from the deterministic calculator. This receipt is a project-generated record, not proof of model computation.",
+  "receipt_digest": "sha256:a7569dd9a55cfc89452127e6c328010238bd0d505ffc8b59f5ce0b78da6849ac"
+}

@@ -17,5 +17,6 @@
     "piano-source.beats.json",
     "gate-tick.sfx.json"
   ],
-  "final_file": "music-2.wav"
+  "final_file": "music-2.wav",
+  "arrangement": "96-second arrangement; original bars 8-32 inserted at 32s; no additional third-party music"
 }

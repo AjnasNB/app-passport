@@ -2,10 +2,12 @@ Original Arkiv Graph launch score composed locally with Showtime audio compose.
 90 BPM; C minor; seed 314. No reference-song recording, vocals or song samples used.
 
 Instrument soundfont: FluidR3Mono_GM.sf3.
-FluidR3 by Frank Wen, copyright 2000â€“2002, 2008.
-Mono conversion by Michael Cowgill, copyright 2014â€“2017.
+FluidR3 by Frank Wen, copyright 2000–2002, 2008.
+Mono conversion by Michael Cowgill, copyright 2014–2017.
 The installed license notice also names S. Christian Collins, Ethan Winer, and Michael Schorsch.
 Soundfont license: MIT. Complete installed notice is retained in SoundFont-LICENSE.md.
 
 Narration: original script, synthetic Kokoro v1.0 af_heart voice. Kokoro model by hexgrad, Apache-2.0; kokoro-onnx by thewh1teagle, MIT. https://huggingface.co/hexgrad/Kokoro-82M ; https://github.com/thewh1teagle/kokoro-onnx
 Motion and product: Ajnas NB. Font: DM Sans, SIL OFL 1.1. Reference video used for pacing study only; no reference footage, logos, vocals or song audio included.
+
+The 96-second release rearranges the original score with an additional 24-second source-to-model chapter.
