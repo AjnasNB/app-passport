@@ -64,7 +64,7 @@ Main pitch: **Arkiv Graph: connected records that independent readers can verify
 
 Proof application: **AI Passport: useful AI with traceable selected context and current reviews.**
 
-The 72-second Arkiv Graph launch film uses original motion, a real recorded AI Passport flow, actual SDK/MCP evidence and an original composed score.
+The 96-second Arkiv Graph launch film uses original motion, a real recorded AI Passport flow, actual SDK/MCP evidence and an original composed score.
 
 - Graphical pitch: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pptx
 - PDF pitch: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pdf

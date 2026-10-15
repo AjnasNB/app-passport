@@ -1,13 +1,9 @@
 {
-  "evaluated_at": "2026-10-14T17:51:56.503Z",
+  "evaluated_at": "2026-10-15T06:41:58.215Z",
   "evaluation_runs": [
     {
-      "started_at": "2026-10-14T16:33:12.118Z",
-      "duration_ms": 85896.659
-    },
-    {
-      "started_at": "2026-10-14T17:51:56.503Z",
-      "duration_ms": 8135.139999999999
+      "started_at": "2026-10-15T06:41:58.215Z",
+      "duration_ms": 153876.34699999998
     }
   ],
   "scope": "Public deployment browser flows: graph switching, source-byte verified context, bounded export, hosted coding inference, local uploads, tampering, source changes, expired/withdrawn reviews, provider outage recovery, current re-evaluation, mobile/theme, migration, read-only API, launch video playback and downloads. Controlled outage responses are browser-local test simulations.",
@@ -21,7 +17,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 10037
+          "duration_ms": 16684
         }
       ]
     },
@@ -31,7 +27,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 2876
+          "duration_ms": 6328
         }
       ]
     },
@@ -41,7 +37,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3777
+          "duration_ms": 5856
         }
       ]
     },
@@ -51,7 +47,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3501
+          "duration_ms": 5012
         }
       ]
     },
@@ -61,7 +57,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 526
+          "duration_ms": 1824
         }
       ]
     },
@@ -71,7 +67,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6010
+          "duration_ms": 6853
         }
       ]
     },
@@ -81,7 +77,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 10415
+          "duration_ms": 11232
         }
       ]
     },
@@ -91,7 +87,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 2361
+          "duration_ms": 3108
         }
       ]
     },
@@ -101,7 +97,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 13385
+          "duration_ms": 16251
         }
       ]
     },
@@ -111,7 +107,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4237
+          "duration_ms": 7257
         }
       ]
     },
@@ -121,7 +117,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5938
+          "duration_ms": 8958
         }
       ]
     },
@@ -131,7 +127,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5676
+          "duration_ms": 8160
         }
       ]
     },
@@ -141,7 +137,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3484
+          "duration_ms": 5928
         }
       ]
     },
@@ -151,17 +147,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6884
-        }
-      ]
-    },
-    {
-      "name": "standalone infrastructure graph reads live and release downloads work",
-      "passed": true,
-      "attempts": [
-        {
-          "status": "passed",
-          "duration_ms": 4384
+          "duration_ms": 11324
         }
       ]
     },
@@ -171,7 +157,17 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6497
+          "duration_ms": 14318
+        }
+      ]
+    },
+    {
+      "name": "standalone infrastructure graph reads live and release downloads work",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 9752
         }
       ]
     }

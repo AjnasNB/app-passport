@@ -1,488 +1,498 @@
 {
-  "evaluated_at": "2026-10-14T17:52:36.939Z",
+  "evaluated_at": "2026-10-15T06:33:30.715Z",
   "scope": "Signed artifacts, policy, graph manifests and traversal, Qarinah source bindings, withdrawal/expiry, hostile JSON, deterministic tools, bounded media byte ranges and AI orchestration with mock inference. Project-run tests, not an independent audit.",
-  "passed": 96,
-  "total": 96,
+  "passed": 98,
+  "total": 98,
   "results": [
     {
       "name": "Qarinah source adapter uses the original Qarinah validator",
       "passed": true,
-      "duration_ms": 18.672700000000077
+      "duration_ms": 73.04030000000057
     },
     {
       "name": "Qarinah source adapter hashes actual selected files",
       "passed": true,
-      "duration_ms": 8.378600000000006
+      "duration_ms": 29.49330000000009
     },
     {
       "name": "Qarinah source adapter detects changed source bytes in an independent checkout",
       "passed": true,
-      "duration_ms": 7.26700000000028
+      "duration_ms": 31.20930000000044
     },
     {
       "name": "Qarinah source adapter does not substitute stored source hashes when a file disappears",
       "passed": true,
-      "duration_ms": 3.97629999999981
+      "duration_ms": 16.898999999999432
+    },
+    {
+      "name": "AI orchestration boundaries (mock inference) exports the exact bounded evidence message actually passed to the model",
+      "passed": true,
+      "duration_ms": 444.64750000000004
+    },
+    {
+      "name": "AI orchestration boundaries (mock inference) does not export or send a model evidence message when review admission fails",
+      "passed": true,
+      "duration_ms": 63.745200000000295
     },
     {
       "name": "AI orchestration boundaries (mock inference) runs a validated coding guard after graph, sources and admission",
       "passed": true,
-      "duration_ms": 104.02260000000001
+      "duration_ms": 75.66129999999976
     },
     {
       "name": "AI orchestration boundaries (mock inference) prevents inference if a context or tool review is rejected",
       "passed": true,
-      "duration_ms": 18.633700000000317
+      "duration_ms": 72.92460000000028
     },
     {
       "name": "AI orchestration boundaries (mock inference) prevents inference when the signed graph cannot be read",
       "passed": true,
-      "duration_ms": 2.8503999999998086
+      "duration_ms": 6.035100000000057
     },
     {
       "name": "AI orchestration boundaries (mock inference) prevents inference when original source bytes change",
       "passed": true,
-      "duration_ms": 2.8079999999999927
+      "duration_ms": 3.7557999999999083
     },
     {
       "name": "AI orchestration boundaries (mock inference) returns no passing result for invalid generated guards",
       "passed": true,
-      "duration_ms": 22.864399999999932
+      "duration_ms": 39.900800000000345
     },
     {
       "name": "AI orchestration boundaries (mock inference) blocks a plausible generated guard that fails a boundary",
       "passed": true,
-      "duration_ms": 20.16359999999986
+      "duration_ms": 108.70460000000003
     },
     {
       "name": "AI orchestration boundaries (mock inference) accepts a genuine structured model guard",
       "passed": true,
-      "duration_ms": 13.73050000000012
+      "duration_ms": 88.8777
     },
     {
       "name": "AI orchestration boundaries (mock inference) withholds unchecked numeric model claims while preserving exact arithmetic",
       "passed": true,
-      "duration_ms": 41.93339999999989
+      "duration_ms": 232.66870000000017
     },
     {
       "name": "AI orchestration boundaries (mock inference) requires the admitted context to be connected to the selected task graph",
       "passed": true,
-      "duration_ms": 11.421699999999873
+      "duration_ms": 17.68919999999889
     },
     {
       "name": "AI orchestration boundaries (mock inference) never runs an unrelated legacy context in an India task",
       "passed": true,
-      "duration_ms": 13.662899999999809
+      "duration_ms": 37.46360000000095
     },
     {
       "name": "AI orchestration boundaries (mock inference) rejects arbitrary tools, providers and prompt injection parameters",
       "passed": true,
-      "duration_ms": 0.9904999999998836
+      "duration_ms": 3.420399999999063
     },
     {
       "name": "Reusable Arkiv Graph infrastructure supports a non-AI domain with custom node types and relations",
       "passed": true,
-      "duration_ms": 64.96870000000013
+      "duration_ms": 153.1813000000002
     },
     {
       "name": "Reusable Arkiv Graph infrastructure requires the manifest-listed inspection instead of returning a partial graph",
       "passed": true,
-      "duration_ms": 35.290500000000065
+      "duration_ms": 86.32659999999942
     },
     {
       "name": "Reusable Arkiv Graph infrastructure keeps application signature domains isolated",
       "passed": true,
-      "duration_ms": 29.511799999999994
+      "duration_ms": 48.52170000000024
     },
     {
       "name": "Reusable Arkiv Graph infrastructure rejects replay under a changed custom signing domain",
       "passed": true,
-      "duration_ms": 24.934099999999944
+      "duration_ms": 57.29920000000038
     },
     {
       "name": "Reusable Arkiv Graph infrastructure preserves canonical hashes across the existing application adapter",
       "passed": true,
-      "duration_ms": 1.9988000000000739
+      "duration_ms": 4.794400000000678
     },
     {
       "name": "Reusable Arkiv Graph infrastructure binds entity indexes to the configured graph profile and relation",
       "passed": true,
-      "duration_ms": 11.304899999999861
+      "duration_ms": 17.1842000000006
     },
     {
       "name": "Reusable Arkiv Graph infrastructure rejects invalid node taxonomies, traversal paths and repeated identities",
       "passed": true,
-      "duration_ms": 5.032399999999825
+      "duration_ms": 27.56829999999991
     },
     {
       "name": "Reusable Arkiv Graph infrastructure validates positive expiry before producing signed record inputs",
       "passed": true,
-      "duration_ms": 2.1842000000001462
+      "duration_ms": 6.475199999999859
     },
     {
       "name": "Graph AI context boundary (mocked RPC) preserves identity and marks all content as untrusted evidence",
       "passed": true,
-      "duration_ms": 17.66820000000007
+      "duration_ms": 20.759900000000016
     },
     {
       "name": "Graph AI context boundary (mocked RPC) verifies original bytes before including a labelled excerpt",
       "passed": true,
-      "duration_ms": 9.529899999999998
+      "duration_ms": 62.61710000000039
     },
     {
       "name": "Graph AI context boundary (mocked RPC) rejects source drift rather than substituting cached text",
       "passed": true,
-      "duration_ms": 9.611599999999953
+      "duration_ms": 56.39469999999983
     },
     {
       "name": "Graph AI context boundary (mocked RPC) rejects a truncated graph path before loading any source",
       "passed": true,
-      "duration_ms": 8.392500000000155
+      "duration_ms": 26.878599999999096
     },
     {
       "name": "Graph AI context boundary (mocked RPC) rejects a packet that exceeds its declared character budget",
       "passed": true,
-      "duration_ms": 7.14689999999996
+      "duration_ms": 21.558099999999286
     },
     {
       "name": "Graph AI context boundary (mocked RPC) rejects invalid budgets before querying Arkiv",
       "passed": true,
-      "duration_ms": 1.3937000000000808
+      "duration_ms": 9.37840000000051
     },
     {
       "name": "Graph AI context boundary (mocked RPC) does not return context after current graph verification fails",
       "passed": true,
-      "duration_ms": 6.080000000000155
+      "duration_ms": 42.03189999999995
     },
     {
       "name": "Graph AI context boundary (mocked RPC) caps original source bytes before hashing or decoding",
       "passed": true,
-      "duration_ms": 19.481300000000147
+      "duration_ms": 66.04719999999998
     },
     {
       "name": "Signed graph contract assembles authentic complete members against a pinned root",
       "passed": true,
-      "duration_ms": 75.78099999999995
+      "duration_ms": 149.3075000000008
     },
     {
       "name": "Signed graph contract rejects a missing node, edge or manifest",
       "passed": true,
-      "duration_ms": 123.50829999999996
+      "duration_ms": 233.07780000000002
     },
     {
       "name": "Signed graph contract rejects reused entity keys across different members",
       "passed": true,
-      "duration_ms": 27.96140000000014
+      "duration_ms": 59.881499999999505
     },
     {
       "name": "Signed graph contract rejects duplicate members",
       "passed": true,
-      "duration_ms": 39.81219999999985
+      "duration_ms": 67.07679999999982
     },
     {
       "name": "Signed graph contract rejects forged changed content",
       "passed": true,
-      "duration_ms": 37.8748999999998
+      "duration_ms": 93.50890000000072
     },
     {
       "name": "Signed graph contract rejects an unaccepted signer or mismatched chain creator",
       "passed": true,
-      "duration_ms": 53.250600000000304
+      "duration_ms": 123.63689999999951
     },
     {
       "name": "Signed graph contract rejects expired graph evidence",
       "passed": true,
-      "duration_ms": 35.56670000000031
+      "duration_ms": 65.19930000000022
     },
     {
       "name": "Signed graph contract rejects a substituted graph root",
       "passed": true,
-      "duration_ms": 22.988600000000133
+      "duration_ms": 61.75340000000142
     },
     {
       "name": "Signed graph contract rejects dangling edges, duplicate IDs and source traversal",
       "passed": true,
-      "duration_ms": 2.4441000000001623
+      "duration_ms": 8.712599999998929
     },
     {
       "name": "Signed graph contract traverses cycles once and reports bounded incomplete traversal",
       "passed": true,
-      "duration_ms": 4.2827000000002045
+      "duration_ms": 9.912899999999354
     },
     {
       "name": "Useful bounded tools generates a release guard that passes six substantive boundaries",
       "passed": true,
-      "duration_ms": 1.0745999999999185
+      "duration_ms": 2.3876000000000204
     },
     {
       "name": "Useful bounded tools rejects model output omitting either required behavior",
       "passed": true,
-      "duration_ms": 0.7005000000003747
+      "duration_ms": 1.3490999999994528
     },
     {
       "name": "Useful bounded tools does not execute arbitrary model code or unknown operations",
       "passed": true,
-      "duration_ms": 1.945299999999861
+      "duration_ms": 3.671299999999974
     },
     {
       "name": "Useful bounded tools calculates exact paise and Indian grouping without float accumulation",
       "passed": true,
-      "duration_ms": 21.108799999999974
+      "duration_ms": 49.208699999999226
     },
     {
       "name": "Useful bounded tools rejects malformed, negative or over-precision calculator inputs",
       "passed": true,
-      "duration_ms": 0.6541000000001986
+      "duration_ms": 5.5692999999992026
     },
     {
       "name": "Useful bounded tools keeps safety questions connected to NPCI primary guidance",
       "passed": true,
-      "duration_ms": 0.6530000000002474
+      "duration_ms": 1.5573000000003958
     },
     {
       "name": "seekable launch video uses deployment metadata when the internal asset response omits Content-Length",
       "passed": true,
-      "duration_ms": 73.23170000000005
+      "duration_ms": 167.32709999999997
     },
     {
       "name": "seekable launch video fails if the complete asset differs from the declared release length",
       "passed": true,
-      "duration_ms": 3.6906000000000176
+      "duration_ms": 10.375
     },
     {
       "name": "seekable launch video serves the exact requested middle bytes with their complete-file offsets",
       "passed": true,
-      "duration_ms": 3.241700000000037
+      "duration_ms": 7.272499999999809
     },
     {
       "name": "seekable launch video supports open-ended and suffix requests used during forward and backward seeking",
       "passed": true,
-      "duration_ms": 4.0704999999999245
+      "duration_ms": 12.218399999999747
     },
     {
       "name": "seekable launch video rejects unsatisfiable requests without returning the full asset as a partial response",
       "passed": true,
-      "duration_ms": 4.308200000000056
+      "duration_ms": 27.7815999999998
     },
     {
       "name": "seekable launch video returns the whole current revision when If-Range names an older revision",
       "passed": true,
-      "duration_ms": 1.6841000000000577
+      "duration_ms": 7.860500000000229
     },
     {
       "name": "seekable launch video ignores malformed or multipart range headers and keeps ordinary playback intact",
       "passed": true,
-      "duration_ms": 3.0009000000000015
+      "duration_ms": 17.791799999999967
     },
     {
       "name": "signed artifact and reviewer boundary admits an exact artifact with accepted current passport and review",
       "passed": true,
-      "duration_ms": 25.055000000000064
+      "duration_ms": 76.07669999999962
     },
     {
       "name": "signed artifact and reviewer boundary rejects changed artifact bytes",
       "passed": true,
-      "duration_ms": 1.1097999999999502
+      "duration_ms": 1.8250000000007276
     },
     {
       "name": "signed artifact and reviewer boundary requires a reviewer even when a passport exists",
       "passed": true,
-      "duration_ms": 8.981800000000021
+      "duration_ms": 34.732199999999466
     },
     {
       "name": "signed artifact and reviewer boundary requires a passport even when a reviewer exists",
       "passed": true,
-      "duration_ms": 6.945799999999963
+      "duration_ms": 10.620200000000295
     },
     {
       "name": "signed artifact and reviewer boundary rejects a correctly signed but unaccepted publisher",
       "passed": true,
-      "duration_ms": 30.81309999999985
+      "duration_ms": 42.73729999999978
     },
     {
       "name": "signed artifact and reviewer boundary rejects a correctly signed but unaccepted reviewer",
       "passed": true,
-      "duration_ms": 23.001800000000003
+      "duration_ms": 25.840100000000348
     },
     {
       "name": "signed artifact and reviewer boundary rejects a forged issuer label",
       "passed": true,
-      "duration_ms": 8.342399999999998
+      "duration_ms": 18.77680000000055
     },
     {
       "name": "signed artifact and reviewer boundary rejects modified review evidence after signing",
       "passed": true,
-      "duration_ms": 9.80989999999997
+      "duration_ms": 9.74120000000039
     },
     {
       "name": "signed artifact and reviewer boundary rejects unknown payload fields",
       "passed": true,
-      "duration_ms": 2.028099999999995
+      "duration_ms": 3.1049999999995634
     },
     {
       "name": "signed artifact and reviewer boundary rejects a copied signature from a different payload",
       "passed": true,
-      "duration_ms": 6.291899999999941
+      "duration_ms": 7.58179999999993
     },
     {
       "name": "signed artifact and reviewer boundary expires a required review at its signed deadline",
       "passed": true,
-      "duration_ms": 13.283599999999979
+      "duration_ms": 15.724299999999857
     },
     {
       "name": "signed artifact and reviewer boundary cannot create satisfied review containing a failed check",
       "passed": true,
-      "duration_ms": 2.5046000000002095
+      "duration_ms": 8.792599999999766
     },
     {
       "name": "signed artifact and reviewer boundary reports an accepted negative review as requiring attention",
       "passed": true,
-      "duration_ms": 13.747100000000046
+      "duration_ms": 50.543400000000474
     },
     {
       "name": "signed artifact and reviewer boundary fails closed when the provider is unavailable",
       "passed": true,
-      "duration_ms": 0.6670999999998912
+      "duration_ms": 1.884200000000419
     },
     {
       "name": "signed artifact and reviewer boundary does not admit a future-dated review",
       "passed": true,
-      "duration_ms": 15.105399999999918
+      "duration_ms": 19.694000000000415
     },
     {
       "name": "withdrawals and chain metadata applies an authentic same-author withdrawal",
       "passed": true,
-      "duration_ms": 35.587099999999964
+      "duration_ms": 42.77140000000054
     },
     {
       "name": "withdrawals and chain metadata rejects another wallet trying to withdraw an accepted review",
       "passed": true,
-      "duration_ms": 20.573900000000094
+      "duration_ms": 74.58229999999912
     },
     {
       "name": "withdrawals and chain metadata does not withdraw a different target",
       "passed": true,
-      "duration_ms": 17.2171000000003
+      "duration_ms": 43.10360000000037
     },
     {
       "name": "withdrawals and chain metadata does not apply a withdrawal older than its target",
       "passed": true,
-      "duration_ms": 17.284299999999803
+      "duration_ms": 30.507400000000416
     },
     {
       "name": "withdrawals and chain metadata allows a fresh review after withdrawing a specific older review",
       "passed": true,
-      "duration_ms": 25.472299999999905
+      "duration_ms": 37.48400000000038
     },
     {
       "name": "withdrawals and chain metadata accepts readonly chain entity bound to the signed payload",
       "passed": true,
-      "duration_ms": 6.307099999999991
+      "duration_ms": 24.16649999999936
     },
     {
       "name": "withdrawals and chain metadata rejects mutable entities after ownership transfer",
       "passed": true,
-      "duration_ms": 0.4212999999999738
+      "duration_ms": 0.8624999999992724
     },
     {
       "name": "withdrawals and chain metadata rejects protocol creator mismatch",
       "passed": true,
-      "duration_ms": 4.0009000000000015
+      "duration_ms": 14.714500000000044
     },
     {
       "name": "withdrawals and chain metadata rejects query attribute and payload disagreement",
       "passed": true,
-      "duration_ms": 5.763600000000224
+      "duration_ms": 13.610800000000381
     },
     {
       "name": "withdrawals and chain metadata rejects chain-expired records",
       "passed": true,
-      "duration_ms": 0.9130000000000109
+      "duration_ms": 1.170799999999872
     },
     {
       "name": "withdrawals and chain metadata rejects storage that ends before signed validity",
       "passed": true,
-      "duration_ms": 1.7033000000001266
+      "duration_ms": 3.1850999999987835
     },
     {
       "name": "Qarinah and bounded JSON validates a genuine generated Qarinah packet",
       "passed": true,
-      "duration_ms": 17.34230000000025
+      "duration_ms": 27.32550000000083
     },
     {
       "name": "Qarinah and bounded JSON rejects a changed Qarinah packet manifest",
       "passed": true,
-      "duration_ms": 4.703400000000329
+      "duration_ms": 9.526099999999133
     },
     {
       "name": "Qarinah and bounded JSON detects a changed repository snapshot before admission",
       "passed": true,
-      "duration_ms": 6.679599999999937
+      "duration_ms": 14.728800000000774
     },
     {
       "name": "Qarinah and bounded JSON rejects cyclic values",
       "passed": true,
-      "duration_ms": 0.5426000000002205
+      "duration_ms": 1.6997000000010303
     },
     {
       "name": "Qarinah and bounded JSON rejects accessors without invoking them",
       "passed": true,
-      "duration_ms": 0.4520999999999731
+      "duration_ms": 1.8677000000006956
     },
     {
       "name": "Qarinah and bounded JSON rejects unsupported prototype instances",
       "passed": true,
-      "duration_ms": 0.331199999999626
+      "duration_ms": 1.1643999999996595
     },
     {
       "name": "Qarinah and bounded JSON rejects over-deep input",
       "passed": true,
-      "duration_ms": 0.6657999999997628
+      "duration_ms": 1.766700000000128
     },
     {
       "name": "Qarinah and bounded JSON rejects oversized input",
       "passed": true,
-      "duration_ms": 6.287299999999959
+      "duration_ms": 15.295000000000073
     },
     {
       "name": "Public read gateway redirects the retired hostname to the graph domain with its path intact",
       "passed": true,
-      "duration_ms": 37.600200000000314
+      "duration_ms": 100.06750000000011
     },
     {
       "name": "Public read gateway rejects arbitrary context sources, providers and write requests",
       "passed": true,
-      "duration_ms": 8.387300000000323
+      "duration_ms": 19.89810000000034
     },
     {
       "name": "Public read gateway cannot publish or receive an upload",
       "passed": true,
-      "duration_ms": 2.9868000000001302
+      "duration_ms": 9.741899999999987
     },
     {
       "name": "Public read gateway rejects malformed identity and arbitrary provider selection",
       "passed": true,
-      "duration_ms": 4.865200000000186
+      "duration_ms": 14.12710000000061
     },
     {
       "name": "Public read gateway rate-limits before querying Arkiv",
       "passed": true,
-      "duration_ms": 1.6451999999999316
+      "duration_ms": 2.0634000000000015
     },
     {
       "name": "Public read gateway does not expose credentials or provider errors",
       "passed": true,
-      "duration_ms": 6.4211999999997715
+      "duration_ms": 9.063199999999597
     },
     {
       "name": "Public read gateway returns verified records with no caching",
       "passed": true,
-      "duration_ms": 2.7164999999999964
+      "duration_ms": 3.333400000000438
     },
     {
       "name": "Public read gateway protects the browser document",
       "passed": true,
-      "duration_ms": 1.8011000000001332
+      "duration_ms": 6.9520000000002256
     }
   ]
 }

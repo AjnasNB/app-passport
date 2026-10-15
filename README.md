@@ -7,6 +7,7 @@ I built Arkiv Graph as reusable infrastructure for connected records on Arkiv. A
 - Graph SDK: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-sdk-0.2.0.tgz
 - AI Passport adapter: https://arkivgraph.ajnasnb.com/downloads/app-passport-sdk-0.4.0.tgz (install with the graph tarball)
 - Architecture: [ARCHITECTURE.md](ARCHITECTURE.md)
+- Judge evidence guide: https://arkivgraph.ajnasnb.com/judges.html
 - Evaluation PDF: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-evaluation.pdf
 - Launch film: https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4
 - Graphical pitch: https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pptx
@@ -20,7 +21,7 @@ I built Arkiv Graph as reusable infrastructure for connected records on Arkiv. A
 
 **UPI Safety Quest** is a playable three-round learning game with deterministic scoring and an optional real AI coach. Project-authored learning summaries cite NPCI primary guidance. No PIN, bank account or payment is involved.
 
-The actual runtime model is Cloudflare-hosted @cf/meta/llama-3.2-3b-instruct. Hosted weights and computation are not independently attested. Public demonstrations use disclosed public or synthetic inputs. Private Qarinah memory stays local.
+The actual runtime model is Cloudflare-hosted @cf/meta/llama-3.2-3b-instruct. `Inspect AI inputs` follows original sources, the pinned graph, current reviews, exact model evidence, the provider call and checked result. Download the actual evidence-message bytes and run receipt. The browser verifies both reported identities. These checks do not attest hosted weights or provider computation. Public demonstrations use disclosed public or synthetic inputs. Private Qarinah memory stays local.
 
 ## Connected evidence
 
@@ -45,7 +46,7 @@ npx tsx scripts/test-graph-mcp.ts
 node scripts/consume-graph-infra.mjs
 ```
 
-The live suite covers coding, English/Hindi number views, the safety coach and withdrawn/expired/tampered/stale inputs. Failed evidence blocks inference. Actual receipts are in /data/ai-evaluation.json; /data/anchored-ai-evaluation.json preserves the evaluated snapshot linked into the graph. Release evidence includes 96 local tests, eight direct SDK/MCP checks and sixteen hosted browser flows. Browser media checks cover playback and forward/backward seeking. See the JSON reports for scope and results.
+The live suite covers coding, English/Hindi number views, the safety coach and withdrawn/expired/tampered/stale inputs. Failed evidence blocks inference. Actual receipts are in /data/ai-evaluation.json; /data/anchored-ai-evaluation.json preserves the evaluated snapshot linked into the graph. Release evidence includes 98 local tests, eight direct SDK/MCP checks and sixteen hosted browser flows. Browser media checks cover playback and forward/backward seeking. See the JSON reports for scope and results.
 
 Install the SDK tarball in another project. Read /data/policy.json and /data/graph-config.json, then use:
 
@@ -78,5 +79,5 @@ Storage lasts 30 days and signed evidence is finite; the operator must renew it.
 
 Ten pinned public tool artifacts passed MCP initialization, listing and controlled calls. Their versions, source URLs and actual results remain in /data/tools.json and /data/protocol-evaluation.json. Local orchestration tests use mock inference; the live suite makes actual provider calls.
 
-MIT covers new Arkiv Graph and AI Passport code. The copied Qarinah runtime retains Apache-2.0 and notices. [PREEXISTING.md](PREEXISTING.md) discloses the exact baseline. Original Qarinah and ScamSignal folders are preserved. Generated artwork is conceptual. The current 72-second launch film uses original motion scenes and music with actual product captures; earlier films remain separate. Production sources and credits are in [media/README.md](media/README.md).
+MIT covers new Arkiv Graph and AI Passport code. The copied Qarinah runtime retains Apache-2.0 and notices. [PREEXISTING.md](PREEXISTING.md) discloses the exact baseline. Original Qarinah and ScamSignal folders are preserved. Generated artwork is conceptual. The current 96-second launch film uses original motion scenes and music with actual product captures; earlier films remain separate. Production sources and credits are in [media/README.md](media/README.md).
 

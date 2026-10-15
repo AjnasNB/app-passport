@@ -1,4 +1,4 @@
-# AI Passport: selected memory, useful tools, connected evidence
+# Arkiv Graph: connected evidence and inspectable AI
 
 Built by Ajnas NB. Live application: https://arkivgraph.ajnasnb.com. The original Qarinah repositories are preserved; this project integrates an Apache-2.0 licensed copy at the disclosed baseline in PREEXISTING.md.
 
@@ -73,7 +73,7 @@ A SQLite Durable Object reserves at most forty model attempts per UTC day before
 
 ### 5. Results and evidence
 
-Successful receipts contain graph/context/runtime identities, the actual chain read blocks, selected event IDs, source content digests, model alias, bounded tool results and output. The canonical receipt digest binds that report. A receipt is not a zero-knowledge proof of computation or a provider-signed inference certificate.
+Successful receipts contain graph/context/runtime identities, the actual chain read blocks, selected event IDs, source content digests, model alias, bounded tool results and output. They also return the exact bounded evidence message passed to the model, its byte SHA-256, selected graph sizes and current admission results. The browser checks the evidence-message byte digest and canonical receipt digest before showing an admitted result. These are self-consistency checks of a project-generated report, not a zero-knowledge computation proof or a provider-signed inference certificate. Separate system/task instructions are not part of the exported evidence message.
 
 Model output is plain text in the browser. Coding output must match a strict finite guard language, then pass six substantive tests; otherwise it is rejected. No generated code is passed to eval, Function, a shell, or an arbitrary remote tool.
 
@@ -90,7 +90,7 @@ npx tsx scripts/build-ai-fixtures.ts
 npx tsx scripts/evaluate-ai.ts
 ```
 
-To read the graph independently, install the SDK tarball from `/downloads/app-passport-sdk-0.2.1.tgz` and call `readGraph({policy,rpc}, graphDigest)`, then `traverseGraph(graph, 'app:coding', {depth:4})`. The public policy and pinned root are in `/data/policy.json` and `/data/graph-config.json`. The raw Tiramisu RPC requires no website account; use your own quota access key if the provider requires it. A writer needs an accepted issuer wallet and free Tiramisu test tokens. Credentials must remain outside the repository.
+To read the graph independently, install `/downloads/arkiv-graph-sdk-0.2.0.tgz` and `/downloads/app-passport-sdk-0.4.0.tgz` together, then call `readGraph({policy,rpc}, graphDigest)` from the application adapter and `traverseGraph(graph, 'app:coding', {depth:4})`. The public policy and pinned root are in `/data/policy.json` and `/data/graph-config.json`. The raw Tiramisu RPC requires no website account; use your own quota access key if the provider requires it. A writer needs an accepted issuer wallet and free Tiramisu test tokens. Credentials must remain outside the repository.
 
 ## Primary references
 
