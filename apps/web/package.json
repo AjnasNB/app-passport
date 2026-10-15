@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5191",
-    "build": "vite build"
+    "build": "node ../../scripts/build-web.mjs"
   },
   "dependencies": {
     "@ajnasnb/ai-passport": "0.5.0",
