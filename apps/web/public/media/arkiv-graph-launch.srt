@@ -1,132 +1,163 @@
 1
-00:00:00,150 --> 00:00:04,800
-Your data has connections. Your AI needs
-context. I built Arkiv Graph to
+00:00:00,170 --> 00:00:01,740
+An AI tool can keep
 
 2
-00:00:04,830 --> 00:00:05,960
-bring them together.
+00:00:01,770 --> 00:00:06,281
+yesterday’s approval after the evidence
+changes. How does the next reader know?
 
 3
-00:00:08,150 --> 00:00:13,023
-Built on Arkiv, it connects signed records
-into graphs. A complete manifest
+00:00:08,180 --> 00:00:13,900
+I built Arkiv Graph: a graph SDK over
+Arkiv’s public indexed entities. Signed
 
 4
-00:00:13,053 --> 00:00:16,371
-lets another reader verify every member
-and relationship.
+00:00:13,930 --> 00:00:19,124
+manifests bind every graph member. Readers
+assemble and traverse the graph locally.
 
 5
-00:00:20,150 --> 00:00:25,944
-Follow a task to its context and original
-sources. Verify the bytes, then
+00:00:20,160 --> 00:00:24,920
+AI Passport checks approval before
+inference. It links untrusted Qarinah
 
 6
-00:00:25,974 --> 00:00:30,424
-deliver bounded evidence to AI. Only
-selected, verified context reaches
+00:00:24,950 --> 00:00:30,399
+context to source bytes. Try coding
+guards, rupee tools, and UPI safety.
 
 7
-00:00:30,454 --> 00:00:31,400
-the model.
+00:00:32,130 --> 00:00:36,380
+In the recorded testnet lifecycle, two
+project-operated readers first admitted
 
 8
-00:00:32,150 --> 00:00:35,933
-Choose a task. Its graph connects the
-sources and current reviews.
+00:00:36,410 --> 00:00:39,520
+the task. A real review
+withdrawal followed.
 
 9
-00:00:38,150 --> 00:00:42,397
-Qarinah selects two current events. One
-source excerpt becomes
+00:00:39,550 --> 00:00:43,572
+Each reader’s next request refused
+it. These guards are deterministic.
 
 10
-00:00:42,427 --> 00:00:43,427
-untrusted evidence.
+00:00:44,210 --> 00:00:48,840
+Root updates now follow a pinned
+authority and scope. Signed revisions link
 
 11
-00:00:44,150 --> 00:00:49,000
-Open the exact evidence message. Its byte
-identity is checked in your browser.
+00:00:48,870 --> 00:00:54,700
+the previous digest and root. A retained
+checkpoint rejects observed rollback.
 
 12
-00:00:50,150 --> 00:00:54,668
-The model runs. Tests check its guard. A
-receipt binds the reported inputs
+00:00:54,730 --> 00:00:56,840
+Two revisions and their tiny graphs were
 
 13
-00:00:54,698 --> 00:00:55,448
-and result.
+00:00:56,870 --> 00:01:02,121
+published together, in one transaction.
+The larger AI graph remains pinned.
 
 14
-00:00:56,150 --> 00:01:00,775
-AI Passport puts it to work. A real model
-builds a guard that passes
+00:01:04,130 --> 00:01:08,880
+The live reader verifies both signed
+revisions at one explicit snapshot, then
 
 15
-00:01:00,805 --> 00:01:01,853
-six boundary tests.
+00:01:08,910 --> 00:01:11,220
+reconstructs the complete current graph.
 
 16
-00:01:02,650 --> 00:01:05,601
-AI Passport also has source-linked
-learning tools.
+00:01:12,210 --> 00:01:17,500
+Controlled replays hide the newer head or
+edit signed root bytes. Both are refused.
 
 17
-00:01:07,150 --> 00:01:10,784
-Its safety game cites the original NPCI
-guidance.
+00:01:17,530 --> 00:01:18,836
+This is a local test.
 
 18
-00:01:12,150 --> 00:01:15,976
-Withdraw a required review, and this
-evidence gate stops inference.
+00:01:20,160 --> 00:01:24,770
+A signed withdrawal can arrive before
+its target. The journal retains it, then
 
 19
-00:01:18,130 --> 00:01:22,532
-Two separate readers verify the same
-graph, source bytes, and current review.
+00:01:24,800 --> 00:01:29,220
+checks it when the review reappears.
+State must persist before admission.
 
 20
-00:01:24,130 --> 00:01:28,710
-Each makes a fresh read. Both admit the
-task. Six guard tests pass, without
+00:01:29,250 --> 00:01:33,300
+A shared browser lock
+serializes tab updates.
 
 21
-00:01:28,740 --> 00:01:29,449
-a model.
+00:01:33,330 --> 00:01:36,457
+Deleting local history still
+removes this protection.
 
 22
-00:01:32,130 --> 00:01:35,679
-The reviewer withdraws its review in a new
-Arkiv transaction.
+00:01:38,230 --> 00:01:42,850
+Here the deployed app reads the public
+session again and refuses a new task.
 
 23
-00:01:38,130 --> 00:01:41,828
-Once visible, B reads again. Its next task
-is refused.
+00:01:42,880 --> 00:01:47,470
+The historical acceptance stays visible
+as history. Both clients and signing
 
 24
-00:01:43,130 --> 00:01:46,572
-A makes its own fresh read. The task is
-refused too.
+00:01:47,500 --> 00:01:51,620
+wallets are project-controlled;
+external adoption is not claimed.
 
 25
-00:01:48,130 --> 00:01:52,852
-Both clients and wallets belong to this
-project. Every new task checks again.
+00:01:52,360 --> 00:01:56,810
+Repeated checks must stay usable on
+mobile. Eighteen simulated audits:
 
 26
-00:01:54,130 --> 00:01:59,855
-Install the public SDK. Build a browser,
-Node, or MCP reader that verifies
+00:01:56,840 --> 00:02:01,480
+three cold loads per route and phase.
+Median scores reached ninety-eight,
 
 27
-00:01:59,885 --> 00:02:01,263
-Arkiv records locally.
+00:02:01,510 --> 00:02:07,348
+ninety-eight, and ninety-six. Desktop lab
+results, not physical-phone or field data.
 
 28
-00:02:02,150 --> 00:02:06,211
-Arkiv Graph. Connected evidence for useful
-AI. Try it now.
+00:02:08,170 --> 00:02:12,940
+A hash identifies bytes. A private
+database depends on its operator.
+
+29
+00:02:12,970 --> 00:02:15,540
+Arkiv provides shared indexed discovery.
+
+30
+00:02:15,570 --> 00:02:21,577
+Readers can bypass our API. The SDK
+adds graph verification and AI context.
+
+31
+00:02:22,170 --> 00:02:26,560
+Install Arkiv Graph zero point four,
+or AI Passport zero point six.
+
+32
+00:02:26,590 --> 00:02:31,550
+Public schemas, queries and
+evidence make the demo reproducible.
+
+33
+00:02:31,580 --> 00:02:33,423
+Outside usage is not yet proven.
+
+34
+00:02:34,180 --> 00:02:40,004
+One RPC remains trusted. Unseen omissions
+remain possible. Build your own reader.

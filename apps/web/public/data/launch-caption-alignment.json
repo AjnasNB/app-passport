@@ -1,0 +1,1826 @@
+{
+  "status": "pass",
+  "authored_by": "caption-correction agent; requires independent verification",
+  "method": "Ordered script/ASR unit edit alignment with explicit number, compound and proper-name normalization; exact script retained. Cue starts lead ASR anchors by 50ms. Known synthesis starts replace implausible scene-first ASR anchors. Dynamic-programming reflow enforces two lines, 42 chars/line, no overlaps and <=19.5 CPS; no proportional fallback for unmatched words.",
+  "script_word_count": 339,
+  "asr_word_count": 338,
+  "script_normalized_units": 335,
+  "asr_normalized_units": 335,
+  "exact_script_text_preserved": true,
+  "mp4_sha256": "55ca50675e160f17d8a5a6cdea02a5e7af19c32a681a85a5d8d011be874c78b5",
+  "mp4_bytes": 14828848,
+  "readback_sha256": "ae340a301831b28be759fcb6a450d60097f613032276ad785aa5b90c6047367b",
+  "timeline_sha256": "6c31343c5274bb9ff72316237a9bfe8ad777ad0a97046b746f79ea05e2836afb",
+  "generator_sha256": "a812929f688d666d3b73b568a4f8252a0fe81f6762753e578a978f0380dac91c",
+  "srt_sha256": "d23d36b128939f36b31d4daf93a9638152cf6ec2927d466a175b0da7650dbed3",
+  "vtt_sha256": "1f0078e9c06e9395423169ecd723de88ec402b4aa9842f856e265ecc21114430",
+  "cue_count": 34,
+  "max_cps": 18.9573,
+  "max_line_characters": 42,
+  "minimum_cue_seconds": 1.306,
+  "overlaps": 0,
+  "asr_uncertainties": [
+    {
+      "kind": "low_asr_confidence",
+      "script": "An",
+      "asr": "An",
+      "min_confidence": 0.599,
+      "start": 0.22,
+      "end": 0.31
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "I",
+      "asr": "I",
+      "min_confidence": 0.5,
+      "start": 8.23,
+      "end": 8.32
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "Arkiv",
+      "asr": "Arciv",
+      "min_confidence": 0.411,
+      "start": 8.69,
+      "end": 8.99
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "Graph:",
+      "asr": "Graph,",
+      "min_confidence": 0.715,
+      "start": 9.12,
+      "end": 9.3
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "graph",
+      "asr": "graph",
+      "min_confidence": 0.414,
+      "start": 10.02,
+      "end": 10.22
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "Passport",
+      "asr": "passport",
+      "min_confidence": 0.263,
+      "start": 20.54,
+      "end": 20.8
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "Qarinah",
+      "asr": "car in a",
+      "min_confidence": 0.505,
+      "start": 24.4,
+      "end": 24.88
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "rupee",
+      "asr": "rupee",
+      "min_confidence": 0.652,
+      "start": 28.13,
+      "end": 28.43
+    },
+    {
+      "kind": "scene_first_asr_spans_previous_pause",
+      "script": "In",
+      "line_id": "lifecycle",
+      "asr_start": 30.15,
+      "asr_end": 30.2,
+      "trusted_synthesis_start": 32.18
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "In",
+      "asr": "In",
+      "min_confidence": 0.614,
+      "start": 32.18,
+      "end": 32.23
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "testnet",
+      "asr": "testnet",
+      "min_confidence": 0.672,
+      "start": 32.76,
+      "end": 33.24
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "project-operated",
+      "asr": "project-operated",
+      "min_confidence": 0.729,
+      "start": 34.4,
+      "end": 35.22
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "Root",
+      "asr": "Root",
+      "min_confidence": 0.756,
+      "start": 44.26,
+      "end": 44.42
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "root.",
+      "asr": "root.",
+      "min_confidence": 0.743,
+      "start": 50.48,
+      "end": 50.7
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "The",
+      "asr": "The",
+      "min_confidence": 0.272,
+      "start": 58.8,
+      "end": 59.7
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "larger",
+      "asr": "larger",
+      "min_confidence": 0.56,
+      "start": 59.7,
+      "end": 60.14
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "AI",
+      "asr": "AI",
+      "min_confidence": 0.765,
+      "start": 60.14,
+      "end": 60.68
+    },
+    {
+      "kind": "scene_first_asr_spans_previous_pause",
+      "script": "The",
+      "line_id": "root-read",
+      "asr_start": 62.5,
+      "asr_end": 64.3,
+      "trusted_synthesis_start": 64.18
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "live",
+      "asr": "live",
+      "min_confidence": 0.547,
+      "start": 64.3,
+      "end": 64.54
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "root",
+      "asr": "root",
+      "min_confidence": 0.761,
+      "start": 75,
+      "end": 75.21
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "A",
+      "asr": "A",
+      "min_confidence": 0.344,
+      "start": 89.3,
+      "end": 89.97
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "the",
+      "asr": "the",
+      "min_confidence": 0.677,
+      "start": 98.39,
+      "end": 98.55
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "project-controlled;",
+      "asr": "project-controlled,",
+      "min_confidence": 0.719,
+      "start": 108.33,
+      "end": 109.11
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "Eighteen",
+      "asr": "18",
+      "min_confidence": 0.689,
+      "start": 115.04,
+      "end": 115.41
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "three",
+      "asr": "3",
+      "min_confidence": 0.454,
+      "start": 116.89,
+      "end": 117.06
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "Median",
+      "asr": "Median",
+      "min_confidence": 0.076,
+      "start": 119.5,
+      "end": 119.77
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "Arkiv",
+      "asr": "Archiv",
+      "min_confidence": 0.56,
+      "start": 133.02,
+      "end": 133.12
+    },
+    {
+      "kind": "substitution",
+      "script": "indexed",
+      "asr": "index",
+      "start": 134,
+      "end": 134.39
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "indexed",
+      "asr": "index",
+      "min_confidence": 0.763,
+      "start": 134,
+      "end": 134.39
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "Graph",
+      "asr": "Graph",
+      "min_confidence": 0.563,
+      "start": 143.03,
+      "end": 143.22
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "or",
+      "asr": "or",
+      "min_confidence": 0.704,
+      "start": 144.34,
+      "end": 144.82
+    },
+    {
+      "kind": "low_asr_confidence",
+      "script": "Public",
+      "asr": "Public",
+      "min_confidence": 0.209,
+      "start": 146.64,
+      "end": 147.66
+    }
+  ],
+  "original_cues": [
+    {
+      "id": 1,
+      "start": 0.13,
+      "end": 4.766,
+      "text": "An AI tool can keep yesterday’s approval after the evidence changes. How does",
+      "first_word": 0,
+      "last_word": 12
+    },
+    {
+      "id": 2,
+      "start": 4.796,
+      "end": 6.281,
+      "text": "the next reader know?",
+      "first_word": 13,
+      "last_word": 16
+    },
+    {
+      "id": 3,
+      "start": 8.13,
+      "end": 13.791,
+      "text": "I built Arkiv Graph: a graph SDK over Arkiv’s public indexed entities. Signed",
+      "first_word": 17,
+      "last_word": 29
+    },
+    {
+      "id": 4,
+      "start": 13.821,
+      "end": 18.168,
+      "text": "manifests bind every graph member. Readers assemble and traverse the",
+      "first_word": 30,
+      "last_word": 39
+    },
+    {
+      "id": 5,
+      "start": 18.198,
+      "end": 19.124,
+      "text": "graph locally.",
+      "first_word": 40,
+      "last_word": 41
+    },
+    {
+      "id": 6,
+      "start": 20.13,
+      "end": 24.745,
+      "text": "AI Passport checks approval before inference. It links untrusted Qarinah",
+      "first_word": 42,
+      "last_word": 51
+    },
+    {
+      "id": 7,
+      "start": 24.775,
+      "end": 30.399,
+      "text": "context to source bytes. Try coding guards, rupee tools, and UPI safety.",
+      "first_word": 52,
+      "last_word": 63
+    },
+    {
+      "id": 8,
+      "start": 32.13,
+      "end": 36.319,
+      "text": "In the recorded testnet lifecycle, two project-operated readers first admitted",
+      "first_word": 64,
+      "last_word": 73
+    },
+    {
+      "id": 9,
+      "start": 36.349,
+      "end": 40.96,
+      "text": "the task. A real review withdrawal followed. Each reader’s next request",
+      "first_word": 74,
+      "last_word": 84
+    },
+    {
+      "id": 10,
+      "start": 40.99,
+      "end": 43.572,
+      "text": "refused it. These guards are deterministic.",
+      "first_word": 85,
+      "last_word": 90
+    },
+    {
+      "id": 11,
+      "start": 44.13,
+      "end": 49.351,
+      "text": "Root updates now follow a pinned authority and scope. Signed revisions link",
+      "first_word": 91,
+      "last_word": 102
+    },
+    {
+      "id": 12,
+      "start": 49.381,
+      "end": 54.165,
+      "text": "the previous digest and root. A retained checkpoint rejects observed rollback.",
+      "first_word": 103,
+      "last_word": 113
+    },
+    {
+      "id": 13,
+      "start": 54.195,
+      "end": 58.978,
+      "text": "Two revisions and their tiny graphs were published together, in one",
+      "first_word": 114,
+      "last_word": 124
+    },
+    {
+      "id": 14,
+      "start": 59.008,
+      "end": 62.121,
+      "text": "transaction. The larger AI graph remains pinned.",
+      "first_word": 125,
+      "last_word": 131
+    },
+    {
+      "id": 15,
+      "start": 64.13,
+      "end": 69.069,
+      "text": "The live reader verifies both signed revisions at one explicit snapshot, then",
+      "first_word": 132,
+      "last_word": 143
+    },
+    {
+      "id": 16,
+      "start": 69.099,
+      "end": 71.22,
+      "text": "reconstructs the complete current graph.",
+      "first_word": 144,
+      "last_word": 148
+    },
+    {
+      "id": 17,
+      "start": 72.13,
+      "end": 76.654,
+      "text": "Controlled replays hide the newer head or edit signed root bytes. Both are",
+      "first_word": 149,
+      "last_word": 161
+    },
+    {
+      "id": 18,
+      "start": 76.684,
+      "end": 78.836,
+      "text": "refused. This is a local test.",
+      "first_word": 162,
+      "last_word": 167
+    },
+    {
+      "id": 19,
+      "start": 80.13,
+      "end": 85.669,
+      "text": "A signed withdrawal can arrive before its target. The journal retains it, then",
+      "first_word": 168,
+      "last_word": 180
+    },
+    {
+      "id": 20,
+      "start": 85.699,
+      "end": 90.809,
+      "text": "checks it when the review reappears. State must persist before admission. A",
+      "first_word": 181,
+      "last_word": 192
+    },
+    {
+      "id": 21,
+      "start": 90.839,
+      "end": 95.092,
+      "text": "shared browser lock serializes tab updates. Deleting local history still",
+      "first_word": 193,
+      "last_word": 202
+    },
+    {
+      "id": 22,
+      "start": 95.122,
+      "end": 96.457,
+      "text": "removes this protection.",
+      "first_word": 203,
+      "last_word": 205
+    },
+    {
+      "id": 23,
+      "start": 98.13,
+      "end": 103.802,
+      "text": "Here the deployed app reads the public session again and refuses a new task.",
+      "first_word": 206,
+      "last_word": 219
+    },
+    {
+      "id": 24,
+      "start": 103.832,
+      "end": 108.282,
+      "text": "The historical acceptance stays visible as history. Both clients and signing",
+      "first_word": 220,
+      "last_word": 230
+    },
+    {
+      "id": 25,
+      "start": 108.312,
+      "end": 111.645,
+      "text": "wallets are project-controlled; external adoption is not claimed.",
+      "first_word": 231,
+      "last_word": 238
+    },
+    {
+      "id": 26,
+      "start": 112.13,
+      "end": 117.314,
+      "text": "Repeated checks must stay usable on mobile. Eighteen simulated audits: three",
+      "first_word": 239,
+      "last_word": 249
+    },
+    {
+      "id": 27,
+      "start": 117.344,
+      "end": 122.054,
+      "text": "cold loads per route and phase. Median scores reached ninety-eight,",
+      "first_word": 250,
+      "last_word": 259
+    },
+    {
+      "id": 28,
+      "start": 122.084,
+      "end": 126.32,
+      "text": "ninety-eight, and ninety-six. Desktop lab results, not physical-phone or",
+      "first_word": 260,
+      "last_word": 268
+    },
+    {
+      "id": 29,
+      "start": 126.35,
+      "end": 127.348,
+      "text": "field data.",
+      "first_word": 269,
+      "last_word": 270
+    },
+    {
+      "id": 30,
+      "start": 128.13,
+      "end": 133.644,
+      "text": "A hash identifies bytes. A private database depends on its operator. Arkiv",
+      "first_word": 271,
+      "last_word": 282
+    },
+    {
+      "id": 31,
+      "start": 133.674,
+      "end": 139.187,
+      "text": "provides shared indexed discovery. Readers can bypass our API. The SDK adds",
+      "first_word": 283,
+      "last_word": 294
+    },
+    {
+      "id": 32,
+      "start": 139.217,
+      "end": 141.577,
+      "text": "graph verification and AI context.",
+      "first_word": 295,
+      "last_word": 299
+    },
+    {
+      "id": 33,
+      "start": 142.13,
+      "end": 147.513,
+      "text": "Install Arkiv Graph zero point four, or AI Passport zero point six. Public",
+      "first_word": 300,
+      "last_word": 312
+    },
+    {
+      "id": 34,
+      "start": 147.543,
+      "end": 152.094,
+      "text": "schemas, queries and evidence make the demo reproducible. Outside usage is",
+      "first_word": 313,
+      "last_word": 323
+    },
+    {
+      "id": 35,
+      "start": 152.124,
+      "end": 153.423,
+      "text": "not yet proven.",
+      "first_word": 324,
+      "last_word": 326
+    },
+    {
+      "id": 36,
+      "start": 154.13,
+      "end": 158.953,
+      "text": "One RPC remains trusted. Unseen omissions remain possible. Build your",
+      "first_word": 327,
+      "last_word": 336
+    },
+    {
+      "id": 37,
+      "start": 158.983,
+      "end": 160.004,
+      "text": "own reader.",
+      "first_word": 337,
+      "last_word": 338
+    }
+  ],
+  "final_cues": [
+    {
+      "start": 0.17,
+      "end": 1.74,
+      "text": "An AI tool can keep",
+      "lines": [
+        "An AI tool can keep"
+      ],
+      "first_word": 0,
+      "last_word": 4,
+      "voice_line": "hook",
+      "cps": 12.1019,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "An",
+        "asr_unit": "An",
+        "asr_start": 0.22,
+        "asr_end": 0.31,
+        "min_confidence": 0.599
+      },
+      "id": 1
+    },
+    {
+      "start": 1.77,
+      "end": 6.281,
+      "text": "yesterday’s approval after the evidence changes. How does the next reader know?",
+      "lines": [
+        "yesterday’s approval after the evidence",
+        "changes. How does the next reader know?"
+      ],
+      "first_word": 5,
+      "last_word": 16,
+      "voice_line": "hook",
+      "cps": 17.5127,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "yesterday’s",
+        "asr_unit": "yesterday's",
+        "asr_start": 1.82,
+        "asr_end": 2.4,
+        "min_confidence": 0.987
+      },
+      "id": 2
+    },
+    {
+      "start": 8.18,
+      "end": 13.9,
+      "text": "I built Arkiv Graph: a graph SDK over Arkiv’s public indexed entities. Signed",
+      "lines": [
+        "I built Arkiv Graph: a graph SDK over",
+        "Arkiv’s public indexed entities. Signed"
+      ],
+      "first_word": 17,
+      "last_word": 29,
+      "voice_line": "infrastructure",
+      "cps": 13.4615,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "I",
+        "asr_unit": "I",
+        "asr_start": 8.23,
+        "asr_end": 8.32,
+        "min_confidence": 0.5
+      },
+      "id": 3
+    },
+    {
+      "start": 13.93,
+      "end": 19.124,
+      "text": "manifests bind every graph member. Readers assemble and traverse the graph locally.",
+      "lines": [
+        "manifests bind every graph member. Readers",
+        "assemble and traverse the graph locally."
+      ],
+      "first_word": 30,
+      "last_word": 41,
+      "voice_line": "infrastructure",
+      "cps": 15.98,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "manifests",
+        "asr_unit": "manifests",
+        "asr_start": 13.98,
+        "asr_end": 14.48,
+        "min_confidence": 0.981
+      },
+      "id": 4
+    },
+    {
+      "start": 20.16,
+      "end": 24.92,
+      "text": "AI Passport checks approval before inference. It links untrusted Qarinah",
+      "lines": [
+        "AI Passport checks approval before",
+        "inference. It links untrusted Qarinah"
+      ],
+      "first_word": 42,
+      "last_word": 51,
+      "voice_line": "ai",
+      "cps": 15.1261,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "AI",
+        "asr_unit": "AI",
+        "asr_start": 20.21,
+        "asr_end": 20.54,
+        "min_confidence": 0.981
+      },
+      "id": 5
+    },
+    {
+      "start": 24.95,
+      "end": 30.399,
+      "text": "context to source bytes. Try coding guards, rupee tools, and UPI safety.",
+      "lines": [
+        "context to source bytes. Try coding",
+        "guards, rupee tools, and UPI safety."
+      ],
+      "first_word": 52,
+      "last_word": 63,
+      "voice_line": "ai",
+      "cps": 13.2134,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "context",
+        "asr_unit": "context",
+        "asr_start": 25,
+        "asr_end": 25.32,
+        "min_confidence": 0.997
+      },
+      "id": 6
+    },
+    {
+      "start": 32.13,
+      "end": 36.38,
+      "text": "In the recorded testnet lifecycle, two project-operated readers first admitted",
+      "lines": [
+        "In the recorded testnet lifecycle, two",
+        "project-operated readers first admitted"
+      ],
+      "first_word": 64,
+      "last_word": 73,
+      "voice_line": "lifecycle",
+      "cps": 18.3529,
+      "start_anchor": {
+        "method": "trusted_synthesis_start",
+        "script_unit": "In",
+        "asr_unit": "In",
+        "asr_start": 30.15,
+        "asr_end": 30.2,
+        "min_confidence": 0.614
+      },
+      "id": 7
+    },
+    {
+      "start": 36.41,
+      "end": 39.52,
+      "text": "the task. A real review withdrawal followed.",
+      "lines": [
+        "the task. A real review",
+        "withdrawal followed."
+      ],
+      "first_word": 74,
+      "last_word": 80,
+      "voice_line": "lifecycle",
+      "cps": 14.1479,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "the",
+        "asr_unit": "the",
+        "asr_start": 36.46,
+        "asr_end": 36.61,
+        "min_confidence": 0.998
+      },
+      "id": 8
+    },
+    {
+      "start": 39.55,
+      "end": 43.572,
+      "text": "Each reader’s next request refused it. These guards are deterministic.",
+      "lines": [
+        "Each reader’s next request refused",
+        "it. These guards are deterministic."
+      ],
+      "first_word": 81,
+      "last_word": 90,
+      "voice_line": "lifecycle",
+      "cps": 17.4043,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Each",
+        "asr_unit": "Each",
+        "asr_start": 39.6,
+        "asr_end": 39.76,
+        "min_confidence": 0.995
+      },
+      "id": 9
+    },
+    {
+      "start": 44.21,
+      "end": 48.84,
+      "text": "Root updates now follow a pinned authority and scope. Signed revisions link",
+      "lines": [
+        "Root updates now follow a pinned",
+        "authority and scope. Signed revisions link"
+      ],
+      "first_word": 91,
+      "last_word": 102,
+      "voice_line": "roots",
+      "cps": 16.1987,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Root",
+        "asr_unit": "Root",
+        "asr_start": 44.26,
+        "asr_end": 44.42,
+        "min_confidence": 0.756
+      },
+      "id": 10
+    },
+    {
+      "start": 48.87,
+      "end": 54.7,
+      "text": "the previous digest and root. A retained checkpoint rejects observed rollback.",
+      "lines": [
+        "the previous digest and root. A retained",
+        "checkpoint rejects observed rollback."
+      ],
+      "first_word": 103,
+      "last_word": 113,
+      "voice_line": "roots",
+      "cps": 13.3791,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "the",
+        "asr_unit": "the",
+        "asr_start": 48.92,
+        "asr_end": 49.08,
+        "min_confidence": 0.997
+      },
+      "id": 11
+    },
+    {
+      "start": 54.73,
+      "end": 56.84,
+      "text": "Two revisions and their tiny graphs were",
+      "lines": [
+        "Two revisions and their tiny graphs were"
+      ],
+      "first_word": 114,
+      "last_word": 120,
+      "voice_line": "roots",
+      "cps": 18.9573,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Two",
+        "asr_unit": "Two",
+        "asr_start": 54.78,
+        "asr_end": 54.92,
+        "min_confidence": 0.996
+      },
+      "id": 12
+    },
+    {
+      "start": 56.87,
+      "end": 62.121,
+      "text": "published together, in one transaction. The larger AI graph remains pinned.",
+      "lines": [
+        "published together, in one transaction.",
+        "The larger AI graph remains pinned."
+      ],
+      "first_word": 121,
+      "last_word": 131,
+      "voice_line": "roots",
+      "cps": 14.283,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "published",
+        "asr_unit": "published",
+        "asr_start": 56.92,
+        "asr_end": 57.16,
+        "min_confidence": 0.999
+      },
+      "id": 13
+    },
+    {
+      "start": 64.13,
+      "end": 68.88,
+      "text": "The live reader verifies both signed revisions at one explicit snapshot, then",
+      "lines": [
+        "The live reader verifies both signed",
+        "revisions at one explicit snapshot, then"
+      ],
+      "first_word": 132,
+      "last_word": 143,
+      "voice_line": "root-read",
+      "cps": 16.2105,
+      "start_anchor": {
+        "method": "trusted_synthesis_start",
+        "script_unit": "The",
+        "asr_unit": "The",
+        "asr_start": 62.5,
+        "asr_end": 64.3,
+        "min_confidence": 0.961
+      },
+      "id": 14
+    },
+    {
+      "start": 68.91,
+      "end": 71.22,
+      "text": "reconstructs the complete current graph.",
+      "lines": [
+        "reconstructs the complete current graph."
+      ],
+      "first_word": 144,
+      "last_word": 148,
+      "voice_line": "root-read",
+      "cps": 17.316,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "reconstructs",
+        "asr_unit": "reconstructs",
+        "asr_start": 68.96,
+        "asr_end": 69.57,
+        "min_confidence": 0.978
+      },
+      "id": 15
+    },
+    {
+      "start": 72.21,
+      "end": 77.5,
+      "text": "Controlled replays hide the newer head or edit signed root bytes. Both are refused.",
+      "lines": [
+        "Controlled replays hide the newer head or",
+        "edit signed root bytes. Both are refused."
+      ],
+      "first_word": 149,
+      "last_word": 162,
+      "voice_line": "root-controls",
+      "cps": 15.69,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Controlled",
+        "asr_unit": "Controlled",
+        "asr_start": 72.26,
+        "asr_end": 72.62,
+        "min_confidence": 0.927
+      },
+      "id": 16
+    },
+    {
+      "start": 77.53,
+      "end": 78.836,
+      "text": "This is a local test.",
+      "lines": [
+        "This is a local test."
+      ],
+      "first_word": 163,
+      "last_word": 167,
+      "voice_line": "root-controls",
+      "cps": 16.0796,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "This",
+        "asr_unit": "This",
+        "asr_start": 77.58,
+        "asr_end": 77.7,
+        "min_confidence": 0.98
+      },
+      "id": 17
+    },
+    {
+      "start": 80.16,
+      "end": 84.77,
+      "text": "A signed withdrawal can arrive before its target. The journal retains it, then",
+      "lines": [
+        "A signed withdrawal can arrive before",
+        "its target. The journal retains it, then"
+      ],
+      "first_word": 168,
+      "last_word": 180,
+      "voice_line": "journal",
+      "cps": 16.9197,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "A",
+        "asr_unit": "A",
+        "asr_start": 80.21,
+        "asr_end": 80.26,
+        "min_confidence": 0.941
+      },
+      "id": 18
+    },
+    {
+      "start": 84.8,
+      "end": 89.22,
+      "text": "checks it when the review reappears. State must persist before admission.",
+      "lines": [
+        "checks it when the review reappears.",
+        "State must persist before admission."
+      ],
+      "first_word": 181,
+      "last_word": 191,
+      "voice_line": "journal",
+      "cps": 16.5158,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "checks",
+        "asr_unit": "checks",
+        "asr_start": 84.85,
+        "asr_end": 85.11,
+        "min_confidence": 0.999
+      },
+      "id": 19
+    },
+    {
+      "start": 89.25,
+      "end": 93.3,
+      "text": "A shared browser lock serializes tab updates.",
+      "lines": [
+        "A shared browser lock",
+        "serializes tab updates."
+      ],
+      "first_word": 192,
+      "last_word": 198,
+      "voice_line": "journal",
+      "cps": 11.1111,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "A",
+        "asr_unit": "A",
+        "asr_start": 89.3,
+        "asr_end": 89.97,
+        "min_confidence": 0.344
+      },
+      "id": 20
+    },
+    {
+      "start": 93.33,
+      "end": 96.457,
+      "text": "Deleting local history still removes this protection.",
+      "lines": [
+        "Deleting local history still",
+        "removes this protection."
+      ],
+      "first_word": 199,
+      "last_word": 205,
+      "voice_line": "journal",
+      "cps": 16.9492,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Deleting",
+        "asr_unit": "Deleting",
+        "asr_start": 93.38,
+        "asr_end": 93.77,
+        "min_confidence": 0.928
+      },
+      "id": 21
+    },
+    {
+      "start": 98.23,
+      "end": 102.85,
+      "text": "Here the deployed app reads the public session again and refuses a new task.",
+      "lines": [
+        "Here the deployed app reads the public",
+        "session again and refuses a new task."
+      ],
+      "first_word": 206,
+      "last_word": 219,
+      "voice_line": "refusal",
+      "cps": 16.4502,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Here",
+        "asr_unit": "Here",
+        "asr_start": 98.28,
+        "asr_end": 98.39,
+        "min_confidence": 0.989
+      },
+      "id": 22
+    },
+    {
+      "start": 102.88,
+      "end": 107.47,
+      "text": "The historical acceptance stays visible as history. Both clients and signing",
+      "lines": [
+        "The historical acceptance stays visible",
+        "as history. Both clients and signing"
+      ],
+      "first_word": 220,
+      "last_word": 230,
+      "voice_line": "refusal",
+      "cps": 16.5577,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "The",
+        "asr_unit": "The",
+        "asr_start": 102.93,
+        "asr_end": 102.99,
+        "min_confidence": 0.95
+      },
+      "id": 23
+    },
+    {
+      "start": 107.5,
+      "end": 111.62,
+      "text": "wallets are project-controlled; external adoption is not claimed.",
+      "lines": [
+        "wallets are project-controlled;",
+        "external adoption is not claimed."
+      ],
+      "first_word": 231,
+      "last_word": 238,
+      "voice_line": "refusal",
+      "cps": 15.7767,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "wallets",
+        "asr_unit": "wallets",
+        "asr_start": 107.55,
+        "asr_end": 107.91,
+        "min_confidence": 0.997
+      },
+      "id": 24
+    },
+    {
+      "start": 112.36,
+      "end": 116.81,
+      "text": "Repeated checks must stay usable on mobile. Eighteen simulated audits:",
+      "lines": [
+        "Repeated checks must stay usable on",
+        "mobile. Eighteen simulated audits:"
+      ],
+      "first_word": 239,
+      "last_word": 248,
+      "voice_line": "mobile",
+      "cps": 15.7303,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Repeated",
+        "asr_unit": "Repeated",
+        "asr_start": 112.41,
+        "asr_end": 112.59,
+        "min_confidence": 0.988
+      },
+      "id": 25
+    },
+    {
+      "start": 116.84,
+      "end": 121.48,
+      "text": "three cold loads per route and phase. Median scores reached ninety-eight,",
+      "lines": [
+        "three cold loads per route and phase.",
+        "Median scores reached ninety-eight,"
+      ],
+      "first_word": 249,
+      "last_word": 259,
+      "voice_line": "mobile",
+      "cps": 15.7328,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "three",
+        "asr_unit": "3",
+        "asr_start": 116.89,
+        "asr_end": 117.06,
+        "min_confidence": 0.454
+      },
+      "id": 26
+    },
+    {
+      "start": 121.51,
+      "end": 127.348,
+      "text": "ninety-eight, and ninety-six. Desktop lab results, not physical-phone or field data.",
+      "lines": [
+        "ninety-eight, and ninety-six. Desktop lab",
+        "results, not physical-phone or field data."
+      ],
+      "first_word": 260,
+      "last_word": 270,
+      "voice_line": "mobile",
+      "cps": 14.3885,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "ninety-eight,",
+        "asr_unit": "98,",
+        "asr_start": 121.56,
+        "asr_end": 122.13,
+        "min_confidence": 0.978
+      },
+      "id": 27
+    },
+    {
+      "start": 128.17,
+      "end": 132.94,
+      "text": "A hash identifies bytes. A private database depends on its operator.",
+      "lines": [
+        "A hash identifies bytes. A private",
+        "database depends on its operator."
+      ],
+      "first_word": 271,
+      "last_word": 281,
+      "voice_line": "why",
+      "cps": 14.2558,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "A",
+        "asr_unit": "A",
+        "asr_start": 128.22,
+        "asr_end": 128.28,
+        "min_confidence": 0.967
+      },
+      "id": 28
+    },
+    {
+      "start": 132.97,
+      "end": 135.54,
+      "text": "Arkiv provides shared indexed discovery.",
+      "lines": [
+        "Arkiv provides shared indexed discovery."
+      ],
+      "first_word": 282,
+      "last_word": 286,
+      "voice_line": "why",
+      "cps": 15.5642,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Arkiv",
+        "asr_unit": "Archiv",
+        "asr_start": 133.02,
+        "asr_end": 133.12,
+        "min_confidence": 0.56
+      },
+      "id": 29
+    },
+    {
+      "start": 135.57,
+      "end": 141.577,
+      "text": "Readers can bypass our API. The SDK adds graph verification and AI context.",
+      "lines": [
+        "Readers can bypass our API. The SDK",
+        "adds graph verification and AI context."
+      ],
+      "first_word": 287,
+      "last_word": 299,
+      "voice_line": "why",
+      "cps": 12.4854,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Readers",
+        "asr_unit": "Readers",
+        "asr_start": 135.62,
+        "asr_end": 135.92,
+        "min_confidence": 0.953
+      },
+      "id": 30
+    },
+    {
+      "start": 142.17,
+      "end": 146.56,
+      "text": "Install Arkiv Graph zero point four, or AI Passport zero point six.",
+      "lines": [
+        "Install Arkiv Graph zero point four,",
+        "or AI Passport zero point six."
+      ],
+      "first_word": 300,
+      "last_word": 311,
+      "voice_line": "npm",
+      "cps": 15.262,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Install",
+        "asr_unit": "Install",
+        "asr_start": 142.22,
+        "asr_end": 142.52,
+        "min_confidence": 0.989
+      },
+      "id": 31
+    },
+    {
+      "start": 146.59,
+      "end": 151.55,
+      "text": "Public schemas, queries and evidence make the demo reproducible.",
+      "lines": [
+        "Public schemas, queries and",
+        "evidence make the demo reproducible."
+      ],
+      "first_word": 312,
+      "last_word": 320,
+      "voice_line": "npm",
+      "cps": 12.9032,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Public",
+        "asr_unit": "Public",
+        "asr_start": 146.64,
+        "asr_end": 147.66,
+        "min_confidence": 0.209
+      },
+      "id": 32
+    },
+    {
+      "start": 151.58,
+      "end": 153.423,
+      "text": "Outside usage is not yet proven.",
+      "lines": [
+        "Outside usage is not yet proven."
+      ],
+      "first_word": 321,
+      "last_word": 326,
+      "voice_line": "npm",
+      "cps": 17.363,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "Outside",
+        "asr_unit": "Outside",
+        "asr_start": 151.63,
+        "asr_end": 151.74,
+        "min_confidence": 0.986
+      },
+      "id": 33
+    },
+    {
+      "start": 154.18,
+      "end": 160.004,
+      "text": "One RPC remains trusted. Unseen omissions remain possible. Build your own reader.",
+      "lines": [
+        "One RPC remains trusted. Unseen omissions",
+        "remain possible. Build your own reader."
+      ],
+      "first_word": 327,
+      "last_word": 338,
+      "voice_line": "close",
+      "cps": 13.908,
+      "start_anchor": {
+        "method": "normalized_match",
+        "script_unit": "One",
+        "asr_unit": "One",
+        "asr_start": 154.23,
+        "asr_end": 154.43,
+        "min_confidence": 0.92
+      },
+      "id": 34
+    }
+  ],
+  "corrections": [
+    {
+      "original_cue": 1,
+      "original_start": 0.13,
+      "original_end": 4.766,
+      "first_word": 0,
+      "last_word": 12,
+      "asr_or_trusted_start": 0.22,
+      "original_start_minus_anchor_ms": -90,
+      "final_cues_covering_original_words": [
+        1,
+        2
+      ]
+    },
+    {
+      "original_cue": 2,
+      "original_start": 4.796,
+      "original_end": 6.281,
+      "first_word": 13,
+      "last_word": 16,
+      "asr_or_trusted_start": 5.33,
+      "original_start_minus_anchor_ms": -534,
+      "final_cues_covering_original_words": [
+        2
+      ]
+    },
+    {
+      "original_cue": 3,
+      "original_start": 8.13,
+      "original_end": 13.791,
+      "first_word": 17,
+      "last_word": 29,
+      "asr_or_trusted_start": 8.23,
+      "original_start_minus_anchor_ms": -100,
+      "final_cues_covering_original_words": [
+        3
+      ]
+    },
+    {
+      "original_cue": 4,
+      "original_start": 13.821,
+      "original_end": 18.168,
+      "first_word": 30,
+      "last_word": 39,
+      "asr_or_trusted_start": 13.98,
+      "original_start_minus_anchor_ms": -159,
+      "final_cues_covering_original_words": [
+        4
+      ]
+    },
+    {
+      "original_cue": 5,
+      "original_start": 18.198,
+      "original_end": 19.124,
+      "first_word": 40,
+      "last_word": 41,
+      "asr_or_trusted_start": 18.25,
+      "original_start_minus_anchor_ms": -52,
+      "final_cues_covering_original_words": [
+        4
+      ]
+    },
+    {
+      "original_cue": 6,
+      "original_start": 20.13,
+      "original_end": 24.745,
+      "first_word": 42,
+      "last_word": 51,
+      "asr_or_trusted_start": 20.21,
+      "original_start_minus_anchor_ms": -80,
+      "final_cues_covering_original_words": [
+        5
+      ]
+    },
+    {
+      "original_cue": 7,
+      "original_start": 24.775,
+      "original_end": 30.399,
+      "first_word": 52,
+      "last_word": 63,
+      "asr_or_trusted_start": 25,
+      "original_start_minus_anchor_ms": -225,
+      "final_cues_covering_original_words": [
+        6
+      ]
+    },
+    {
+      "original_cue": 8,
+      "original_start": 32.13,
+      "original_end": 36.319,
+      "first_word": 64,
+      "last_word": 73,
+      "asr_or_trusted_start": 32.18,
+      "original_start_minus_anchor_ms": -50,
+      "final_cues_covering_original_words": [
+        7
+      ]
+    },
+    {
+      "original_cue": 9,
+      "original_start": 36.349,
+      "original_end": 40.96,
+      "first_word": 74,
+      "last_word": 84,
+      "asr_or_trusted_start": 36.46,
+      "original_start_minus_anchor_ms": -111,
+      "final_cues_covering_original_words": [
+        8,
+        9
+      ]
+    },
+    {
+      "original_cue": 10,
+      "original_start": 40.99,
+      "original_end": 43.572,
+      "first_word": 85,
+      "last_word": 90,
+      "asr_or_trusted_start": 40.87,
+      "original_start_minus_anchor_ms": 120,
+      "final_cues_covering_original_words": [
+        9
+      ]
+    },
+    {
+      "original_cue": 11,
+      "original_start": 44.13,
+      "original_end": 49.351,
+      "first_word": 91,
+      "last_word": 102,
+      "asr_or_trusted_start": 44.26,
+      "original_start_minus_anchor_ms": -130,
+      "final_cues_covering_original_words": [
+        10
+      ]
+    },
+    {
+      "original_cue": 12,
+      "original_start": 49.381,
+      "original_end": 54.165,
+      "first_word": 103,
+      "last_word": 113,
+      "asr_or_trusted_start": 48.92,
+      "original_start_minus_anchor_ms": 461,
+      "final_cues_covering_original_words": [
+        11
+      ]
+    },
+    {
+      "original_cue": 13,
+      "original_start": 54.195,
+      "original_end": 58.978,
+      "first_word": 114,
+      "last_word": 124,
+      "asr_or_trusted_start": 54.78,
+      "original_start_minus_anchor_ms": -585,
+      "final_cues_covering_original_words": [
+        12,
+        13
+      ]
+    },
+    {
+      "original_cue": 14,
+      "original_start": 59.008,
+      "original_end": 62.121,
+      "first_word": 125,
+      "last_word": 131,
+      "asr_or_trusted_start": 58.24,
+      "original_start_minus_anchor_ms": 768,
+      "final_cues_covering_original_words": [
+        13
+      ]
+    },
+    {
+      "original_cue": 15,
+      "original_start": 64.13,
+      "original_end": 69.069,
+      "first_word": 132,
+      "last_word": 143,
+      "asr_or_trusted_start": 64.18,
+      "original_start_minus_anchor_ms": -50,
+      "final_cues_covering_original_words": [
+        14
+      ]
+    },
+    {
+      "original_cue": 16,
+      "original_start": 69.099,
+      "original_end": 71.22,
+      "first_word": 144,
+      "last_word": 148,
+      "asr_or_trusted_start": 68.96,
+      "original_start_minus_anchor_ms": 139,
+      "final_cues_covering_original_words": [
+        15
+      ]
+    },
+    {
+      "original_cue": 17,
+      "original_start": 72.13,
+      "original_end": 76.654,
+      "first_word": 149,
+      "last_word": 161,
+      "asr_or_trusted_start": 72.26,
+      "original_start_minus_anchor_ms": -130,
+      "final_cues_covering_original_words": [
+        16
+      ]
+    },
+    {
+      "original_cue": 18,
+      "original_start": 76.684,
+      "original_end": 78.836,
+      "first_word": 162,
+      "last_word": 167,
+      "asr_or_trusted_start": 76.6,
+      "original_start_minus_anchor_ms": 84,
+      "final_cues_covering_original_words": [
+        16,
+        17
+      ]
+    },
+    {
+      "original_cue": 19,
+      "original_start": 80.13,
+      "original_end": 85.669,
+      "first_word": 168,
+      "last_word": 180,
+      "asr_or_trusted_start": 80.21,
+      "original_start_minus_anchor_ms": -80,
+      "final_cues_covering_original_words": [
+        18
+      ]
+    },
+    {
+      "original_cue": 20,
+      "original_start": 85.699,
+      "original_end": 90.809,
+      "first_word": 181,
+      "last_word": 192,
+      "asr_or_trusted_start": 84.85,
+      "original_start_minus_anchor_ms": 849,
+      "final_cues_covering_original_words": [
+        19,
+        20
+      ]
+    },
+    {
+      "original_cue": 21,
+      "original_start": 90.839,
+      "original_end": 95.092,
+      "first_word": 193,
+      "last_word": 202,
+      "asr_or_trusted_start": 89.97,
+      "original_start_minus_anchor_ms": 869,
+      "final_cues_covering_original_words": [
+        20,
+        21
+      ]
+    },
+    {
+      "original_cue": 22,
+      "original_start": 95.122,
+      "original_end": 96.457,
+      "first_word": 203,
+      "last_word": 205,
+      "asr_or_trusted_start": 95.03,
+      "original_start_minus_anchor_ms": 92,
+      "final_cues_covering_original_words": [
+        21
+      ]
+    },
+    {
+      "original_cue": 23,
+      "original_start": 98.13,
+      "original_end": 103.802,
+      "first_word": 206,
+      "last_word": 219,
+      "asr_or_trusted_start": 98.28,
+      "original_start_minus_anchor_ms": -150,
+      "final_cues_covering_original_words": [
+        22
+      ]
+    },
+    {
+      "original_cue": 24,
+      "original_start": 103.832,
+      "original_end": 108.282,
+      "first_word": 220,
+      "last_word": 230,
+      "asr_or_trusted_start": 102.93,
+      "original_start_minus_anchor_ms": 902,
+      "final_cues_covering_original_words": [
+        23
+      ]
+    },
+    {
+      "original_cue": 25,
+      "original_start": 108.312,
+      "original_end": 111.645,
+      "first_word": 231,
+      "last_word": 238,
+      "asr_or_trusted_start": 107.55,
+      "original_start_minus_anchor_ms": 762,
+      "final_cues_covering_original_words": [
+        24
+      ]
+    },
+    {
+      "original_cue": 26,
+      "original_start": 112.13,
+      "original_end": 117.314,
+      "first_word": 239,
+      "last_word": 249,
+      "asr_or_trusted_start": 112.41,
+      "original_start_minus_anchor_ms": -280,
+      "final_cues_covering_original_words": [
+        25,
+        26
+      ]
+    },
+    {
+      "original_cue": 27,
+      "original_start": 117.344,
+      "original_end": 122.054,
+      "first_word": 250,
+      "last_word": 259,
+      "asr_or_trusted_start": 117.14,
+      "original_start_minus_anchor_ms": 204,
+      "final_cues_covering_original_words": [
+        26
+      ]
+    },
+    {
+      "original_cue": 28,
+      "original_start": 122.084,
+      "original_end": 126.32,
+      "first_word": 260,
+      "last_word": 268,
+      "asr_or_trusted_start": 121.56,
+      "original_start_minus_anchor_ms": 524,
+      "final_cues_covering_original_words": [
+        27
+      ]
+    },
+    {
+      "original_cue": 29,
+      "original_start": 126.35,
+      "original_end": 127.348,
+      "first_word": 269,
+      "last_word": 270,
+      "asr_or_trusted_start": 126.55,
+      "original_start_minus_anchor_ms": -200,
+      "final_cues_covering_original_words": [
+        27
+      ]
+    },
+    {
+      "original_cue": 30,
+      "original_start": 128.13,
+      "original_end": 133.644,
+      "first_word": 271,
+      "last_word": 282,
+      "asr_or_trusted_start": 128.22,
+      "original_start_minus_anchor_ms": -90,
+      "final_cues_covering_original_words": [
+        28,
+        29
+      ]
+    },
+    {
+      "original_cue": 31,
+      "original_start": 133.674,
+      "original_end": 139.187,
+      "first_word": 283,
+      "last_word": 294,
+      "asr_or_trusted_start": 133.24,
+      "original_start_minus_anchor_ms": 434,
+      "final_cues_covering_original_words": [
+        29,
+        30
+      ]
+    },
+    {
+      "original_cue": 32,
+      "original_start": 139.217,
+      "original_end": 141.577,
+      "first_word": 295,
+      "last_word": 299,
+      "asr_or_trusted_start": 139.01,
+      "original_start_minus_anchor_ms": 207,
+      "final_cues_covering_original_words": [
+        30
+      ]
+    },
+    {
+      "original_cue": 33,
+      "original_start": 142.13,
+      "original_end": 147.513,
+      "first_word": 300,
+      "last_word": 312,
+      "asr_or_trusted_start": 142.22,
+      "original_start_minus_anchor_ms": -90,
+      "final_cues_covering_original_words": [
+        31,
+        32
+      ]
+    },
+    {
+      "original_cue": 34,
+      "original_start": 147.543,
+      "original_end": 152.094,
+      "first_word": 313,
+      "last_word": 323,
+      "asr_or_trusted_start": 147.66,
+      "original_start_minus_anchor_ms": -117,
+      "final_cues_covering_original_words": [
+        32,
+        33
+      ]
+    },
+    {
+      "original_cue": 35,
+      "original_start": 152.124,
+      "original_end": 153.423,
+      "first_word": 324,
+      "last_word": 326,
+      "asr_or_trusted_start": 152.42,
+      "original_start_minus_anchor_ms": -296,
+      "final_cues_covering_original_words": [
+        33
+      ]
+    },
+    {
+      "original_cue": 36,
+      "original_start": 154.13,
+      "original_end": 158.953,
+      "first_word": 327,
+      "last_word": 336,
+      "asr_or_trusted_start": 154.23,
+      "original_start_minus_anchor_ms": -100,
+      "final_cues_covering_original_words": [
+        34
+      ]
+    },
+    {
+      "original_cue": 37,
+      "original_start": 158.983,
+      "original_end": 160.004,
+      "first_word": 337,
+      "last_word": 338,
+      "asr_or_trusted_start": 159.31,
+      "original_start_minus_anchor_ms": -327,
+      "final_cues_covering_original_words": [
+        34
+      ]
+    }
+  ],
+  "independent_verification": {
+    "cues": 34,
+    "max_line_characters": 42,
+    "max_characters_per_second": 18.9573,
+    "shortest_seconds": 1.306,
+    "overlaps": 0,
+    "exact_text_match_to_voice_timeline": true,
+    "independently_parsed": true,
+    "status": "pass",
+    "review_role": "independent_verifier",
+    "max_lines": 2,
+    "script_words": 339,
+    "caption_words": 339,
+    "srt_vtt_semantically_identical": true,
+    "srt_sha256": "d23d36b128939f36b31d4daf93a9638152cf6ec2927d466a175b0da7650dbed3",
+    "vtt_sha256": "1f0078e9c06e9395423169ecd723de88ec402b4aa9842f856e265ecc21114430",
+    "ordered_asr_units": 335,
+    "ordered_script_units": 335,
+    "ordered_normalized_asr_match": true,
+    "cue_starts_audited": 34,
+    "asr_anchored_starts": 32,
+    "trusted_scene_anchored_starts": 2,
+    "start_lead_ms": 50,
+    "ends_before_final_asr_word_over_150ms": 0,
+    "second_98": {
+      "cue": 27,
+      "sidecar_start_seconds": 121.51,
+      "asr_start_seconds": 121.56,
+      "lead_ms": 50
+    },
+    "trusted_scene_overrides": [
+      {
+        "cue": 7,
+        "scene": "lifecycle",
+        "trusted_start_seconds": 32.18,
+        "sidecar_start_seconds": 32.13
+      },
+      {
+        "cue": 14,
+        "scene": "root-read",
+        "trusted_start_seconds": 64.18,
+        "sidecar_start_seconds": 64.13
+      }
+    ],
+    "supersedes": "The previous 37-cue sidecar statistics in the historical audiovisual QA and earlier post-fix review. MP4 and audiovisual QA are unchanged.",
+    "human_listening": false,
+    "scope": "Independent parsing, exact script/order preservation, reading metrics, ordered ASR boundary comparison and trusted synthesis scene starts; no human listening or player-rendered caption appearance claim."
+  }
+}

@@ -4,9 +4,10 @@ import argparse, json, os, shutil, sys
 ROOT=Path(__file__).resolve().parent.parent
 parser=argparse.ArgumentParser()
 parser.add_argument('--work',default=str(ROOT/'.local/media-trust-refresh'))
+parser.add_argument('--final-dir',help='Optional final output directory; keep earlier reviewed candidates intact.')
 args=parser.parse_args()
 work=Path(args.work).resolve()
-final=work/'final'
+final=Path(args.final_dir).resolve() if args.final_dir else work/'final'
 final.mkdir(parents=True,exist_ok=True)
 sys.path.insert(0,str(Path(os.environ.get('OPENMONTAGE_ROOT',str(ROOT.parent/'.local/media-work/openmontage'))).resolve()))
 from tools.video.video_compose import VideoCompose
@@ -25,8 +26,12 @@ class TimedMux(VideoCompose):
         return super().run_command(cmd,timeout=300,cwd=cwd)
 result=TimedMux()._mux_external_audio(output,master)
 if not result.success:raise RuntimeError(result.error)
+try:
+    audio_spec=os.path.relpath(work/'mix.json',final)
+except ValueError:  # Windows output may be on a different drive.
+    audio_spec=str(work/'mix.json')
 config=dict(name='Arkiv Graph: change you can verify',width=1920,height=1080,fps=30,duration=162,platform='youtube',poster=5.8,
-    audio=os.path.relpath(work/'mix.json',final),
+    audio=audio_spec,
     scenes=[{k:s[k] for k in ('id','start','duration')} for s in plan['scenes']],
     expect=dict(duration=162,tolerance=.1,platform='youtube',lufs=-16,audio=True,captions=True,max_size_mb=25))
 (final/'showtime.json').write_text(json.dumps(config,indent=2),encoding='utf-8')

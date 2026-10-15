@@ -1,4 +1,4 @@
-"""Replace one exact controls chapter through OpenMontage, keeping 30 fps timing."""
+"""Splice bounded corrected chapters through OpenMontage, keeping 30 fps timing."""
 from pathlib import Path
 import argparse,os,sys,json
 ROOT=Path(__file__).resolve().parent.parent

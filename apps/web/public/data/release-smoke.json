@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-10-15T12:33:46.009Z",
+  "checked_at": "2026-10-15T16:30:55.443Z",
   "url": "https://arkivgraph.ajnasnb.com",
-  "passed": 10,
-  "total": 10,
+  "passed": 11,
+  "total": 11,
   "checks": [
     {
       "name": "Completed session loads and both fresh browser requests refuse",
       "passed": true,
       "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
-      "session_load_ms": 2053
+      "session_load_ms": 3104
     },
     {
       "name": "Third transaction and exact withdrawal target remain inspectable",
@@ -29,8 +29,8 @@
     {
       "name": "Hosted launch bytes match the final reviewed film",
       "passed": true,
-      "bytes": 8375252,
-      "sha256": "f5a34434aca12c30db874ce06d06d0e27db71ef8651c9ac3c08ea4ac2268c0cb"
+      "bytes": 14828848,
+      "sha256": "55ca50675e160f17d8a5a6cdea02a5e7af19c32a681a85a5d8d011be874c78b5"
     },
     {
       "name": "Bounded byte-range playback returns exact partial content",
@@ -41,8 +41,33 @@
       "passed": true
     },
     {
-      "name": "Final deck and both PDFs download with the correct formats",
-      "passed": true
+      "name": "Final deck and PDFs download; pitch bytes match the reviewed artifacts",
+      "passed": true,
+      "documents": [
+        {
+          "file": "arkiv-graph-pitch.pptx",
+          "bytes": 11297644,
+          "sha256": "1966cd85a93abd83a1b7daeaf75bd3f18530ffac97dd14b2b37a9da82023843b"
+        },
+        {
+          "file": "arkiv-graph-pitch.pdf",
+          "bytes": 3688177,
+          "sha256": "763fdd000a5ae20ec691942be4c56ec42ecc82f3703a82b253f44f9b4d08a174"
+        },
+        {
+          "file": "arkiv-graph-evaluation.pdf",
+          "bytes": 15371,
+          "sha256": "c6f069816bae11629a63a1976067af308c1d625a7b39fab59255c04d9859fdd4"
+        }
+      ]
+    },
+    {
+      "name": "Hosted English caption tracks match reviewed hashes and cue count",
+      "passed": true,
+      "cues": 34,
+      "srt_sha256": "d23d36b128939f36b31d4daf93a9638152cf6ec2927d466a175b0da7650dbed3",
+      "vtt_sha256": "1f0078e9c06e9395423169ecd723de88ec402b4aa9842f856e265ecc21114430",
+      "checked_at": "2026-10-15T16:32:24.804Z"
     },
     {
       "name": "No browser exceptions",
@@ -50,5 +75,5 @@
     }
   ],
   "browser_errors": [],
-  "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script."
+  "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script. Exact SRT/VTT publication hashes were subsequently checked on the same deployment."
 }

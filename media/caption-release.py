@@ -6,11 +6,12 @@ parser=argparse.ArgumentParser()
 parser.add_argument('--work',default=str(root/'.local/graph-release'))
 parser.add_argument('--final',default=str(root/'.local/graph-release-final'))
 parser.add_argument('--duration',type=float,default=128)
+parser.add_argument('--readback',help='Independent transcript JSON; defaults to the work directory readback.json.')
 args=parser.parse_args()
 work=Path(args.work);final=Path(args.final)
 final.mkdir(exist_ok=True)
 timing=json.loads((work/'voice-timing.json').read_text(encoding='utf-8'))
-heard=json.loads((work/'readback.json').read_text(encoding='utf-8'))
+heard=json.loads((Path(args.readback) if args.readback else work/'readback.json').read_text(encoding='utf-8'))
 cues=[]
 lines=[]
 for row in timing:

@@ -14,6 +14,8 @@ Mobile numbers come from 18 project-run Lighthouse audits: three cold-load runs 
 
 Capture provenance, source hashes, exact final file bytes, caption timings, measured audio and the scope of visual/automated review are published in `/data/launch-evaluation.json`. Production intermediates and private receipts stay outside the public source. Use the exact evidence manifest and local prerequisites to render; readers can reproduce the application independently of the media toolchain.
 
+The final English sidecars use `align-trust-captions.py --final-dir <render-folder>`, after independent `small.en` transcription and synthesis-timeline generation. The helper preserves the exact script, aligns normalized numbers/names/compounds, anchors internal boundaries to ordered ASR words, retains trusted scene starts when ASR spans a pause, and reflows readable cues. It changes no MP4 bytes. `/data/launch-caption-alignment.json` records the final hashes, timing corrections and ASR uncertainties; this is machine timing evidence rather than human listening.
+
 `trust-pitch-assets.json` references all seven generated artworks and the real screenshot crops included in the public checkout. Pass it to `node media/trust-pitch-deck.mjs media/trust-pitch-assets.json` from the repository root. The deck tool requires the presentation artifact runtime, its Python validator and the presentation skill directory through `ARTIFACT_NODE_MODULES`, `ARTIFACT_PYTHON` and `ARTIFACT_PRESENTATIONS_SKILL`. It does not install these production tools into the SDK. The companion PDF is made from the inspected slide renders; labels and the measurement chart stay editable in the PPTX.
 
 ## Earlier 128-second withdrawal and public SDK release
