@@ -11,3 +11,5 @@ Narration: original script, synthetic Kokoro v1.0 af_heart voice. Kokoro model b
 Motion and product: Ajnas NB. Font: DM Sans, SIL OFL 1.1. Reference video used for pacing study only; no reference footage, logos, vocals or song audio included.
 
 The 96-second release rearranges the original score with an additional 24-second source-to-model chapter.
+
+The current 128-second release adds original branching and withdrawal motion, actual project-operated two-client capture, and the public npm release. Waiting time is edited out; the request sequence is preserved. The two-client guard is deterministic and runs no model inference. Narration and score use the same disclosed local tools and licensed instrument source.

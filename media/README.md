@@ -1,6 +1,16 @@
 # Arkiv Graph launch
 
-The current launch film is `/media/arkiv-graph-launch.mp4`: 96 seconds of original motion graphics and actual product capture, with original music and synthetic narration. AI Passport is shown as the reference application. Graph storage and indexing are supplied by Arkiv; graph assembly, complete-manifest verification, bounded traversal and context selection run in the SDK.
+The current launch film is `/media/arkiv-graph-launch.mp4`: 128 seconds of original motion graphics and actual product capture, with original music and synthetic narration. AI Passport is shown as the reference application. Graph storage and indexing are supplied by Arkiv; graph assembly, complete-manifest verification, bounded traversal and context selection run in the SDK.
+
+## Live withdrawal and public SDK release
+
+`two-client-motion.tsx`, `render-release-chapter.py`, `release-audio.py`, `assemble-release.py` and `caption-release.py` extend the source-to-model journey with actual two-client capture, a native branching/withdrawal sequence, the public npm installation and a clean native brand close. The first 78 seconds retain the real AI reference journey; the next 36 show the separate deterministic guard lifecycle, followed by eight seconds of npm and a six-second close. No model inference runs in the two-client chapter. Both readers and signing wallets are project-operated; provider metadata and query completeness remain trusted.
+
+The renderer expects the completed public session report, browser observations, local capture cuts and verified registry evidence. These are inputs to original Remotion scenes composed through OpenMontage. Actual requests remain in order; waiting time is edited out. The final review repaired early ownership wording, two abrupt music dips, one fast narration line and a three-frame old-scene flash. File QA, caption measurements and sampled frame review have explicit scope in `/data/launch-evaluation.json`; they are not a claim of universal device playback or independent customer use.
+
+The seven-slide image-led deck and the two-page release evidence PDF are separate artifacts. `arkiv-graph-deck.mjs` updates measured counts and npm instructions; `release-evaluation.py` reads the actual test, registry and lifecycle reports. The deck is not animated into the film.
+
+## Earlier graph film sources
 
 `graph-film.tsx` and `graph-motion.tsx` are original React/Remotion scenes rendered through OpenMontage. The film is not an animated presentation. Real recorded results show six coding guard cases, exact paise calculation, the NPCI-linked learning game and a withdrawn review blocking the model call. Manifest removal is an explicitly labeled illustration, using the actual published graph counts.
 

@@ -1,0 +1,54 @@
+{
+  "checked_at": "2026-10-15T10:31:40.128Z",
+  "url": "https://arkivgraph.ajnasnb.com",
+  "passed": 10,
+  "total": 10,
+  "checks": [
+    {
+      "name": "Completed session loads and both fresh browser requests refuse",
+      "passed": true,
+      "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
+      "session_load_ms": 3256
+    },
+    {
+      "name": "Third transaction and exact withdrawal target remain inspectable",
+      "passed": true
+    },
+    {
+      "name": "Completed-state mobile page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Active installation instructions use the public fixed npm versions",
+      "passed": true
+    },
+    {
+      "name": "Hosted package downloads match registry integrity",
+      "passed": true
+    },
+    {
+      "name": "Hosted launch bytes match the final reviewed film",
+      "passed": true,
+      "bytes": 8375252,
+      "sha256": "f5a34434aca12c30db874ce06d06d0e27db71ef8651c9ac3c08ea4ac2268c0cb"
+    },
+    {
+      "name": "Bounded byte-range playback returns exact partial content",
+      "passed": true
+    },
+    {
+      "name": "Final film loads, plays and seeks forward and backward in the website",
+      "passed": true
+    },
+    {
+      "name": "Final deck and both PDFs download with the correct formats",
+      "passed": true
+    },
+    {
+      "name": "No browser exceptions",
+      "passed": true
+    }
+  ],
+  "browser_errors": [],
+  "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script."
+}

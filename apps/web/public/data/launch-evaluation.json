@@ -1,46 +1,135 @@
 {
-  "evaluated_at": "2026-10-15T12:41:10",
+  "evaluated_at": "2026-10-15T10:23:26.973Z",
   "url": "https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4",
-  "sha256": "1c2edcee5cc151d6d75d2c82f9ca47347dce7147fd3df2ea6618a0f1df33a4ac",
-  "bytes": 8075492,
-  "duration_seconds": 96,
+  "sha256": "f5a34434aca12c30db874ce06d06d0e27db71ef8651c9ac3c08ea4ac2268c0cb",
+  "bytes": 8375252,
+  "duration_seconds": 128,
   "width": 1920,
   "height": 1080,
-  "renderer": "Original React motion scenes rendered and composed with OpenMontage/Remotion; actual AI journey recording",
+  "fps": 30,
+  "renderer": "Native React motion graphics rendered and composed through OpenMontage/Remotion; actual public-website recordings",
   "independent_review_rounds": 2,
-  "final_round_preference": "Split preference: both independent reviewers found both 96s versions postable, with no material findings. The published version retains the visible source-path evidence and AI Passport bridge.",
+  "final_round_preference": "Two separate project-run model critics approved the exact corrected 128-second final file. These are absolute release gates; no numerical design score or blinded preference is claimed.",
+  "independent_reviews": {
+    "status": "PASS",
+    "reviewers": 2,
+    "method": "Independent full-size frame, cut-boundary, caption, source-evidence and measured-audio reviews within the project build process.",
+    "audio_scope": "ASR and whole-file measurements; no human by-ear listening audit is claimed.",
+    "open_material_findings": 0,
+    "verified_corrections": [
+      "Early project-operated scope",
+      "Premature result-heading timing",
+      "Closing reader-scene flash",
+      "Music entry level jumps",
+      "Brief fast narration"
+    ],
+    "picture_scope": "Fresh closing-boundary frames and 13 byte-identical paired representative earlier PNGs were checked. The whole-prefix hash was different; no claim that every frame was identical is made."
+  },
   "media_qa": {
     "verdict": "WARN",
     "fail": 0,
-    "warn": 10,
+    "warn": 15,
     "info": 1,
     "passed": 10,
-    "remaining_warnings": "Planned result-reading/URL holds and intentional inference-refusal pause; automated phone typography check is partial.",
-    "audio_summary": "voice 12-27 dB over the bed, 120-182 wpm, 0 quiet stretches, 0 level jumps at cuts (> 6 LU), ending fades or ends, on a phone speaker: -18.8 LUFS, 2.8 LU under the mix",
-    "integrated_lufs": -16.06,
-    "true_peak_dbtp": -1.87
+    "remaining_warnings": "Reviewed proof-reading and final URL holds, flat graphic borders, and the intentional 75.95–78.00s inference-refusal pause. Automatic phone typography and UI-zone checks are partial; actual full-size frames were reviewed.",
+    "audio_summary": "voice 12-27 dB over the bed, 120-192 wpm, 0 quiet stretches, 0 level jumps at cuts (> 6 LU), ending fades or ends, on a phone speaker: -18.8 LUFS, 2.7 LU under the mix",
+    "integrated_lufs": -16.04,
+    "true_peak_dbtp": -1.73,
+    "loudness_range_lu": 4.33,
+    "voice_over_bed_db": 13.89,
+    "phone_check": "PARTIAL",
+    "level_jumps_over_6_lu": 0,
+    "repaired_entries": [
+      {
+        "at_seconds": 92,
+        "jump_lu": -4.9,
+        "flagged": false
+      },
+      {
+        "at_seconds": 98,
+        "jump_lu": -5.1,
+        "flagged": false
+      }
+    ],
+    "maximum_speech_wpm": 192,
+    "clipping_samples": 0
   },
   "subtitles": {
-    "cues": 21,
+    "cues": 28,
     "maximum_line_characters": 42,
-    "maximum_characters_per_second": 18.99,
-    "overlaps": 0
+    "maximum_characters_per_second": 18.99309342057445,
+    "overlaps": 0,
+    "formats": [
+      "English VTT",
+      "English SRT"
+    ]
   },
   "credits_url": "/media/arkiv-graph/credits.txt",
-  "scope": "Project-run media QA. The motion film contains real product recordings plus labeled structural illustrations. It does not prove universal security or customer adoption.",
+  "scope": "Project-run media QA and demonstration. Actual UI recordings are combined with labeled process illustrations. Neither universal security, independent execution, provider computation, nor customer adoption is attested.",
+  "two_client_evidence": {
+    "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
+    "network": "Arkiv Tiramisu testnet",
+    "chain_id": 7738577,
+    "reference_graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c",
+    "signed_transactions": 3,
+    "operator_observations": 4,
+    "successful_browser_reads": 4,
+    "sequence": [
+      "A admits",
+      "B admits",
+      "Review withdrawal becomes query-visible",
+      "B next fresh request refuses",
+      "A next fresh request refuses"
+    ],
+    "withdrawal": {
+      "tx_hash": "0xfc8d4ae3df1948b1497e2b090476a2954f43f997bc122e923c155768fed6bc62",
+      "entity_key": "0xaec8f06e6c172bda8bd44c95d120985c5571dfb1362074320305c68090462378",
+      "provider_reported_block": "603917",
+      "explorer_url": "https://tiramisu.explorer.arkiv.network/tx/0xfc8d4ae3df1948b1497e2b090476a2954f43f997bc122e923c155768fed6bc62"
+    },
+    "browser_read_blocks": [
+      {
+        "consumer": "B",
+        "block": "603879",
+        "read_at": "2026-10-15T09:45:24.527Z"
+      },
+      {
+        "consumer": "A",
+        "block": "603879",
+        "read_at": "2026-10-15T09:45:24.636Z"
+      },
+      {
+        "consumer": "B",
+        "block": "603930",
+        "read_at": "2026-10-15T09:47:07.508Z"
+      },
+      {
+        "consumer": "A",
+        "block": "603932",
+        "read_at": "2026-10-15T09:47:11.790Z"
+      }
+    ],
+    "task": "Six deterministic release-guard tests; no model inference in the two-client chapter.",
+    "control": "Both reader instances and signing wallets are operated by this project. Readers share a configured RPC provider and read-only relay.",
+    "editing": "Actual waiting time is edited out while retaining the request order. Accepted and A clips run at 1x; B clip runs at 0.9x.",
+    "trust_boundary": "Signatures, pinned membership and source bytes are checked locally. Query completeness and chain metadata rely on the configured RPC provider; no state proof or instant global revocation claim.",
+    "public_report_url": "/data/two-client-session.json"
+  },
+  "npm_release": {
+    "name": "@ajnasnb/arkiv-graph",
+    "version": "0.3.0",
+    "url": "https://www.npmjs.com/package/@ajnasnb/arkiv-graph",
+    "public_registry_verified": true,
+    "reviewed_tarball_match": true,
+    "provenance": "Not claimed",
+    "adoption": "No external user or download count claimed."
+  },
   "hosted_playback": {
     "browser_flow_passed": true,
-    "checked_at": "2026-10-15T07:24:03.808Z",
-    "forward_seek_seconds": [
-      50,
-      92
-    ],
-    "backward_seek_seconds": 2,
-    "byte_ranges": "206 partial content for the bounded launch asset",
-    "captions": "English VTT sidecar",
-    "scope": "Observed hosted Playwright playback and seeking in the 96-second release. File-format downloads also passed; exact public bytes are checked separately."
+    "checked_at": "2026-10-15T10:31:40.128Z",
+    "report_url": "/data/release-smoke.json",
+    "scope": "Project-run Chrome browser check on the public website: exact final file bytes, 128-second metadata, bounded byte ranges, muted playback with advancing time, and seeking to 100, 125 and 2 seconds. This does not claim a human listening audit or all-device compatibility."
   },
-  "fps": 30,
   "earlier_release": "/media/arkiv-graph-launch-72s.mp4",
-  "new_feature": "Inspectable exact model evidence and actual on-chain creator UX; source-to-model journey shown with native motion and actual UI."
+  "new_feature": "Public npm SDK and real three-transaction, two-client withdrawal lifecycle, alongside the actual AI evidence journey."
 }
