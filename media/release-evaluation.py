@@ -1,4 +1,4 @@
-"""Two-page release report from measured evidence, without a self-awarded score."""
+"""Release report from measured evidence, without a self-awarded score."""
 from pathlib import Path
 import json
 from reportlab.lib import colors
@@ -10,9 +10,11 @@ data=root/'apps/web/public/data'
 load=lambda n:json.loads((data/n).read_text(encoding='utf-8'))
 security=load('security-evaluation.json');sdk=load('graph-infrastructure-evaluation-registry.json')
 browser=load('browser-evaluation.json');session=load('two-client-session.json');npm=load('npm-release.json')
+independence=load('backend-independence.json')
 assert security['passed']==security['total'] and sdk['passed']==8 and browser['passed']==browser['total']
 assert session['status']=='completed' and len(session['transactions'])==3
 assert all(p['published'] and p['reviewed_tarball_match'] for p in npm['packages'])
+assert independence['passed']==7 and independence['network']['project_requests_succeeded']==0
 output=root/'apps/web/public/downloads/arkiv-graph-evaluation.pdf'
 forest=colors.HexColor('#102A24');ivory=colors.HexColor('#F6F3EC');ink=colors.HexColor('#17372E');muted=colors.HexColor('#52645A')
 styles={k:ParagraphStyle(k,fontName='Helvetica-Bold' if k in ['title','h'] else 'Helvetica',fontSize=size,leading=leading,textColor=ink,spaceAfter=after) for k,size,leading,after in [('title',27,31,14),('h',15,20,9),('body',10,14,9),('cell',9,12,0),('small',8,11,8)]}
@@ -54,11 +56,32 @@ add('Practical limits','h')
 add('Verification establishes accepted authorship and complete membership of a pinned revision. It does not attest source truth, hosted model computation, independent execution or RPC metadata/query completeness. Historical receipts cannot grant current admission. Withdrawal takes effect when observed on a fresh read. Expiring records need renewal.')
 add('The local CPU benchmark stays within 200 nodes / 500 edges. Its smallest fixture shows essentially no traversal improvement; signature and manifest costs are measured separately. Network performance, production scale and external adoption are unverified. New npm statistics may be unavailable.')
 add(link('/data/graph-benchmark.json','CPU benchmark')+' | '+link('/judges.html','Reproduction guide')+' | <link href="https://github.com/AjnasNB/arkiv-graph" color="#225B4B">Public source and baseline disclosures</link>','small')
+story.append(PageBreak())
+add('Read without<br/>this app’s API.','title')
+add('Fresh anonymous npm consumer | '+independence['evaluated_at'],'small')
+add('A developer receiving reviewed AI context needs a current decision even when this app is unavailable. A packet hash alone cannot discover another publisher’s review or withdrawal. Arkiv supplies indexed public records; the SDK verifies their signed relationships.')
+table([['Check','Actual result'],
+ ['Project API outage control','Fetch deliberately rejected'],
+ ['Generic graph / complete manifest','7 nodes / 8 edges / 16 entities'],
+ ['AI reference graph','27 nodes / 43 edges / 71 entities'],
+ ['Original source and context identity','Exact public bytes verified'],
+ ['Current withdrawn review','Fresh task refused'],
+ ['Missing graph member','Incomplete revision rejected'],
+ ['RPC outage control','Read failed closed'],
+ ],[290,205]);story.append(Spacer(1,12))
+add('<b>node scripts/verify-backend-independence.mjs</b><br/>A fresh anonymous npm install checks TypeScript and seven runtime entrypoints. Before SDK imports, a Node fetch interceptor rejects project destinations. Only the credential-free RPC and two read methods are allowed.')
+network=independence['network']
+add(f"Actual trace: {network['rpc_requests']} successful RPC requests, three timing reads and three indexed queries; zero successful project API requests. Reference graph block: {independence['checks'][2]['read_block']}. Current withdrawal read block: {independence['checks'][4]['read_block']}.")
+add('What this establishes','h')
+add('A compatible reader can query without our relay. Policy, packet and original source bytes come from the public checkout. RPC completeness and metadata remain trusted. This is an in-process fault simulation, not an OS firewall, actual outage, customer integration or global censorship-resistance proof.')
+add('Postgres can serve one operator. Replacing Arkiv requires another shared publication/discovery layer for attributable records and current reviews; another public protocol could supply it. Private memory, secrets, full source bodies and inference stay off Arkiv.')
+add('Immutable graph signatures cover historical source snapshots. Current npm tarballs have separate registry integrity evidence.','small')
+add(link('/data/backend-independence.json','Exact queries, blocks and network trace')+' | '+link('/data/npm-release.json','Current registry byte integrity'),'small')
 def page(c,doc):
  c.saveState();c.setFillColor(ivory);c.rect(0,0,595,842,fill=1,stroke=0);c.setFillColor(forest);c.rect(0,807,595,35,fill=1,stroke=0)
  c.setFillColor(colors.HexColor('#99DAB0'));c.setFont('Helvetica',8);c.drawString(50,820,'ARKIV GRAPH / MEASURED PROJECT-RUN EVIDENCE')
  c.setFillColor(muted);c.drawString(50,24,'arkivgraph.ajnasnb.com');c.drawRightString(545,24,str(doc.page));c.restoreState()
 doc=SimpleDocTemplate(str(output),pagesize=(595,842),leftMargin=50,rightMargin=50,topMargin=61,bottomMargin=45,title='Arkiv Graph release evidence',author='Ajnas NB')
 doc.build(story,onFirstPage=page,onLaterPages=page)
-assert len(PdfReader(str(output)).pages)==2,'Report must stay two readable pages'
-print('Created two-page Arkiv Graph release evidence PDF')
+assert len(PdfReader(str(output)).pages)==3,'Report must stay three readable pages'
+print('Created three-page Arkiv Graph release evidence PDF')

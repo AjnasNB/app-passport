@@ -8,7 +8,7 @@ The current launch film is `/media/arkiv-graph-launch.mp4`: 128 seconds of origi
 
 The renderer expects the completed public session report, browser observations, local capture cuts and verified registry evidence. These are inputs to original Remotion scenes composed through OpenMontage. Actual requests remain in order; waiting time is edited out. The final review repaired early ownership wording, two abrupt music dips, one fast narration line and a three-frame old-scene flash. File QA, caption measurements and sampled frame review have explicit scope in `/data/launch-evaluation.json`; they are not a claim of universal device playback or independent customer use.
 
-The seven-slide image-led deck and the two-page release evidence PDF are separate artifacts. `arkiv-graph-deck.mjs` updates measured counts and npm instructions; `release-evaluation.py` reads the actual test, registry and lifecycle reports. The deck is not animated into the film.
+The seven-slide image-led deck and the three-page release evidence PDF are separate artifacts. `arkiv-graph-deck.mjs` updates measured counts and npm instructions; `release-evaluation.py` reads the actual test, registry, lifecycle and blocked-backend consumer reports. The deck is not animated into the film. The film retains authentic earlier UI recordings; later navigation and onboarding polish does not change the shown operations.
 
 ## Earlier graph film sources
 

@@ -2,6 +2,44 @@
 
 Environment: Windows, Node 24.15.0, `@arkiv-network/sdk` 0.8.1, Tiramisu chain 7738577. Release packages: `@ajnasnb/arkiv-graph` 0.3.0 and `@ajnasnb/ai-passport` 0.5.0. The integration observations below distinguish application issues from Arkiv behavior.
 
+## Reproduction map and observed results
+
+These are tested integration paths, not a list of alleged upstream bugs. Run commands from the public repository root with Node 24.15.0. The lockfile pins the SDK and test dependencies. The read-only steps require no wallet, signing key, Hub access key or website API. Tiramisu availability, query completeness and protocol metadata still depend on the configured provider. A future expired graph must fail verification rather than reproduce a historical positive result.
+
+```sh
+git clone https://github.com/AjnasNB/arkiv-graph.git
+cd arkiv-graph
+npm ci --ignore-scripts
+npm run build:sdk
+npx arkiv-graph verify apps/web/public/data/arkiv-graph-reader.json
+npx arkiv-graph trace apps/web/public/data/arkiv-graph-reader.json application:ai-passport
+npx vitest run tests/arkiv-graph.test.ts tests/sdk.test.ts tests/publishing-lifecycle.test.ts tests/graph.test.ts tests/adapter.test.ts
+```
+
+On 15 October 2026, the five named local suites passed **93/93** tests. Those tests use genuine locally generated signatures, synthetic chain records and mocked transports where named; they do not broadcast chain transactions. A separate fresh direct-RPC read at **11:08:37–38 UTC, block 606375**, without a website backend, wallet or key, reconstructed the generic graph's **7 nodes / 8 edges / 16 entities** and the AI reference graph's **27 nodes / 43 edges / 71 entities**. It verified the already published roots; it did not publish new records or run inference. The exact generic query observed in that read was:
+
+```text
+namespace = str('arkiv-graph-v1') AND schema_version = u64(1)
+AND graph_hash = bytes32(0x724614507a2f0ddaccf7eb58fcc9e4981f3a344776c6f906986a057d05f80297)
+AND $expiresAt > u64(606375)
+AND $creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC)
+```
+
+The current block changes on each run. The AI profile changes the namespace to `ai-passport-graph-v1` and root to `0x3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c`. Reader configurations pin both values and the accepted creator; these are local trust choices, not identities discovered from arbitrary payload labels.
+
+| Arkiv surface / exact reproducer | Expected | Actual result and proposed improvement |
+|---|---|---|
+| TypeScript SDK 0.8.1 and direct JSON-RPC: the two `arkiv-graph` commands above; `node scripts/consume-graph-infra.mjs --registry` additionally runs both packaged profiles and real stdio MCP | Reconstruct only the pinned complete graph, without this website's dynamic backend | Fresh read at block 606375 returned 16 and 71 entities. The earlier [anonymous registry report](https://arkivgraph.ajnasnb.com/data/graph-infrastructure-evaluation-registry.json) records two CLI profiles and eight actual MCP cases. A minimal no-wallet example distinguishing provider trust from payload signatures would make the security boundary easier to explain. |
+| Typed attributes, original creator and readonly flags: `npx vitest run tests/arkiv-graph.test.ts tests/sdk.test.ts` | Payload claims alone cannot impersonate an accepted protocol creator or mutable record | These suites passed in the 93-test run. Named cases reject creator mismatch, mutable entities, attribute/payload disagreement and copied signatures. The live graph's creator predicate appears above. Documentation should show `$creator`, `$owner` and readonly flags together. |
+| Cursor pagination and query budgets: `npx vitest run tests/arkiv-graph.test.ts -t "Bounded independent Arkiv reader"` | Unrelated publishers cannot consume accepted-creator pages; a genuine incomplete result fails closed | Tests filter out 900 outsider records, reconstruct the supported 701-member synthetic graph within eight pages, and refuse accepted-publisher overflow. This is mocked-RPC boundary testing, not a network throughput result. An SDK security recipe for creator predicates before cursor limits would help. |
+| Expiration input and signed review lifecycle: `npx vitest run tests/publishing-lifecycle.test.ts tests/sdk.test.ts` | Withdrawal storage covers its target; storage renewal cannot renew a signed review | Tests passed, including `ExpirationTime.atBlock` coverage, malformed short withdrawals, signed expiry and fresh replacement reviews. The completed real session has review expiry block 1899792 and withdrawal expiry block 1899917. A documented withdrawal/lease example should explicitly separate signed validity, retained storage and missing-history limitations. |
+| WebSocket entity events: inspect [`watchRecords`](../packages/sdk/src/arkiv.ts) and the subscription effect in [`main.tsx`](../apps/web/src/main.tsx); open the verifier while an authorized operator publishes a new relevant entity | `watchEntityEvents` uses WebSocket transport without `fromBlock`, and notifications trigger a fresh evaluation | Code uses that transport and a trailing refresh scheduler; focus/online recovery and a 60-second fallback also reread. The two-client lifecycle instead rereads per task. No new WebSocket publication was replayed in this audit, and a subscription is not proof of guaranteed delivery or instant global withdrawal. A small reconnection/missed-event example would help. |
+| Atomic `executeBatch`: inspect `scripts/publish-ai.ts` and successful transactions in [`ai-evidence.json`](ai-evidence.json) | Publish a graph in recoverable chunks with reconciliation after an uncertain result | A historical 51-create attempt hit a transport error; batches of five later succeeded. The original failure is not deterministically reproducible and establishes no Arkiv batch limit. Do not rerun the publisher merely to replay it: it writes entities and requires dedicated funds/keys. Recommended batch sizing and uncertain-broadcast recovery guidance would help. |
+| Hub, Faucet and Access keys: use an account's Hub access-key screen and Tiramisu faucet; then inspect the public creation transactions below | Free testnet tokens fund dedicated writers; query quota can be added without giving a reader a signing key | The project's three lifecycle writes were funded with testnet GLM. A Hub query key stays in a server secret and is unnecessary for the direct-reader commands. These are October 2026 web UI observations; the UI exposes no version string. Account authorization/CAPTCHA/key generation are not rerun by this read-only reproducer; no quota guarantee is claimed. |
+| Block Explorer / Data Explorer: open the three lifecycle transactions and the listed creator addresses | Locate public synthetic records independently of the frontend, including creation evidence retained after expiry | [Passport](https://tiramisu.explorer.arkiv.network/tx/0xb814d48fd359bada1898c5cccbd0ee08458f54fd2821ffd29654ff618bd164de), [review](https://tiramisu.explorer.arkiv.network/tx/0xee85d9cb2b72d726b47d8b39634975ae5e8e4b6e372849bbc23507d49c360c01), [withdrawal](https://tiramisu.explorer.arkiv.network/tx/0xfc8d4ae3df1948b1497e2b090476a2954f43f997bc122e923c155768fed6bc62) are linked with keys, authors and blocks in the [session report](https://arkivgraph.ajnasnb.com/data/two-client-session.json). Historical creation does not establish current admission. |
+
+The same versions apply to the detailed observations below unless another dependency is named. Local tests, live chain reads, historical transactions, hosted inference and account-UI observations have different scopes; none is presented as an independent security audit. My first documentation request is a compact creator/readonly/expiry trust-registry example, including bounded pagination and the consequences of an expired or omitted withdrawal. This addresses the concrete integration mistakes described below without calling them Arkiv defects.
+
 ## Read and publisher separation
 
 Expected: a consumer can query records with no signing account; a publisher supplies its own funded wallet. Observed: producer and reviewer records were created with distinct project-controlled wallets and read back through direct RPC. Reproduce with `npm run arkiv:verify`; exact queries, blocks and keys are in the generated evidence files. This is operational separation, not proof of independent organizational adoption.
@@ -88,3 +126,13 @@ Unrelated publishers can use the same permissionless namespace and root attribut
 ## Local CPU benchmark scope
 
 `graph-benchmark.json` measures synthetic 20-, 100- and 200-node graphs on one Windows machine. The 20-node traversal case showed no improvement: scan and indexed medians were 0.1144 and 0.1148 ms. The 200-node/500-edge case measured 1.5017 and 1.0701 ms. Full signature, manifest and root verification was timed separately at 285.5, 1687.3 and 2843.6 ms for 80, 400 and 701 records. Signature/authentication work dominates these local graph operations. The benchmark excludes RPC, network, storage, gas and signing setup; its small samples do not establish production latency, throughput or distributed-scale behavior. Reproduce with `node --import tsx scripts/benchmark-graph.ts`.
+
+## Testing the project's API dependency explicitly
+
+Expected: a compatible consumer with its own pinned issuer/root policy and original public source snapshot can read current graph/review records through Arkiv even when this project's API cannot be reached. The configured RPC remains a dependency. Reproduce from the checkout with `node scripts/verify-backend-independence.mjs` (Node 24.15.0, public graph 0.3.0 and AI Passport 0.5.0). The wrapper installs anonymously in a new OS-temporary directory, uses empty npm configs, imports seven runtime entrypoints and compiles standalone TypeScript.
+
+Actual on 15 October 2026 at 11:14:25 UTC: **7/7 checks passed**. The generic and AI graphs verified at block **606548**; the current withdrawn context was refused at **606549**. The trace contains six successful RPC requests: three `arkiv_getBlockTiming` and three `arkiv_query`, with zero successful project API fetches. Public-checkout source bytes matched the graph. Removing a signed member failed complete-manifest verification, and blocking RPC failed the graph read. Exact queries, source digest, package identities, request origins and timing are in [backend-independence.json](https://arkivgraph.ajnasnb.com/data/backend-independence.json).
+
+Method and limits: the consumer replaces Node's global fetch before dynamically importing the installed SDK, rejects project domains and every destination except the exact public RPC, and allows only those two read methods. This is in-process HTTP fault injection; the live website stays online and no OS firewall or network sandbox is involved. The installed dependency's HTTP reads use that fetch transport. Policy, packet and source bytes are already available in the public checkout. The experiment establishes this API-independent read path with one working provider. It does not establish complete historical query results, hosted inference availability without its backend, outside adoption or resistance to Arkiv-wide censorship.
+
+Suggested documentation improvement: ship an equally small client-only reader example with an explicit egress trace and a failing RPC control. It makes the boundary between portable records and a hosted application's availability straightforward to reproduce.

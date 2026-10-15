@@ -1,0 +1,161 @@
+{
+  "evaluated_at": "2026-10-15T11:14:25.115Z",
+  "schema": "arkiv-graph.backend-independence.v1",
+  "passed": 7,
+  "total": 7,
+  "checks": [
+    {
+      "name": "Project API calls are deliberately blocked before protocol reads",
+      "passed": true
+    },
+    {
+      "name": "Generic graph verifies from public RPC with the project API blocked",
+      "passed": true,
+      "graph_digest": "sha256:724614507a2f0ddaccf7eb58fcc9e4981f3a344776c6f906986a057d05f80297",
+      "read_block": "606548",
+      "nodes": 7,
+      "edges": 8,
+      "entities": 16,
+      "query": "namespace = str('arkiv-graph-v1') AND schema_version = u64(1) AND graph_hash = bytes32(0x724614507a2f0ddaccf7eb58fcc9e4981f3a344776c6f906986a057d05f80297) AND $expiresAt > u64(606548) AND $creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC)"
+    },
+    {
+      "name": "Application graph verifies through the separately installed generic profile",
+      "passed": true,
+      "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c",
+      "read_block": "606548",
+      "nodes": 27,
+      "edges": 43,
+      "entities": 71,
+      "query": "namespace = str('ai-passport-graph-v1') AND schema_version = u64(1) AND graph_hash = bytes32(0x3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c) AND $expiresAt > u64(606548) AND $creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC)"
+    },
+    {
+      "name": "Public-checkout source bytes and context packet match the signed graph",
+      "passed": true,
+      "source_files_checked": 1,
+      "source_digest": "sha256:7152f16172512297dcbe7e3245ccffbf1274adc8046407a39e9e413090d2d2e1",
+      "packet_digest": "sha256:abe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d",
+      "source_origin": "Committed public checkout; not fetched from the blocked website"
+    },
+    {
+      "name": "A fresh packaged Qarinah consumer refuses the withdrawn context without the relay",
+      "passed": true,
+      "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
+      "status": "withdrawn",
+      "read_block": "606549",
+      "query": "namespace = str('app-passport-v1') AND schema_version = u64(1) AND $expiresAt > u64(606549) AND ($creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC) OR $creator = addr(0xd153C0cC313884DA0065615BB411Dfb8b873fE54)) AND artifact_hash = bytes32(0xabe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d)",
+      "inference_run": false,
+      "task_executed": false
+    },
+    {
+      "name": "Removing a signed member fails complete-manifest verification",
+      "passed": true,
+      "removed_entity": "0xed0810f42f4ce945b36470ed528def9d0bec2469b1ab5754620c3ee8e4939e41"
+    },
+    {
+      "name": "An unavailable RPC does not produce a successful graph read",
+      "passed": true
+    }
+  ],
+  "network": {
+    "control": "Node global fetch interception before SDK imports, not an OS firewall or network sandbox",
+    "project_origins_blocked": [
+      "https://arkivgraph.ajnasnb.com",
+      "https://passport.ajnasnb.com",
+      "https://scamsignal.ajnasnb.com",
+      "https://app-passport.ajnasnb.workers.dev"
+    ],
+    "project_requests_blocked": 1,
+    "project_requests_succeeded": 0,
+    "allowed_rpc_origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+    "allowed_rpc_methods": [
+      "arkiv_getBlockTiming",
+      "arkiv_query"
+    ],
+    "rpc_requests": 6,
+    "rpc_methods": {
+      "arkiv_getBlockTiming": 3,
+      "arkiv_query": 3
+    },
+    "requests": [
+      {
+        "origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+        "methods": [
+          "arkiv_getBlockTiming"
+        ],
+        "http_status": 200,
+        "duration_ms": 1020
+      },
+      {
+        "origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+        "methods": [
+          "arkiv_query"
+        ],
+        "http_status": 200,
+        "duration_ms": 379
+      },
+      {
+        "origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+        "methods": [
+          "arkiv_getBlockTiming"
+        ],
+        "http_status": 200,
+        "duration_ms": 330
+      },
+      {
+        "origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+        "methods": [
+          "arkiv_query"
+        ],
+        "http_status": 200,
+        "duration_ms": 541
+      },
+      {
+        "origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+        "methods": [
+          "arkiv_getBlockTiming"
+        ],
+        "http_status": 200,
+        "duration_ms": 342
+      },
+      {
+        "origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+        "methods": [
+          "arkiv_query"
+        ],
+        "http_status": 200,
+        "duration_ms": 376
+      }
+    ],
+    "api_key_used": false,
+    "wallet_used": false,
+    "rpc_outage_requests_blocked": 1
+  },
+  "scope": "Project-run in-process fetch fault injection, not an actual website or RPC outage. Existing public npm releases run in an isolated consumer whose fetch implementation deliberately rejects all project API origins and every destination except the configured RPC. Root/issuer policy, context packet and original source bytes are supplied by the public checkout. Current graph and review state are read through one configured Arkiv RPC provider; provider completeness and metadata remain trusted. Both graphs and session wallets are project-controlled. This is not outside adoption, a state proof, an OS network sandbox, or proof that only Arkiv can implement a public record layer.",
+  "installation": {
+    "source": "npm-registry",
+    "registry": "https://registry.npmjs.org",
+    "npm_authentication_used": false,
+    "isolated_npm_config": true,
+    "fresh_npm_cache": true,
+    "packages": {
+      "@ajnasnb/arkiv-graph": "0.3.0",
+      "@ajnasnb/ai-passport": "0.5.0",
+      "qarinah": "0.7.0"
+    },
+    "isolated_from_workspace": true,
+    "workspace_symlinks_used": false,
+    "node_path_used": false,
+    "typescript_consumer_passed": true,
+    "typescript_version": "5.9.3",
+    "all_entrypoints_runtime_imported": true,
+    "entrypoints": [
+      "@ajnasnb/arkiv-graph",
+      "@ajnasnb/arkiv-graph/context",
+      "@ajnasnb/ai-passport",
+      "@ajnasnb/ai-passport/arkiv",
+      "@ajnasnb/ai-passport/graph",
+      "@ajnasnb/ai-passport/tools",
+      "@ajnasnb/ai-passport/qarinah"
+    ]
+  }
+}

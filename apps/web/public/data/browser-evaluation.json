@@ -1,15 +1,15 @@
 {
-  "evaluated_at": "2026-10-15T09:49:19.799Z",
+  "evaluated_at": "2026-10-15T11:26:08.793Z",
   "evaluation_runs": [
     {
-      "started_at": "2026-10-15T09:49:19.799Z",
-      "duration_ms": 108540.471
+      "started_at": "2026-10-15T11:26:08.793Z",
+      "duration_ms": 120792.71800000001
     }
   ],
   "scope": "Public deployment browser flows: graph switching, source-byte verified context, bounded export, hosted coding inference, local uploads, tampering, source changes, expired/withdrawn reviews, provider outage recovery, current re-evaluation, mobile/theme, migration, read-only API, launch video playback and downloads. Controlled outage responses are browser-local test simulations.",
   "url": "https://arkivgraph.ajnasnb.com",
-  "passed": 18,
-  "total": 18,
+  "passed": 22,
+  "total": 22,
   "results": [
     {
       "name": "real coding inference reaches the browser, exports a receipt and blocks withdrawn memory",
@@ -17,7 +17,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 12683
+          "duration_ms": 9904
         }
       ]
     },
@@ -27,7 +27,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 2103
+          "duration_ms": 3332
         }
       ]
     },
@@ -37,7 +37,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3148
+          "duration_ms": 4617
         }
       ]
     },
@@ -47,7 +47,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3421
+          "duration_ms": 3658
         }
       ]
     },
@@ -57,7 +57,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 743
+          "duration_ms": 1042
         }
       ]
     },
@@ -67,7 +67,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6579
+          "duration_ms": 6022
         }
       ]
     },
@@ -77,7 +77,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 8479
+          "duration_ms": 9375
         }
       ]
     },
@@ -87,7 +87,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 2996
+          "duration_ms": 3091
         }
       ]
     },
@@ -97,7 +97,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 12345
+          "duration_ms": 10468
         }
       ]
     },
@@ -107,7 +107,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6387
+          "duration_ms": 6386
         }
       ]
     },
@@ -117,7 +117,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5275
+          "duration_ms": 6203
         }
       ]
     },
@@ -127,7 +127,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4692
+          "duration_ms": 4542
         }
       ]
     },
@@ -137,7 +137,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4475
+          "duration_ms": 5323
         }
       ]
     },
@@ -147,7 +147,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 7756
+          "duration_ms": 6969
         }
       ]
     },
@@ -157,7 +157,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 8604
+          "duration_ms": 9242
         }
       ]
     },
@@ -167,7 +167,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6271
+          "duration_ms": 5591
         }
       ]
     },
@@ -177,7 +177,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4108
+          "duration_ms": 3457
         }
       ]
     },
@@ -187,11 +187,52 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 2555
+          "duration_ms": 2457
+        }
+      ]
+    },
+    {
+      "name": "graph profile survives sharing, reload, active navigation and browser Back",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 8027
+        }
+      ]
+    },
+    {
+      "name": "keyboard skip, shareable task views and browser back preserve orientation",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 1737
+        }
+      ]
+    },
+    {
+      "name": "mobile context keeps the selected example when opening AI Passport",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 2588
+        }
+      ]
+    },
+    {
+      "name": "completed withdrawal distinguishes recorded acceptance from a fresh read",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 2410
         }
       ]
     }
   ],
   "two_client_regression_scope": "Two browser tests use locally signed synthetic fixtures and intercepted responses to exercise state transitions and provider failure. They are regression tests, not chain proof.",
-  "actual_two_client_evidence": "/data/two-client-browser-evaluation.json"
+  "actual_two_client_evidence": "/data/two-client-browser-evaluation.json",
+  "navigation_regression_scope": "Four additional browser checks cover graph-profile sharing/reload/Back, keyboard skip/focus and shareable views, mobile selected context to the matching AI example, and historical withdrawal proof versus fresh reads. They use the deployed UI and read-only hosted data."
 }

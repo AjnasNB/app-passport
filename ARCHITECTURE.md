@@ -6,7 +6,7 @@ Built by Ajnas NB. Live application: https://arkivgraph.ajnasnb.com. The origina
 
 Arkiv Graph is the domain-neutral infrastructure SDK in `packages/arkiv-graph`. It owns signed nodes, edges, complete manifests, typed indexes, verified assembly and bounded traversal. Its packaged CLI exposes verify/trace commands and a stdio MCP server. The generic graph uses `arkiv-graph-v1`. Domain-specific node types and relationship names make it reusable outside AI.
 
-AI Passport imports the shared engine through `packages/sdk/src/graph.ts`, preserving its existing graph namespace, record signatures and root. Qarinah context selection, passport review admission and hosted inference remain application layers. See [ARKIV_GRAPH.md](ARKIV_GRAPH.md) for installation and the independently reproduced two-profile evidence.
+AI Passport imports the shared engine through `packages/sdk/src/graph.ts`, preserving its existing graph namespace, record signatures and root. Qarinah context selection, passport review admission and hosted inference remain application layers. See [ARKIV_GRAPH.md](ARKIV_GRAPH.md) for installation and the isolated consumer reproduction across both profiles.
 
 ## The reference application
 
@@ -90,7 +90,11 @@ npx tsx scripts/build-ai-fixtures.ts
 npx tsx scripts/evaluate-ai.ts
 ```
 
-To read the graph independently, install `/downloads/arkiv-graph-sdk-0.2.0.tgz` and `/downloads/app-passport-sdk-0.4.0.tgz` together, then call `readGraph({policy,rpc}, graphDigest)` from the application adapter and `traverseGraph(graph, 'app:coding', {depth:4})`. The public policy and pinned root are in `/data/policy.json` and `/data/graph-config.json`. The raw Tiramisu RPC requires no website account; use your own quota access key if the provider requires it. A writer needs an accepted issuer wallet and free Tiramisu test tokens. Credentials must remain outside the repository.
+Install the current public releases with `npm install @ajnasnb/arkiv-graph@0.3.0 @ajnasnb/ai-passport@0.5.0 qarinah@0.7.0`. From the checkout, `node scripts/consume-graph-infra.mjs --registry` installs them anonymously outside the workspace and checks both graph profiles, CLI commands and actual MCP requests. `node scripts/verify-backend-independence.mjs` additionally blocks all project API origins while reading the live graphs and withdrawn review through the public RPC. The exact queries and network trace are in `/data/backend-independence.json`.
+
+For direct SDK usage, call `createGraphKit().readGraph({rpc,issuers}, graphDigest)` and `kit.traverseGraph(result.graph, start, {depth:4,maxNodes:40})`; use `AI_PASSPORT_PROFILE` for the reference application's preserved schema. Consumer-owned pinned policies and roots are in `/data/arkiv-graph-reader.json` and `/data/ai-passport-reader.json`. The raw Tiramisu RPC requires no website account; a provider may impose quota. A writer needs an accepted issuer wallet and free Tiramisu test tokens. Credentials remain outside the repository.
+
+The immutable graph revisions include historical source snapshots, including the earlier 0.2.0 CLI. They prove the identity of those published snapshots, not of the current npm package. `/data/npm-release.json` separately binds the public 0.3.0/0.5.0 registry tarballs to the reviewed release bytes. Root and issuer discovery are explicit consumer policy; a new graph revision requires updating that pinned policy.
 
 ## Primary references
 

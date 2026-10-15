@@ -75,6 +75,14 @@ if (path.truncated) throw new Error('Incomplete evidence');
 
 Root and accepted issuers are explicit consumer policy. Downloaded example configurations are not automatically trusted policy.
 
+## Read while this application's API is unavailable
+
+Run `node scripts/verify-backend-independence.mjs` after checkout setup. It installs the public npm releases in a new OS temporary directory with empty npm configs, then deliberately rejects every fetch to this project's domains. Only the configured public Arkiv RPC is allowed during the SDK checks. Both pinned graphs still verify, the public-checkout source bytes match the signed context path, and a fresh Qarinah consumer refuses the withdrawn review. Removing a graph member fails verification; deliberately blocking the RPC also fails the read.
+
+The [seven-check report](https://arkivgraph.ajnasnb.com/data/backend-independence.json) includes actual RPC methods, read blocks, creator predicates and network counts. This is a project-run failure simulation. It demonstrates independence from this project's API using one working RPC provider and pre-supplied public source/configuration; it does not establish network-wide censorship resistance or external adoption. A single operator can use Postgres. Replacing Arkiv here means supplying another shared publication/discovery layer for the indexed, attributable records and current review state.
+
+Published graph revisions retain historical source snapshots, including the earlier 0.2.0 CLI. Those signatures apply to their original bytes. The current npm 0.3.0/0.5.0 tarballs are verified separately by the registry integrity report; immutable records are not relabeled as new release attestations.
+
 ## The AI reference application
 
 **Coding handoff** carries selected Qarinah source and decision evidence into a real hosted model request. A strict finite release-guard specification passes six interpreted boundary tests before readable JavaScript is exported. Generated JavaScript is not executed.
@@ -95,7 +103,7 @@ A single operator's calculator can use an ordinary database. Arkiv is useful her
 
 The [local CPU benchmark](https://arkivgraph.ajnasnb.com/data/graph-benchmark.json) measures synthetic graphs of 20, 100 and 200 nodes on one machine. At 20 nodes, indexed traversal was effectively unchanged from scanning (0.1148 versus 0.1144 ms median). At the 200-node/500-edge limit, medians were 1.0701 versus 1.5017 ms. Full signature, manifest and root verification was measured separately at 285.5, 1687.3 and 2843.6 ms for the three sizes. These are local CPU measurements, excluding RPC, storage and gas; they are not production latency, throughput or distributed-scale results.
 
-The release local suite passed 198 tests covering signed graph/admission boundaries, storage coverage, exact runtime binding and malformed or unavailable evidence. [Test reports](https://arkivgraph.ajnasnb.com/data/security-evaluation.json) retain their own dates and scope. The [18 browser checks](https://arkivgraph.ajnasnb.com/data/browser-evaluation.json) comprise sixteen existing flows and two UI regressions using generated signed fixtures and mocked responses; they are not eighteen independent live-network checks. The [actual two-client browser report](https://arkivgraph.ajnasnb.com/data/two-client-browser-evaluation.json) separately records four requests and zero browser errors. Mock inference in local tests is distinct from the [real hosted AI evaluation](https://arkivgraph.ajnasnb.com/data/ai-evaluation.json).
+The release local suite passed 198 tests covering signed graph/admission boundaries, storage coverage, exact runtime binding and malformed or unavailable evidence. [Test reports](https://arkivgraph.ajnasnb.com/data/security-evaluation.json) retain their own dates and scope. The [22 browser checks](https://arkivgraph.ajnasnb.com/data/browser-evaluation.json) comprise sixteen existing flows, two UI regressions using generated signed fixtures and mocked responses, and four deployed navigation/keyboard/mobile regressions. The two fixture tests are distinct from actual live-network lifecycle evidence. The [actual two-client browser report](https://arkivgraph.ajnasnb.com/data/two-client-browser-evaluation.json) separately records four requests and zero browser errors. Mock inference in local tests is distinct from the [real hosted AI evaluation](https://arkivgraph.ajnasnb.com/data/ai-evaluation.json).
 
 The [final deployment checks](https://arkivgraph.ajnasnb.com/data/release-smoke.json) verify the completed session, two fresh refused requests, mobile layout, exact npm tarball bytes, the reviewed 128-second film, browser playback and seeking, and the downloadable deck and PDFs.
 
