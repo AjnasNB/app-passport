@@ -1,8 +1,8 @@
 # Arkiv Graph and AI Passport data contracts
 
-Network: Tiramisu, chain ID 7738577. Tested Arkiv SDK: 0.8.1. Namespace: `app-passport-v1`.
+Network: Tiramisu, chain ID 7738577. Tested Arkiv SDK: 0.8.1. Namespaces: `app-passport-v1`, `arkiv-graph-v1`, `ai-passport-graph-v1`, `arkiv-graph-roots-v1`.
 
-Public npm releases: `@ajnasnb/arkiv-graph` 0.3.0 and `@ajnasnb/ai-passport` 0.5.0. The separate profiles preserve the existing signed record domains; renaming a package does not change a published root or payload signature. Both downloadable release builds and anonymous npm registry installs passed clean consumer gates. Unauthenticated registry metadata/tarball verification is recorded in `/data/npm-release.json`; the registry consumer results are `/data/graph-infrastructure-evaluation-registry.json` and `/data/consumer-evaluation-registry.json`.
+Public npm releases: `@ajnasnb/arkiv-graph` 0.4.0 and `@ajnasnb/ai-passport` 0.6.0. The separate profiles preserve the existing signed record domains; renaming a package does not change a published root or payload signature. Both downloadable release builds and anonymous npm registry installs passed clean consumer gates. Unauthenticated registry metadata/tarball verification is recorded in `/data/npm-release.json`; the registry consumer results are `/data/graph-infrastructure-evaluation-registry.json` and `/data/consumer-evaluation-registry.json`.
 
 The three JSON Schemas are generated from the SDK's strict runtime validators: descriptor, signed envelope and consumer policy. Runtime validation additionally verifies digest relationships, application signatures and positive validity of at most 90 days. A Solidity deployment is not used: Arkiv's DB-Chain executes entity operations rather than EVM contracts.
 
@@ -70,7 +70,7 @@ The primary infrastructure SDK uses namespace `arkiv-graph-v1`, schema `arkiv.gr
 
 ## Bounded AI context adapter
 
-`@ajnasnb/arkiv-graph` 0.3.0 exports `@ajnasnb/arkiv-graph/context`. Its derived packet schema is `arkiv.graph-context.v1`: a pinned graph digest, starting node, read block, selected nodes and edges, and source references with explicit byte-verification flags. A caller-controlled loader may supply original source bytes; the SDK checks the complete file digest before selecting an excerpt. No source is downloaded implicitly by the CLI or MCP server. The web gateway restricts its loader to fixed public demo source paths.
+`@ajnasnb/arkiv-graph` 0.4.0 exports `@ajnasnb/arkiv-graph/context`. Its derived packet schema is `arkiv.graph-context.v1`: a pinned graph digest, starting node, read block, selected nodes and edges, and source references with explicit byte-verification flags. A caller-controlled loader may supply original source bytes; the SDK checks the complete file digest before selecting an excerpt. No source is downloaded implicitly by the CLI or MCP server. The web gateway restricts its loader to fixed public demo source paths.
 
 Context is marked `contentRole: untrusted-data`, `truth: not-attested`, and `execution_authority: false`. It grants no tool permission. The adapter rejects truncated paths, source changes, oversized source bytes and character-budget overflow. The packet is a derived client result, not a separate automatically published Arkiv entity. AI Passport separately checks current accepted reviews before inference; only four selected actual run receipts are published in the reference graph.
 
@@ -100,3 +100,9 @@ The only public session endpoint is read-only. It creates fresh graph and admiss
 ## Runtime source binding before hosted inference
 
 The AI Worker verifies the current runtime descriptor against the signed `tool:runtime` graph node, its pinned original source bytes, and the digest of the source included in the deployment. A different accepted runtime publisher cannot silently substitute an artifact by matching a self-declared label. Original bytes must agree across descriptor, graph and deployment before inference. This boundary is separate from the deterministic two-client task and from hosted model-weight attestation, which is not implemented.
+
+## Authenticated root registry
+
+`arkiv-graph-roots-v1` uses typed `namespace:str`, `schema_version:u64`, `scope_hash:bytes32` and `sequence:u64`, with protocol `$creator` fixed to the bootstrap authority. Readonly payloads contain a signed revision sequence, previous signed-revision digest, previous root, new root, scope digest, issuer and finite validity. Scope binds chain, registry, profile, accepted-policy digest, genesis, authority and maximum lifetime. Registry and selected graph use one explicit `atBlock`; mismatched pages fail.
+
+Two actual revisions and six graph entities were published in one transaction. See [root-updates.json](root-updates.json), [trust setup](../docs/TRUST_SETUP.md) and the [live reader](https://arkivgraph.ajnasnb.com/?view=trust). Signed validity is 14 days; entities have 30-day storage. The verifier needs the complete chain, bounded to 64 links. A consumer must retain its checkpoint and renew finite records; a signature alone cannot discover a withheld newer head. Bootstrap authority/policy rotation remains explicit.

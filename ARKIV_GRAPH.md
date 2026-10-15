@@ -6,15 +6,15 @@ Arkiv Graph is reusable infrastructure over Arkiv's indexed entities. AI Passpor
 
 | Package | Release | Purpose |
 |---|---|---|
-| `@ajnasnb/arkiv-graph` | 0.3.0 | Generic graph protocol, TypeScript reader, context adapter, CLI and stdio MCP server |
-| `@ajnasnb/ai-passport` | 0.5.0 | Compatible AI graph profile, signed artifact/context admission, Qarinah adapter and bounded tools |
+| `@ajnasnb/arkiv-graph` | 0.4.0 | Generic graph protocol, TypeScript reader, context adapter, CLI and stdio MCP server |
+| `@ajnasnb/ai-passport` | 0.6.0 | Compatible AI graph profile, signed artifact/context admission, Qarinah adapter and bounded tools |
 
 The generic package supports developer-defined node types and relations without a Qarinah, passport or model dependency. The application adapter preserves the existing `ai-passport-graph-v1` signing domain and roots; the generic default uses `arkiv-graph-v1`.
 
 Both packages are published publicly on npm. Unauthenticated registry metadata and tarball fetches verified the exact reviewed bytes; [release evidence](https://arkivgraph.ajnasnb.com/data/npm-release.json) records the checks. Install the generic reader:
 
 ```sh
-npm install @ajnasnb/arkiv-graph@0.3.0
+npm install @ajnasnb/arkiv-graph@0.4.0
 curl -o reader.json https://arkivgraph.ajnasnb.com/data/arkiv-graph-reader.json
 npx arkiv-graph verify reader.json
 npx arkiv-graph trace reader.json application:ai-passport
@@ -24,13 +24,13 @@ npx arkiv-graph mcp reader.json
 For the application adapter:
 
 ```sh
-npm install @ajnasnb/arkiv-graph@0.3.0 @ajnasnb/ai-passport@0.5.0 qarinah@0.7.0
+npm install @ajnasnb/arkiv-graph@0.4.0 @ajnasnb/ai-passport@0.6.0 qarinah@0.7.0
 ```
 
-Both release tarballs also passed isolated installation, all seven runtime entrypoint imports, standalone TypeScript compilation, real direct RPC reads and packaged CLI checks with Qarinah 0.7.0. To use those downloadable builds, install both together:
+Both release tarballs also passed isolated installation, all eight runtime entrypoint imports, standalone TypeScript compilation, real direct RPC reads and packaged CLI checks with Qarinah 0.7.0. To use those downloadable builds, install both together:
 
 ```sh
-npm install https://arkivgraph.ajnasnb.com/downloads/ajnasnb-arkiv-graph-0.3.0.tgz https://arkivgraph.ajnasnb.com/downloads/ajnasnb-ai-passport-0.5.0.tgz qarinah@0.7.0
+npm install https://arkivgraph.ajnasnb.com/downloads/ajnasnb-arkiv-graph-0.4.0.tgz https://arkivgraph.ajnasnb.com/downloads/ajnasnb-ai-passport-0.6.0.tgz qarinah@0.7.0
 ```
 
 Node.js 24 is tested. Readers need no wallet or gas tokens. Example configurations pin a graph root and accepted issuers; downloading one does not establish your trust policy. The default CLI uses Tiramisu. Custom chains and graph profiles are available through the TypeScript API.
@@ -97,3 +97,9 @@ From the repository, run `node scripts/consume-graph-infra.mjs` and `node script
 The [local CPU benchmark](https://arkivgraph.ajnasnb.com/data/graph-benchmark.json) is a single-machine synthetic measurement within the graph limits. At 20 nodes, scanning and indexed traversal were effectively unchanged (0.1144 and 0.1148 ms medians). At 200 nodes/500 edges they measured 1.5017 and 1.0701 ms. Complete signature/manifest/root verification was measured separately and cost 285.5 ms for 80 records, 1687.3 ms for 400, and 2843.6 ms for 701. Network, RPC, storage and gas are excluded. These results do not establish production service latency or distributed scale.
 
 See the [judge guide](https://arkivgraph.ajnasnb.com/judges.html), [schema](arkiv/schema.md), [integration findings](arkiv/friction.md) and [baseline disclosure](PREEXISTING.md). The 198 local tests, 18 browser checks (sixteen existing flows plus two signed-fixture/mock-response UI regressions), hosted AI evaluation and actual two-client browser capture are separate evidence. The actual session browser report records four requests and zero browser errors.
+
+## Authenticated root discovery and client history
+
+The optional `/trust` package entry point adds a signed root registry, previous-revision links, finite current-head validity and persistent monotonic checkpoints. Registry discovery and complete graph reconstruction share one explicit block. The live root-update demo uses separately published tiny synthetic graphs; it leaves the AI reference graph pinned. Bootstrap authority/profile/policy are consumer settings. Authority or policy rotation requires explicit consumer approval. The reference two-client task retains verified withdrawal evidence under a per-client/session Web Lock before running a task.
+
+See [trust setup](docs/TRUST_SETUP.md), [critical trust review](docs/TRUST_REVIEW.md), [19 measured safeguards](https://arkivgraph.ajnasnb.com/data/trust-safeguards.json) and [18 mobile lab audits](docs/MOBILE_PERFORMANCE.md). One RPC operator remains trusted for unseen history completeness. Local state can be cleared; no permanent network revocation or state-proof verification is claimed.

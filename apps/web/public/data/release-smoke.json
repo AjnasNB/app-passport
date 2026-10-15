@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-15T11:29:18.662Z",
+  "checked_at": "2026-10-15T12:33:46.009Z",
   "url": "https://arkivgraph.ajnasnb.com",
   "passed": 10,
   "total": 10,
@@ -8,7 +8,7 @@
       "name": "Completed session loads and both fresh browser requests refuse",
       "passed": true,
       "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
-      "session_load_ms": 2593
+      "session_load_ms": 2053
     },
     {
       "name": "Third transaction and exact withdrawal target remain inspectable",

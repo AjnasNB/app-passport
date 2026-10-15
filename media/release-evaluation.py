@@ -11,6 +11,7 @@ load=lambda n:json.loads((data/n).read_text(encoding='utf-8'))
 security=load('security-evaluation.json');sdk=load('graph-infrastructure-evaluation-registry.json')
 browser=load('browser-evaluation.json');session=load('two-client-session.json');npm=load('npm-release.json')
 independence=load('backend-independence.json')
+trust=load('trust-safeguards.json');mobile=load('mobile-performance.json');roots=load('root-update-publication.json')
 assert security['passed']==security['total'] and sdk['passed']==8 and browser['passed']==browser['total']
 assert session['status']=='completed' and len(session['transactions'])==3
 assert all(p['published'] and p['reviewed_tarball_match'] for p in npm['packages'])
@@ -38,7 +39,7 @@ table([
  ['Copied records could exhaust the graph query budget.','Filter protocol creators before pagination. Retain local signature, index, manifest and root checks. Outsider-flood tests pass.'],
  ['Graph declarations could drift from inference.','Bind required model/runtime edges to the configured model identity and exact source bytes. Check the admission deadline immediately before inference.'],
  ['Positive observations could become stale.','Refresh on focus/network/events, expose signed deadlines, read again for each new client task, and remove positive output on provider failure.'],
- ['A tarball alone did not prove a usable SDK.','Both public npm artifacts match the reviewed tarballs. Anonymous clean installs compile TypeScript, import seven entrypoints and exercise direct RPC, CLI and MCP.'],
+ ['A tarball alone did not prove a usable SDK.','Both public npm artifacts match the reviewed tarballs. Anonymous clean installs compile TypeScript, import eight entrypoints and exercise direct RPC, CLI and MCP.'],
  ],[145,350]);story.append(Spacer(1,12))
 add(link('/data/security-evaluation.json','Local tests')+' | '+link('/data/browser-evaluation.json','Browser checks')+' | '+link('/data/npm-release.json','Registry byte integrity'),'small')
 story.append(PageBreak())
@@ -51,7 +52,7 @@ table(rows,[185,310]);story.append(Spacer(1,12))
 add('Each client verifies the complete graph, Qarinah packet and exact source bytes, then checks the current session review. Actual website capture also shows both admitted, B refusing its next request, then A refusing. Both clients and signing wallets are project-controlled.')
 add(link('/two-client/','Live demo')+' | '+link('/data/two-client-session.json','Signed snapshots and observations')+' | '+link('/data/two-client-browser-evaluation.json','Actual browser requests'),'small')
 add('Reproduce with public packages','h')
-add('<b>npm install @ajnasnb/arkiv-graph@0.3.0 @ajnasnb/ai-passport@0.5.0</b><br/>The repository provides anonymous clean-install scripts, public reader configurations and an explicit operator-only three-transaction lifecycle. Readers need no wallet. New writes need funded free-testnet wallets; no custom contract or payment is required.')
+add('<b>npm install @ajnasnb/arkiv-graph@0.4.0 @ajnasnb/ai-passport@0.6.0</b><br/>The repository provides anonymous clean-install scripts, public reader configurations and an explicit operator-only three-transaction lifecycle. Readers need no wallet. New writes need funded free-testnet wallets; no custom contract or payment is required.')
 add('Practical limits','h')
 add('Verification establishes accepted authorship and complete membership of a pinned revision. It does not attest source truth, hosted model computation, independent execution or RPC metadata/query completeness. Historical receipts cannot grant current admission. Withdrawal takes effect when observed on a fresh read. Expiring records need renewal.')
 add('The local CPU benchmark stays within 200 nodes / 500 edges. Its smallest fixture shows essentially no traversal improvement; signature and manifest costs are measured separately. Network performance, production scale and external adoption are unverified. New npm statistics may be unavailable.')
@@ -69,7 +70,7 @@ table([['Check','Actual result'],
  ['Missing graph member','Incomplete revision rejected'],
  ['RPC outage control','Read failed closed'],
  ],[290,205]);story.append(Spacer(1,12))
-add('<b>node scripts/verify-backend-independence.mjs</b><br/>A fresh anonymous npm install checks TypeScript and seven runtime entrypoints. Before SDK imports, a Node fetch interceptor rejects project destinations. Only the credential-free RPC and two read methods are allowed.')
+add('<b>node scripts/verify-backend-independence.mjs</b><br/>A fresh anonymous npm install checks TypeScript and eight runtime entrypoints. Before SDK imports, a Node fetch interceptor rejects project destinations. Only the credential-free RPC and two read methods are allowed.')
 network=independence['network']
 add(f"Actual trace: {network['rpc_requests']} successful RPC requests, three timing reads and three indexed queries; zero successful project API requests. Reference graph block: {independence['checks'][2]['read_block']}. Current withdrawal read block: {independence['checks'][4]['read_block']}.")
 add('What this establishes','h')
@@ -77,11 +78,25 @@ add('A compatible reader can query without our relay. Policy, packet and origina
 add('Postgres can serve one operator. Replacing Arkiv requires another shared publication/discovery layer for attributable records and current reviews; another public protocol could supply it. Private memory, secrets, full source bodies and inference stay off Arkiv.')
 add('Immutable graph signatures cover historical source snapshots. Current npm tarballs have separate registry integrity evidence.','small')
 add(link('/data/backend-independence.json','Exact queries, blocks and network trace')+' | '+link('/data/npm-release.json','Current registry byte integrity'),'small')
+story.append(PageBreak())
+add('Authenticated updates.<br/>Measured mobile repairs.','title')
+add('Two real root revisions | 15 October 2026','small')
+add('The separate root-update demonstration publishes two tiny synthetic graphs and two authority-signed revision records: eight actual entities in one Tiramisu transaction. A root revision binds the chain, registry, profile, policy and previous signed revision. The original AI reference graph remains pinned; this demonstration does not silently replace its evidence.')
+add('<b>Transaction:</b> '+roots['tx_hash'],'small')
+table([['Control','Verified behavior'],['Current root and graph','Both revised graphs reconstruct at the registry snapshot. Every manifest member is checked.'],['Returning-client rollback','Retained revision and block checkpoints reject older or conflicting observations.'],['Withdrawal retention','Authenticated withdrawals survive later omission, including a target first missing from the response.'],['Cross-tab concurrency','Exclusive Web Locks cover load, remote read, verification, persistence and task; storage or lock failure refuses.'],['Adversarial reproduction',f"{trust['passed']} / {trust['total']} checks. Live RPC reads are labeled separately from signed replay and synthetic failure injection."]],[145,350]);story.append(Spacer(1,12))
+add('Mobile navigation lab: median of three cold runs','h')
+rows=[['Hosted route','Before score','After score','After LCP / TBT / CLS']]
+for before,after in zip(mobile['baseline']['routes'],mobile['final']['routes']):
+ m=after['median'];rows.append([after['route'],before['median']['score'],m['score'],f"{m['largest-contentful-paint']/1000:.2f}s / {m['total-blocking-time']:.0f}ms / {m['cumulative-layout-shift']:.3f}"])
+table(rows,[115,85,85,210]);story.append(Spacer(1,10))
+add('Lighthouse 13.5.0, simulated mobile, 4x CPU slowdown, 150ms RTT, 1,638.4kbps; fresh Chrome profile per run. Eighteen baseline and final runs total. Production React, lazy workspaces, worker-based historical verification and stable mobile layout address measured costs. Lab scores are not design or hackathon scores, physical-device tests or field INP.')
+add('One configured RPC operator remains trusted for metadata and unseen history completeness. No state-proof verifier or independent live quorum is claimed. Clearing local data loses observed history. Authority/policy changes still require an explicit consumer bootstrap; history is bounded to 64 retained root revisions.','small')
+add(link('/?view=trust','Try live root verification')+' | '+link('/data/trust-safeguards.json','Trust checks')+' | '+link('/data/mobile-performance.json','All mobile samples'),'small')
 def page(c,doc):
  c.saveState();c.setFillColor(ivory);c.rect(0,0,595,842,fill=1,stroke=0);c.setFillColor(forest);c.rect(0,807,595,35,fill=1,stroke=0)
  c.setFillColor(colors.HexColor('#99DAB0'));c.setFont('Helvetica',8);c.drawString(50,820,'ARKIV GRAPH / MEASURED PROJECT-RUN EVIDENCE')
  c.setFillColor(muted);c.drawString(50,24,'arkivgraph.ajnasnb.com');c.drawRightString(545,24,str(doc.page));c.restoreState()
 doc=SimpleDocTemplate(str(output),pagesize=(595,842),leftMargin=50,rightMargin=50,topMargin=61,bottomMargin=45,title='Arkiv Graph release evidence',author='Ajnas NB')
 doc.build(story,onFirstPage=page,onLaterPages=page)
-assert len(PdfReader(str(output)).pages)==3,'Report must stay three readable pages'
-print('Created three-page Arkiv Graph release evidence PDF')
+assert len(PdfReader(str(output)).pages)==4,'Report must stay four readable pages'
+print('Created four-page Arkiv Graph release evidence PDF')

@@ -126,11 +126,11 @@
   },
   "hosted_playback": {
     "browser_flow_passed": true,
-    "checked_at": "2026-10-15T11:29:18.662Z",
+    "checked_at": "2026-10-15T12:33:46.009Z",
     "report_url": "/data/release-smoke.json",
     "scope": "Project-run Chrome browser check on the public website: exact final file bytes, 128-second metadata, bounded byte ranges, muted playback with advancing time, and seeking to 100, 125 and 2 seconds. This does not claim a human listening audit or all-device compatibility."
   },
   "earlier_release": "/media/arkiv-graph-launch-72s.mp4",
   "new_feature": "Public npm SDK and real three-transaction, two-client withdrawal lifecycle, alongside the actual AI evidence journey.",
-  "ui_recording_scope": "Actual UI recordings predate the latest navigation and onboarding polish. The demonstrated checks and transaction lifecycle remain unchanged."
+  "ui_recording_scope": "Actual UI recordings predate the latest navigation and onboarding polish. The demonstrated checks and transaction lifecycle remain unchanged. The recorded npm scene shows the actual earlier0.3.0 release. New0.4.0/0.6.0 releases, root-update controls and mobile measurements have separate current website/PDF/JSON evidence; they are not depicted in this unchanged film."
 }

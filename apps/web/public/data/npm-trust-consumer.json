@@ -1,0 +1,115 @@
+{
+  "schema": "arkiv.graph-npm-trust-consumer.v1",
+  "checked_at": "2026-10-15T12:26:54.066Z",
+  "sdk_version": "0.4.0",
+  "trust_entrypoint": "@ajnasnb/arkiv-graph/trust",
+  "trust_entrypoint_bytes": 14372,
+  "trust_entrypoint_sha256": "b9074195e0564071f7880469cd6c6dff4c499ec20158fd9173f8730095589f1b",
+  "passed": 8,
+  "total": 8,
+  "checks": [
+    {
+      "name": "Published /trust entry point performs live registry and graph verification",
+      "passed": true,
+      "evidence_kind": "live-rpc"
+    },
+    {
+      "name": "Installed graph reader verifies both published revisions at the registry snapshot",
+      "passed": true,
+      "evidence_kind": "live-rpc"
+    },
+    {
+      "name": "Persisted checkpoint reload accepts the same authentic head",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay"
+    },
+    {
+      "name": "Published verifier rejects a hidden latest revision after checkpoint",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay"
+    },
+    {
+      "name": "Published verifier rejects tampered root bytes under the authentic signature",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay"
+    },
+    {
+      "name": "Published verifier rejects cross-chain, policy and registry substitutions",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay"
+    },
+    {
+      "name": "Published verifier refuses an expired signed head",
+      "passed": true,
+      "evidence_kind": "signed-public-evidence-replay"
+    },
+    {
+      "name": "One actual RPC remains explicitly labeled as single-provider observation",
+      "passed": true,
+      "evidence_kind": "live-rpc"
+    }
+  ],
+  "live": {
+    "rpc": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+    "chain_id": 7738577,
+    "registry_block": "608722",
+    "current_root": "sha256:8a036fdee3daac844c8b4ab0d78eedd792ae4b8d6d22bcfafb2f054fe9da0520",
+    "revisions": [
+      {
+        "sequence": 1,
+        "root": "sha256:e1deadbe5f4b916abddc5b663830b9d70d223c7669426b96bcab9ad61e117d8d",
+        "block": "608722",
+        "nodes": 1,
+        "edges": 0,
+        "entities": 2
+      },
+      {
+        "sequence": 2,
+        "root": "sha256:8a036fdee3daac844c8b4ab0d78eedd792ae4b8d6d22bcfafb2f054fe9da0520",
+        "block": "608722",
+        "nodes": 2,
+        "edges": 1,
+        "entities": 4
+      }
+    ]
+  },
+  "bootstrap_config_source": "Reviewed public root-trust-config.json loaded as data; no source-workspace package imports.",
+  "website_backend_used": false,
+  "api_key_used": false,
+  "wallet_used": false,
+  "transactions_written": 0,
+  "limitations": [
+    "One official public RPC; no independent-provider quorum or cryptographic non-omission proof.",
+    "Checkpoint tests deliberately replay, truncate or tamper actual signed public records locally; these injections are not additional live chain events.",
+    "Pinned authority/configuration remains an explicit consumer trust decision. Storage deletion loses local rollback history."
+  ],
+  "installation": {
+    "source": "npm-registry",
+    "registry": "https://registry.npmjs.org",
+    "npm_authentication_used": false,
+    "isolated_npm_config": true,
+    "fresh_npm_cache": true,
+    "packages": {
+      "@ajnasnb/arkiv-graph": "0.4.0",
+      "@ajnasnb/ai-passport": "0.6.0",
+      "qarinah": "0.7.0"
+    },
+    "isolated_from_workspace": true,
+    "workspace_symlinks_used": false,
+    "node_path_used": false,
+    "typescript_consumer_passed": true,
+    "typescript_version": "5.9.3",
+    "all_entrypoints_runtime_imported": true,
+    "entrypoints": [
+      "@ajnasnb/arkiv-graph",
+      "@ajnasnb/arkiv-graph/context",
+      "@ajnasnb/arkiv-graph/trust",
+      "@ajnasnb/ai-passport",
+      "@ajnasnb/ai-passport/arkiv",
+      "@ajnasnb/ai-passport/graph",
+      "@ajnasnb/ai-passport/tools",
+      "@ajnasnb/ai-passport/qarinah"
+    ]
+  },
+  "reproduce": "node scripts/verify-npm-trust-consumer.mjs"
+}

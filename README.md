@@ -6,20 +6,21 @@ Arkiv Graph is an MIT TypeScript SDK for signed, connected records on Arkiv: ind
 - [AI reference application](https://arkivgraph.ajnasnb.com/app/)
 - [Judge evidence guide](https://arkivgraph.ajnasnb.com/judges.html)
 - [SDK setup and limits](ARKIV_GRAPH.md), [architecture](ARCHITECTURE.md), [data contract](arkiv/schema.md)
+- [Live root updates](https://arkivgraph.ajnasnb.com/?view=trust), [trust setup](docs/TRUST_SETUP.md), [mobile measurements](docs/MOBILE_PERFORMANCE.md)
 - [Source](https://github.com/AjnasNB/arkiv-graph), [evaluation PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-evaluation.pdf), [launch film](https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4), [pitch PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pdf)
 
 ## Release
 
-The public npm releases are **[`@ajnasnb/arkiv-graph` 0.3.0](https://www.npmjs.com/package/@ajnasnb/arkiv-graph)** and **[`@ajnasnb/ai-passport` 0.5.0](https://www.npmjs.com/package/@ajnasnb/ai-passport)**. Both registry tarballs were fetched without authentication and matched the reviewed builds; [release evidence](https://arkivgraph.ajnasnb.com/data/npm-release.json) records their versions, hashes and publication times. Publication does not establish external adoption or verified download statistics.
+The public npm releases are **[`@ajnasnb/arkiv-graph` 0.4.0](https://www.npmjs.com/package/@ajnasnb/arkiv-graph)** and **[`@ajnasnb/ai-passport` 0.6.0](https://www.npmjs.com/package/@ajnasnb/ai-passport)**. Both registry tarballs were fetched without authentication and matched the reviewed builds; [release evidence](https://arkivgraph.ajnasnb.com/data/npm-release.json) records their versions, hashes and publication times. Publication does not establish external adoption or verified download statistics.
 
 ```sh
-npm install @ajnasnb/arkiv-graph@0.3.0 @ajnasnb/ai-passport@0.5.0 qarinah@0.7.0
+npm install @ajnasnb/arkiv-graph@0.4.0 @ajnasnb/ai-passport@0.6.0 qarinah@0.7.0
 ```
 
-Both tarball release gates also passed in fresh folders outside the workspace, with Qarinah 0.7.0, no workspace symlinks or `NODE_PATH`, all seven package entrypoints imported, and a standalone TypeScript consumer compiled. The same builds remain downloadable:
+Both tarball release gates also passed in fresh folders outside the workspace, with Qarinah 0.7.0, no workspace symlinks or `NODE_PATH`, all eight package entrypoints imported, and a standalone TypeScript consumer compiled. The same builds remain downloadable:
 
 ```sh
-npm install https://arkivgraph.ajnasnb.com/downloads/ajnasnb-arkiv-graph-0.3.0.tgz https://arkivgraph.ajnasnb.com/downloads/ajnasnb-ai-passport-0.5.0.tgz qarinah@0.7.0
+npm install https://arkivgraph.ajnasnb.com/downloads/ajnasnb-arkiv-graph-0.4.0.tgz https://arkivgraph.ajnasnb.com/downloads/ajnasnb-ai-passport-0.6.0.tgz qarinah@0.7.0
 ```
 
 Install both tarballs together because the application adapter depends on the exact graph release. The generic graph package alone has no Qarinah, passport or model dependency.
@@ -75,13 +76,29 @@ if (path.truncated) throw new Error('Incomplete evidence');
 
 Root and accepted issuers are explicit consumer policy. Downloaded example configurations are not automatically trusted policy.
 
+## Authenticated updates and retained observations
+
+The optional `@ajnasnb/arkiv-graph/trust` entry point provides signed root revisions, a Tiramisu registry reader, monotonic checkpoints, provider-observation checks and withdrawal journals. The [live root-update page](https://arkivgraph.ajnasnb.com/?view=trust) reads two actual authority-signed revisions and their complete synthetic graphs from one explicit block. Its eight readonly entities were published in [one transaction](https://tiramisu.explorer.arkiv.network/tx/0x4802ca8904dad4e118257f6761299e7b525d12abb09dcdecb79786be6cce8ff8). Original infrastructure and AI reference roots remain intact.
+
+Pin the bootstrap authority, chain, profile and policy through a trusted channel. Each signed revision links the previous root and entire signed revision. The browser verifies the current complete graph before saving a checkpoint; older or conflicting observed history is rejected. Authority or accepted-policy changes require an explicit new bootstrap. The separate two-client reference retains authenticated withdrawals, including pending withdrawals whose target was initially absent, before admitting a task. Full-request Web Locks serialize shared browser storage; malformed storage, write failure or unavailable locking refuses the task.
+
+Run `npx tsx scripts/verify-trust-safeguards.ts` for the [19-check report](https://arkivgraph.ajnasnb.com/data/trust-safeguards.json), which separates real RPC reads from replay and synthetic failure injection. The [capability probe](https://arkivgraph.ajnasnb.com/data/rpc-capabilities.json) records the tested public endpoint and unavailable proof method. See [TRUST_SETUP.md](docs/TRUST_SETUP.md) and [TRUST_REVIEW.md](docs/TRUST_REVIEW.md).
+
+Every graph/admission query pins a block and rejects mismatched pages. The live deployment still uses one RPC operator. Signatures, local history and configured-provider comparison do not prove completeness of unseen history. A fresh client can miss a withheld update or withdrawal; clearing local data loses observed history. The root registry supports the generic Tiramisu profile and 64 retained revisions. It is separate from the AI app's pinned reference graph.
+
+## Measured mobile performance
+
+Eighteen hosted Lighthouse 13.5.0 audits cover three cold runs per route before and after the fixes. Median scores improved from **87 / 88 / 41** to **98 / 98 / 96** for Overview / AI context / Two-client. Final LCP medians were **2.00 / 2.07 / 2.41 seconds**; TBT **5 / 0 / 0 ms**; CLS **0 / 0 / 0.011**. These are simulated mobile navigation measurements, not physical-phone, field INP or hackathon scores.
+
+The measured repairs enforce production React output, lazy-load workspace code, defer irrelevant admission reads, move full historical signature verification to a worker, stabilize font/layout changes and defer the hidden film poster. Inspect [all samples and configuration](https://arkivgraph.ajnasnb.com/data/mobile-performance.json) and [reproduction details](docs/MOBILE_PERFORMANCE.md). The worker retains every signature check and refuses errors.
+
 ## Read while this application's API is unavailable
 
 Run `node scripts/verify-backend-independence.mjs` after checkout setup. It installs the public npm releases in a new OS temporary directory with empty npm configs, then deliberately rejects every fetch to this project's domains. Only the configured public Arkiv RPC is allowed during the SDK checks. Both pinned graphs still verify, the public-checkout source bytes match the signed context path, and a fresh Qarinah consumer refuses the withdrawn review. Removing a graph member fails verification; deliberately blocking the RPC also fails the read.
 
 The [seven-check report](https://arkivgraph.ajnasnb.com/data/backend-independence.json) includes actual RPC methods, read blocks, creator predicates and network counts. This is a project-run failure simulation. It demonstrates independence from this project's API using one working RPC provider and pre-supplied public source/configuration; it does not establish network-wide censorship resistance or external adoption. A single operator can use Postgres. Replacing Arkiv here means supplying another shared publication/discovery layer for the indexed, attributable records and current review state.
 
-Published graph revisions retain historical source snapshots, including the earlier 0.2.0 CLI. Those signatures apply to their original bytes. The current npm 0.3.0/0.5.0 tarballs are verified separately by the registry integrity report; immutable records are not relabeled as new release attestations.
+Published graph revisions retain historical source snapshots, including the earlier 0.2.0 CLI. Those signatures apply to their original bytes. The current npm 0.4.0/0.6.0 tarballs are verified separately by the registry integrity report; immutable records are not relabeled as new release attestations.
 
 ## The AI reference application
 
@@ -103,7 +120,7 @@ A single operator's calculator can use an ordinary database. Arkiv is useful her
 
 The [local CPU benchmark](https://arkivgraph.ajnasnb.com/data/graph-benchmark.json) measures synthetic graphs of 20, 100 and 200 nodes on one machine. At 20 nodes, indexed traversal was effectively unchanged from scanning (0.1148 versus 0.1144 ms median). At the 200-node/500-edge limit, medians were 1.0701 versus 1.5017 ms. Full signature, manifest and root verification was measured separately at 285.5, 1687.3 and 2843.6 ms for the three sizes. These are local CPU measurements, excluding RPC, storage and gas; they are not production latency, throughput or distributed-scale results.
 
-The release local suite passed 198 tests covering signed graph/admission boundaries, storage coverage, exact runtime binding and malformed or unavailable evidence. [Test reports](https://arkivgraph.ajnasnb.com/data/security-evaluation.json) retain their own dates and scope. The [22 browser checks](https://arkivgraph.ajnasnb.com/data/browser-evaluation.json) comprise sixteen existing flows, two UI regressions using generated signed fixtures and mocked responses, and four deployed navigation/keyboard/mobile regressions. The two fixture tests are distinct from actual live-network lifecycle evidence. The [actual two-client browser report](https://arkivgraph.ajnasnb.com/data/two-client-browser-evaluation.json) separately records four requests and zero browser errors. Mock inference in local tests is distinct from the [real hosted AI evaluation](https://arkivgraph.ajnasnb.com/data/ai-evaluation.json).
+The release local suite passed 271 tests covering signed graph/admission boundaries, storage coverage, exact runtime binding and malformed or unavailable evidence. [Test reports](https://arkivgraph.ajnasnb.com/data/security-evaluation.json) retain their own dates and scope. The [34 browser checks](https://arkivgraph.ajnasnb.com/data/browser-evaluation.json) cover sixteen original flows, four navigation regressions, six root/trust cases, two performance guards and six signed-fixture two-client regressions. Controlled failures and actual network reads are explicitly distinguished. The two fixture tests are distinct from actual live-network lifecycle evidence. The [actual two-client browser report](https://arkivgraph.ajnasnb.com/data/two-client-browser-evaluation.json) separately records four requests and zero browser errors. Mock inference in local tests is distinct from the [real hosted AI evaluation](https://arkivgraph.ajnasnb.com/data/ai-evaluation.json).
 
 The [final deployment checks](https://arkivgraph.ajnasnb.com/data/release-smoke.json) verify the completed session, two fresh refused requests, mobile layout, exact npm tarball bytes, the reviewed 128-second film, browser playback and seeking, and the downloadable deck and PDFs.
 

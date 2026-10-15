@@ -4,7 +4,7 @@ import {parseArgs} from 'node:util';
 import {cleanInstall,saveConsumerReport} from './consumer-install.mjs';
 const {values}=parseArgs({options:{registry:{type:'boolean',default:false}}});
 const root=process.cwd();
-const {directory,run,installation}=await cleanInstall({root,label:'arkiv-graph-consumer-0.3.0',registry:values.registry});
+const {directory,run,installation}=await cleanInstall({root,label:'arkiv-graph-consumer-0.4.0',registry:values.registry});
 await fs.writeFile(path.join(directory,'check.mjs'),`
 import fs from 'node:fs/promises';
 import {createGraphKit,AI_PASSPORT_PROFILE} from '@ajnasnb/arkiv-graph';
@@ -25,7 +25,7 @@ for(const [profile,file,start] of configs){
 const completeContext=await client.callTool({name:'read_context',arguments:{start,depth:4,maxNodes:40,maxChars:12000}});if(completeContext.isError)throw new Error('Context MCP failed');const packet=JSON.parse(completeContext.content[0].text);if(packet.packet.contentRole!=='untrusted-data'||packet.packet.verification.execution_authority!==false||packet.chars>12000)throw new Error('Context boundary failed');mcp.push({profile,case:'complete-context',passed:true});const limitedContext=await client.callTool({name:'read_context',arguments:{start,depth:4,maxNodes:40,maxChars:512}});if(!limitedContext.isError)throw new Error('Context budget failed');mcp.push({profile,case:'context-budget-rejected',passed:true});}
  finally{await client.close();}
 }
-console.log(JSON.stringify({evaluated_at:new Date().toISOString(),generic_sdk:'0.3.0',application_sdk:'0.5.0',website_backend_used:false,api_key_used:false,wallet_required:false,generic_graph:{nodes:live.graph.nodes.length,edges:live.graph.edges.length,entities:live.records.length,graph_digest:generic.graph_digest,read_block:live.block},compatibility_graph:{nodes:appGraph.graph.nodes.length,edges:appGraph.graph.edges.length,entities:appGraph.records.length,graph_digest:legacy.graph_digest},compatibility_adapter_matched:true,mcp,passed:mcp.filter(x=>x.passed).length,total:mcp.length,scope:'Real direct RPC and actual stdio MCP calls. Both graphs are project-published. No customer adoption or scalability benchmark.'}));
+console.log(JSON.stringify({evaluated_at:new Date().toISOString(),generic_sdk:'0.4.0',application_sdk:'0.6.0',website_backend_used:false,api_key_used:false,wallet_required:false,generic_graph:{nodes:live.graph.nodes.length,edges:live.graph.edges.length,entities:live.records.length,graph_digest:generic.graph_digest,read_block:live.block},compatibility_graph:{nodes:appGraph.graph.nodes.length,edges:appGraph.graph.edges.length,entities:appGraph.records.length,graph_digest:legacy.graph_digest},compatibility_adapter_matched:true,mcp,passed:mcp.filter(x=>x.passed).length,total:mcp.length,scope:'Real direct RPC and actual stdio MCP calls. Both graphs are project-published. No customer adoption or scalability benchmark.'}));
 `);
 const report=JSON.parse((await run(process.execPath,['check.mjs',root])).trim());
 for(const file of ['arkiv-graph-reader.json','ai-passport-reader.json']){const out=JSON.parse(await run(process.execPath,['node_modules/@ajnasnb/arkiv-graph/dist/cli.js','verify',path.join(root,'apps/web/public/data',file)]));if(!out.verified)throw new Error('Packaged CLI failed');}

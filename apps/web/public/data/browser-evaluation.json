@@ -1,15 +1,15 @@
 {
-  "evaluated_at": "2026-10-15T11:26:08.793Z",
+  "evaluated_at": "2026-10-15T12:21:51.690Z",
   "evaluation_runs": [
     {
-      "started_at": "2026-10-15T11:26:08.793Z",
-      "duration_ms": 120792.71800000001
+      "started_at": "2026-10-15T12:21:51.690Z",
+      "duration_ms": 182808.89
     }
   ],
   "scope": "Public deployment browser flows: graph switching, source-byte verified context, bounded export, hosted coding inference, local uploads, tampering, source changes, expired/withdrawn reviews, provider outage recovery, current re-evaluation, mobile/theme, migration, read-only API, launch video playback and downloads. Controlled outage responses are browser-local test simulations.",
   "url": "https://arkivgraph.ajnasnb.com",
-  "passed": 22,
-  "total": 22,
+  "passed": 34,
+  "total": 34,
   "results": [
     {
       "name": "real coding inference reaches the browser, exports a receipt and blocks withdrawn memory",
@@ -17,7 +17,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 9904
+          "duration_ms": 10383
         }
       ]
     },
@@ -27,7 +27,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3332
+          "duration_ms": 2936
         }
       ]
     },
@@ -37,7 +37,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4617
+          "duration_ms": 4730
         }
       ]
     },
@@ -47,7 +47,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3658
+          "duration_ms": 3118
         }
       ]
     },
@@ -57,7 +57,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 1042
+          "duration_ms": 531
         }
       ]
     },
@@ -67,7 +67,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6022
+          "duration_ms": 5061
         }
       ]
     },
@@ -77,7 +77,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 9375
+          "duration_ms": 9288
         }
       ]
     },
@@ -87,7 +87,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3091
+          "duration_ms": 2717
         }
       ]
     },
@@ -97,7 +97,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 10468
+          "duration_ms": 15224
         }
       ]
     },
@@ -107,7 +107,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6386
+          "duration_ms": 8064
         }
       ]
     },
@@ -117,7 +117,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6203
+          "duration_ms": 7024
         }
       ]
     },
@@ -127,7 +127,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 4542
+          "duration_ms": 6287
         }
       ]
     },
@@ -137,7 +137,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5323
+          "duration_ms": 5698
         }
       ]
     },
@@ -147,7 +147,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 6969
+          "duration_ms": 8077
         }
       ]
     },
@@ -157,7 +157,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 9242
+          "duration_ms": 8483
         }
       ]
     },
@@ -167,7 +167,127 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 5591
+          "duration_ms": 6494
+        }
+      ]
+    },
+    {
+      "name": "static mobile views load without starting live admission reads or subscriptions",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 1904
+        }
+      ]
+    },
+    {
+      "name": "a missing historical verifier worker refuses the session and keeps consumers disabled",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 2732
+        }
+      ]
+    },
+    {
+      "name": "live root updates verify the published graph, reject local rollback/tampering and survive reload on mobile",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 7287
+        }
+      ]
+    },
+    {
+      "name": "root updates fail closed before acceptance if persistent storage cannot retain the checkpoint",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 3608
+        }
+      ]
+    },
+    {
+      "name": "malformed root history is refused without replacing saved bytes or querying the provider",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 2767
+        }
+      ]
+    },
+    {
+      "name": "a browser without Web Locks refuses root updates before RPC or checkpoint writes",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 1641
+        }
+      ]
+    },
+    {
+      "name": "a browser without Web Locks refuses a two-client task before its live RPC read",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 3442
+        }
+      ]
+    },
+    {
+      "name": "two tabs serialize root checkpoint reads and a queued older RPC snapshot cannot overwrite accepted history",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 3545
+        }
+      ]
+    },
+    {
+      "name": "two tabs serialize the entire client read and preserve withdrawal after reload",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 8696
+        }
+      ]
+    },
+    {
+      "name": "live client retains a signed withdrawal when its target is initially omitted",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 2828
+        }
+      ]
+    },
+    {
+      "name": "live client refuses when local storage is unavailable",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 3017
+        }
+      ]
+    },
+    {
+      "name": "live client refuses before a remote read if exclusive browser locks are unavailable",
+      "passed": true,
+      "attempts": [
+        {
+          "status": "passed",
+          "duration_ms": 2264
         }
       ]
     },
@@ -177,7 +297,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 3457
+          "duration_ms": 5514
         }
       ]
     },
@@ -187,7 +307,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 2457
+          "duration_ms": 3757
         }
       ]
     },
@@ -197,7 +317,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 8027
+          "duration_ms": 10567
         }
       ]
     },
@@ -207,7 +327,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 1737
+          "duration_ms": 1810
         }
       ]
     },
@@ -217,7 +337,7 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 2588
+          "duration_ms": 2635
         }
       ]
     },
@@ -227,12 +347,14 @@
       "attempts": [
         {
           "status": "passed",
-          "duration_ms": 2410
+          "duration_ms": 3898
         }
       ]
     }
   ],
   "two_client_regression_scope": "Two browser tests use locally signed synthetic fixtures and intercepted responses to exercise state transitions and provider failure. They are regression tests, not chain proof.",
   "actual_two_client_evidence": "/data/two-client-browser-evaluation.json",
+  "trust_regression_scope": "Six root/trust browser checks include one actual live root-read/reload/mobile case and five controlled storage, lock and queued-snapshot failures. Four additional two-client journal checks use signed synthetic fixtures and intercepted responses, including two-tab concurrency and a withdrawal initially missing its target. They are not additional chain transactions.",
+  "mobile_regression_scope": "Two browser regressions check zero idle admission requests on static mobile views and refusal when the historical verification worker is unavailable. Lighthouse timing measurements are reported separately in mobile-performance.json.",
   "navigation_regression_scope": "Four additional browser checks cover graph-profile sharing/reload/Back, keyboard skip/focus and shareable views, mobile selected context to the matching AI example, and historical withdrawal proof versus fresh reads. They use the deployed UI and read-only hosted data."
 }

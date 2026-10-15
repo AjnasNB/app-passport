@@ -8,7 +8,7 @@ The current launch film is `/media/arkiv-graph-launch.mp4`: 128 seconds of origi
 
 The renderer expects the completed public session report, browser observations, local capture cuts and verified registry evidence. These are inputs to original Remotion scenes composed through OpenMontage. Actual requests remain in order; waiting time is edited out. The final review repaired early ownership wording, two abrupt music dips, one fast narration line and a three-frame old-scene flash. File QA, caption measurements and sampled frame review have explicit scope in `/data/launch-evaluation.json`; they are not a claim of universal device playback or independent customer use.
 
-The seven-slide image-led deck and the three-page release evidence PDF are separate artifacts. `arkiv-graph-deck.mjs` updates measured counts and npm instructions; `release-evaluation.py` reads the actual test, registry, lifecycle and blocked-backend consumer reports. The deck is not animated into the film. The film retains authentic earlier UI recordings; later navigation and onboarding polish does not change the shown operations.
+The seven-slide image-led deck and the four-page release evidence PDF are separate artifacts. `arkiv-graph-deck.mjs` updates measured counts and npm instructions; `release-evaluation.py` reads the actual test, registry, lifecycle and blocked-backend consumer reports. The deck is not animated into the film. The film retains authentic earlier UI recordings; later navigation and onboarding polish does not change the shown operations.
 
 ## Earlier graph film sources
 
@@ -47,3 +47,5 @@ The application records, schemas and SDK remain reproducible independently of th
 ## Updated AI Passport film
 
 `ai-film.tsx`, `narrate-ai.py` and `render-ai.py` produce a 75-second original motion film through OpenMontage and its Remotion renderer. It shows the real coding/gate/India-tool website flow and a moving source/context/run graph. The original 70-second prototype is preserved separately. A targeted graph-scene repair removes a footer overlap. Narration uses local Kokoro af_heart and is synthetic. Final audio is normalized and measured; waveform metadata and real render evidence are in `/data/ai-video-evaluation.json`. No PPT slide is animated into the film.
+
+The current trust/mobile release keeps the reviewed 128-second film unchanged. Its recorded npm scene shows the actual earlier 0.3.0 release; current 0.4.0/0.6.0 package bytes, signed root updates and mobile measurements have separate live website, PDF and JSON evidence. The film does not claim to demonstrate the newly added root-update controls.

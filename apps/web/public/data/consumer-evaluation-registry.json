@@ -1,7 +1,7 @@
 {
-  "evaluated_at": "2026-10-15T10:11:57.049Z",
-  "sdk_version": "0.5.0",
-  "generic_sdk_version": "0.3.0",
+  "evaluated_at": "2026-10-15T12:25:06.347Z",
+  "sdk_version": "0.6.0",
+  "generic_sdk_version": "0.4.0",
   "graph_verified": true,
   "graph_nodes": 27,
   "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c",
@@ -15,7 +15,7 @@
   "admission": "requirements-satisfied",
   "context_delivered": true,
   "inference_run": false,
-  "read_block": "604674",
+  "read_block": "608669",
   "cli_passed": true,
   "cli_provider": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
   "installation": {
@@ -25,8 +25,8 @@
     "isolated_npm_config": true,
     "fresh_npm_cache": true,
     "packages": {
-      "@ajnasnb/arkiv-graph": "0.3.0",
-      "@ajnasnb/ai-passport": "0.5.0",
+      "@ajnasnb/arkiv-graph": "0.4.0",
+      "@ajnasnb/ai-passport": "0.6.0",
       "qarinah": "0.7.0"
     },
     "isolated_from_workspace": true,
@@ -38,6 +38,7 @@
     "entrypoints": [
       "@ajnasnb/arkiv-graph",
       "@ajnasnb/arkiv-graph/context",
+      "@ajnasnb/arkiv-graph/trust",
       "@ajnasnb/ai-passport",
       "@ajnasnb/ai-passport/arkiv",
       "@ajnasnb/ai-passport/graph",

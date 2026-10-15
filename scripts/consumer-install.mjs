@@ -3,8 +3,8 @@ import path from 'node:path';
 import os from 'node:os';
 import {spawn} from 'node:child_process';
 
-export const RELEASE_PACKAGES={graph:{name:'@ajnasnb/arkiv-graph',version:'0.3.0',tarball:'ajnasnb-arkiv-graph-0.3.0.tgz'},passport:{name:'@ajnasnb/ai-passport',version:'0.5.0',tarball:'ajnasnb-ai-passport-0.5.0.tgz'}};
-export const ENTRYPOINTS=['@ajnasnb/arkiv-graph','@ajnasnb/arkiv-graph/context','@ajnasnb/ai-passport','@ajnasnb/ai-passport/arkiv','@ajnasnb/ai-passport/graph','@ajnasnb/ai-passport/tools','@ajnasnb/ai-passport/qarinah'];
+export const RELEASE_PACKAGES={graph:{name:'@ajnasnb/arkiv-graph',version:'0.4.0',tarball:'ajnasnb-arkiv-graph-0.4.0.tgz'},passport:{name:'@ajnasnb/ai-passport',version:'0.6.0',tarball:'ajnasnb-ai-passport-0.6.0.tgz'}};
+export const ENTRYPOINTS=['@ajnasnb/arkiv-graph','@ajnasnb/arkiv-graph/context','@ajnasnb/arkiv-graph/trust','@ajnasnb/ai-passport','@ajnasnb/ai-passport/arkiv','@ajnasnb/ai-passport/graph','@ajnasnb/ai-passport/tools','@ajnasnb/ai-passport/qarinah'];
 
 /** The installation lives outside all workspace parents; child imports cannot fall through to this repository. */
 export async function cleanInstall({root,label,registry=false}){
@@ -44,6 +44,7 @@ export async function cleanInstall({root,label,registry=false}){
   await fs.writeFile(path.join(directory,'consumer.ts'),`
 import * as graph from '@ajnasnb/arkiv-graph';
 import * as context from '@ajnasnb/arkiv-graph/context';
+import * as trust from '@ajnasnb/arkiv-graph/trust';
 import * as passport from '@ajnasnb/ai-passport';
 import * as arkiv from '@ajnasnb/ai-passport/arkiv';
 import * as adapterGraph from '@ajnasnb/ai-passport/graph';
@@ -53,7 +54,7 @@ import {validateProofContext} from 'qarinah';
 import type {Policy,Descriptor} from '@ajnasnb/ai-passport';
 import type {GraphConnection} from '@ajnasnb/arkiv-graph/context';
 
-export const entrypoints={graph,context,passport,arkiv,adapterGraph,tools,qarinah,validateProofContext};
+export const entrypoints={graph,context,trust,passport,arkiv,adapterGraph,tools,qarinah,validateProofContext};
 export async function consume(connection:GraphConnection,graphDigest:string,policy:Policy,descriptor:Descriptor){
   const kit=graph.createGraphKit();
   const live=await kit.readGraph(connection,graphDigest);

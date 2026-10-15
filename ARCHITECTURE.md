@@ -90,11 +90,11 @@ npx tsx scripts/build-ai-fixtures.ts
 npx tsx scripts/evaluate-ai.ts
 ```
 
-Install the current public releases with `npm install @ajnasnb/arkiv-graph@0.3.0 @ajnasnb/ai-passport@0.5.0 qarinah@0.7.0`. From the checkout, `node scripts/consume-graph-infra.mjs --registry` installs them anonymously outside the workspace and checks both graph profiles, CLI commands and actual MCP requests. `node scripts/verify-backend-independence.mjs` additionally blocks all project API origins while reading the live graphs and withdrawn review through the public RPC. The exact queries and network trace are in `/data/backend-independence.json`.
+Install the current public releases with `npm install @ajnasnb/arkiv-graph@0.4.0 @ajnasnb/ai-passport@0.6.0 qarinah@0.7.0`. From the checkout, `node scripts/consume-graph-infra.mjs --registry` installs them anonymously outside the workspace and checks both graph profiles, CLI commands and actual MCP requests. `node scripts/verify-backend-independence.mjs` additionally blocks all project API origins while reading the live graphs and withdrawn review through the public RPC. The exact queries and network trace are in `/data/backend-independence.json`.
 
 For direct SDK usage, call `createGraphKit().readGraph({rpc,issuers}, graphDigest)` and `kit.traverseGraph(result.graph, start, {depth:4,maxNodes:40})`; use `AI_PASSPORT_PROFILE` for the reference application's preserved schema. Consumer-owned pinned policies and roots are in `/data/arkiv-graph-reader.json` and `/data/ai-passport-reader.json`. The raw Tiramisu RPC requires no website account; a provider may impose quota. A writer needs an accepted issuer wallet and free Tiramisu test tokens. Credentials remain outside the repository.
 
-The immutable graph revisions include historical source snapshots, including the earlier 0.2.0 CLI. They prove the identity of those published snapshots, not of the current npm package. `/data/npm-release.json` separately binds the public 0.3.0/0.5.0 registry tarballs to the reviewed release bytes. Root and issuer discovery are explicit consumer policy; a new graph revision requires updating that pinned policy.
+The immutable graph revisions include historical source snapshots, including the earlier 0.2.0 CLI. They prove the identity of those published snapshots, not of the current npm package. `/data/npm-release.json` separately binds the public 0.4.0/0.6.0 registry tarballs to the reviewed release bytes. Root and issuer discovery are explicit consumer policy; a new graph revision requires updating that pinned policy.
 
 ## Primary references
 
@@ -104,3 +104,9 @@ The immutable graph revisions include historical source snapshots, including the
 - Workers AI free allocation: https://developers.cloudflare.com/workers-ai/platform/pricing/
 - NPCI educational references: https://www.npci.org.in/fraud-awareness and https://www.npci.org.in/what-we-do/upi/faqs
 
+
+## Authenticated root discovery and client history
+
+The optional `/trust` package entry point adds a signed root registry, previous-revision links, finite current-head validity and persistent monotonic checkpoints. Registry discovery and complete graph reconstruction share one explicit block. The live root-update demo uses separately published tiny synthetic graphs; it leaves the AI reference graph pinned. Bootstrap authority/profile/policy are consumer settings. Authority or policy rotation requires explicit consumer approval. The reference two-client task retains verified withdrawal evidence under a per-client/session Web Lock before running a task.
+
+See [trust setup](docs/TRUST_SETUP.md), [critical trust review](docs/TRUST_REVIEW.md), [19 measured safeguards](https://arkivgraph.ajnasnb.com/data/trust-safeguards.json) and [18 mobile lab audits](docs/MOBILE_PERFORMANCE.md). One RPC operator remains trusted for unseen history completeness. Local state can be cleared; no permanent network revocation or state-proof verification is claimed.
