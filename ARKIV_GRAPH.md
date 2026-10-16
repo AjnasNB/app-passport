@@ -2,6 +2,8 @@
 
 Arkiv Graph is reusable infrastructure over Arkiv's indexed entities. AI Passport is its live reference application. The SDK verifies signed graph revisions before handing a bounded connected path to another application.
 
+For a first integration, use [GETTING_STARTED.md](docs/GETTING_STARTED.md): a tested graph-only installation, complete offline node/edge example, separate reviewed-bootstrap RPC recipe, schema, database/API/IPFS comparison and repository checks. `node scripts/quickstart-proof.mjs` repeats the documentation example in a fresh anonymous npm consumer with fetch disabled during traversal.
+
 ## Packages
 
 | Package | Release | Purpose |
@@ -15,11 +17,9 @@ Both packages are published publicly on npm. Unauthenticated registry metadata a
 
 ```sh
 npm install @ajnasnb/arkiv-graph@0.4.0
-curl -o reader.json https://arkivgraph.ajnasnb.com/data/arkiv-graph-reader.json
-npx arkiv-graph verify reader.json
-npx arkiv-graph trace reader.json application:ai-passport
-npx arkiv-graph mcp reader.json
 ```
+
+Follow the [reviewed bootstrap recipe](docs/GETTING_STARTED.md#3-verify-a-real-published-graph-through-rpc) before saving or downloading `reader.json`. Then run `npx arkiv-graph verify reader.json`, `npx arkiv-graph trace reader.json application:ai-passport`, or `npx arkiv-graph mcp reader.json`. MCP starts a stdio server and waits for client input.
 
 For the application adapter:
 
@@ -42,27 +42,32 @@ A complete signed manifest commits to every node and relationship in one revisio
 The graph does not make factual truth or execution authority part of a signature. Source bodies stay in ordinary files; the context adapter hashes bytes supplied by a caller-controlled loader before selecting an excerpt. Its result is marked `contentRole: untrusted-data` and `execution_authority: false`. CLI and MCP source references are not automatically downloaded.
 
 ```ts
+import fs from 'node:fs/promises';
 import { createGraphKit } from '@ajnasnb/arkiv-graph';
 import { readGraphContext } from '@ajnasnb/arkiv-graph/context';
 
-const connection = { rpc, issuers };
+const config = JSON.parse(await fs.readFile('./reader.json', 'utf8'));
+if (config.profile !== 'arkiv-graph-v1') throw new Error('Unexpected graph profile');
+const connection = { rpc: config.rpc, issuers: config.issuers };
 const kit = createGraphKit();
-const live = await kit.readGraph(connection, graphDigest);
+const live = await kit.readGraph(connection, config.graph_digest);
 const path = kit.traverseGraph(live.graph, 'application:ai-passport', {
   depth: 4, maxNodes: 40,
 });
 if (path.truncated) throw new Error('Incomplete evidence');
-const context = await readGraphContext(connection, graphDigest,
+const context = await readGraphContext(connection, config.graph_digest,
   'application:ai-passport', { maxChars: 12000 });
 ```
 
-Graph bounds are 200 nodes, 500 edges, eight pages of 100 records and traversal depth at most eight. Signed graph validity is at most 30 days. Revision roots are explicit configuration; automatic latest-root discovery is not implemented.
+Graph bounds are 200 nodes, 500 edges, eight pages of 100 records and traversal depth at most eight. Signed graph validity is at most 30 days. The core reader takes an explicit revision root. Optional signed root-registry discovery and returning-client checkpoints are available through `/trust`; the bootstrap remains explicit consumer policy.
 
 ## Why use Arkiv here?
 
 Arkiv supplies shared indexed entities, immutable original creator metadata, expiry and transactions. The SDK supplies the graph contract, revision manifest, reader and traversal conventions. Compatible consumers can inspect the same attributable records through their own provider, without depending on this website's dynamic API.
 
-An ordinary database is suitable when one operator controls all writers and readers. The benefit here is a shared interchange for connected evidence. No native Cypher engine, server-side graph join, production-scale performance, outside customer adoption or Arkiv endorsement is claimed. Signed application payloads are checked locally; protocol metadata and query completeness still rely on the RPC provider. No independent chain state proof is checked.
+An ordinary database is suitable when one operator controls all writers and readers. The benefit here is a shared interchange for connected evidence. IPFS or another content-addressed store can distribute source bytes, while indexed creator/relationship discovery and current application review state need an additional layer. No native Cypher engine, server-side graph join, production-scale performance, outside customer adoption or Arkiv endorsement is claimed. Signed application payloads are checked locally; protocol metadata and query completeness still rely on the RPC provider. No independent chain state proof is checked.
+
+The reusable advantage today is the public versioned schema, strict validators, conformance/failure checks and TypeScript/CLI/MCP integrations. A maintained ecosystem could improve interoperability; external adoption and network effects remain unproven.
 
 ## A working lifecycle across two consumers
 
@@ -70,7 +75,7 @@ The [live two-client page](https://arkivgraph.ajnasnb.com/two-client/) uses the 
 
 Session `77000888-ffdc-4ecf-beb8-df529adfb952` is complete: three actual transactions, A and B independently admitted before the exact-target withdrawal, then B's next request and A's next request refused. The [report](https://arkivgraph.ajnasnb.com/data/two-client-session.json) includes signed records, creators, blocks, timestamps, transaction hashes, query snapshots and bounded visibility observations. It preserves historical observations; it does not grant current admission.
 
-Reproduce from the repository with two dedicated wallets funded by free Tiramisu testnet GLM. Set `TWO_CLIENT_PRODUCER_KEY` and `TWO_CLIENT_REVIEWER_KEY` locally, or use the existing private operator helper. Optional settings: `TWO_CLIENT_RPC` and `TWO_CLIENT_API_KEY`.
+Reproduce from the repository with two dedicated wallets funded by free Tiramisu testnet GLM. Set `TWO_CLIENT_PRODUCER_KEY` and `TWO_CLIENT_REVIEWER_KEY` locally. Optional settings: `TWO_CLIENT_RPC` and `TWO_CLIENT_API_KEY`.
 
 ```sh
 npx tsx scripts/two-client-demo.ts --plan
@@ -96,7 +101,9 @@ From the repository, run `node scripts/consume-graph-infra.mjs` and `node script
 
 The [local CPU benchmark](https://arkivgraph.ajnasnb.com/data/graph-benchmark.json) is a single-machine synthetic measurement within the graph limits. At 20 nodes, scanning and indexed traversal were effectively unchanged (0.1144 and 0.1148 ms medians). At 200 nodes/500 edges they measured 1.5017 and 1.0701 ms. Complete signature/manifest/root verification was measured separately and cost 285.5 ms for 80 records, 1687.3 ms for 400, and 2843.6 ms for 701. Network, RPC, storage and gas are excluded. These results do not establish production service latency or distributed scale.
 
-See the [judge guide](https://arkivgraph.ajnasnb.com/judges.html), [schema](arkiv/schema.md), [integration findings](arkiv/friction.md) and [baseline disclosure](PREEXISTING.md). The 198 local tests, 18 browser checks (sixteen existing flows plus two signed-fixture/mock-response UI regressions), hosted AI evaluation and actual two-client browser capture are separate evidence. The actual session browser report records four requests and zero browser errors.
+See the [judge guide](https://arkivgraph.ajnasnb.com/judges.html), [schema](arkiv/schema.md), [integration findings](arkiv/friction.md) and [baseline disclosure](PREEXISTING.md). The local test suite, browser checks, hosted AI evaluation and actual two-client browser capture are separate evidence with their own dates and scopes. The actual session browser report records four requests and zero browser errors.
+
+Public npm download observations are preserved in [npm-usage.json](apps/web/public/data/npm-usage.json); refresh with `node scripts/npm-usage.mjs`. At 2026-10-16 07:21 UTC both packages were confirmed published at the expected versions, while the official download API returned 404 for the explicit seven- and thirty-day windows ending 2026-10-15. Counts are unavailable, not zero. Downloads, when available, include project/CI installs and are not unique users, runtime graph reads or outside adoption.
 
 ## Authenticated root discovery and client history
 

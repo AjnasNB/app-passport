@@ -1,0 +1,27 @@
+{
+  "schema": "arkiv-graph.quickstart-rpc-proof.v1",
+  "observed_on": "2026-10-16",
+  "exact_observation_timestamp_retained": false,
+  "passed": true,
+  "package": {
+    "name": "@ajnasnb/arkiv-graph",
+    "version": "0.4.0"
+  },
+  "consumer": "The existing isolated anonymous npm installation used for quickstart-proof.json; no second installation was needed.",
+  "recipe": "docs/GETTING_STARTED.md reader.json and read.mjs were extracted verbatim and executed in that consumer.",
+  "bootstrap": {
+    "profile": "arkiv-graph-v1",
+    "rpc": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
+    "chain_id": 7738577,
+    "graph_digest": "sha256:724614507a2f0ddaccf7eb58fcc9e4981f3a344776c6f906986a057d05f80297",
+    "issuers": ["0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC"]
+  },
+  "capture_kind": "The retained runner stdout lines below contain the parsed CLI result and a summary of the parsed read.mjs result. The full graph output and HTTP transcripts were not retained.",
+  "captured_stdout_lines": [
+    "{\"command\":\"node_modules/@ajnasnb/arkiv-graph/dist/cli.js verify reader.json\",\"verified\":true,\"profile\":\"arkiv-graph-v1\",\"graph_digest\":\"sha256:724614507a2f0ddaccf7eb58fcc9e4981f3a344776c6f906986a057d05f80297\",\"nodes\":7,\"edges\":8,\"entities\":16,\"read_block\":\"642819\"}",
+    "{\"command\":\"read.mjs\",\"read_block\":\"642820\",\"nodes\":7,\"edges\":8,\"truncated\":false}"
+  ],
+  "wallet_used": false,
+  "broadcast_transactions": 0,
+  "scope": "Project-run direct public RPC verification of a project-published pinned graph. This operator observation is not a signed execution attestation, a query-completeness proof, an external user count or a runtime read counter. The exact observation timestamp was not retained; the read blocks were retained."
+}

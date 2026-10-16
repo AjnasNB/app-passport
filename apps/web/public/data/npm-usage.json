@@ -1,0 +1,107 @@
+{
+  "schema": "arkiv-graph.npm-usage.v1",
+  "fetched_at": "2026-10-16T07:21:26.823Z",
+  "metric": "npm-package-downloads",
+  "window_semantics": "Explicit inclusive UTC dates ending on a complete UTC day; package-level counts include all versions.",
+  "packages": [
+    {
+      "name": "@ajnasnb/arkiv-graph",
+      "registry": {
+        "source_url": "https://registry.npmjs.org/%40ajnasnb%2Farkiv-graph",
+        "fetched_at": "2026-10-16T07:21:25.137Z",
+        "http_status": 200,
+        "response_date": "Fri, 16 Oct 2026 07:21:27 GMT",
+        "latest": "0.4.0",
+        "published_at": "2026-10-15T12:19:50.093Z",
+        "expected_version": "0.4.0",
+        "expected_version_is_latest": true,
+        "npm_authentication_used": false,
+        "raw_dist_tags": {
+          "latest": "0.4.0"
+        },
+        "raw_release_time": "2026-10-15T12:19:50.093Z"
+      },
+      "windows": [
+        {
+          "label": "last-7-complete-days",
+          "days": 7,
+          "start": "2026-10-09",
+          "end": "2026-10-15",
+          "status": "unavailable",
+          "downloads": null,
+          "source_url": "https://api.npmjs.org/downloads/point/2026-10-09:2026-10-15/%40ajnasnb%2Farkiv-graph",
+          "fetched_at": "2026-10-16T07:21:25.198Z",
+          "http_status": 404,
+          "response_date": "Fri, 16 Oct 2026 07:21:25 GMT",
+          "raw_response": "{\"error\":\"package @ajnasnb/arkiv-graph not found\"}"
+        },
+        {
+          "label": "last-30-complete-days",
+          "days": 30,
+          "start": "2026-09-16",
+          "end": "2026-10-15",
+          "status": "unavailable",
+          "downloads": null,
+          "source_url": "https://api.npmjs.org/downloads/point/2026-09-16:2026-10-15/%40ajnasnb%2Farkiv-graph",
+          "fetched_at": "2026-10-16T07:21:25.200Z",
+          "http_status": 404,
+          "response_date": "Fri, 16 Oct 2026 07:21:26 GMT",
+          "raw_response": "{\"error\":\"package @ajnasnb/arkiv-graph not found\"}"
+        }
+      ]
+    },
+    {
+      "name": "@ajnasnb/ai-passport",
+      "registry": {
+        "source_url": "https://registry.npmjs.org/%40ajnasnb%2Fai-passport",
+        "fetched_at": "2026-10-16T07:21:25.201Z",
+        "http_status": 200,
+        "response_date": "Fri, 16 Oct 2026 07:21:25 GMT",
+        "latest": "0.6.0",
+        "published_at": "2026-10-15T12:22:07.362Z",
+        "expected_version": "0.6.0",
+        "expected_version_is_latest": true,
+        "npm_authentication_used": false,
+        "raw_dist_tags": {
+          "latest": "0.6.0"
+        },
+        "raw_release_time": "2026-10-15T12:22:07.362Z"
+      },
+      "windows": [
+        {
+          "label": "last-7-complete-days",
+          "days": 7,
+          "start": "2026-10-09",
+          "end": "2026-10-15",
+          "status": "unavailable",
+          "downloads": null,
+          "source_url": "https://api.npmjs.org/downloads/point/2026-10-09:2026-10-15/%40ajnasnb%2Fai-passport",
+          "fetched_at": "2026-10-16T07:21:25.202Z",
+          "http_status": 404,
+          "response_date": "Fri, 16 Oct 2026 07:21:25 GMT",
+          "raw_response": "{\"error\":\"package @ajnasnb/ai-passport not found\"}"
+        },
+        {
+          "label": "last-30-complete-days",
+          "days": 30,
+          "start": "2026-09-16",
+          "end": "2026-10-15",
+          "status": "unavailable",
+          "downloads": null,
+          "source_url": "https://api.npmjs.org/downloads/point/2026-09-16:2026-10-15/%40ajnasnb%2Fai-passport",
+          "fetched_at": "2026-10-16T07:21:25.203Z",
+          "http_status": 404,
+          "response_date": "Fri, 16 Oct 2026 07:21:26 GMT",
+          "raw_response": "{\"error\":\"package @ajnasnb/ai-passport not found\"}"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "npm downloads are package retrievals, not unique people, applications, runtime graph reads or independent adoption.",
+    "Counts may include project, automated verification, CI, repeated and dependency installations. These components cannot be separated with this API.",
+    "A missing, failed or malformed statistics response is unavailable (downloads: null), never evidence of zero downloads.",
+    "The public registry confirms publication and current package versions. It does not establish external use.",
+    "No external user count or runtime graph-read counter has been verified by this project."
+  ]
+}

@@ -1,6 +1,8 @@
-# Arkiv Graph + AI Passport
+# Arkiv Graph
 
-Arkiv Graph is an MIT TypeScript SDK for signed, connected records on Arkiv: indexed nodes and edges, a complete revision manifest, bounded traversal, a CLI and a stdio MCP server. AI Passport is the working reference application, combining Qarinah context, exact source checks, current review admission and useful AI tasks.
+Arkiv Graph is an MIT TypeScript SDK for signed, connected records on Arkiv: indexed nodes and edges, a complete revision manifest, bounded traversal, a CLI and a stdio MCP server. Another application can reconstruct and verify a published graph through its configured Arkiv provider without using the originating application's API. AI Passport is the working reference application, combining Qarinah context, exact source checks and current review admission.
+
+Start with the **[wallet-free developer guide](docs/GETTING_STARTED.md)**: install the public SDK, build a valid two-node/one-edge graph and traverse it offline. Then use a separate, reviewed bootstrap to verify real testnet records. No wallet is needed to read.
 
 - [Live two-client demo](https://arkivgraph.ajnasnb.com/two-client/)
 - [AI reference application](https://arkivgraph.ajnasnb.com/app/)
@@ -10,9 +12,39 @@ Arkiv Graph is an MIT TypeScript SDK for signed, connected records on Arkiv: ind
 - [Source](https://github.com/AjnasNB/arkiv-graph), [evaluation PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-evaluation.pdf), [launch film](https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4), [pitch PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pdf)
 - [Launch evidence and judging questions](docs/LAUNCH_EVIDENCE.md): what is recorded, what is illustrated, and what remains unresolved.
 
+## The problem and the fit
+
+Connected evidence often lives behind the application that produced it. A consumer needs more than a downloaded JSON result: it needs an accepted author, exact content identity, complete relationships for the selected revision, and a defined trust policy. Arkiv supplies shared indexed entities, original creator metadata, readonly publication and expiry. This SDK adds a public graph format, signed complete revisions and bounded readers.
+
+| Use case | Suitable starting point | Arkiv Graph's role |
+|---|---|---|
+| One operator owns writers and readers | Postgres or an application API | Usually no shared publication layer is needed |
+| Multiple compatible applications read attributable published evidence | Shared indexed record layer | Consumers reconstruct a signed revision through their own provider and accepted issuers |
+| Distribute immutable source bytes | IPFS or another content-addressed store | Graph records can reference content identities; hashes alone do not supply indexed creator/relationship discovery or current review state |
+| Large graph joins and arbitrary graph queries | A graph database | This SDK performs bounded local traversal after complete reconstruction |
+
+The work to build on today is a versioned public contract, strict validators, conformance/failure tests and packaged TypeScript, CLI and MCP integrations. That is a modest integration advantage, not evidence of exclusive data, external adoption or a proven network effect. The open format and MIT code are intended to make compatible integrations easier.
+
+## Developer quickstart
+
+Node.js **24 or newer**:
+
+```sh
+mkdir my-arkiv-graph
+cd my-arkiv-graph
+npm init -y
+npm install @ajnasnb/arkiv-graph@0.4.0
+```
+
+Copy the complete [`graph.mjs` example](docs/GETTING_STARTED.md#2-build-and-traverse-a-local-graph), then run `node graph.mjs`. It validates two nodes and one typed relationship and returns the complete directed path. Installation needs internet; the example itself runs offline without accounts, keys, RPC or a model.
+
+From this checkout, `node scripts/quickstart-proof.mjs` installs the exact public graph release in a fresh OS temporary folder and executes that same documented example with fetch disabled. The [successful quickstart receipt](apps/web/public/data/quickstart-proof.json) retains the actual output. For an actual RPC read, follow the [separate bootstrap and verification recipe](docs/GETTING_STARTED.md#3-verify-a-real-published-graph-through-rpc); [retained CLI/RPC observations](apps/web/public/data/quickstart-rpc-proof.json) record successful reads of the documented revision. Downloaded example configuration is a candidate to review, not automatic authority.
+
 ## Release
 
-The public npm releases are **[`@ajnasnb/arkiv-graph` 0.4.0](https://www.npmjs.com/package/@ajnasnb/arkiv-graph)** and **[`@ajnasnb/ai-passport` 0.6.0](https://www.npmjs.com/package/@ajnasnb/ai-passport)**. Both registry tarballs were fetched without authentication and matched the reviewed builds; [release evidence](https://arkivgraph.ajnasnb.com/data/npm-release.json) records their versions, hashes and publication times. Publication does not establish external adoption or verified download statistics.
+The public npm releases are **[`@ajnasnb/arkiv-graph` 0.4.0](https://www.npmjs.com/package/@ajnasnb/arkiv-graph)** and **[`@ajnasnb/ai-passport` 0.6.0](https://www.npmjs.com/package/@ajnasnb/ai-passport)**. Both registry tarballs were fetched without authentication and matched the reviewed builds; [release evidence](https://arkivgraph.ajnasnb.com/data/npm-release.json) records their versions, hashes and publication times. The generic graph package alone has no Qarinah, passport or model dependency.
+
+Install the application adapter only when using AI Passport:
 
 ```sh
 npm install @ajnasnb/arkiv-graph@0.4.0 @ajnasnb/ai-passport@0.6.0 qarinah@0.7.0
@@ -24,7 +56,13 @@ Both tarball release gates also passed in fresh folders outside the workspace, w
 npm install https://arkivgraph.ajnasnb.com/downloads/ajnasnb-arkiv-graph-0.4.0.tgz https://arkivgraph.ajnasnb.com/downloads/ajnasnb-ai-passport-0.6.0.tgz qarinah@0.7.0
 ```
 
-Install both tarballs together because the application adapter depends on the exact graph release. The generic graph package alone has no Qarinah, passport or model dependency.
+Install both tarballs together because the application adapter depends on the exact graph release.
+
+## Usage evidence
+
+The anonymous public registry check on **16 October 2026** confirmed graph **0.4.0** and AI Passport **0.6.0** as the latest releases. At **2026-10-16 07:21 UTC**, the official npm download API returned HTTP 404 for both packages for **9–15 October 2026** and **16 September–15 October 2026**. Download counts are recorded as **unavailable**, not zero. [The snapshot](apps/web/public/data/npm-usage.json) retains exact windows, fetch times, source URLs, status and raw API responses.
+
+Refresh with `node scripts/npm-usage.mjs`. When available, npm downloads measure package retrievals across versions, including project and CI installs. They do not measure unique people, independent applications or runtime graph reads. No verified external user or runtime read count is claimed.
 
 ## A real review withdrawal, two separate consumers
 
@@ -47,7 +85,7 @@ npx tsx scripts/two-client-demo.ts --plan
 npx tsx scripts/two-client-demo.ts --publish --hold-before-withdrawal
 ```
 
-Fund two dedicated Tiramisu wallets with free testnet GLM. Set `TWO_CLIENT_PRODUCER_KEY` and `TWO_CLIENT_REVIEWER_KEY` in your local process, or use the existing private operator helper with credential files outside the repository. Optional provider settings are `TWO_CLIENT_RPC` and `TWO_CLIENT_API_KEY`. No custom contract deployment is required.
+Fund two dedicated Tiramisu wallets with free testnet GLM. Set `TWO_CLIENT_PRODUCER_KEY` and `TWO_CLIENT_REVIEWER_KEY` in your local process. Optional provider settings are `TWO_CLIENT_RPC` and `TWO_CLIENT_API_KEY`. No custom contract deployment is required.
 
 The CLI creates a unique descriptor version so earlier reviews of the same packet cannot admit the new session. It publishes the passport and review, runs A and B separately, saves the accepted-phase public report, then pauses for Enter. The operator can serve that report and inspect both clients before resuming. Enter publishes the exact review withdrawal. A bounded observer waits for query visibility, then B's next task request and A's next request each reread and decide. Omit `--hold-before-withdrawal` to run the complete sequence without the pause.
 
@@ -64,18 +102,7 @@ Each command installs the two release tarballs and Qarinah 0.7.0 in a new OS tem
 
 Successful actual tarball runs produced [graph/CLI/MCP results](https://arkivgraph.ajnasnb.com/data/graph-infrastructure-evaluation.json) and [application consumer results](https://arkivgraph.ajnasnb.com/data/consumer-evaluation.json). Both anonymous registry gates also passed: [registry graph/CLI/MCP](https://arkivgraph.ajnasnb.com/data/graph-infrastructure-evaluation-registry.json) and [registry application consumer](https://arkivgraph.ajnasnb.com/data/consumer-evaluation-registry.json). Reproduce with `--registry` on either command; it installs the exact npm versions with empty npm configs, a fresh cache and no inherited credentials. A failed check does not replace a successful report with a success claim.
 
-```ts
-import { createGraphKit } from '@ajnasnb/arkiv-graph';
-
-const kit = createGraphKit();
-const live = await kit.readGraph({ rpc, issuers }, graphDigest);
-const path = kit.traverseGraph(live.graph, 'application:ai-passport', {
-  depth: 4, maxNodes: 40,
-});
-if (path.truncated) throw new Error('Incomplete evidence');
-```
-
-Root and accepted issuers are explicit consumer policy. Downloaded example configurations are not automatically trusted policy.
+The [complete JavaScript reader](docs/GETTING_STARTED.md#3-verify-a-real-published-graph-through-rpc) loads a reviewed `reader.json`, defines the RPC/issuers/root explicitly and verifies the full graph before traversal. Root and accepted issuers are consumer policy.
 
 ## Authenticated updates and retained observations
 
