@@ -5,12 +5,12 @@ const request=(range?:string,ifRange?:string)=>new Request('https://example.com/
 describe('seekable launch video',()=>{
  it('uses deployment metadata when the internal asset response omits Content-Length',async()=>{
   const r=await videoRange(request('bytes=1-2'),new Response(new Uint8Array([0,1,2,3])),4);expect(r.status).toBe(206);expect(r.headers.get('content-range')).toBe('bytes 1-2/4');expect([...new Uint8Array(await r.arrayBuffer())]).toEqual([1,2]);
-  const releaseSized=new Uint8Array(15*1024*1024);releaseSized.set([19,27,35,43]);
+  const releaseSized=new Uint8Array(23_669_390);releaseSized.set([19,27,35,43]);
   const large=await videoRange(request('bytes=1-3'),new Response(releaseSized),releaseSized.byteLength);expect(large.status).toBe(206);expect(large.headers.get('content-range')).toBe(`bytes 1-3/${releaseSized.byteLength}`);expect([...new Uint8Array(await large.arrayBuffer())]).toEqual([27,35,43]);
  });
  it('fails if the complete asset differs from the declared release length',async()=>{
   await expect(videoRange(request('bytes=1-2'),new Response(new Uint8Array([0,1,2,3])),5)).rejects.toThrow('length mismatch');
-  const oversized=await videoRange(request('bytes=1-2'),new Response(new Uint8Array([0,1,2,3])),20*1024*1024+1);expect(oversized.status).toBe(200);expect((await oversized.arrayBuffer()).byteLength).toBe(4);
+  const oversized=await videoRange(request('bytes=1-2'),new Response(new Uint8Array([0,1,2,3])),25*1024*1024+1);expect(oversized.status).toBe(200);expect((await oversized.arrayBuffer()).byteLength).toBe(4);
  });
  it('serves the exact requested middle bytes with their complete-file offsets',async()=>{
   const r=await videoRange(request('bytes=3-6'),asset());expect(r.status).toBe(206);expect(r.headers.get('content-range')).toBe('bytes 3-6/10');expect([...new Uint8Array(await r.arrayBuffer())]).toEqual([3,4,5,6]);

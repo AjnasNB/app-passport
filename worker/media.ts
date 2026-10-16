@@ -1,6 +1,6 @@
 // Workers Assets may ignore Range. The short launch clip still needs seekable playback.
-// The reviewed 162-second release is about 15 MB; keep fallback buffering bounded.
-const MAX_VIDEO_BYTES=20*1024*1024;
+// Match the static-asset ceiling; the reviewed 162-second release remains below it.
+const MAX_VIDEO_BYTES=25*1024*1024;
 export async function videoRange(request:Request,response:Response,assetBytes?:number):Promise<Response>{
  if(response.status!==200||request.method!=='GET')return response;
  const headers=new Headers(response.headers);headers.set('Accept-Ranges','bytes');
