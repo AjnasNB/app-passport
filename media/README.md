@@ -10,6 +10,8 @@ Use `capture-editorial-pitch.mjs` for fresh read-only captures of the owned webs
 
 The earlier `template-pitch*` dark deck and seven-page image-led workflows remain historical sources. They are not the current download. The current deck is an editorial redesign rather than a claim of fidelity to the earlier black/blue/amber reference.
 
+The corrected exported PPTX was also imported into native Google Slides and all eight slides inspected in the actual Chrome slideshow, followed by every Google-exported PDF page. That check caught clipped chart labels. The source chart now includes display headroom without changing any values. Google converts the chart to an image and may round its axis to 120; the original PPTX retains the editable chart and workbook. Native desktop PowerPoint execution remains untested. See `/data/editorial-pitch-evaluation.json` for exact review scope and file hashes.
+
 ## Signed roots, retained withdrawals and mobile evidence
 
 `trust-launch-motion.tsx`, `render-trust-launch.py` and `trust-launch-audio.py` build the current film through OpenMontage/Remotion. The film uses native animated graphs, revision links, a retained-withdrawal journal, an actual mobile-lab chart and recordings of the deployed website. It is not an animated deck. `trust-pitch-deck.mjs` and `trust-pitch-pdf.py` separately create seven image-led pitch pages with editable labels, a native chart, real screenshots and source/caveat notes. The generated artwork is conceptual, not evidence of customers or deployed topology.

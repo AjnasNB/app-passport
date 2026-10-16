@@ -2,6 +2,8 @@
 
 The launch film is 162 seconds. The companion pitch has eight pages in a forest-and-cream editorial design, with actual product screenshots, native editable architecture, a comparison table and a measurement chart. It contains no generated conceptual illustrations. It covers the introduction, problem, solution, innovation, service, working use cases, Why Arkiv, current defensibility, evidence and setup. Recorded UI and linked reports establish what the project actually did. The [pitch evaluation](https://arkivgraph.ajnasnb.com/data/editorial-pitch-evaluation.json) records exact files and review scope.
 
+The final corrected PPTX was imported into Google Slides. All eight slides were inspected in its actual browser slideshow and all eight Google-exported PDF pages reviewed. A clipped chart-label conversion defect was repaired with axis headroom, retaining the measured values. Google converts the chart to a raster image, while the downloadable PPTX retains its native editable chart and workbook. This check does not claim native desktop PowerPoint execution.
+
 ## Who needs this, and what is the useful product?
 
 An AI-tool developer needs to check that a shared context packet still has an acceptable review before allowing the next task. Arkiv Graph supplies reusable signed node/edge/manifest records, bounded traversal, root-revision verification and reader tooling. AI Passport is the reference application: Qarinah context, source-byte checks, useful hosted AI tasks and review admission.
