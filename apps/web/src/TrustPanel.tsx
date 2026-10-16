@@ -28,6 +28,7 @@ export function TrustPanel(){
   const value=digestJson({revisions:verified.revisions,graph});if(value!==data.value_digest)throw new Error('Snapshot digest mismatch.');
   const rpc=verifyRpcObservations({policy:{schema:'arkiv.graph-rpc-policy.v1',scope_digest:scope,providers:[{id:'tiramisu-official',operator:'Arkiv official public RPC'}],minimum_operators:1,max_age_seconds:120},observations:[{provider_id:'tiramisu-official',scope_digest:scope,block:data.block,block_time:data.block_time,read_at:data.read_at,value_digest:value}],checkpoint:prior?.rpc});
   const next=JSON.stringify({schema:'arkiv.graph-client-checkpoint.v1',root:verified.checkpoint,rpc:rpc.checkpoint});
+  if(Date.parse(verified.revisions.at(-1)!.payload.valid_until)<=Date.now())throw new Error('Root revision expired during graph verification. Make a fresh request.');
   localStorage.setItem(storageKey,next);if(localStorage.getItem(storageKey)!==next)throw new Error('Checkpoint could not be retained.');
   setResult({root:verified.root,sequence:verified.checkpoint.sequence,block:data.block,nodes:graph.nodes.length,edges:graph.edges.length,read_at:data.read_at,revisions:verified.revisions,checkpoint:verified.checkpoint,rpc:rpc.checkpoint});
   });

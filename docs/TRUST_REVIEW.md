@@ -54,3 +54,10 @@ The official [`arkiv-op-reth` development design](https://github.com/Arkiv-Netwo
 ## Remaining boundary
 
 Authenticated update chains and retained withdrawal state improve operation for clients with a trusted bootstrap and preserved history. They do not prove omission-free current or historical discovery to a fresh reader. The hosted demo uses one configured RPC and a read-only relay. Production claims about independently verified chain state, external provider diversity, permanent availability and large-scale operation require additional implementation and evidence.
+
+
+## Signed root expiry during asynchronous graph loading (16 October)
+
+Expected: a root head must still be valid when the complete graph is accepted, even if its signature was valid before network reads began. Actual: Graph 0.4.0 checked the head before asynchronous graph assembly, leaving an expiry-crossing window. This was an application SDK integration defect, not an Arkiv RPC defect. Graph 0.4.1 checks the selected head again after graph verification and synchronous digest preparation. The browser checks again immediately before retaining its checkpoint. AI Passport 0.6.1 pins the corrected graph dependency; the web workspace dependency and lockfile match.
+
+Reproduce: `npx vitest run tests/root-registry.test.ts --no-cache`. Genuine synthetic signed heads and mocked transport finish one millisecond before, exactly at and one millisecond after the deadline. Only the first is accepted; graph members remain valid longer, isolating the signed-head check. The full local suite passed 274/274. ISO deadlines and `Date.now()` use milliseconds; RPC epoch seconds are converted separately. Suggestion: include a final-deadline recheck after asynchronous verification in the trust/renewal cookbook. This is a controlled regression, not a new chain event or an independent audit.

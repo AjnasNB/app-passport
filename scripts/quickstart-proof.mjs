@@ -28,7 +28,7 @@ const run = (command, args) => new Promise((resolve, reject) => {
 await fs.writeFile(path.join(directory, 'package.json'), JSON.stringify({ name: 'arkiv-graph-quickstart', private: true, type: 'module' }) + '\n');
 await fs.writeFile(path.join(directory, 'npm-user-empty.npmrc'), '');
 await fs.writeFile(path.join(directory, 'npm-global-empty.npmrc'), '');
-const install = ['install', '@ajnasnb/arkiv-graph@0.4.0', '--ignore-scripts', '--no-audit', '--no-fund', '--workspaces=false', '--userconfig=npm-user-empty.npmrc', '--globalconfig=npm-global-empty.npmrc', '--registry=https://registry.npmjs.org', '--cache=./npm-cache'];
+const install = ['install', '@ajnasnb/arkiv-graph@0.4.1', '--ignore-scripts', '--no-audit', '--no-fund', '--workspaces=false', '--userconfig=npm-user-empty.npmrc', '--globalconfig=npm-global-empty.npmrc', '--registry=https://registry.npmjs.org', '--cache=./npm-cache'];
 const npmCli = path.join(path.dirname(process.execPath), 'node_modules', 'npm', 'bin', 'npm-cli.js');
 try {
   await fs.access(npmCli);
@@ -43,7 +43,7 @@ try {
 const packageDirectory = path.join(directory, 'node_modules', '@ajnasnb', 'arkiv-graph');
 if ((await fs.lstat(packageDirectory)).isSymbolicLink()) throw new Error('A workspace package symlink is not an isolated install');
 const installed = JSON.parse(await fs.readFile(path.join(packageDirectory, 'package.json'), 'utf8'));
-if (installed.name !== '@ajnasnb/arkiv-graph' || installed.version !== '0.4.0') throw new Error('Installed package identity mismatch');
+if (installed.name !== '@ajnasnb/arkiv-graph' || installed.version !== '0.4.1') throw new Error('Installed package identity mismatch');
 await fs.writeFile(path.join(directory, 'graph.mjs'), example[1] + '\n');
 await fs.writeFile(path.join(directory, 'offline.mjs'), "globalThis.fetch = async () => { throw new Error('Network disabled during offline quickstart'); };\nawait import('./graph.mjs');\n");
 const result = JSON.parse(await run(process.execPath, ['offline.mjs']));

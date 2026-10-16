@@ -7,7 +7,7 @@ An MIT TypeScript SDK for complete signed graph manifests, typed relationships a
 Node.js 24 or later is required for this tested release. Readers need no wallet or signing key.
 
 ```sh
-npm install @ajnasnb/arkiv-graph@0.4.0
+npm install @ajnasnb/arkiv-graph@0.4.1
 ```
 
 Save this public configuration as `reader.json` (the fixture expires; use your own root for a persistent integration):

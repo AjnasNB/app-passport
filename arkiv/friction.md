@@ -150,3 +150,10 @@ A useful cookbook should combine block-pinned root discovery, explicit timing un
 ## Current public package verification
 
 The 0.4.0 graph and 0.6.0 application releases passed anonymous registry-byte comparison, fresh isolated TypeScript/eight-entrypoint imports, both CLI profiles, eight actual MCP checks, Qarinah/source checks and seven blocked-project-API checks. The separate installed `/trust` consumer performs eight functional live-root/replay checks through the actual published module: `node scripts/verify-npm-trust-consumer.mjs`. These project-run installs are reuse evidence, not outside adoption. See `/data/npm-release.json`, `/data/npm-trust-consumer.json` and current consumer reports for exact timestamps, queries and blocks.
+
+
+## Signed root expiry during asynchronous graph loading (16 October)
+
+Expected: a root head must still be valid when the complete graph is accepted, even if its signature was valid before network reads began. Actual: Graph 0.4.0 checked the head before asynchronous graph assembly, leaving an expiry-crossing window. This was an application SDK integration defect, not an Arkiv RPC defect. Graph 0.4.1 checks the selected head again after graph verification and synchronous digest preparation. The browser checks again immediately before retaining its checkpoint. AI Passport 0.6.1 pins the corrected graph dependency; the web workspace dependency and lockfile match.
+
+Reproduce: `npx vitest run tests/root-registry.test.ts --no-cache`. Genuine synthetic signed heads and mocked transport finish one millisecond before, exactly at and one millisecond after the deadline. Only the first is accepted; graph members remain valid longer, isolating the signed-head check. The full local suite passed 274/274. ISO deadlines and `Date.now()` use milliseconds; RPC epoch seconds are converted separately. Suggestion: include a final-deadline recheck after asynchronous verification in the trust/renewal cookbook. This is a controlled regression, not a new chain event or an independent audit.

@@ -7,7 +7,7 @@ I built AppPassport to bind exact AI-tool artifacts and Qarinah context packets 
 Node.js 24 is the tested runtime. The application adapter uses the separately published Arkiv Graph package.
 
 ```sh
-npm install @ajnasnb/ai-passport@0.6.0
+npm install @ajnasnb/ai-passport@0.6.1
 # Optional, for the node-only Qarinah adapter:
 npm install qarinah@0.7.0
 ```

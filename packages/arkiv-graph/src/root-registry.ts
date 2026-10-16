@@ -31,5 +31,10 @@ export async function readRootRegistry(config:RootTrustConfig,connection:{rpc?:s
  if(!revisions.length)throw new Error('No authenticated root revisions discovered');
  const verified=await verifyRootRevisions({config:c,revisions});
  const graph=await createGraphKit().readGraph({...connection,issuers:[c.authority],atBlock:snapshot},verified.root);
- return {schema:'arkiv.graph-root-read.v1',scope_digest:rootTrustScope(c),root:verified.root,revisions,registry_records:records,graph,block:String(snapshot),block_time:new Date(blockTime).toISOString(),read_at:new Date().toISOString(),value_digest:digestJson({revisions,graph:graph.graph}),query:query.toString(),scope:'One configured provider; authenticated updates and complete pinned graph membership, not a cryptographic query-completeness proof.'};
+ const valueDigest=digestJson({revisions,graph:graph.graph}),queryText=query.toString();
+ // Both signed ISO deadlines and Date.now() use epoch milliseconds. The graph read can
+ // cross the head's deadline after its signature/chain verification has completed.
+ const completedAt=Date.now();
+ if(Date.parse(verified.revisions.at(-1)!.payload.valid_until)<=completedAt)throw new Error('Root revision expired during graph verification');
+ return {schema:'arkiv.graph-root-read.v1',scope_digest:rootTrustScope(c),root:verified.root,revisions,registry_records:records,graph,block:String(snapshot),block_time:new Date(blockTime).toISOString(),read_at:new Date(completedAt).toISOString(),value_digest:valueDigest,query:queryText,scope:'One configured provider; authenticated updates and complete pinned graph membership, not a cryptographic query-completeness proof.'};
 }

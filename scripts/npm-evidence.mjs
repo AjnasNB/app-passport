@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-const releases=[['@ajnasnb/arkiv-graph','0.4.0','ajnasnb-arkiv-graph-0.4.0.tgz'],['@ajnasnb/ai-passport','0.6.0','ajnasnb-ai-passport-0.6.0.tgz']];
+const releases=[['@ajnasnb/arkiv-graph','0.4.1','ajnasnb-arkiv-graph-0.4.1.tgz'],['@ajnasnb/ai-passport','0.6.1','ajnasnb-ai-passport-0.6.1.tgz']];
 const results=[];
 await fs.mkdir('.local/npm-release',{recursive:true});
 for(const [name,version,file] of releases){

@@ -4,7 +4,7 @@ import {parseArgs} from 'node:util';
 import {cleanInstall,saveConsumerReport} from './consumer-install.mjs';
 const {values}=parseArgs({options:{registry:{type:'boolean',default:false}}});
 const root=process.cwd();
-const {directory,run,installation}=await cleanInstall({root,label:'ai-passport-consumer-0.6.0',registry:values.registry});
+const {directory,run,installation}=await cleanInstall({root,label:'ai-passport-consumer-0.6.1',registry:values.registry});
 await fs.writeFile(path.join(directory,'check.mjs'),`
 import fs from 'node:fs/promises';
 import {descriptorSchema,policySchema} from '@ajnasnb/ai-passport';
@@ -21,7 +21,7 @@ const result=await verifyQarinahHandoff({packet,descriptor,repository,connection
 const graphConfig=await load('apps/web/public/data/graph-config.json');
 const graph=await readGraph({policy},graphConfig.graph_digest);const graphPath=traverseGraph(graph.graph,'app:coding',{depth:4,maxNodes:40});if(graphPath.truncated||!graphPath.nodes.some(n=>n.type==='source')||indianNumber('0.01').paise!=='1'||!testGuard({operation:'all',checks:['sha256-format','review-current']}).passed)throw new Error('Graph/tool adapter failed');
 if(!result.admission.allowed||!result.context)throw new Error('Context was not admitted');
-console.log(JSON.stringify({evaluated_at:new Date().toISOString(),sdk_version:'0.6.0',generic_sdk_version:'0.4.0',graph_verified:true,graph_nodes:graph.graph.nodes.length,graph_digest:graphConfig.graph_digest,bounded_tools_passed:true,qarinah_peer:'0.7.0',all_entrypoints_imported:true,original_validator_passed:true,website_backend_used:false,wallet_required:false,source_files_checked:packet.repository.files.length,admission:result.admission.status,context_delivered:true,inference_run:false,read_block:result.read_block}));
+console.log(JSON.stringify({evaluated_at:new Date().toISOString(),sdk_version:'0.6.1',generic_sdk_version:'0.4.1',graph_verified:true,graph_nodes:graph.graph.nodes.length,graph_digest:graphConfig.graph_digest,bounded_tools_passed:true,qarinah_peer:'0.7.0',all_entrypoints_imported:true,original_validator_passed:true,website_backend_used:false,wallet_required:false,source_files_checked:packet.repository.files.length,admission:result.admission.status,context_delivered:true,inference_run:false,read_block:result.read_block}));
 `);
 const output=await run(process.execPath,['check.mjs',root]);const report=JSON.parse(output.trim());
 const descriptor=JSON.parse(await fs.readFile('apps/web/public/data/handoff-descriptor.json','utf8'));

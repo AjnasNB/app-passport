@@ -11,7 +11,7 @@ const utcToday = new Date().toISOString().slice(0, 10);
 const end = values.end ?? new Date(Date.parse(utcToday) - day).toISOString().slice(0, 10);
 if (!/^\d{4}-\d{2}-\d{2}$/.test(end) || !Number.isFinite(Date.parse(end)) || new Date(end).toISOString().slice(0, 10) !== end || end >= utcToday) throw new Error('--end must be a completed UTC day in YYYY-MM-DD form');
 const windows = [7, 30].map(days => ({ label: `last-${days}-complete-days`, days, start: new Date(Date.parse(end) - (days - 1) * day).toISOString().slice(0, 10), end }));
-const releases = [{ name: '@ajnasnb/arkiv-graph', expected_version: '0.4.0' }, { name: '@ajnasnb/ai-passport', expected_version: '0.6.0' }];
+const releases = [{ name: '@ajnasnb/arkiv-graph', expected_version: '0.4.1' }, { name: '@ajnasnb/ai-passport', expected_version: '0.6.1' }];
 
 async function request(source_url) {
   const fetched_at = new Date().toISOString();

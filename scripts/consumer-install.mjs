@@ -3,7 +3,7 @@ import path from 'node:path';
 import os from 'node:os';
 import {spawn} from 'node:child_process';
 
-export const RELEASE_PACKAGES={graph:{name:'@ajnasnb/arkiv-graph',version:'0.4.0',tarball:'ajnasnb-arkiv-graph-0.4.0.tgz'},passport:{name:'@ajnasnb/ai-passport',version:'0.6.0',tarball:'ajnasnb-ai-passport-0.6.0.tgz'}};
+export const RELEASE_PACKAGES={graph:{name:'@ajnasnb/arkiv-graph',version:'0.4.1',tarball:'ajnasnb-arkiv-graph-0.4.1.tgz'},passport:{name:'@ajnasnb/ai-passport',version:'0.6.1',tarball:'ajnasnb-ai-passport-0.6.1.tgz'}};
 export const ENTRYPOINTS=['@ajnasnb/arkiv-graph','@ajnasnb/arkiv-graph/context','@ajnasnb/arkiv-graph/trust','@ajnasnb/ai-passport','@ajnasnb/ai-passport/arkiv','@ajnasnb/ai-passport/graph','@ajnasnb/ai-passport/tools','@ajnasnb/ai-passport/qarinah'];
 
 /** The installation lives outside all workspace parents; child imports cannot fall through to this repository. */

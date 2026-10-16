@@ -40,7 +40,7 @@ test('SDK quickstart copies the exact runnable documentation example and fits mo
  await page.goto('/?view=sdk');
  await expect(page.getByRole('heading',{name:'Install. Build a graph. Run it.'})).toBeVisible();
  await page.getByRole('button',{name:'Copy install the sdk command',exact:true}).click();
- expect(await page.evaluate(()=>navigator.clipboard.readText())).toBe('npm init -y\nnpm install @ajnasnb/arkiv-graph@0.4.0');
+ expect(await page.evaluate(()=>navigator.clipboard.readText())).toBe('npm init -y\nnpm install @ajnasnb/arkiv-graph@0.4.1');
  await page.getByText('Copy the complete example into graph.mjs',{exact:true}).click();
  await page.getByRole('button',{name:'Copy graph.mjs example command',exact:true}).click();
  const guide=await fs.readFile('docs/GETTING_STARTED.md','utf8');

@@ -13,7 +13,7 @@ const config=rootTrustConfigSchema.parse(await load('root-trust-config.json'));
 const graphPackage=JSON.parse(await fs.readFile('node_modules/@ajnasnb/arkiv-graph/package.json','utf8'));
 const trustPath=path.resolve('node_modules/@ajnasnb/arkiv-graph/dist/trust.js');
 const trustBytes=await fs.readFile(trustPath);
-assert(graphPackage.version==='0.4.0');
+assert(graphPackage.version==='0.4.1');
 const live=await readRootRegistry(config);
 let checkpoint;
 await check('Published /trust entry point performs live registry and graph verification','live-rpc',async()=>{
