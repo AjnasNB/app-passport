@@ -1,8 +1,8 @@
 # Launch evidence and judging questions
 
-The launch film is 162 seconds. The companion pitch has eight pages in a forest-and-cream editorial design, with actual product screenshots, native editable architecture, a comparison table and a measurement chart. It contains no generated conceptual illustrations. It covers the introduction, problem, solution, innovation, service, working use cases, Why Arkiv, current defensibility, evidence and setup. Recorded UI and linked reports establish what the project actually did. The [pitch evaluation](https://arkivgraph.ajnasnb.com/data/editorial-pitch-evaluation.json) records exact files and review scope.
+An AI-tool developer can use Arkiv Graph to check shared evidence before starting the next task, even when the originating application's API is unavailable. The MIT TypeScript SDK, CLI and MCP readers reconstruct signed graph membership from Arkiv and apply the consumer's chosen policy locally. AI Passport demonstrates the benefit: two project-operated clients accept a reviewed context packet, then refuse their next requests after an actual withdrawal.
 
-The final corrected PPTX was imported into Google Slides. All eight slides were inspected in its actual browser slideshow and all eight Google-exported PDF pages reviewed. A clipped chart-label conversion defect was repaired with axis headroom, retaining the measured values. Google converts the chart to a raster image, while the downloadable PPTX retains its native editable chart and workbook. This check does not claim native desktop PowerPoint execution.
+The public data contract and wallet-free examples let another builder implement the same read path. The [controlled fetch test](https://arkivgraph.ajnasnb.com/data/backend-independence.json) verifies both published graphs through Arkiv RPC while an isolated npm consumer rejects project API requests in-process. It is a fault-injection test, not an actual website outage or OS firewall test.
 
 ## Who needs this, and what is the useful product?
 
@@ -45,6 +45,12 @@ The [npm usage snapshot](https://arkivgraph.ajnasnb.com/data/npm-usage.json) rec
 The contribution is a reusable graph contract and matching SDK, CLI and MCP readers, with complete membership, trust-state safeguards and an actual AI-context integration. Current differentiation is integration quality and reproducible conformance evidence. Independent publishers, adopted schemas and maintained integrations could form a future ecosystem advantage. That is a hypothesis, not a proven network effect, proprietary dataset, adoption figure or revenue claim.
 
 The website exposes the SDK, full quickstart, schema and install/test commands directly. The film is framed as a technical infrastructure demonstration featuring AI Passport. Its reviewed MP4 bytes remain unchanged; the new pitch is a separate artifact, not material animated into the film. Historical mobile lab scores describe the measured release; new page changes receive separate interaction/layout checks.
+
+## Demo artifacts and review scope
+
+The launch film is 162 seconds. The eight-page companion pitch uses actual product screenshots and native editable architecture, a comparison table and a measurement chart. Recorded UI and linked reports establish what the project actually did. The [pitch evaluation](https://arkivgraph.ajnasnb.com/data/editorial-pitch-evaluation.json) records exact files and review scope.
+
+The current final PPTX was imported into Google Slides and opened in Chrome; all eight Google-exported PDF pages were visually reviewed. A separate project-run critic checked all eight PPTX reimport renders and companion PDF pages. The earlier revision also received a complete browser slideshow pass; slideshow controls timed out in the current revision, so that pass is not claimed here. The prior clipped chart-label conversion defect remains fixed with axis headroom and unchanged measurements. Google converts the chart to an image, while the downloadable PPTX retains its native editable chart and workbook. Native desktop PowerPoint execution was not tested.
 
 ## What remains unresolved?
 

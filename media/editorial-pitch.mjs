@@ -17,9 +17,11 @@ const {finalizePresentation,applyPresentationChartFont}=await import(pathToFileU
 const p=Presentation.create({slideSize:{width:1920,height:1080}});
 const C={paper:'#F6F4EE',ink:'#17372E',green:'#225B4B',muted:'#63716B',rust:'#C25535',line:'#C6CCC5',white:'#F9F8F3',pale:'#E2EBE2'};
 const site='https://arkivgraph.ajnasnb.com',repo='https://github.com/AjnasNB/arkiv-graph',ledger=[];
+const release={graph:'0.4.1',passport:'0.6.1',published:process.env.ARKIV_PITCH_RELEASE_STATUS!=='pending'};
 const data=async n=>JSON.parse(await fs.readFile(path.join(root,'apps/web/public/data',n+'.json'),'utf8'));
 const [mobile,security,safeguards,usage]=await Promise.all(['mobile-performance','security-evaluation','trust-safeguards','npm-usage'].map(data));
-if(security.passed!==271||safeguards.passed!==19||mobile.sample_count!==18)throw new Error('Review changed evidence before authoring.');
+const localTestCount=274;
+if(![271,localTestCount].includes(security.passed)||safeguards.passed!==19||mobile.sample_count!==18)throw new Error('Review changed evidence before authoring.');
 const T=(s,v,x,y,w,h,size=34,color=C.ink,font='Arial',bold=false)=>{const sh=s.shapes.add({geometry:'textbox',position:{left:x,top:y,width:w,height:h},fill:'none',line:{fill:'none',width:0}});sh.text=v;sh.text.insets=0;sh.text.style={typeface:font,fontSize:size,color,bold};return sh;};
 const R=(s,x,y,w,h,fill,line='none',width=0)=>s.shapes.add({geometry:'rect',position:{left:x,top:y,width:w,height:h},fill,line:{fill:line,width}});
 const L=(s,x,y,w,color=C.line)=>R(s,x,y,w,2,color);
@@ -36,9 +38,9 @@ T(s,'MIT TypeScript SDK\nCLI and MCP readers',104,852,630,91,31,'#C4D8CD');
 await I(s,path.join(art,'website.png'),790,422,1030,460,'Actual Arkiv Graph website hero; its evidence path is labelled illustrative in the interface');
 T(s,'Live product: arkivgraph.ajnasnb.com',790,908,1030,48,29,C.white);
 
-s=S('problem','The problem',`A coding client receives a reviewed context packet. If the reviewer later withdraws that review, a cached approval can be stale even when the packet's content hash is unchanged. A later client must retrieve and evaluate current evidence before starting the next task. The example is the project-operated session in ${site}/data/two-client-session.json, not a quantified claim about customer incidents.`);
+s=S('problem','The problem',`An AI tool developer needs a fresh review decision before the next task. A coding client receives a reviewed context packet. If the reviewer later withdraws that review, a cached approval can be stale even when the packet's content hash is unchanged. A later client must retrieve and evaluate current evidence before starting the next task. The example is the project-operated session in ${site}/data/two-client-session.json, not a quantified claim about customer incidents.`);
 H(s,'The file is unchanged.\nThe review has been withdrawn.');
-T(s,'A second AI tool needs more than the old approval.',105,340,1640,70,40,C.muted);
+T(s,'AI tool developers need a fresh review decision before the next task.',105,340,1640,70,40,C.muted);
 T(s,'Approved',105,482,710,128,88,C.green,'Georgia');
 T(s,'Withdrawn',1020,482,790,128,88,C.rust,'Georgia');
 L(s,105,657,1700);
@@ -77,7 +79,7 @@ await I(s,path.join(art,'client-B.png'),1000,588,815,300,'Actual current browser
 T(s,'Fresh reads of the completed session. Both clients and wallets are project-operated.',105,904,1710,43,27,C.muted);
 T(s,'Separate root-update test: 2 signed revisions, 8 entities, 1 transaction.',105,948,1710,34,25,C.muted);
 
-s=S('reference-application','The reference application',`AI Passport checks the context review before hosted inference using @cf/meta/llama-3.2-3b-instruct. The coding flow links selected Qarinah context to exact source bytes, interprets a finite guard specification and passes six boundary cases. Generated JavaScript is exported for inspection and is not executed. The screenshot is the recorded15October coding run. India number tutor calculates deterministic exact paise/lakh/crore in English/Hindi. UPI Safety Quest uses project-authored NPCI-linked learning material, deterministic scoring and an optional AI coach. No payment or outside adoption is claimed. ${site}/data/ai-evaluation.json ; ${site}/?view=handoff.`);
+s=S('reference-application','The reference application',`AI Passport checks the context review before hosted inference using @cf/meta/llama-3.2-3b-instruct. The coding flow links selected Qarinah context to exact source bytes, interprets a finite guard specification and passes six boundary cases. Generated JavaScript is exported for inspection and is not executed. The screenshot is the recorded 15 October coding run, run ID 351a5039-ff2e-403d-abfc-5363e4120e98, documented in ${site}/data/launch-capture-evidence.json. The separate eight-case report is ${site}/data/ai-evaluation.json. India number tutor calculates deterministic exact paise/lakh/crore in English/Hindi. UPI Safety Quest uses project-authored NPCI-linked learning material, deterministic scoring and an optional AI coach. No payment or outside adoption is claimed. ${site}/?view=handoff.`);
 H(s,'AI Passport checks context before inference');
 T(s,'A coding handoff',105,331,600,65,43,C.green,undefined,true);
 T(s,'Qarinah context links to\nthe exact source version.\nA current review admits the task.',105,431,610,182,35);
@@ -87,38 +89,40 @@ await I(s,path.join(root,'apps/web/public/brand/arkiv-graph/trust-release/ai-res
 T(s,'Recorded AI result, 15 Oct 2026',930,946,830,34,25,C.muted);
 
 
-s=S('why-arkiv','Why Arkiv / What I add',`The value used here is shared public indexed discovery outside the originating application API. A controlled failure test blocks this project's domains while a clean npm consumer reads both pinned graphs through Arkiv RPC, checks source bytes and refuses the withdrawn session. A private database can implement the same local graph and verification protocol, but another public discovery layer is needed to preserve cross-application access when the originating API is unavailable. IPFS distributes content-addressed bytes and still needs indexed review/creator discovery. Another public protocol could supply similar properties. Arkiv Graph contributes versioned schema, signed manifest, bounded readers, trust-state handling and CLI/MCP integration. These are present integration advantages. Independent adoption and an ecosystem moat remain unproven. ${site}/data/backend-independence.json ; ${repo}/blob/main/ARKIV_GRAPH.md.`);
+s=S('why-arkiv','Why Arkiv / What I add',`The value used here is shared public indexed discovery outside the originating application API. In a controlled in-process fetch fault-injection test, an isolated clean npm consumer rejects project API requests while reading both pinned graphs through Arkiv RPC, checking source bytes and refusing the withdrawn session. This is not an actual website outage, OS firewall or network sandbox. A private database can implement the same local graph and verification protocol, but another public discovery layer is needed to preserve cross-application access when the originating API is unavailable. IPFS distributes content-addressed bytes and still needs indexed review/creator discovery. Another public protocol could supply similar properties. Arkiv Graph contributes versioned schema, signed manifest, bounded readers, trust-state handling and CLI/MCP integration. These are present integration advantages. Independent adoption and an ecosystem moat remain unproven. ${site}/data/backend-independence.json ; ${repo}/blob/main/ARKIV_GRAPH.md.`);
 H(s,'Readers can work without my API');
 const values=[['Need','Only my application API','Arkiv + Graph SDK'],['Read when my API is offline','Requires another backend','Read through configured\nArkiv RPC'],['Find records and reviewers','Operator-specific discovery','Typed queries and\ncreator predicates'],['Check the selected revision','Implement a reader protocol','Verify complete signed\nmanifest locally']];
-const table=s.tables.add({rows:4,columns:3,left:105,top:354,width:1700,height:444,columnWidths:[480,600,620],values});
+const table=s.tables.add({rows:4,columns:3,left:105,top:330,width:1700,height:360,columnWidths:[480,600,620],values});
 table.borders.assign({style:'solid',fill:C.line,width:1});
-for(let r=0;r<4;r++){table.rows[r].height=r===0?84:120;for(let c=0;c<3;c++){const cell=table.getCell(r,c);cell.fill=r===0?C.ink:(c===2?'#E5EBE3':C.paper);cell.text.style={typeface:'Arial',fontSize:r===0?30:31,color:r===0?C.white:C.ink,bold:r===0};}}
+for(let r=0;r<4;r++){table.rows[r].height=r===0?72:96;for(let c=0;c<3;c++){const cell=table.getCell(r,c);cell.fill=r===0?C.ink:(c===2?'#E5EBE3':C.paper);cell.text.style={typeface:'Arial',fontSize:r===0?29:30,color:r===0?C.white:C.ink,bold:r===0};}}
+T(s,'Controlled fetch test',105,719,570,52,31,C.green,undefined,true);
+T(s,'A clean npm consumer verified both graphs through Arkiv RPC.\nIn-process fetch blocking rejected project API requests.',710,719,1100,90,31);
 T(s,'What I add to Arkiv',105,842,600,52,34,C.green,undefined,true);
-T(s,'A common graph contract, conformance checks and reusable SDK, CLI and MCP readers.',710,843,1100,95,33);
-T(s,'Defensibility today comes from integration quality. Independent adoption is still to earn.',105,944,1700,38,26,C.muted);
+T(s,'A common graph contract, conformance checks and reusable SDK, CLI and MCP readers.',710,843,1100,95,31);
+T(s,'Current differentiation comes from integration quality. Independent adoption is still to earn.',105,944,1700,38,26,C.muted);
 
-s=S('evidence','Published packages / Reproducible evidence',`All counts describe project-run checks.271localtests and19trustsafeguards have different scopes. Both public npm packages were installed anonymously outside the workspace and matched reviewed release integrity. Graph0.4.0's exact documented local example passes with2nodes/1edge and fetch disabled. Download statistics for7/30-day windows returned404at${usage.fetched_at}; unavailable is not0users.18historical Lighthouse13.5desktop-simulated mobile audits use3coldruns perroute/phase;87/88/41before and98/98/96after. These scores do not grade later website changes, physical phones, field INP or this hackathon. ${site}/data/mobile-performance.json ; ${site}/data/npm-usage.json ; ${site}/data/quickstart-proof.json ; ${site}/data/security-evaluation.json.`);
-H(s,'Published packages, reproducible checks');
+s=S('evidence','Packages / Reproducible evidence',`All counts describe project-run checks. The current full suite passes ${localTestCount} local tests. These and the 19 trust safeguards have different scopes.${security.passed===localTestCount?'':' The linked security-evaluation report records the earlier 271-test run.'} Graph 0.4.0 and AI Passport 0.6.0 were installed anonymously outside the workspace and matched reviewed release integrity. Graph 0.4.0's exact documented local example passes with 2 nodes and 1 edge with fetch disabled. The active patch versions shown here are Graph ${release.graph} and AI Passport ${release.passport}, ${release.published?'published':'pending npm publication'}. Historical clean-install evidence remains attributed to its recorded version until refreshed. Download statistics for 7-day and 30-day windows returned HTTP 404 at ${usage.fetched_at}. Unavailable does not mean zero users. The 18 historical Lighthouse 13.5 desktop-simulated mobile audits use 3 cold runs per route and phase. Before scores are 87/88/41 and after scores are 98/98/96. These scores do not grade later website changes, physical phones, field INP or this hackathon. ${site}/data/mobile-performance.json ; ${site}/data/npm-usage.json ; ${site}/data/quickstart-proof.json ; ${site}/data/security-evaluation.json.`);
+H(s,'Packages and reproducible checks');
 T(s,'Historical Lighthouse performance',105,339,960,60,35,C.green,undefined,true);
 const chart=s.charts.add('bar',{name:'historical-mobile-lab',position:{left:90,top:424,width:940,height:425},categories:['Overview','Context','Two-client'],series:[{name:'Before',values:mobile.baseline.routes.map(r=>r.median.score),fill:'#ACB5AB'},{name:'After',values:mobile.final.routes.map(r=>r.median.score),fill:C.green}],barOptions:{direction:'column',grouping:'clustered',gapWidth:100,overlap:0},hasLegend:true,legend:{position:'bottom',textStyle:{fontSize:24,fill:C.muted}},dataLabels:{showValue:true,position:'outEnd',textStyle:{fontSize:29,fill:C.ink}},xAxis:{textStyle:{fontSize:26,fill:C.ink}},yAxis:{min:0,max:110,majorUnit:25,textStyle:{fontSize:22,fill:C.muted},majorGridlines:{fill:C.line,width:1}},chartFill:'none',chartLine:{fill:'none',width:0},plotAreaFill:'none',plotAreaLine:{fill:'none',width:0}});
 applyPresentationChartFont(chart,{fontFamily:'Arial'});
 T(s,'Lighthouse performance score / 100\n18 simulated audits. Median of 3 per route and phase.',105,878,960,85,29,C.muted);
-T(s,'271 local tests',1130,350,680,68,48,C.ink,'Georgia');
+T(s,`${localTestCount} local tests`,1130,350,680,68,48,C.ink,'Georgia');
 T(s,'19 trust safeguard cases',1130,443,680,65,39);
 L(s,1130,549,680);
-T(s,'Public npm releases',1130,591,680,55,33,C.green,undefined,true);
-T(s,'arkiv-graph  0.4.0\nai-passport  0.6.0',1130,674,680,104,35,C.ink,'Consolas');
+T(s,release.published?'Public npm releases':'Patch releases pending publication',1130,591,680,55,33,C.green,undefined,true);
+T(s,`arkiv-graph  ${release.graph}\nai-passport  ${release.passport}`,1130,674,680,104,35,C.ink,'Consolas');
 T(s,'Download statistics unavailable\nOfficial npm API returned HTTP 404',1130,823,680,100,29,C.muted);
 T(s,'No outside user count is established.',1130,936,680,39,26,C.muted);
 
-s=S('getting-started','Developer access',`Use Node24+. In a new folder npm init -y and npm install @ajnasnb/arkiv-graph@0.4.0. Copy the complete graph.mjs from ${repo}/blob/main/docs/GETTING_STARTED.md before node graph.mjs. That local example validates schema and traversal only. For online reads, independently review issuer/root/chain/profile policy before npx arkiv-graph verify reader.json or npx arkiv-graph mcp reader.json. Readers need no wallet. Publishing requires a funded dedicated Tiramisu testnet wallet and deliberate broadcast. No custom contract deployment is needed. Limits: one live RPC still supplies unseen history/completeness, clearing history loses retained observations, small separate root demo with manual authority/policy rotation, no scale or outside-adoption evidence. Friction ${repo}/blob/main/arkiv/friction.md and schema ${repo}/blob/main/arkiv/schema.md.`,true);
+s=S('getting-started','Developer access',`Use Node.js 24+. In a new folder run npm init -y and npm install @ajnasnb/arkiv-graph@${release.graph}. Graph ${release.graph} is ${release.published?'published':'pending npm publication'}. Copy the complete graph.mjs from ${repo}/blob/main/docs/GETTING_STARTED.md before node graph.mjs. That local example validates schema and traversal only. For online reads, independently review issuer/root/chain/profile policy before npx arkiv-graph verify reader.json or npx arkiv-graph mcp reader.json. Readers need no wallet. Publishing requires a funded dedicated Tiramisu testnet wallet and deliberate broadcast. No custom contract deployment is needed. Limits: one live RPC still supplies unseen history/completeness, clearing history loses retained observations, small separate root demo with manual authority/policy rotation, no scale or outside-adoption evidence. Friction ${repo}/blob/main/arkiv/friction.md and schema ${repo}/blob/main/arkiv/schema.md.`,true);
 H(s,'Developer setup',true);
 T(s,'Local graph example (Node.js 24+)',105,346,1030,60,42,C.white);
 R(s,105,444,1030,204,'#0C241C');
-T(s,'npm init -y\nnpm install @ajnasnb/arkiv-graph@0.4.0',134,472,974,144,30,C.white,'Consolas');
+T(s,`npm init -y\nnpm install @ajnasnb/arkiv-graph@${release.graph}`,134,472,974,144,30,C.white,'Consolas');
 T(s,'Copy the guide’s complete graph.mjs, then run:',105,692,1025,60,32,'#C4D8CD');
 T(s,'node graph.mjs',105,774,1030,65,40,C.white,'Consolas');
-T(s,'No account, wallet or model is needed for this local example.',105,863,1000,51,29,'#C4D8CD');
+T(s,`No account, wallet or model is needed for this local example.${release.published?'':`\nGraph ${release.graph} is pending npm publication.`}`,105,853,1000,72,26,'#C4D8CD');
 T(s,'arkivgraph.ajnasnb.com/?view=sdk',105,925,1030,46,30,C.white);
 T(s,'What I would validate next',1235,346,580,110,41,C.white,'Georgia');
 T(s,'An unaided outside integration\nA second-provider strategy\nLarger graphs and real phones',1235,503,580,195,32,'#C4D8CD');
@@ -129,5 +133,5 @@ for(const [i,sl]of p.slides.items.entries()){const b=await p.export({slide:sl,fo
 const candidate=path.join(build,'candidate.pptx');await(await PresentationFile.exportPptx(p)).save(candidate);
 const finalPath=path.join(build,'final/arkiv-graph-pitch.pptx');
 await finalizePresentation({workspaceDir:root,candidatePath:candidate,finalPath,pythonExecutable:python,integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','18288000,10287000','--validate-heading-fit','--validate-bullet-geometry','--require-native-table-slide','6'],explicitTotalSlideCount:8,requiredNativeChartOwnerSlides:[7],requiredNativeTableOwnerSlides:[6],materializeLiteralChartWorkbooks:true,fontPolicy:{basis:'design',families:['Arial','Georgia','Consolas']},verifyArtifactToolImport:true,receiptPath:path.join(build,'validation.json')});
-await fs.writeFile(path.join(build,'content-ledger.json'),JSON.stringify({schema:'arkiv-graph.editorial-pitch.v1',generated_at:new Date().toISOString(),slide_count:8,scope:'No generated conceptual illustrations. Actual website captures, native editable text/architecture/table/chart. Project-run evidence only.',slides:ledger},null,2)+'\n');
+await fs.writeFile(path.join(build,'content-ledger.json'),JSON.stringify({schema:'arkiv-graph.editorial-pitch.v1',generated_at:new Date().toISOString(),slide_count:8,release,local_test_count:localTestCount,evidence_test_count:security.passed,scope:'No generated conceptual illustrations. Actual website captures, native editable text/architecture/table/chart. Project-run evidence only.',slides:ledger},null,2)+'\n');
 console.log(JSON.stringify({build,finalPath,sha256:createHash('sha256').update(await fs.readFile(finalPath)).digest('hex')}));
