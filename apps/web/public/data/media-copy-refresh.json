@@ -1,0 +1,65 @@
+{
+  "checked_at": "2026-10-16T17:34:00.201969+00:00",
+  "slide_count": 8,
+  "changed_slides": [
+    1,
+    6,
+    7,
+    8
+  ],
+  "pixel_identical_slides": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "caption_cues": 35,
+  "max_caption_line": 42,
+  "max_caption_cps": 18.96,
+  "caption_overlaps": 0,
+  "original_caption_cues_preserved": 30,
+  "tail_asr": "small.en word timing; brand spelling corrected to script",
+  "source_video_interval_preserved": [
+    0,
+    142
+  ],
+  "duration": 162,
+  "current_packages": {
+    "graph": "0.4.1",
+    "passport": "0.6.1"
+  },
+  "evidence_counts": {
+    "local_tests": 274,
+    "trust_cases": 19,
+    "mobile_lab_audits": 18
+  },
+  "files": {
+    "arkiv-graph-launch.mp4": {
+      "sha256": "e2ea66120f979354b933a28db10df1a6675c9b2e83eb1d3e6ebfc2714d00f888",
+      "bytes": 23669390
+    },
+    "arkiv-graph-pitch.pptx": {
+      "sha256": "28b35e30eda5d4803486ca951f9d540a589cc03b5601a2de6b6c4669cf145cc0",
+      "bytes": 239970
+    },
+    "arkiv-graph-pitch.pdf": {
+      "sha256": "e9e0870bfd1f695e2722dc4eb3625a7f2d3cdfbd9903817be47bf6cd7cc9d36c",
+      "bytes": 2209923
+    }
+  },
+  "review": {
+    "status": "reviewed_no_release_blocker",
+    "all_eight_slides": true,
+    "all_eight_pdf_pages": true,
+    "changed_film_scenes": true,
+    "separate_model_critic": true
+  },
+  "qa": {
+    "verdict": "WARN",
+    "fail": 0,
+    "warn": 20,
+    "lufs": -16.05,
+    "true_peak_dbtp": -1.87
+  },
+  "note": "Media wording refresh; application verification logic unchanged. Dates and methods of earlier product observations remain attached to their original evidence."
+}

@@ -23,9 +23,9 @@
   "npm_usage": "/data/npm-usage.json",
   "pitch": {
     "slides": 8,
-    "updated_at": "2026-10-16T16:30:22.692Z",
+    "updated_at": "2026-10-16T17:36:42.107Z",
     "template": "Forest-and-cream editorial redesign; real product captures and native editable diagrams, table and chart",
-    "visual_review": "All eight final PPTX reimport renders and companion PDF pages inspected by a project-run model critic. Exact PPTX imported into Google Slides, opened in Chrome, and all eight Google-exported PDF pages visually checked by the author. Native desktop PowerPoint execution and a complete browser slideshow pass were not performed for this revision.",
+    "visual_review": "All eight current PPTX reimport renders and all eight Poppler-rendered PDF pages inspected. A separate project-run model critic found no release blocker. Slide layouts are preserved; slides2–5 are pixel-identical to the previous deck.",
     "artwork": "No generated conceptual illustrations. Actual product captures have dated provenance; screenshots remain raster images.",
     "fonts": [
       "Arial",
@@ -34,18 +34,18 @@
     ],
     "coverage": [
       "introduction",
-      "concrete stale-review problem",
-      "schema and layered architecture",
-      "actual two-client withdrawal and separate root test",
-      "working AI reference and India tools",
-      "Why Arkiv and present defensibility",
-      "historical measurements and npm availability",
-      "developer setup and next validation"
+      "stale-review problem",
+      "graph architecture and schema",
+      "two-client withdrawal and root update",
+      "AI Passport reference application",
+      "Why Arkiv and reusable contribution",
+      "recorded test evidence and npm releases",
+      "developer setup and reader policy"
     ],
-    "pptx_sha256": "2aaa4f4c4d72fc0cc88e0df65afe24917d7c14890eee1b8f2c548b525f309415",
-    "pptx_bytes": 240087,
-    "pdf_sha256": "d0b77d50374d6be5cd38ff6748211f233e7159a4024c2fb5bde775cf2e8a45ac",
-    "pdf_bytes": 2221045
+    "pptx_sha256": "28b35e30eda5d4803486ca951f9d540a589cc03b5601a2de6b6c4669cf145cc0",
+    "pptx_bytes": 239970,
+    "pdf_sha256": "e9e0870bfd1f695e2722dc4eb3625a7f2d3cdfbd9903817be47bf6cd7cc9d36c",
+    "pdf_bytes": 2209923
   },
   "remaining_gaps": [
     "One configured RPC supplies unseen-history completeness; no independent state/non-omission proof.",
@@ -75,26 +75,6 @@
     "scope": "Static presentation and documentation refresh. All eight final PPTX and PDF pages reviewed, native table/chart and package structure validated. Existing unit and performance counts remain historical; not rerun for this media-only change.",
     "report_url": "/data/editorial-pitch-evaluation.json",
     "tested_deployment": "0c5686b0-35e6-4034-a8af-5015b8e57194"
-  },
-  "google_slides_review": {
-    "checked_at": "2026-10-16T16:30:22.692Z",
-    "application": "Google Slides native import, opened in authenticated Chrome",
-    "slides": 8,
-    "google_exported_pdf_pages_inspected": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8
-    ],
-    "google_pdf_sha256": "94aec4709591d24ffe8d2760f19ad0567ac98b9a13090fb7ba66061fc5f01916",
-    "scope": "All eight actual Google-exported PDF pages checked. Browser slideshow controls timed out; a full interactive slideshow pass is not claimed for this revision.",
-    "conversion_limitations": "Google converts the chart to an image and rounds the display axis to120. Values remain0–100 and labels are fully visible. Native PPTX retains an editable chart/workbook.",
-    "native_powerpoint_execution": false,
-    "open_must_fix": 0
   },
   "patch_release": {
     "graph": "0.4.1",
@@ -159,5 +139,27 @@
       }
     ],
     "scope": "Two onboarding checks, two performance/failure guards and six root/checkpoint checks. Some failures use authentic evidence replay and controlled injection; live root and current withdrawal checks read real RPC evidence."
+  },
+  "media_refreshed_at": "2026-10-16T17:36:42.107Z",
+  "media_refresh": "/data/media-copy-refresh.json",
+  "previous_google_slides_review": {
+    "checked_at": "2026-10-16T16:30:22.692Z",
+    "application": "Google Slides native import, opened in authenticated Chrome",
+    "slides": 8,
+    "google_exported_pdf_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "google_pdf_sha256": "94aec4709591d24ffe8d2760f19ad0567ac98b9a13090fb7ba66061fc5f01916",
+    "scope": "All eight actual Google-exported PDF pages checked. Browser slideshow controls timed out; a full interactive slideshow pass is not claimed for this revision.",
+    "conversion_limitations": "Google converts the chart to an image and rounds the display axis to120. Values remain0–100 and labels are fully visible. Native PPTX retains an editable chart/workbook.",
+    "native_powerpoint_execution": false,
+    "open_must_fix": 0
   }
 }

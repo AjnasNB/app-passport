@@ -1,107 +1,23 @@
 {
-  "evaluated_at": "2026-10-15T16:28:16.023Z",
+  "evaluated_at": "2026-10-16T17:36:42.107Z",
   "url": "https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4",
   "independent_review": {
-    "status": "approved_with_disclosed_warnings",
-    "reviewer": "Project-run model review team; independent of the respective visual or caption authors, not an external certification",
-    "video_sha256": "55ca50675e160f17d8a5a6cdea02a5e7af19c32a681a85a5d8d011be874c78b5",
-    "video_bytes": 14828848,
+    "status": "reviewed_no_release_blocker",
+    "reviewer": "Project-run author and separate model critic",
+    "video_sha256": "e2ea66120f979354b933a28db10df1a6675c9b2e83eb1d3e6ebfc2714d00f888",
+    "video_bytes": 23669390,
     "visual_review": {
-      "rounds": 3,
-      "blind_viewing_orders": 2,
-      "preferred_picture_in_both_orders": true,
-      "picture_identity": {
-        "status": "pass",
-        "method": "Ordered H.264 packet payload hashes; excludes changed audio and container interleaving",
-        "reviewed_picture": {
-          "packets": 4860,
-          "video_packet_sha256": "1b977f1d1b956d0a8af013f97fa42ae2a789cef0a9701c18f6ba9324c689a467"
-        },
-        "delivered_picture": {
-          "packets": 4860,
-          "video_packet_sha256": "1b977f1d1b956d0a8af013f97fa42ae2a789cef0a9701c18f6ba9324c689a467"
-        }
-      },
-      "scope": "Thirteen story parts, selected native frames, supplied typography crops and cut neighborhoods; full-file automated scan. No human inspection of every frame."
+      "scope": "Preserved first142s; changed final20s reviewed in actual final-file frames. All8 final deck renders reviewed. The review checks claim accuracy, text fit and preservation of the existing design.",
+      "open_must_fix": 0
     },
-    "narration_followup": "Both reviewers confirmed that the AI-before-inference and repeated-check mobile bridges close the story gaps; exact final encoded audio and ASR were then checked.",
     "caption_verification": {
-      "cues": 34,
-      "max_line_characters": 42,
-      "max_characters_per_second": 18.9573,
-      "shortest_seconds": 1.306,
-      "overlaps": 0,
-      "exact_text_match_to_voice_timeline": true,
-      "independently_parsed": true,
       "status": "pass",
-      "review_role": "independent_verifier",
-      "max_lines": 2,
-      "script_words": 339,
-      "caption_words": 339,
-      "srt_vtt_semantically_identical": true,
-      "srt_sha256": "d23d36b128939f36b31d4daf93a9638152cf6ec2927d466a175b0da7650dbed3",
-      "vtt_sha256": "1f0078e9c06e9395423169ecd723de88ec402b4aa9842f856e265ecc21114430",
-      "ordered_asr_units": 335,
-      "ordered_script_units": 335,
-      "ordered_normalized_asr_match": true,
-      "cue_starts_audited": 34,
-      "asr_anchored_starts": 32,
-      "trusted_scene_anchored_starts": 2,
-      "start_lead_ms": 50,
-      "ends_before_final_asr_word_over_150ms": 0,
-      "second_98": {
-        "cue": 27,
-        "sidecar_start_seconds": 121.51,
-        "asr_start_seconds": 121.56,
-        "lead_ms": 50
-      },
-      "trusted_scene_overrides": [
-        {
-          "cue": 7,
-          "scene": "lifecycle",
-          "trusted_start_seconds": 32.18,
-          "sidecar_start_seconds": 32.13
-        },
-        {
-          "cue": 14,
-          "scene": "root-read",
-          "trusted_start_seconds": 64.18,
-          "sidecar_start_seconds": 64.13
-        }
-      ],
-      "supersedes": "The previous 37-cue sidecar statistics in the historical audiovisual QA and earlier post-fix review. MP4 and audiovisual QA are unchanged.",
-      "human_listening": false,
-      "scope": "Independent parsing, exact script/order preservation, reading metrics, ordered ASR boundary comparison and trusted synthesis scene starts; no human listening or player-rendered caption appearance claim."
-    },
-    "caption_authorship": "One earlier visual critic authored the final sidecar repair; a separate reviewer independently checked the actual sidecars and ordered raw ASR/timeline anchors.",
-    "deck_review": {
-      "slides": 8,
-      "reviewed_at": "2026-10-16T16:30:22.692Z",
-      "pptx_sha256": "2aaa4f4c4d72fc0cc88e0df65afe24917d7c14890eee1b8f2c548b525f309415",
-      "pdf_sha256": "d0b77d50374d6be5cd38ff6748211f233e7159a4024c2fb5bde775cf2e8a45ac",
-      "scope": "All eight final PPTX reimport renders and companion PDF pages inspected by a project-run model critic. Exact PPTX imported into Google Slides, opened in Chrome, and all eight Google-exported PDF pages visually checked by the author. Native desktop PowerPoint execution and a complete browser slideshow pass were not performed for this revision.",
-      "open_must_fix": 0,
-      "review_type": "Project-run author and separate model critic; not external certification",
-      "evaluation_url": "/data/editorial-pitch-evaluation.json"
-    },
-    "remaining_optional_polish": [
-      {
-        "id": "x_roots_voice_entry",
-        "severity": "polish",
-        "time_seconds": 44,
-        "measured_jump_lu": 4.2,
-        "delivery_blocking": false,
-        "reason": "Section-entry voice window rises from -22.1 to -17.9 LUFS; matching within 3 LU is optional polish."
-      }
-    ],
-    "limitations": [
-      "No human listening, physical-phone playback or acoustic pronunciation certification.",
-      "Project-run evaluation; no outside adoption or official hackathon grade is established."
-    ],
-    "devfolio_action": "No submission or publication performed."
+      "cues": 35,
+      "method": "First30 published cues preserved exactly; final5 cues align corrected script spelling and versions to local small.en word timings and measured Kokoro scene starts."
+    }
   },
-  "sha256": "55ca50675e160f17d8a5a6cdea02a5e7af19c32a681a85a5d8d011be874c78b5",
-  "bytes": 14828848,
+  "sha256": "e2ea66120f979354b933a28db10df1a6675c9b2e83eb1d3e6ebfc2714d00f888",
+  "bytes": 23669390,
   "duration_seconds": 162,
   "width": 1920,
   "height": 1080,
@@ -111,183 +27,27 @@
   "media_qa": {
     "verdict": "WARN",
     "fail": 0,
-    "warn": 21,
-    "findings": [
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 3.6,
-        "end": 8.033,
-        "message": "the picture does not change from 3.60s to 8.03s (4.4s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 10.533,
-        "end": 13.733,
-        "message": "the picture does not change from 10.53s to 13.73s (3.2s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 17.167,
-        "end": 20.033,
-        "message": "the picture does not change from 17.17s to 20.03s (2.9s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "empty_borders",
-        "severity": "WARN",
-        "t": 20.25,
-        "end": 149.85,
-        "message": "the picture fills only 58 % of the frame, inside flat borders, at 20.2-149.8s (7 of 20 sampled frames)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 24.333,
-        "end": 27.033,
-        "message": "the picture does not change from 24.33s to 27.03s (2.7s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 34.367,
-        "end": 37.833,
-        "message": "the picture does not change from 34.37s to 37.83s (3.5s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 44,
-        "end": 46.533,
-        "message": "the picture does not change from 44.00s to 46.53s (2.5s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 48.7,
-        "end": 53.967,
-        "message": "the picture does not change from 48.70s to 53.97s (5.3s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 82.033,
-        "end": 87.3,
-        "message": "the picture does not change from 82.03s to 87.30s (5.3s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 87.3,
-        "end": 90.767,
-        "message": "the picture does not change from 87.30s to 90.77s (3.5s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 90.767,
-        "end": 94.5,
-        "message": "the picture does not change from 90.77s to 94.50s (3.7s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 94.5,
-        "end": 98.033,
-        "message": "the picture does not change from 94.50s to 98.03s (3.5s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 98.633,
-        "end": 102.867,
-        "message": "the picture does not change from 98.63s to 102.87s (4.2s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 103.567,
-        "end": 107.767,
-        "message": "the picture does not change from 103.57s to 107.77s (4.2s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 108.4,
-        "end": 112,
-        "message": "the picture does not change from 108.40s to 112.00s (3.6s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 120.1,
-        "end": 123.267,
-        "message": "the picture does not change from 120.10s to 123.27s (3.2s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 128,
-        "end": 133.633,
-        "message": "the picture does not change from 128.00s to 133.63s (5.6s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 139.167,
-        "end": 142.033,
-        "message": "the picture does not change from 139.17s to 142.03s (2.9s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 151.4,
-        "end": 154.033,
-        "message": "the picture does not change from 151.40s to 154.03s (2.6s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "frozen",
-        "severity": "WARN",
-        "t": 154.033,
-        "end": 156.633,
-        "message": "the picture does not change from 154.03s to 156.63s (2.6s; small changes such as typing a few characters or a thin moving line still count as a hold)"
-      },
-      {
-        "rule": "final_hold",
-        "severity": "WARN",
-        "t": 156.633,
-        "end": 162,
-        "message": "the last 5.4s are a still hold (from 156.63s)"
-      },
-      {
-        "rule": "phone_unverified",
-        "severity": "INFO",
-        "message": "the phone check could not verify: type size, reading time and UI zones need `showtime check <project>` (no report with a phone block)"
-      }
-    ],
+    "warn": 20,
     "integrated_lufs": -16.05,
-    "true_peak_dbtp": -1.82,
-    "loudness_range_lu": 3.18,
-    "voice_over_bed_db": 13.8,
-    "clipping_samples": 0,
-    "phone_check": "PARTIAL",
-    "scope": "Whole-file encoding, black/freeze and audio checks; visual content, type and cut boundaries sampled separately. Caption sidecars were subsequently realigned and independently audited, superseding the earlier caption summary. No human-by-ear or physical-phone audit."
+    "true_peak_dbtp": -1.87,
+    "loudness_range_lu": 3.09,
+    "audio_summary": "voice 14-37 dB over the bed, 76-230 wpm, 0 quiet stretches, 0 level jumps at cuts (> 6 LU), ending fades or ends, on a phone speaker: -18.9 LUFS, 2.9 LU under the mix",
+    "remaining_warnings": "Intentional reading holds, final URL hold and inset product captures in the preserved design.",
+    "scope": "Whole-file encoding, duration, black/silence and audio checks; all caption timings checked. Visual review samples changed scenes and cut boundaries."
   },
   "subtitles": {
-    "cues": 34,
+    "cues": 35,
     "maximum_line_characters": 42,
-    "maximum_characters_per_second": 18.9573,
+    "maximum_characters_per_second": 18.96,
     "overlaps": 0,
     "formats": [
       "English SRT",
       "English VTT"
     ],
-    "srt_sha256": "d23d36b128939f36b31d4daf93a9638152cf6ec2927d466a175b0da7650dbed3",
-    "vtt_sha256": "1f0078e9c06e9395423169ecd723de88ec402b4aa9842f856e265ecc21114430",
+    "srt_sha256": "6e89bc2c2df3d2337bf3b7acff62c061013d47e279feb6e5f8074b70e6814566",
+    "vtt_sha256": "7d28ac8cd2a117a8bdb2b4097056f094ca81df98e284bfdfaa14c070fab77b8f",
     "alignment_report_url": "/data/launch-caption-alignment.json",
-    "method": "Ordered script/ASR unit edit alignment with explicit number, compound and proper-name normalization; exact script retained. Cue starts lead ASR anchors by 50ms. Known synthesis starts replace implausible scene-first ASR anchors. Dynamic-programming reflow enforces two lines, 42 chars/line, no overlaps and <=19.5 CPS; no proportional fallback for unmatched words.",
-    "scope": "Independent local ASR plus trusted synthesis scene starts, followed by a separate reviewer. Uncertain name spellings and scene-start ASR timing are disclosed. This is not human listening or a physical-player perceptual sync test."
+    "method": "First30 published cues preserved exactly; final5 cues align corrected script spelling and versions to local small.en word timings and measured Kokoro scene starts."
   },
   "scenes": [
     {
@@ -378,8 +138,8 @@
       "id": "close",
       "start": 154,
       "duration": 8,
-      "kind": "Current deployment trust disclosure",
-      "title": "Trust has a boundary."
+      "kind": "Product summary · graph infrastructure and reference app",
+      "title": "Build on Arkiv Graph."
     }
   ],
   "capture_evidence_url": "/data/launch-capture-evidence.json",
@@ -415,16 +175,15 @@
     "scope": "Lighthouse simulated desktop mobile lab; three cold-load runs per route and phase. Recorded mobile viewport is layout illustration, not a benchmark or physical device."
   },
   "npm_release": {
-    "graph": "0.4.0",
-    "passport": "0.6.0",
-    "report_url": "/data/npm-release.json",
-    "adoption": "No outside usage or download count claimed."
+    "graph": "0.4.1",
+    "passport": "0.6.1",
+    "report_url": "/data/npm-release.json"
   },
   "pitch": {
     "slides": 8,
-    "updated_at": "2026-10-16T16:30:22.692Z",
+    "updated_at": "2026-10-16T17:36:42.107Z",
     "template": "Forest-and-cream editorial redesign; real product captures and native editable diagrams, table and chart",
-    "visual_review": "All eight final PPTX reimport renders and companion PDF pages inspected by a project-run model critic. Exact PPTX imported into Google Slides, opened in Chrome, and all eight Google-exported PDF pages visually checked by the author. Native desktop PowerPoint execution and a complete browser slideshow pass were not performed for this revision.",
+    "visual_review": "All eight current PPTX reimport renders and all eight Poppler-rendered PDF pages inspected. A separate project-run model critic found no release blocker. Slide layouts are preserved; slides2–5 are pixel-identical to the previous deck.",
     "artwork": "No generated conceptual illustrations. Actual product captures have dated provenance; screenshots remain raster images.",
     "fonts": [
       "Arial",
@@ -433,18 +192,18 @@
     ],
     "coverage": [
       "introduction",
-      "concrete stale-review problem",
-      "schema and layered architecture",
-      "actual two-client withdrawal and separate root test",
-      "working AI reference and India tools",
-      "Why Arkiv and present defensibility",
-      "historical measurements and npm availability",
-      "developer setup and next validation"
+      "stale-review problem",
+      "graph architecture and schema",
+      "two-client withdrawal and root update",
+      "AI Passport reference application",
+      "Why Arkiv and reusable contribution",
+      "recorded test evidence and npm releases",
+      "developer setup and reader policy"
     ],
-    "pptx_sha256": "2aaa4f4c4d72fc0cc88e0df65afe24917d7c14890eee1b8f2c548b525f309415",
-    "pptx_bytes": 240087,
-    "pdf_sha256": "d0b77d50374d6be5cd38ff6748211f233e7159a4024c2fb5bde775cf2e8a45ac",
-    "pdf_bytes": 2221045
+    "pptx_sha256": "28b35e30eda5d4803486ca951f9d540a589cc03b5601a2de6b6c4669cf145cc0",
+    "pptx_bytes": 239970,
+    "pdf_sha256": "e9e0870bfd1f695e2722dc4eb3625a7f2d3cdfbd9903817be47bf6cd7cc9d36c",
+    "pdf_bytes": 2209923
   },
   "credits_url": "/media/arkiv-graph/credits.txt",
   "trust_boundary": "One configured live RPC supplies metadata and completeness. Signatures and retained checkpoints do not prove unseen non-omission, source truth or hosted computation. Clearing local history removes retained protection; records have finite validity/storage.",
@@ -576,8 +335,161 @@
     "graph": "0.4.1",
     "passport": "0.6.1",
     "local_tests": 274,
-    "scope": "Film bytes unchanged: it records the previous0.4.0/0.6.0 release and historical271-test and simulated-mobile measurements. The companion deck and current receipts show the final deadline patch.",
-    "evidence": "/data/security-evaluation.json",
-    "verification": "/data/final-review.json"
+    "scope": "Installation commands and narration now show the current releases. Existing product recordings and historical mobile lab measurements retain their recorded scope.",
+    "evidence": "/data/security-evaluation.json"
+  },
+  "previous_release_review": {
+    "evaluated_at": "2026-10-15T16:28:16.023Z",
+    "sha256": "55ca50675e160f17d8a5a6cdea02a5e7af19c32a681a85a5d8d011be874c78b5",
+    "bytes": 14828848,
+    "pitch": {
+      "slides": 8,
+      "updated_at": "2026-10-16T16:30:22.692Z",
+      "template": "Forest-and-cream editorial redesign; real product captures and native editable diagrams, table and chart",
+      "visual_review": "All eight final PPTX reimport renders and companion PDF pages inspected by a project-run model critic. Exact PPTX imported into Google Slides, opened in Chrome, and all eight Google-exported PDF pages visually checked by the author. Native desktop PowerPoint execution and a complete browser slideshow pass were not performed for this revision.",
+      "artwork": "No generated conceptual illustrations. Actual product captures have dated provenance; screenshots remain raster images.",
+      "fonts": [
+        "Arial",
+        "Georgia",
+        "Consolas"
+      ],
+      "coverage": [
+        "introduction",
+        "concrete stale-review problem",
+        "schema and layered architecture",
+        "actual two-client withdrawal and separate root test",
+        "working AI reference and India tools",
+        "Why Arkiv and present defensibility",
+        "historical measurements and npm availability",
+        "developer setup and next validation"
+      ],
+      "pptx_sha256": "2aaa4f4c4d72fc0cc88e0df65afe24917d7c14890eee1b8f2c548b525f309415",
+      "pptx_bytes": 240087,
+      "pdf_sha256": "d0b77d50374d6be5cd38ff6748211f233e7159a4024c2fb5bde775cf2e8a45ac",
+      "pdf_bytes": 2221045
+    },
+    "review": {
+      "status": "approved_with_disclosed_warnings",
+      "reviewer": "Project-run model review team; independent of the respective visual or caption authors, not an external certification",
+      "video_sha256": "55ca50675e160f17d8a5a6cdea02a5e7af19c32a681a85a5d8d011be874c78b5",
+      "video_bytes": 14828848,
+      "visual_review": {
+        "rounds": 3,
+        "blind_viewing_orders": 2,
+        "preferred_picture_in_both_orders": true,
+        "picture_identity": {
+          "status": "pass",
+          "method": "Ordered H.264 packet payload hashes; excludes changed audio and container interleaving",
+          "reviewed_picture": {
+            "packets": 4860,
+            "video_packet_sha256": "1b977f1d1b956d0a8af013f97fa42ae2a789cef0a9701c18f6ba9324c689a467"
+          },
+          "delivered_picture": {
+            "packets": 4860,
+            "video_packet_sha256": "1b977f1d1b956d0a8af013f97fa42ae2a789cef0a9701c18f6ba9324c689a467"
+          }
+        },
+        "scope": "Thirteen story parts, selected native frames, supplied typography crops and cut neighborhoods; full-file automated scan. No human inspection of every frame."
+      },
+      "narration_followup": "Both reviewers confirmed that the AI-before-inference and repeated-check mobile bridges close the story gaps; exact final encoded audio and ASR were then checked.",
+      "caption_verification": {
+        "cues": 34,
+        "max_line_characters": 42,
+        "max_characters_per_second": 18.9573,
+        "shortest_seconds": 1.306,
+        "overlaps": 0,
+        "exact_text_match_to_voice_timeline": true,
+        "independently_parsed": true,
+        "status": "pass",
+        "review_role": "independent_verifier",
+        "max_lines": 2,
+        "script_words": 339,
+        "caption_words": 339,
+        "srt_vtt_semantically_identical": true,
+        "srt_sha256": "d23d36b128939f36b31d4daf93a9638152cf6ec2927d466a175b0da7650dbed3",
+        "vtt_sha256": "1f0078e9c06e9395423169ecd723de88ec402b4aa9842f856e265ecc21114430",
+        "ordered_asr_units": 335,
+        "ordered_script_units": 335,
+        "ordered_normalized_asr_match": true,
+        "cue_starts_audited": 34,
+        "asr_anchored_starts": 32,
+        "trusted_scene_anchored_starts": 2,
+        "start_lead_ms": 50,
+        "ends_before_final_asr_word_over_150ms": 0,
+        "second_98": {
+          "cue": 27,
+          "sidecar_start_seconds": 121.51,
+          "asr_start_seconds": 121.56,
+          "lead_ms": 50
+        },
+        "trusted_scene_overrides": [
+          {
+            "cue": 7,
+            "scene": "lifecycle",
+            "trusted_start_seconds": 32.18,
+            "sidecar_start_seconds": 32.13
+          },
+          {
+            "cue": 14,
+            "scene": "root-read",
+            "trusted_start_seconds": 64.18,
+            "sidecar_start_seconds": 64.13
+          }
+        ],
+        "supersedes": "The previous 37-cue sidecar statistics in the historical audiovisual QA and earlier post-fix review. MP4 and audiovisual QA are unchanged.",
+        "human_listening": false,
+        "scope": "Independent parsing, exact script/order preservation, reading metrics, ordered ASR boundary comparison and trusted synthesis scene starts; no human listening or player-rendered caption appearance claim."
+      },
+      "caption_authorship": "One earlier visual critic authored the final sidecar repair; a separate reviewer independently checked the actual sidecars and ordered raw ASR/timeline anchors.",
+      "deck_review": {
+        "slides": 8,
+        "reviewed_at": "2026-10-16T16:30:22.692Z",
+        "pptx_sha256": "2aaa4f4c4d72fc0cc88e0df65afe24917d7c14890eee1b8f2c548b525f309415",
+        "pdf_sha256": "d0b77d50374d6be5cd38ff6748211f233e7159a4024c2fb5bde775cf2e8a45ac",
+        "scope": "All eight final PPTX reimport renders and companion PDF pages inspected by a project-run model critic. Exact PPTX imported into Google Slides, opened in Chrome, and all eight Google-exported PDF pages visually checked by the author. Native desktop PowerPoint execution and a complete browser slideshow pass were not performed for this revision.",
+        "open_must_fix": 0,
+        "review_type": "Project-run author and separate model critic; not external certification",
+        "evaluation_url": "/data/editorial-pitch-evaluation.json"
+      },
+      "remaining_optional_polish": [
+        {
+          "id": "x_roots_voice_entry",
+          "severity": "polish",
+          "time_seconds": 44,
+          "measured_jump_lu": 4.2,
+          "delivery_blocking": false,
+          "reason": "Section-entry voice window rises from -22.1 to -17.9 LUFS; matching within 3 LU is optional polish."
+        }
+      ],
+      "limitations": [
+        "No human listening, physical-phone playback or acoustic pronunciation certification.",
+        "Project-run evaluation; no outside adoption or official hackathon grade is established."
+      ],
+      "devfolio_action": "No submission or publication performed."
+    }
+  },
+  "minimal_wording_refresh": {
+    "changed_video_interval_seconds": [
+      142,
+      162
+    ],
+    "retained_video_source_interval_seconds": [
+      0,
+      142
+    ],
+    "changed_slides": [
+      1,
+      6,
+      7,
+      8
+    ],
+    "pixel_identical_slides": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "music": "Same original score and source passage",
+    "report_url": "/data/media-copy-refresh.json"
   }
 }

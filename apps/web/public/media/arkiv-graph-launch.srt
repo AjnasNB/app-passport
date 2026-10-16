@@ -144,20 +144,25 @@ Readers can bypass our API. The SDK
 adds graph verification and AI context.
 
 31
-00:02:22,170 --> 00:02:26,560
-Install Arkiv Graph zero point four,
-or AI Passport zero point six.
+00:02:22,180 --> 00:02:25,350
+Install Arkiv Graph 0.4.1.
 
 32
-00:02:26,590 --> 00:02:31,550
-Public schemas, queries and
-evidence make the demo reproducible.
+00:02:25,810 --> 00:02:30,520
+AI Passport 0.6.1 adds
+the reference application.
 
 33
-00:02:31,580 --> 00:02:33,423
-Outside usage is not yet proven.
+00:02:30,990 --> 00:02:33,423
+Read the schema and reproduce
+the evidence.
 
 34
-00:02:34,180 --> 00:02:40,004
-One RPC remains trusted. Unseen omissions
-remain possible. Build your own reader.
+00:02:34,180 --> 00:02:37,600
+Publish connected evidence.
+Verify it across tools.
+
+35
+00:02:37,910 --> 00:02:40,879
+Build with Arkiv Graph,
+and explore AI Passport.

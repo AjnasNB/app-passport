@@ -8,7 +8,22 @@
   "onnx_source": "https://github.com/thewh1teagle/kokoro-onnx",
   "software_license": "MIT",
   "model_license": "Apache-2.0",
-  "source_code": "media/narrate-graph.py",
-  "generated_audio_sha256": "9838f2e0413d5e8b53229cf0db8a0e3a5a1c133e58176026ab101b6e189736c5",
-  "duration_seconds": 96
+  "source_code": "media/trust-launch-audio.py",
+  "generated_audio_sha256": "3682e2492b650a95b659f1c53be7414b0cad735a0bc5580a85c7aa4de2749c4c",
+  "duration_seconds": 162,
+  "previous_record": {
+    "generator": "kokoro-onnx",
+    "version": "v1.0",
+    "voice": "af_heart",
+    "synthetic": true,
+    "custom_voice_clone": false,
+    "model_source": "https://huggingface.co/hexgrad/Kokoro-82M",
+    "onnx_source": "https://github.com/thewh1teagle/kokoro-onnx",
+    "software_license": "MIT",
+    "model_license": "Apache-2.0",
+    "source_code": "media/narrate-graph.py",
+    "generated_audio_sha256": "9838f2e0413d5e8b53229cf0db8a0e3a5a1c133e58176026ab101b6e189736c5",
+    "duration_seconds": 96
+  },
+  "audio_role": "Narration reference stem: original first142s and regenerated final20s; generic Kokoro af_heart voice"
 }
