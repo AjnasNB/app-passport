@@ -460,21 +460,11 @@
   ],
   "scope": "Project-run media/content evaluation. Full-file automated checks plus sampled visual and cut review; no claim that a human watched each of 4860 individual frames, or that a hackathon score/design percentage is certified.",
   "hosted_playback": {
-    "checked_at": "2026-10-15T16:30:55.443Z",
+    "checked_at": "2026-10-16T07:43:56.385Z",
     "passed": 11,
     "total": 11,
     "report_url": "/data/release-smoke.json",
-    "tested_deployment": "35cf8704-5c75-477e-a1a1-7057f47a80e9",
-    "scope": "Exact approved video/PPT/PDF bytes, caption publication, playback, seeking and fresh refusal requests; the following deployment only publishes these result records.",
-    "caption_hashes": {
-      "srt_sha256": "d23d36b128939f36b31d4daf93a9638152cf6ec2927d466a175b0da7650dbed3",
-      "vtt_sha256": "1f0078e9c06e9395423169ecd723de88ec402b4aa9842f856e265ecc21114430"
-    },
-    "focused_browser_test": {
-      "name": "film plays and presentation/report downloads have the correct file formats",
-      "passed": 1,
-      "total": 1
-    }
+    "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script."
   },
   "pitch_history": [
     {

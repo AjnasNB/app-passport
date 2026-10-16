@@ -48,5 +48,22 @@
     "No unaided outside integration or established ecosystem moat.",
     "Small separate root-update demo; no production migration or automatic policy rotation.",
     "Mobile performance scores are historical simulated lab results, not physical devices or field INP."
-  ]
+  ],
+  "hosted_ui": {
+    "checked_at": "2026-10-16T07:45:05.021Z",
+    "passed": 3,
+    "total": 3,
+    "scope": "Owned live domain. Actual MP4 playback/seeking and deck/package downloads; overview/SDK interactions and 390px layout. The SDK UI fixture and clipboard remain stubbed in its interaction case; real npm/RPC checks are separate receipts."
+  },
+  "hosted_release": {
+    "checked_at": "2026-10-16T07:43:56.385Z",
+    "passed": 11,
+    "total": 11,
+    "report_url": "/data/release-smoke.json"
+  },
+  "npm_production_audit": {
+    "vulnerabilities": 0,
+    "scope": "npm audit --omit=dev on this checkout; not an audit of arbitrary applications."
+  },
+  "tested_deployment": "fa7f2a26-9d0f-4791-b489-1e87726028ae"
 }

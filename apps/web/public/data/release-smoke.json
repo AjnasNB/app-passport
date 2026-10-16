@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-15T16:30:55.443Z",
+  "checked_at": "2026-10-16T07:43:56.385Z",
   "url": "https://arkivgraph.ajnasnb.com",
   "passed": 11,
   "total": 11,
@@ -8,7 +8,7 @@
       "name": "Completed session loads and both fresh browser requests refuse",
       "passed": true,
       "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
-      "session_load_ms": 3104
+      "session_load_ms": 3406
     },
     {
       "name": "Third transaction and exact withdrawal target remain inspectable",
@@ -46,13 +46,13 @@
       "documents": [
         {
           "file": "arkiv-graph-pitch.pptx",
-          "bytes": 11297644,
-          "sha256": "1966cd85a93abd83a1b7daeaf75bd3f18530ffac97dd14b2b37a9da82023843b"
+          "bytes": 8141630,
+          "sha256": "56c4a2737f0680d4c9c93d60ec1170b8a61424fa395fa3f965edcc4cfe7cf499"
         },
         {
           "file": "arkiv-graph-pitch.pdf",
-          "bytes": 3688177,
-          "sha256": "763fdd000a5ae20ec691942be4c56ec42ecc82f3703a82b253f44f9b4d08a174"
+          "bytes": 3175271,
+          "sha256": "9b1e7f21a44d264396aa76b47a007c183c505bebe23e327342756cd6ce259439"
         },
         {
           "file": "arkiv-graph-evaluation.pdf",
@@ -66,8 +66,7 @@
       "passed": true,
       "cues": 34,
       "srt_sha256": "d23d36b128939f36b31d4daf93a9638152cf6ec2927d466a175b0da7650dbed3",
-      "vtt_sha256": "1f0078e9c06e9395423169ecd723de88ec402b4aa9842f856e265ecc21114430",
-      "checked_at": "2026-10-15T16:32:24.804Z"
+      "vtt_sha256": "1f0078e9c06e9395423169ecd723de88ec402b4aa9842f856e265ecc21114430"
     },
     {
       "name": "No browser exceptions",
@@ -75,5 +74,5 @@
     }
   ],
   "browser_errors": [],
-  "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script. Exact SRT/VTT publication hashes were subsequently checked on the same deployment."
+  "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script."
 }

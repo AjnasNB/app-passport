@@ -9,8 +9,9 @@ Start with the **[wallet-free developer guide](docs/GETTING_STARTED.md)**: insta
 - [Judge evidence guide](https://arkivgraph.ajnasnb.com/judges.html)
 - [SDK setup and limits](ARKIV_GRAPH.md), [architecture](ARCHITECTURE.md), [data contract](arkiv/schema.md)
 - [Live root updates](https://arkivgraph.ajnasnb.com/?view=trust), [trust setup](docs/TRUST_SETUP.md), [mobile measurements](docs/MOBILE_PERFORMANCE.md)
-- [Source](https://github.com/AjnasNB/arkiv-graph), [evaluation PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-evaluation.pdf), [launch film](https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4), [pitch PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pdf)
+- [Source](https://github.com/AjnasNB/arkiv-graph), [evaluation PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-evaluation.pdf), [162-second launch film](https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4), [editable eight-page pitch PPTX](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pptx), [pitch PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pdf)
 - [Launch evidence and judging questions](docs/LAUNCH_EVIDENCE.md): what is recorded, what is illustrated, and what remains unresolved.
+- [Onboarding and pitch release checks](https://arkivgraph.ajnasnb.com/data/developer-release.json), [hosted release smoke](https://arkivgraph.ajnasnb.com/data/release-smoke.json), [dated npm statistics response](https://arkivgraph.ajnasnb.com/data/npm-usage.json).
 
 ## The problem and the fit
 
