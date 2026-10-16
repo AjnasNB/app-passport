@@ -2,6 +2,12 @@
 
 The current launch film is `/media/arkiv-graph-launch.mp4`: 162 seconds of original motion graphics and actual product capture, with original music and generic synthetic narration. AI Passport is the reference application. Arkiv supplies indexed public entities; graph assembly, signed complete manifests, bounded traversal and context selection run in the SDK.
 
+## Current eight-page pitch
+
+`template-pitch.mjs` creates the current dark editorial pitch: introduction, stale-approval problem, native schema/architecture, root/withdrawal innovation, useful AI reference tools, Why Arkiv and defensibility, measured evidence and developer setup. Conceptual generated images are in `apps/web/public/brand/arkiv-graph/pitch-dark`; actual product capture is identified separately. Text, diagrams and the mobile evidence chart remain editable in the PPTX. No customer, runtime-read or npm download figure is invented.
+
+Use the bundled presentation runtime through `ARTIFACT_NODE_MODULES`, `ARTIFACT_PYTHON` and `ARTIFACT_PRESENTATIONS_SKILL`, then run `node media/template-pitch.mjs <private-build-dir>`. `template-pitch-render.mjs` reimports the final PPTX for inspection, and `template-pitch-pdf.py` makes the companion PDF from those exact renders. Media authoring tools are separate from SDK dependencies. The older seven-page pitch workflow below is preserved as historical source.
+
 ## Signed roots, retained withdrawals and mobile evidence
 
 `trust-launch-motion.tsx`, `render-trust-launch.py` and `trust-launch-audio.py` build the current film through OpenMontage/Remotion. The film uses native animated graphs, revision links, a retained-withdrawal journal, an actual mobile-lab chart and recordings of the deployed website. It is not an animated deck. `trust-pitch-deck.mjs` and `trust-pitch-pdf.py` separately create seven image-led pitch pages with editable labels, a native chart, real screenshots and source/caveat notes. The generated artwork is conceptual, not evidence of customers or deployed topology.

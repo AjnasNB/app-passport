@@ -75,8 +75,13 @@
     },
     "caption_authorship": "One earlier visual critic authored the final sidecar repair; a separate reviewer independently checked the actual sidecars and ordered raw ASR/timeline anchors.",
     "deck_review": {
-      "slides": 7,
-      "scope": "All seven exact PPTX reimport renders and seven companion PDF pages were inspected; native desktop PowerPoint execution was not tested."
+      "slides": 8,
+      "reviewed_at": "2026-10-16T07:40:37.951Z",
+      "pptx_sha256": "56c4a2737f0680d4c9c93d60ec1170b8a61424fa395fa3f965edcc4cfe7cf499",
+      "pdf_sha256": "9b1e7f21a44d264396aa76b47a007c183c505bebe23e327342756cd6ce259439",
+      "scope": "Every final PPTX reimport render and all eight Poppler PDF pages inspected individually. Required schema/attribute corrections closed. Native PowerPoint execution not tested.",
+      "open_must_fix": 0,
+      "review_type": "Separate project-run model critic plus author checks, not external certification"
     },
     "remaining_optional_polish": [
       {
@@ -415,11 +420,26 @@
     "adoption": "No outside usage or download count claimed."
   },
   "pitch": {
-    "slides": 7,
-    "pptx_sha256": "1966cd85a93abd83a1b7daeaf75bd3f18530ffac97dd14b2b37a9da82023843b",
-    "pdf_sha256": "763fdd000a5ae20ec691942be4c56ec42ecc82f3703a82b253f44f9b4d08a174",
-    "visual_review": "All seven exact final PPTX reimport renders and all seven Poppler PDF pages inspected. Editable labels and a native chart/workbook pass structural checks; native desktop PowerPoint execution not tested.",
-    "artwork": "Seven original generated conceptual images, not fabricated product UI or customer evidence."
+    "slides": 8,
+    "pptx_sha256": "56c4a2737f0680d4c9c93d60ec1170b8a61424fa395fa3f965edcc4cfe7cf499",
+    "pptx_bytes": 8141630,
+    "pdf_sha256": "9b1e7f21a44d264396aa76b47a007c183c505bebe23e327342756cd6ce259439",
+    "pdf_bytes": 3175271,
+    "updated_at": "2026-10-16T07:40:37.951Z",
+    "template": "User-supplied black/blue/amber editorial image, rebuilt as an editable PPTX",
+    "visual_review": "Every final PPTX reimport render and all eight Poppler PDF pages inspected individually. Required schema/attribute corrections closed. Native PowerPoint execution not tested.",
+    "artwork": "Six selected newly generated conceptual artworks; actual AI Passport screenshot separately labelled. No customer or deployment evidence fabricated.",
+    "coverage": [
+      "introduction",
+      "problem",
+      "solution",
+      "schema and layered architecture",
+      "root and withdrawal innovation",
+      "service and working use cases",
+      "Why Arkiv and current defensibility",
+      "measured evidence and npm availability",
+      "developer setup and reproduction"
+    ]
   },
   "credits_url": "/media/arkiv-graph/credits.txt",
   "trust_boundary": "One configured live RPC supplies metadata and completeness. Signatures and retained checkpoints do not prove unseen non-omission, source truth or hosted computation. Clearing local history removes retained protection; records have finite validity/storage.",
@@ -455,5 +475,28 @@
       "passed": 1,
       "total": 1
     }
+  },
+  "pitch_history": [
+    {
+      "slides": 7,
+      "pptx_sha256": "1966cd85a93abd83a1b7daeaf75bd3f18530ffac97dd14b2b37a9da82023843b",
+      "pdf_sha256": "763fdd000a5ae20ec691942be4c56ec42ecc82f3703a82b253f44f9b4d08a174",
+      "visual_review": "All seven exact final PPTX reimport renders and all seven Poppler PDF pages inspected. Editable labels and a native chart/workbook pass structural checks; native desktop PowerPoint execution not tested.",
+      "artwork": "Seven original generated conceptual images, not fabricated product UI or customer evidence.",
+      "replaced_at": "2026-10-16T07:40:37.951Z"
+    }
+  ],
+  "positioning_followup": {
+    "reviewed_at": "2026-10-16T07:40:37.951Z",
+    "video_sha256": "55ca50675e160f17d8a5a6cdea02a5e7af19c32a681a85a5d8d011be874c78b5",
+    "mandatory_mp4_change": false,
+    "scope": "Source, narration, captions, seven decoded time points and existing automated QA reviewed. No new full-file acoustic or every-frame claim.",
+    "conclusion": "Infrastructure first, reference application second is already established.",
+    "website_framing": "Arkiv Graph infrastructure first, AI Passport reference app; launch and deck available directly from overview."
+  },
+  "npm_usage": {
+    "report_url": "/data/npm-usage.json",
+    "downloads": "Unavailable: official npm download API returned HTTP404 for both packages in dated seven/30-day windows",
+    "distinction": "Package publication and clean project installs verified; downloads are not unique people or runtime reads."
   }
 }

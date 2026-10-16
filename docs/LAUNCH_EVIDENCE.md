@@ -1,6 +1,6 @@
 # Launch evidence and judging questions
 
-The launch film is 162 seconds. The companion pitch has seven illustrated pages, with editable labels and an editable measurement chart. Artwork explains the system; recorded UI and linked reports establish what the project actually did.
+The launch film is 162 seconds. The companion pitch has eight pages in a black, blue and amber editorial design, with generated conceptual artwork, editable architecture/schema labels and an editable measurement chart. It covers the introduction, problem, solution, innovation, service, working use cases, Why Arkiv, current defensibility, evidence and setup. Recorded UI and linked reports establish what the project actually did.
 
 ## Who needs this, and what is the useful product?
 
@@ -33,6 +33,16 @@ The current two-client button performs fresh reads of the already withdrawn sess
 Start with the [README](../README.md), [SDK guide](../ARKIV_GRAPH.md), [schema](../arkiv/schema.md), [creator wallets and transactions](../arkiv/evidence.json) and [friction log](../arkiv/friction.md). The checked-in scripts distinguish read-only verification from explicitly requested testnet publication. No custom contract deployment is required; publication needs free testnet tokens and dedicated wallets. Public readers do not need a wallet.
 
 The friction log records concrete RPC/indexing, revision, manifest, package and browser-integration issues with reproduction steps. Package publication and project-run clean installs establish availability and reproducibility, not outside users or npm adoption.
+
+The [getting-started guide](GETTING_STARTED.md) now begins with a complete, wallet-free graph example. Its [anonymous clean-install proof](https://arkivgraph.ajnasnb.com/data/quickstart-proof.json) runs the exact documented two-node/one-edge example outside the workspace with `fetch` disabled. A [separate retained read-only receipt](https://arkivgraph.ajnasnb.com/data/quickstart-rpc-proof.json) records the documented seven-node/eight-edge/16-entity RPC checks; its timestamp/transcript limitations are explicit.
+
+The [npm usage snapshot](https://arkivgraph.ajnasnb.com/data/npm-usage.json) records official registry and download API responses, fetched on 16 October 2026. Registry publication is verified. Both packages' seven- and thirty-day download windows returned HTTP 404, so counts are unavailable, not zero. npm downloads would include project and CI installs; they do not measure distinct users or SDK runtime reads. No global runtime-read analytics has been implemented.
+
+## What is defensible today?
+
+The contribution is a reusable graph contract and matching SDK, CLI and MCP readers, with complete membership, trust-state safeguards and an actual AI-context integration. Current differentiation is integration quality and reproducible conformance evidence. Independent publishers, adopted schemas and maintained integrations could form a future ecosystem advantage. That is a hypothesis, not a proven network effect, proprietary dataset, adoption figure or revenue claim.
+
+The website exposes the SDK, full quickstart, schema and install/test commands directly. The film is framed as a technical infrastructure demonstration featuring AI Passport. Its reviewed MP4 bytes remain unchanged; the new pitch is a separate artifact, not material animated into the film. Historical mobile lab scores describe the measured release; new page changes receive separate interaction/layout checks.
 
 ## What remains unresolved?
 

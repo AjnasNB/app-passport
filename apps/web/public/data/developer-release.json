@@ -1,0 +1,52 @@
+{
+  "schema": "arkiv-graph.developer-release.v1",
+  "checked_at": "2026-10-16T07:40:37.951Z",
+  "scope": "Project-run onboarding, editorial and UI regression checks. No outside users, new Lighthouse score, human listening or every-frame certification.",
+  "unit_tests": {
+    "passed": 271,
+    "total": 271
+  },
+  "build": "passed",
+  "typecheck": "passed",
+  "developer_ui": {
+    "passed": 2,
+    "total": 2,
+    "scope": "Local browser interactions and 390px layout; graph response mocked and clipboard API stubbed. Documented copied code separately executed by clean consumer."
+  },
+  "static_mobile": {
+    "passed": 1,
+    "total": 1,
+    "scope": "Production build navigation: no irrelevant API requests/subscriptions and no horizontal overflow. This is not a Lighthouse or physical-phone measurement."
+  },
+  "quickstart": "/data/quickstart-proof.json",
+  "read_only_observations": "/data/quickstart-rpc-proof.json",
+  "npm_usage": "/data/npm-usage.json",
+  "pitch": {
+    "slides": 8,
+    "pptx_sha256": "56c4a2737f0680d4c9c93d60ec1170b8a61424fa395fa3f965edcc4cfe7cf499",
+    "pptx_bytes": 8141630,
+    "pdf_sha256": "9b1e7f21a44d264396aa76b47a007c183c505bebe23e327342756cd6ce259439",
+    "pdf_bytes": 3175271,
+    "updated_at": "2026-10-16T07:40:37.951Z",
+    "template": "User-supplied black/blue/amber editorial image, rebuilt as an editable PPTX",
+    "visual_review": "Every final PPTX reimport render and all eight Poppler PDF pages inspected individually. Required schema/attribute corrections closed. Native PowerPoint execution not tested.",
+    "artwork": "Six selected newly generated conceptual artworks; actual AI Passport screenshot separately labelled. No customer or deployment evidence fabricated.",
+    "coverage": [
+      "introduction",
+      "problem",
+      "solution",
+      "schema and layered architecture",
+      "root and withdrawal innovation",
+      "service and working use cases",
+      "Why Arkiv and current defensibility",
+      "measured evidence and npm availability",
+      "developer setup and reproduction"
+    ]
+  },
+  "remaining_gaps": [
+    "One configured RPC supplies unseen-history completeness; no independent state/non-omission proof.",
+    "No unaided outside integration or established ecosystem moat.",
+    "Small separate root-update demo; no production migration or automatic policy rotation.",
+    "Mobile performance scores are historical simulated lab results, not physical devices or field INP."
+  ]
+}
