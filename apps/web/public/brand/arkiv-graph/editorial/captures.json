@@ -1,0 +1,42 @@
+{
+  "schema": "arkiv-graph.editorial-captures.v1",
+  "scope": "Actual owned-site screenshots. Cards cropped to header/outcome, without changing DOM content. Fresh read-only requests, no transaction or model inference.",
+  "captures": [
+    {
+      "name": "website",
+      "url": "https://arkivgraph.ajnasnb.com/",
+      "selector": ".graph-product-hero",
+      "clip_height": null,
+      "captured_at": "2026-10-16T09:53:09.884Z",
+      "text": "Open-source infrastructure on Arkiv\n\nGraphs built for\nAI context.\n\nA TypeScript SDK, CLI and MCP server for connected evidence. Publish typed records on Arkiv, verify a complete signed revision, and carry a bounded source path into another application.\n\nStart with the SDK\nTry the two-client demo\n\nMIT licensed. Readers need no wallet. AI Passport is the working reference app for reviewed AI context and tool artifacts.\n\nOriginal source\nContext\nReview\nAI task\nRun receipt\nAI Passport reference app · illustrative evidence path",
+      "sha256": "3400d20b4e2eefaa903c733f8145a6312105571090a6821eb1c9f36f5fb68fe2"
+    },
+    {
+      "name": "client-A",
+      "url": "https://arkivgraph.ajnasnb.com/two-client/",
+      "selector": "[data-consumer=\"A\"]",
+      "clip_height": 210,
+      "captured_at": "2026-10-16T09:53:13.174Z",
+      "text": "Client A\nSeparate reader · local verifier\nReview withdrawn\n\nAn accepted issuer withdrew the required passport or review.\n\nTask did not run · evidence not admitted\nRequest\n#1 · 16 Oct 2026, 15:23:11\nDecision\n16 Oct 2026, 15:23:12\nReview read\nBlock 647313\n16 Oct 2026, 15:23:12\nGraph read\nBlock 647313\n16 Oct 2026, 15:23:12\nSource bytes\n1 file checked against packet and graph\nRun client A",
+      "sha256": "199d9277db6edd56c38d494d2a2067bb462d719d112a2a16a30d960c6ec5a089"
+    },
+    {
+      "name": "client-B",
+      "url": "https://arkivgraph.ajnasnb.com/two-client/",
+      "selector": "[data-consumer=\"B\"]",
+      "clip_height": 210,
+      "captured_at": "2026-10-16T09:53:13.271Z",
+      "text": "Client B\nSeparate reader · local verifier\nReview withdrawn\n\nAn accepted issuer withdrew the required passport or review.\n\nTask did not run · evidence not admitted\nRequest\n#1 · 16 Oct 2026, 15:23:11\nDecision\n16 Oct 2026, 15:23:13\nReview read\nBlock 647313\n16 Oct 2026, 15:23:12\nGraph read\nBlock 647313\n16 Oct 2026, 15:23:12\nSource bytes\n1 file checked against packet and graph\nRun client B",
+      "sha256": "e159a79af9eab9bc954ec4fa49c4c29f497e84e70ca2aebeaab5092c95c8cc92"
+    },
+    {
+      "name": "root-result",
+      "url": "https://arkivgraph.ajnasnb.com/?view=trust",
+      "selector": ".trust-result",
+      "clip_height": null,
+      "captured_at": "2026-10-16T09:53:16.410Z",
+      "text": "Verified and checkpoint retained\n\nRevision 2 accepted\nObserved block\n647314\nComplete graph\n2 nodes · 1 edge\nProvider assurance\nOne configured operator\nVerified at\n16/10/2026, 15:23:16\nsha256:8a036fdee3daac844c8b4ab0d78eedd792ae4b8d6d22bcfafb2f054fe9da0520\nTest an older signed revision\nTest a changed root",
+      "sha256": "2b5dc0a4580d28b253969f9bf0419848539b713f8c90e434236bba29da44abbb"
+    }
+  ]
+}

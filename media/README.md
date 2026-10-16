@@ -4,9 +4,11 @@ The current launch film is `/media/arkiv-graph-launch.mp4`: 162 seconds of origi
 
 ## Current eight-page pitch
 
-`template-pitch.mjs` creates the current dark editorial pitch: introduction, stale-approval problem, native schema/architecture, root/withdrawal innovation, useful AI reference tools, Why Arkiv and defensibility, measured evidence and developer setup. Conceptual generated images are in `apps/web/public/brand/arkiv-graph/pitch-dark`; actual product capture is identified separately. Text, diagrams and the mobile evidence chart remain editable in the PPTX. No customer, runtime-read or npm download figure is invented.
+`editorial-pitch.mjs` creates the current forest-and-cream pitch. It uses actual product captures and native editable text, architecture, comparison table and measurement chart. It contains no generated conceptual illustrations. Georgia, Arial and Consolas are standard Office fonts. The eight pages cover the problem, architecture, actual two-client withdrawal, AI Passport reference app, Why Arkiv, present defensibility, evidence and developer setup. No customer, runtime-read or npm download figure is invented.
 
-Use the bundled presentation runtime through `ARTIFACT_NODE_MODULES`, `ARTIFACT_PYTHON` and `ARTIFACT_PRESENTATIONS_SKILL`, then run `node media/template-pitch.mjs <private-build-dir>`. `template-pitch-render.mjs` reimports the final PPTX for inspection, and `template-pitch-pdf.py` makes the companion PDF from those exact renders. Media authoring tools are separate from SDK dependencies. The older seven-page pitch workflow below is preserved as historical source.
+Use `capture-editorial-pitch.mjs` for fresh read-only captures of the owned website. `apps/web/public/brand/arkiv-graph/editorial/captures.json` records selectors, timestamps, state and image digests. The AI result is a separately dated actual recorded run. Use the bundled presentation runtime through `ARTIFACT_NODE_MODULES`, `ARTIFACT_PYTHON` and `ARTIFACT_PRESENTATIONS_SKILL`, then run `node --expose-gc media/editorial-pitch.mjs <private-build-dir>`. `editorial-pitch-render.mjs` reimports the final PPTX, and `editorial-pitch-pdf.py` makes the companion PDF from those exact renders. All final PPTX renders and PDF pages are inspected. Native desktop PowerPoint execution is not tested. Media authoring tools are separate from SDK dependencies.
+
+The earlier `template-pitch*` dark deck and seven-page image-led workflows remain historical sources. They are not the current download. The current deck is an editorial redesign rather than a claim of fidelity to the earlier black/blue/amber reference.
 
 ## Signed roots, retained withdrawals and mobile evidence
 
