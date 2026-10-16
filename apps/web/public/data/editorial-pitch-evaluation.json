@@ -1,0 +1,78 @@
+{
+  "schema": "arkiv-graph.editorial-pitch-evaluation.v1",
+  "reviewed_at": "2026-10-16T10:03:58.996Z",
+  "pitch": {
+    "slides": 8,
+    "updated_at": "2026-10-16T10:03:58.996Z",
+    "template": "Forest-and-cream editorial redesign; real product captures and native editable diagrams, table and chart",
+    "visual_review": "Every final PPTX reimport render and all eight Poppler PDF pages inspected by the author and a separate project-run model critic. No remaining must-fix findings. Native PowerPoint execution not tested.",
+    "artwork": "No generated conceptual illustrations. Actual product captures have dated provenance; screenshots remain raster images.",
+    "fonts": [
+      "Arial",
+      "Georgia",
+      "Consolas"
+    ],
+    "coverage": [
+      "introduction",
+      "concrete stale-review problem",
+      "schema and layered architecture",
+      "actual two-client withdrawal and separate root test",
+      "working AI reference and India tools",
+      "Why Arkiv and present defensibility",
+      "historical measurements and npm availability",
+      "developer setup and next validation"
+    ],
+    "pptx_sha256": "ce12610c93993685437584c6fe36371e9c0e6f591d5a4fd9bd0d892171ca9ea4",
+    "pptx_bytes": 239509,
+    "pdf_sha256": "258404d50e4399766dafeb9d53923505e6e1ca09464210cdd969dbb7da0fa038",
+    "pdf_bytes": 2177314
+  },
+  "structure": {
+    "slides": 8,
+    "native_tables": 1,
+    "native_charts": 1,
+    "package_integrity_findings": 0,
+    "layout_findings": 0
+  },
+  "review": {
+    "all_eight_pptx_reimport_pages": true,
+    "all_eight_poppler_pdf_pages": true,
+    "author_and_separate_model_critic": true,
+    "open_must_fix": 0,
+    "native_powerpoint_execution": false,
+    "closed_findings": {
+      "slide_5_sliced_character_count": "Closed. The crop now isolates the complete six-case result panel without a sliced number or missing case.",
+      "slide_7_unnamed_metric": "Closed. Historical Lighthouse performance and score /100 are explicit. Simulated 18-audit median scope remains visible."
+    }
+  },
+  "captures_url": "/brand/arkiv-graph/editorial/captures.json",
+  "claim_boundaries": [
+    "Two clients and wallets are explicitly project-operated. Fresh refusal screenshots do not pretend to be historical before-state captures.",
+    "The root-update test is explicitly separate from the withdrawal session.",
+    "Arkiv storage, local graph readers and Passport checks are distinct.",
+    "Historical Lighthouse scores, local tests and safeguards are separate from package release and adoption statements.",
+    "Unavailable npm statistics do not become zero-user or adoption claims.",
+    "RPC metadata and unseen-history completeness remain an explicit trust boundary.",
+    "Node.js 24+ is now visible on the setup slide."
+  ],
+  "limitations": [
+    "This is an editorial redesign, not fidelity to the original black blurred reference template.",
+    "Review covers rendered PPTX reimport and PDF output, not live desktop PowerPoint slideshow inspection.",
+    "Raster website captures remain raster evidence. This review does not imply their UI text is natively editable.",
+    "The documented RPC and outside-adoption gaps remain product limitations; the deck discloses them."
+  ],
+  "video": {
+    "unchanged": true,
+    "sha256": "55ca50675e160f17d8a5a6cdea02a5e7af19c32a681a85a5d8d011be874c78b5",
+    "url": "https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4"
+  },
+  "devfolio_action": "No submission or form changes performed",
+  "hosted_verification": {
+    "checked_at": "2026-10-16T10:05:55.149Z",
+    "passed": 11,
+    "total": 11,
+    "report_url": "/data/release-smoke.json",
+    "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script.",
+    "tested_deployment": "87ab025b-d0ef-40fc-8efd-540e81b4cb96"
+  }
+}

@@ -76,12 +76,13 @@
     "caption_authorship": "One earlier visual critic authored the final sidecar repair; a separate reviewer independently checked the actual sidecars and ordered raw ASR/timeline anchors.",
     "deck_review": {
       "slides": 8,
-      "reviewed_at": "2026-10-16T07:40:37.951Z",
-      "pptx_sha256": "56c4a2737f0680d4c9c93d60ec1170b8a61424fa395fa3f965edcc4cfe7cf499",
-      "pdf_sha256": "9b1e7f21a44d264396aa76b47a007c183c505bebe23e327342756cd6ce259439",
-      "scope": "Every final PPTX reimport render and all eight Poppler PDF pages inspected individually. Required schema/attribute corrections closed. Native PowerPoint execution not tested.",
+      "reviewed_at": "2026-10-16T10:03:58.996Z",
+      "pptx_sha256": "ce12610c93993685437584c6fe36371e9c0e6f591d5a4fd9bd0d892171ca9ea4",
+      "pdf_sha256": "258404d50e4399766dafeb9d53923505e6e1ca09464210cdd969dbb7da0fa038",
+      "scope": "Every final PPTX reimport render and all eight Poppler PDF pages inspected by the author and a separate project-run model critic. No remaining must-fix findings. Native PowerPoint execution not tested.",
       "open_must_fix": 0,
-      "review_type": "Separate project-run model critic plus author checks, not external certification"
+      "review_type": "Separate project-run model critic plus author inspection, not external certification",
+      "evaluation_url": "/data/editorial-pitch-evaluation.json"
     },
     "remaining_optional_polish": [
       {
@@ -421,25 +422,29 @@
   },
   "pitch": {
     "slides": 8,
-    "pptx_sha256": "56c4a2737f0680d4c9c93d60ec1170b8a61424fa395fa3f965edcc4cfe7cf499",
-    "pptx_bytes": 8141630,
-    "pdf_sha256": "9b1e7f21a44d264396aa76b47a007c183c505bebe23e327342756cd6ce259439",
-    "pdf_bytes": 3175271,
-    "updated_at": "2026-10-16T07:40:37.951Z",
-    "template": "User-supplied black/blue/amber editorial image, rebuilt as an editable PPTX",
-    "visual_review": "Every final PPTX reimport render and all eight Poppler PDF pages inspected individually. Required schema/attribute corrections closed. Native PowerPoint execution not tested.",
-    "artwork": "Six selected newly generated conceptual artworks; actual AI Passport screenshot separately labelled. No customer or deployment evidence fabricated.",
+    "updated_at": "2026-10-16T10:03:58.996Z",
+    "template": "Forest-and-cream editorial redesign; real product captures and native editable diagrams, table and chart",
+    "visual_review": "Every final PPTX reimport render and all eight Poppler PDF pages inspected by the author and a separate project-run model critic. No remaining must-fix findings. Native PowerPoint execution not tested.",
+    "artwork": "No generated conceptual illustrations. Actual product captures have dated provenance; screenshots remain raster images.",
+    "fonts": [
+      "Arial",
+      "Georgia",
+      "Consolas"
+    ],
     "coverage": [
       "introduction",
-      "problem",
-      "solution",
+      "concrete stale-review problem",
       "schema and layered architecture",
-      "root and withdrawal innovation",
-      "service and working use cases",
-      "Why Arkiv and current defensibility",
-      "measured evidence and npm availability",
-      "developer setup and reproduction"
-    ]
+      "actual two-client withdrawal and separate root test",
+      "working AI reference and India tools",
+      "Why Arkiv and present defensibility",
+      "historical measurements and npm availability",
+      "developer setup and next validation"
+    ],
+    "pptx_sha256": "ce12610c93993685437584c6fe36371e9c0e6f591d5a4fd9bd0d892171ca9ea4",
+    "pptx_bytes": 239509,
+    "pdf_sha256": "258404d50e4399766dafeb9d53923505e6e1ca09464210cdd969dbb7da0fa038",
+    "pdf_bytes": 2177314
   },
   "credits_url": "/media/arkiv-graph/credits.txt",
   "trust_boundary": "One configured live RPC supplies metadata and completeness. Signatures and retained checkpoints do not prove unseen non-omission, source truth or hosted computation. Clearing local history removes retained protection; records have finite validity/storage.",
@@ -460,11 +465,12 @@
   ],
   "scope": "Project-run media/content evaluation. Full-file automated checks plus sampled visual and cut review; no claim that a human watched each of 4860 individual frames, or that a hackathon score/design percentage is certified.",
   "hosted_playback": {
-    "checked_at": "2026-10-16T07:43:56.385Z",
+    "checked_at": "2026-10-16T10:05:55.149Z",
     "passed": 11,
     "total": 11,
     "report_url": "/data/release-smoke.json",
-    "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script."
+    "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script.",
+    "tested_deployment": "87ab025b-d0ef-40fc-8efd-540e81b4cb96"
   },
   "pitch_history": [
     {
@@ -474,6 +480,29 @@
       "visual_review": "All seven exact final PPTX reimport renders and all seven Poppler PDF pages inspected. Editable labels and a native chart/workbook pass structural checks; native desktop PowerPoint execution not tested.",
       "artwork": "Seven original generated conceptual images, not fabricated product UI or customer evidence.",
       "replaced_at": "2026-10-16T07:40:37.951Z"
+    },
+    {
+      "slides": 8,
+      "pptx_sha256": "56c4a2737f0680d4c9c93d60ec1170b8a61424fa395fa3f965edcc4cfe7cf499",
+      "pptx_bytes": 8141630,
+      "pdf_sha256": "9b1e7f21a44d264396aa76b47a007c183c505bebe23e327342756cd6ce259439",
+      "pdf_bytes": 3175271,
+      "updated_at": "2026-10-16T07:40:37.951Z",
+      "template": "User-supplied black/blue/amber editorial image, rebuilt as an editable PPTX",
+      "visual_review": "Every final PPTX reimport render and all eight Poppler PDF pages inspected individually. Required schema/attribute corrections closed. Native PowerPoint execution not tested.",
+      "artwork": "Six selected newly generated conceptual artworks; actual AI Passport screenshot separately labelled. No customer or deployment evidence fabricated.",
+      "coverage": [
+        "introduction",
+        "problem",
+        "solution",
+        "schema and layered architecture",
+        "root and withdrawal innovation",
+        "service and working use cases",
+        "Why Arkiv and current defensibility",
+        "measured evidence and npm availability",
+        "developer setup and reproduction"
+      ],
+      "replaced_at": "2026-10-16T10:03:58.996Z"
     }
   ],
   "positioning_followup": {

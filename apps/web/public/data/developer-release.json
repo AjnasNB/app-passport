@@ -23,25 +23,29 @@
   "npm_usage": "/data/npm-usage.json",
   "pitch": {
     "slides": 8,
-    "pptx_sha256": "56c4a2737f0680d4c9c93d60ec1170b8a61424fa395fa3f965edcc4cfe7cf499",
-    "pptx_bytes": 8141630,
-    "pdf_sha256": "9b1e7f21a44d264396aa76b47a007c183c505bebe23e327342756cd6ce259439",
-    "pdf_bytes": 3175271,
-    "updated_at": "2026-10-16T07:40:37.951Z",
-    "template": "User-supplied black/blue/amber editorial image, rebuilt as an editable PPTX",
-    "visual_review": "Every final PPTX reimport render and all eight Poppler PDF pages inspected individually. Required schema/attribute corrections closed. Native PowerPoint execution not tested.",
-    "artwork": "Six selected newly generated conceptual artworks; actual AI Passport screenshot separately labelled. No customer or deployment evidence fabricated.",
+    "updated_at": "2026-10-16T10:03:58.996Z",
+    "template": "Forest-and-cream editorial redesign; real product captures and native editable diagrams, table and chart",
+    "visual_review": "Every final PPTX reimport render and all eight Poppler PDF pages inspected by the author and a separate project-run model critic. No remaining must-fix findings. Native PowerPoint execution not tested.",
+    "artwork": "No generated conceptual illustrations. Actual product captures have dated provenance; screenshots remain raster images.",
+    "fonts": [
+      "Arial",
+      "Georgia",
+      "Consolas"
+    ],
     "coverage": [
       "introduction",
-      "problem",
-      "solution",
+      "concrete stale-review problem",
       "schema and layered architecture",
-      "root and withdrawal innovation",
-      "service and working use cases",
-      "Why Arkiv and current defensibility",
-      "measured evidence and npm availability",
-      "developer setup and reproduction"
-    ]
+      "actual two-client withdrawal and separate root test",
+      "working AI reference and India tools",
+      "Why Arkiv and present defensibility",
+      "historical measurements and npm availability",
+      "developer setup and next validation"
+    ],
+    "pptx_sha256": "ce12610c93993685437584c6fe36371e9c0e6f591d5a4fd9bd0d892171ca9ea4",
+    "pptx_bytes": 239509,
+    "pdf_sha256": "258404d50e4399766dafeb9d53923505e6e1ca09464210cdd969dbb7da0fa038",
+    "pdf_bytes": 2177314
   },
   "remaining_gaps": [
     "One configured RPC supplies unseen-history completeness; no independent state/non-omission proof.",
@@ -56,14 +60,22 @@
     "scope": "Owned live domain. Actual MP4 playback/seeking and deck/package downloads; overview/SDK interactions and 390px layout. The SDK UI fixture and clipboard remain stubbed in its interaction case; real npm/RPC checks are separate receipts."
   },
   "hosted_release": {
-    "checked_at": "2026-10-16T07:43:56.385Z",
+    "checked_at": "2026-10-16T10:05:55.149Z",
     "passed": 11,
     "total": 11,
-    "report_url": "/data/release-smoke.json"
+    "report_url": "/data/release-smoke.json",
+    "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script.",
+    "tested_deployment": "87ab025b-d0ef-40fc-8efd-540e81b4cb96"
   },
   "npm_production_audit": {
     "vulnerabilities": 0,
     "scope": "npm audit --omit=dev on this checkout; not an audit of arbitrary applications."
   },
-  "tested_deployment": "fa7f2a26-9d0f-4791-b489-1e87726028ae"
+  "tested_deployment": "fa7f2a26-9d0f-4791-b489-1e87726028ae",
+  "editorial_refresh": {
+    "checked_at": "2026-10-16T10:03:58.996Z",
+    "scope": "Static presentation and documentation refresh. All eight final PPTX and PDF pages reviewed, native table/chart and package structure validated. Existing unit and performance counts remain historical; not rerun for this media-only change.",
+    "report_url": "/data/editorial-pitch-evaluation.json",
+    "tested_deployment": "87ab025b-d0ef-40fc-8efd-540e81b4cb96"
+  }
 }

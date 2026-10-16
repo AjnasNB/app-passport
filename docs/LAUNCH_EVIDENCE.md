@@ -1,6 +1,6 @@
 # Launch evidence and judging questions
 
-The launch film is 162 seconds. The companion pitch has eight pages in a black, blue and amber editorial design, with generated conceptual artwork, editable architecture/schema labels and an editable measurement chart. It covers the introduction, problem, solution, innovation, service, working use cases, Why Arkiv, current defensibility, evidence and setup. Recorded UI and linked reports establish what the project actually did.
+The launch film is 162 seconds. The companion pitch has eight pages in a forest-and-cream editorial design, with actual product screenshots, native editable architecture, a comparison table and a measurement chart. It contains no generated conceptual illustrations. It covers the introduction, problem, solution, innovation, service, working use cases, Why Arkiv, current defensibility, evidence and setup. Recorded UI and linked reports establish what the project actually did. The [pitch evaluation](https://arkivgraph.ajnasnb.com/data/editorial-pitch-evaluation.json) records exact files and review scope.
 
 ## Who needs this, and what is the useful product?
 
