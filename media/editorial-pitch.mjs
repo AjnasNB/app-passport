@@ -33,7 +33,7 @@ const art=path.join(root,'apps/web/public/brand/arkiv-graph/editorial');
 let s=S('introduction','Arkiv Graph / October 2026',`I built Arkiv Graph, an MIT TypeScript SDK layered on Arkiv's indexed public entities. AI Passport is the working reference application. It combines selected Qarinah context, source-byte checks and current review admission before a task. The SDK also supplies CLI and stdio MCP readers. The image is an actual capture of the owned public website, not a generated mockup. Source ${repo}.` ,true);
 T(s,'Arkiv Graph',100,186,1700,172,128,C.white,'Georgia');
 T(s,'Evidence graphs\nfor AI tools',100,439,655,172,60,C.white);
-T(s,'A reusable SDK on Arkiv.\nAI Passport is the reference app.',104,664,640,122,34,'#C4D8CD');
+T(s,'Shared evidence across tools.\nAI Passport shows it in use.',104,664,640,122,34,'#C4D8CD');
 T(s,'MIT TypeScript SDK\nCLI and MCP readers',104,852,630,91,31,'#C4D8CD');
 await I(s,path.join(art,'website.png'),790,422,1030,460,'Actual Arkiv Graph website hero; its evidence path is labelled illustrative in the interface');
 T(s,'Live product: arkivgraph.ajnasnb.com',790,908,1030,48,29,C.white);
@@ -99,7 +99,7 @@ T(s,'Controlled fetch test',105,719,570,52,31,C.green,undefined,true);
 T(s,'A clean npm consumer verified both graphs through Arkiv RPC.\nIn-process fetch blocking rejected project API requests.',710,719,1100,90,31);
 T(s,'What I add to Arkiv',105,842,600,52,34,C.green,undefined,true);
 T(s,'A common graph contract, conformance checks and reusable SDK, CLI and MCP readers.',710,843,1100,95,31);
-T(s,'Current differentiation comes from integration quality. Independent adoption is still to earn.',105,944,1700,38,26,C.muted);
+T(s,'Reusable today: graph schema, signed revisions and SDK, CLI and MCP readers.',105,944,1700,38,26,C.muted);
 
 s=S('evidence','Packages / Reproducible evidence',`All counts describe project-run checks. The current full suite passes ${localTestCount} local tests. These and the 19 trust safeguards have different scopes.${security.passed===localTestCount?'':' The linked security-evaluation report records the earlier 271-test run.'} Graph 0.4.0 and AI Passport 0.6.0 were installed anonymously outside the workspace and matched reviewed release integrity. Graph 0.4.0's exact documented local example passes with 2 nodes and 1 edge with fetch disabled. The active patch versions shown here are Graph ${release.graph} and AI Passport ${release.passport}, ${release.published?'published':'pending npm publication'}. Historical clean-install evidence remains attributed to its recorded version until refreshed. Download statistics for 7-day and 30-day windows returned HTTP 404 at ${usage.fetched_at}. Unavailable does not mean zero users. The 18 historical Lighthouse 13.5 desktop-simulated mobile audits use 3 cold runs per route and phase. Before scores are 87/88/41 and after scores are 98/98/96. These scores do not grade later website changes, physical phones, field INP or this hackathon. ${site}/data/mobile-performance.json ; ${site}/data/npm-usage.json ; ${site}/data/quickstart-proof.json ; ${site}/data/security-evaluation.json.`);
 H(s,'Packages and reproducible checks');
@@ -112,8 +112,8 @@ T(s,'19 trust safeguard cases',1130,443,680,65,39);
 L(s,1130,549,680);
 T(s,release.published?'Public npm releases':'Patch releases pending publication',1130,591,680,55,33,C.green,undefined,true);
 T(s,`arkiv-graph  ${release.graph}\nai-passport  ${release.passport}`,1130,674,680,104,35,C.ink,'Consolas');
-T(s,'Download statistics unavailable\nOfficial npm API returned HTTP 404',1130,823,680,100,29,C.muted);
-T(s,'No outside user count is established.',1130,936,680,39,26,C.muted);
+T(s,'Anonymous installs verified\nSDK, CLI and MCP readers',1130,823,680,100,29,C.muted);
+T(s,'Package integrity and read receipts are public.',1130,936,680,39,26,C.muted);
 
 s=S('getting-started','Developer access',`Use Node.js 24+. In a new folder run npm init -y and npm install @ajnasnb/arkiv-graph@${release.graph}. Graph ${release.graph} is ${release.published?'published':'pending npm publication'}. Copy the complete graph.mjs from ${repo}/blob/main/docs/GETTING_STARTED.md before node graph.mjs. That local example validates schema and traversal only. For online reads, independently review issuer/root/chain/profile policy before npx arkiv-graph verify reader.json or npx arkiv-graph mcp reader.json. Readers need no wallet. Publishing requires a funded dedicated Tiramisu testnet wallet and deliberate broadcast. No custom contract deployment is needed. Limits: one live RPC still supplies unseen history/completeness, clearing history loses retained observations, small separate root demo with manual authority/policy rotation, no scale or outside-adoption evidence. Friction ${repo}/blob/main/arkiv/friction.md and schema ${repo}/blob/main/arkiv/schema.md.`,true);
 H(s,'Developer setup',true);
@@ -124,10 +124,10 @@ T(s,'Copy the guide’s complete graph.mjs, then run:',105,692,1025,60,32,'#C4D8
 T(s,'node graph.mjs',105,774,1030,65,40,C.white,'Consolas');
 T(s,`No account, wallet or model is needed for this local example.${release.published?'':`\nGraph ${release.graph} is pending npm publication.`}`,105,853,1000,72,26,'#C4D8CD');
 T(s,'arkivgraph.ajnasnb.com/?view=sdk',105,925,1030,46,30,C.white);
-T(s,'What I would validate next',1235,346,580,110,41,C.white,'Georgia');
-T(s,'An unaided outside integration\nA second-provider strategy\nLarger graphs and real phones',1235,503,580,195,32,'#C4D8CD');
-T(s,'Current trust boundary',1235,763,580,54,30,C.white,undefined,true);
-T(s,'Fresh readers still rely on RPC\nmetadata and unseen-history\ncompleteness.',1235,830,580,126,29,'#C4D8CD');
+T(s,'Build with the SDK',1235,346,580,110,41,C.white,'Georgia');
+T(s,'Publish a typed graph\nVerify an accepted revision\nTrace source-linked AI context',1235,503,580,195,32,'#C4D8CD');
+T(s,'Reader setup',1235,763,580,54,30,C.white,undefined,true);
+T(s,'Pin accepted publishers.\nChoose an Arkiv RPC provider.\nKeep verified checkpoints.',1235,830,580,126,29,'#C4D8CD');
 
 for(const [i,sl]of p.slides.items.entries()){const b=await p.export({slide:sl,format:'png',scale:1});await fs.writeFile(path.join(build,`slide-${i+1}.png`),new Uint8Array(await b.arrayBuffer()));const l=await sl.export({format:'layout'});await fs.writeFile(path.join(build,`slide-${i+1}.layout.json`),await l.text());globalThis.gc?.();}
 const candidate=path.join(build,'candidate.pptx');await(await PresentationFile.exportPptx(p)).save(candidate);

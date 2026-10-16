@@ -44,13 +44,13 @@ The [npm usage snapshot](https://arkivgraph.ajnasnb.com/data/npm-usage.json) rec
 
 The contribution is a reusable graph contract and matching SDK, CLI and MCP readers, with complete membership, trust-state safeguards and an actual AI-context integration. Current differentiation is integration quality and reproducible conformance evidence. Independent publishers, adopted schemas and maintained integrations could form a future ecosystem advantage. That is a hypothesis, not a proven network effect, proprietary dataset, adoption figure or revenue claim.
 
-The website exposes the SDK, full quickstart, schema and install/test commands directly. The film is framed as a technical infrastructure demonstration featuring AI Passport. Its reviewed MP4 bytes remain unchanged; the new pitch is a separate artifact, not material animated into the film. Historical mobile lab scores describe the measured release; new page changes receive separate interaction/layout checks.
+The website exposes the SDK, full quickstart, schema and install/test commands directly. The film is framed as a technical infrastructure demonstration featuring AI Passport. Its latest wording refresh retains the first142 seconds of existing footage and updates the final20-second installation/product close. The pitch remains a separate eight-slide artifact with its original layout. Historical mobile lab scores describe the measured release; new page changes receive separate interaction/layout checks.
 
 ## Demo artifacts and review scope
 
 The launch film is 162 seconds. The eight-page companion pitch uses actual product screenshots and native editable architecture, a comparison table and a measurement chart. Recorded UI and linked reports establish what the project actually did. The [pitch evaluation](https://arkivgraph.ajnasnb.com/data/editorial-pitch-evaluation.json) records exact files and review scope.
 
-The current final PPTX was imported into Google Slides and opened in Chrome; all eight Google-exported PDF pages were visually reviewed. A separate project-run critic checked all eight PPTX reimport renders and companion PDF pages. The earlier revision also received a complete browser slideshow pass; slideshow controls timed out in the current revision, so that pass is not claimed here. The prior clipped chart-label conversion defect remains fixed with axis headroom and unchanged measurements. Google converts the chart to an image, while the downloadable PPTX retains its native editable chart and workbook. Native desktop PowerPoint execution was not tested.
+All eight current PPTX reimport renders and all eight Poppler PDF pages were visually reviewed, with a separate project-run critic. Only wording on slides1,6,7 and8 changes; slides2–5 are pixel-identical to the preceding deck. The editable chart, table, fonts and screenshot crops retain their existing layout. The preceding revision's native Google Slides review remains recorded as history in the pitch evaluation. The [media refresh receipt](https://arkivgraph.ajnasnb.com/data/media-copy-refresh.json) binds the current downloads to their exact hashes.
 
 ## What remains unresolved?
 

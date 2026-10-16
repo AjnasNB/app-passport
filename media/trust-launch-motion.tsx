@@ -345,7 +345,7 @@ function Npm({f,e}: {f:number;e:FilmEvidence}) {
   const graph=e.npm.packages.find(p=>p.name==='@ajnasnb/arkiv-graph')!;
   const passport=e.npm.packages.find(p=>p.name==='@ajnasnb/ai-passport')!;
   const unpack=p(f,145,225);
-  return <Stage label="Verified public registry releases · installation is not outside adoption" footer="Public MIT source · exact package bytes checked · reproducible schema, queries and evidence.">
+  return <Stage label="Verified public npm releases · SDK and reference application" footer="Public MIT source · exact package bytes checked · reproducible schema, queries and evidence.">
     <Text x={92} y={155} size={106}>Install. Reproduce. Build.</Text>
     <div style={{position:'absolute',left:92,top:359,width:1736,height:342,borderRadius:22,background:C.forest,color:C.ivory,overflow:'hidden',boxShadow:'0 27px 56px #102A241B',
       transformOrigin:'50% 0%',transform:`translateY(${mix(0,-80,unpack)}px) scale(${mix(1,.92,unpack)})`}}>
@@ -360,15 +360,15 @@ function Npm({f,e}: {f:number;e:FilmEvidence}) {
 }
 
 function Close({f,e}: {f:number;e:FilmEvidence}) {
-  return <Stage dark label="Current trust boundary · testnet demonstration" footer="arkivgraph.ajnasnb.com  ·  github.com/AjnasNB/arkiv-graph">
+  return <Stage dark label="Arkiv Graph infrastructure · AI Passport reference app" footer="arkivgraph.ajnasnb.com  ·  github.com/AjnasNB/arkiv-graph">
     <svg width="1920" height="1080" style={{position:'absolute',inset:0,opacity:.28}}><NodeMesh f={f} x={1540} y={568} scale={.68}/></svg>
-    <Text x={92} y={188} size={115}>Trust has a boundary.</Text>
-    <Text x={94} y={399} size={53} width={1300}>One live RPC provider.</Text>
-    <Text x={94} y={499} size={53} width={1400}>Metadata and query completeness are trusted.</Text>
+    <Text x={92} y={188} size={115}>Build on Arkiv Graph.</Text>
+    <Text x={94} y={399} size={53} width={1300}>Publish connected evidence.</Text>
+    <Text x={94} y={499} size={53} width={1400}>Verify it across tools.</Text>
     <div style={{position:'absolute',left:94,top:647,width:1425,height:145,borderTop:'2px solid #E2B96699',opacity:p(f,37,59)}}>
-      <Text x={0} y={31} size={47} style={{color:C.amber}}>Unseen omissions are not solved.</Text>
+      <Text x={0} y={31} size={47} style={{color:C.amber}}>AI Passport shows the workflow.</Text>
     </div>
-    <Text x={94} y={835} size={51} style={{color:C.jade,opacity:p(f,75,104)}}>Inspect the evidence. Build your reader.</Text>
+    <Text x={94} y={835} size={51} style={{color:C.jade,opacity:p(f,75,104)}}>SDK · CLI · MCP</Text>
   </Stage>;
 }
 

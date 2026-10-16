@@ -45,10 +45,10 @@ SCENES = [
          narration='A hash identifies bytes. A private database depends on its operator. Arkiv provides shared indexed discovery. Readers can bypass our API. The SDK adds graph verification and AI context.',
          sources=['README.md', 'apps/web/public/data/backend-independence.json', 'arkiv/friction.md']),
     dict(id='npm', start=142, duration=12, title='Install. Reproduce. Build.', kind='Verified public npm releases',
-         narration='Install Arkiv Graph zero point four, or AI Passport zero point six. Public schemas, queries and evidence make the demo reproducible. Outside usage is not yet proven.',
+         narration='Install Arkiv Graph zero point four point one. AI Passport zero point six point one adds the reference application. Read the schema and reproduce the evidence.',
          sources=['apps/web/public/data/npm-release.json', 'apps/web/public/data/npm-trust-consumer.json']),
-    dict(id='close', start=154, duration=8, title='Trust has a boundary.', kind='Current deployment trust disclosure',
-         narration='One RPC remains trusted. Unseen omissions remain possible. Build your own reader.',
+    dict(id='close', start=154, duration=8, title='Build on Arkiv Graph.', kind='Product summary · graph infrastructure and reference app',
+         narration='Publish connected evidence. Verify it across tools. Build with Arkiv Graph, and explore AI Passport.',
          sources=['apps/web/public/data/trust-safeguards.json']),
 ]
 
@@ -73,7 +73,7 @@ def evidence_from_public():
     assert ai['inference_run'] is True and ai['coding']['passed'] is True and len(ai['coding']['cases']) == 6
     assert [(r['consumer'], r['admission']['allowed']) for r in session['observations']] == [('A', True), ('B', True), ('B', False), ('A', False)]
     versions = {p['name']: p['version'] for p in npm['packages'] if p['published'] and p['reviewed_tarball_match']}
-    assert versions == {'@ajnasnb/arkiv-graph': '0.4.0', '@ajnasnb/ai-passport': '0.6.0'}
+    assert versions == {'@ajnasnb/arkiv-graph': '0.4.1', '@ajnasnb/ai-passport': '0.6.1'}
     baseline = mobile['baseline']['routes']
     final = mobile.get('final', mobile.get('candidate', {}))['routes']
     measurements = []
