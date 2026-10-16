@@ -1,0 +1,35 @@
+{
+  "schema": "arkiv-graph.quickstart-proof.v1",
+  "checked_at": "2026-10-16T07:22:06.509Z",
+  "passed": true,
+  "node_version": "v24.15.0",
+  "package": {
+    "name": "@ajnasnb/arkiv-graph",
+    "version": "0.4.0"
+  },
+  "installation": {
+    "source": "https://registry.npmjs.org",
+    "fresh_os_temporary_directory": true,
+    "fresh_npm_cache": true,
+    "isolated_npm_config": true,
+    "npm_authentication_used": false,
+    "workspace_symlinks_used": false,
+    "inherited_node_options_or_path_used": false
+  },
+  "documented_example_used_verbatim": true,
+  "fetch_disabled_during_example": true,
+  "wallet_used": false,
+  "rpc_used": false,
+  "result": {
+    "graph_digest": "sha256:321909a7de8ce6c50166b93b4914cc31fc714303a202fe54de5f8bf5f4f3d36f",
+    "nodes": [
+      "package:demo",
+      "source:demo"
+    ],
+    "edges": [
+      "edge:compiled-from"
+    ],
+    "truncated": false
+  },
+  "scope": "Project-run anonymous installation and local schema/traversal proof. No publication, network signature verification, external users or runtime read count."
+}

@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-10-15T12:26:05.406Z",
+  "evaluated_at": "2026-10-16T16:25:50.213Z",
   "schema": "arkiv-graph.backend-independence.v1",
   "passed": 7,
   "total": 7,
@@ -12,21 +12,21 @@
       "name": "Generic graph verifies from public RPC with the project API blocked",
       "passed": true,
       "graph_digest": "sha256:724614507a2f0ddaccf7eb58fcc9e4981f3a344776c6f906986a057d05f80297",
-      "read_block": "608698",
+      "read_block": "659089",
       "nodes": 7,
       "edges": 8,
       "entities": 16,
-      "query": "namespace = str('arkiv-graph-v1') AND schema_version = u64(1) AND graph_hash = bytes32(0x724614507a2f0ddaccf7eb58fcc9e4981f3a344776c6f906986a057d05f80297) AND $expiresAt > u64(608698) AND $creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC)"
+      "query": "namespace = str('arkiv-graph-v1') AND schema_version = u64(1) AND graph_hash = bytes32(0x724614507a2f0ddaccf7eb58fcc9e4981f3a344776c6f906986a057d05f80297) AND $expiresAt > u64(659089) AND $creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC)"
     },
     {
       "name": "Application graph verifies through the separately installed generic profile",
       "passed": true,
       "graph_digest": "sha256:3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c",
-      "read_block": "608698",
+      "read_block": "659090",
       "nodes": 27,
       "edges": 43,
       "entities": 71,
-      "query": "namespace = str('ai-passport-graph-v1') AND schema_version = u64(1) AND graph_hash = bytes32(0x3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c) AND $expiresAt > u64(608698) AND $creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC)"
+      "query": "namespace = str('ai-passport-graph-v1') AND schema_version = u64(1) AND graph_hash = bytes32(0x3d9325c01b3cb80e8f3de3c02fc720e196f190de4d74191bf8d7ddb93039817c) AND $expiresAt > u64(659090) AND $creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC)"
     },
     {
       "name": "Public-checkout source bytes and context packet match the signed graph",
@@ -41,8 +41,8 @@
       "passed": true,
       "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
       "status": "withdrawn",
-      "read_block": "608699",
-      "query": "namespace = str('app-passport-v1') AND schema_version = u64(1) AND $expiresAt > u64(608699) AND ($creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC) OR $creator = addr(0xd153C0cC313884DA0065615BB411Dfb8b873fE54)) AND artifact_hash = bytes32(0xabe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d)",
+      "read_block": "659091",
+      "query": "namespace = str('app-passport-v1') AND schema_version = u64(1) AND $expiresAt > u64(659091) AND ($creator = addr(0x4FEade3FF513A7954e9f7420aaa7BDEdc0BA4BDC) OR $creator = addr(0xd153C0cC313884DA0065615BB411Dfb8b873fE54)) AND artifact_hash = bytes32(0xabe748ba4cc0567fb9891b708c399669272049e27d7b48a697aaffc4a6b3a78d)",
       "inference_run": false,
       "task_executed": false
     },
@@ -83,7 +83,7 @@
           "arkiv_getBlockTiming"
         ],
         "http_status": 200,
-        "duration_ms": 988
+        "duration_ms": 1717
       },
       {
         "origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
@@ -91,7 +91,7 @@
           "arkiv_query"
         ],
         "http_status": 200,
-        "duration_ms": 411
+        "duration_ms": 418
       },
       {
         "origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
@@ -99,7 +99,7 @@
           "arkiv_getBlockTiming"
         ],
         "http_status": 200,
-        "duration_ms": 329
+        "duration_ms": 344
       },
       {
         "origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
@@ -107,7 +107,7 @@
           "arkiv_query"
         ],
         "http_status": 200,
-        "duration_ms": 441
+        "duration_ms": 422
       },
       {
         "origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
@@ -115,7 +115,7 @@
           "arkiv_getBlockTiming"
         ],
         "http_status": 200,
-        "duration_ms": 327
+        "duration_ms": 366
       },
       {
         "origin": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
@@ -123,7 +123,7 @@
           "arkiv_query"
         ],
         "http_status": 200,
-        "duration_ms": 356
+        "duration_ms": 394
       }
     ],
     "api_key_used": false,
@@ -138,8 +138,8 @@
     "isolated_npm_config": true,
     "fresh_npm_cache": true,
     "packages": {
-      "@ajnasnb/arkiv-graph": "0.4.0",
-      "@ajnasnb/ai-passport": "0.6.0",
+      "@ajnasnb/arkiv-graph": "0.4.1",
+      "@ajnasnb/ai-passport": "0.6.1",
       "qarinah": "0.7.0"
     },
     "isolated_from_workspace": true,

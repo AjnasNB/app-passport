@@ -34,7 +34,7 @@ Node.js **24 or newer**:
 mkdir my-arkiv-graph
 cd my-arkiv-graph
 npm init -y
-npm install @ajnasnb/arkiv-graph@0.4.0
+npm install @ajnasnb/arkiv-graph@0.4.1
 ```
 
 Copy the complete [`graph.mjs` example](docs/GETTING_STARTED.md#2-build-and-traverse-a-local-graph), then run `node graph.mjs`. It validates two nodes and one typed relationship and returns the complete directed path. Installation needs internet; the example itself runs offline without accounts, keys, RPC or a model.
@@ -43,25 +43,25 @@ From this checkout, `node scripts/quickstart-proof.mjs` installs the exact publi
 
 ## Release
 
-The public npm releases are **[`@ajnasnb/arkiv-graph` 0.4.0](https://www.npmjs.com/package/@ajnasnb/arkiv-graph)** and **[`@ajnasnb/ai-passport` 0.6.0](https://www.npmjs.com/package/@ajnasnb/ai-passport)**. Both registry tarballs were fetched without authentication and matched the reviewed builds; [release evidence](https://arkivgraph.ajnasnb.com/data/npm-release.json) records their versions, hashes and publication times. The generic graph package alone has no Qarinah, passport or model dependency.
+The public npm releases are **[`@ajnasnb/arkiv-graph` 0.4.1](https://www.npmjs.com/package/@ajnasnb/arkiv-graph)** and **[`@ajnasnb/ai-passport` 0.6.1](https://www.npmjs.com/package/@ajnasnb/ai-passport)**. Both registry tarballs were fetched without authentication and matched the reviewed builds; [release evidence](https://arkivgraph.ajnasnb.com/data/npm-release.json) records their versions, hashes and publication times. The generic graph package alone has no Qarinah, passport or model dependency.
 
 Install the application adapter only when using AI Passport:
 
 ```sh
-npm install @ajnasnb/arkiv-graph@0.4.0 @ajnasnb/ai-passport@0.6.0 qarinah@0.7.0
+npm install @ajnasnb/arkiv-graph@0.4.1 @ajnasnb/ai-passport@0.6.1 qarinah@0.7.0
 ```
 
 Both tarball release gates also passed in fresh folders outside the workspace, with Qarinah 0.7.0, no workspace symlinks or `NODE_PATH`, all eight package entrypoints imported, and a standalone TypeScript consumer compiled. The same builds remain downloadable:
 
 ```sh
-npm install https://arkivgraph.ajnasnb.com/downloads/ajnasnb-arkiv-graph-0.4.0.tgz https://arkivgraph.ajnasnb.com/downloads/ajnasnb-ai-passport-0.6.0.tgz qarinah@0.7.0
+npm install https://arkivgraph.ajnasnb.com/downloads/ajnasnb-arkiv-graph-0.4.1.tgz https://arkivgraph.ajnasnb.com/downloads/ajnasnb-ai-passport-0.6.1.tgz qarinah@0.7.0
 ```
 
 Install both tarballs together because the application adapter depends on the exact graph release.
 
 ## Usage evidence
 
-The anonymous public registry check on **16 October 2026** confirmed graph **0.4.0** and AI Passport **0.6.0** as the latest releases. At **2026-10-16 07:21 UTC**, the official npm download API returned HTTP 404 for both packages for **9–15 October 2026** and **16 September–15 October 2026**. Download counts are recorded as **unavailable**, not zero. [The snapshot](apps/web/public/data/npm-usage.json) retains exact windows, fetch times, source URLs, status and raw API responses.
+The dated [npm snapshot](apps/web/public/data/npm-usage.json) records exact registry versions, publication times, completed download windows and raw API responses. Counts are unavailable when the official API returns HTTP 404; unavailable is not zero. Downloads include project and automated installs and never establish distinct users or SDK runtime reads.
 
 Refresh with `node scripts/npm-usage.mjs`. When available, npm downloads measure package retrievals across versions, including project and CI installs. They do not measure unique people, independent applications or runtime graph reads. No verified external user or runtime read count is claimed.
 
@@ -127,7 +127,7 @@ Run `node scripts/verify-backend-independence.mjs` after checkout setup. It inst
 
 The [seven-check report](https://arkivgraph.ajnasnb.com/data/backend-independence.json) includes actual RPC methods, read blocks, creator predicates and network counts. This is a project-run failure simulation. It demonstrates independence from this project's API using one working RPC provider and pre-supplied public source/configuration; it does not establish network-wide censorship resistance or external adoption. A single operator can use Postgres. Replacing Arkiv here means supplying another shared publication/discovery layer for the indexed, attributable records and current review state.
 
-Published graph revisions retain historical source snapshots, including the earlier 0.2.0 CLI. Those signatures apply to their original bytes. The current npm 0.4.0/0.6.0 tarballs are verified separately by the registry integrity report; immutable records are not relabeled as new release attestations.
+Published graph revisions retain historical source snapshots, including the earlier 0.2.0 CLI. Those signatures apply to their original bytes. The current npm 0.4.1/0.6.1 tarballs are verified separately by the registry integrity report; immutable records are not relabeled as new release attestations.
 
 ## The AI reference application
 
@@ -149,7 +149,7 @@ A single operator's calculator can use an ordinary database. Arkiv is useful her
 
 The [local CPU benchmark](https://arkivgraph.ajnasnb.com/data/graph-benchmark.json) measures synthetic graphs of 20, 100 and 200 nodes on one machine. At 20 nodes, indexed traversal was effectively unchanged from scanning (0.1148 versus 0.1144 ms median). At the 200-node/500-edge limit, medians were 1.0701 versus 1.5017 ms. Full signature, manifest and root verification was measured separately at 285.5, 1687.3 and 2843.6 ms for the three sizes. These are local CPU measurements, excluding RPC, storage and gas; they are not production latency, throughput or distributed-scale results.
 
-The release local suite passed 271 tests covering signed graph/admission boundaries, storage coverage, exact runtime binding and malformed or unavailable evidence. [Test reports](https://arkivgraph.ajnasnb.com/data/security-evaluation.json) retain their own dates and scope. The [34 browser checks](https://arkivgraph.ajnasnb.com/data/browser-evaluation.json) cover sixteen original flows, four navigation regressions, six root/trust cases, two performance guards and six signed-fixture two-client regressions. Controlled failures and actual network reads are explicitly distinguished. These six fixture tests are distinct from actual live-network lifecycle evidence. The [actual two-client browser report](https://arkivgraph.ajnasnb.com/data/two-client-browser-evaluation.json) separately records four requests and zero browser errors. Mock inference in local tests is distinct from the [real hosted AI evaluation](https://arkivgraph.ajnasnb.com/data/ai-evaluation.json).
+The current release local suite passed 274 tests covering signed graph/admission boundaries, storage coverage, exact runtime binding and malformed or unavailable evidence. [Test reports](https://arkivgraph.ajnasnb.com/data/security-evaluation.json) retain their own dates and scope. The [34 browser checks](https://arkivgraph.ajnasnb.com/data/browser-evaluation.json) cover sixteen original flows, four navigation regressions, six root/trust cases, two performance guards and six signed-fixture two-client regressions. Controlled failures and actual network reads are explicitly distinguished. These six fixture tests are distinct from actual live-network lifecycle evidence. The [actual two-client browser report](https://arkivgraph.ajnasnb.com/data/two-client-browser-evaluation.json) separately records four requests and zero browser errors. Mock inference in local tests is distinct from the [real hosted AI evaluation](https://arkivgraph.ajnasnb.com/data/ai-evaluation.json).
 
 The [final deployment checks](https://arkivgraph.ajnasnb.com/data/release-smoke.json) verify the completed session, two fresh refused requests, mobile layout, exact npm tarball bytes, the reviewed 162-second film, browser playback and seeking, and the downloadable deck and PDFs.
 
@@ -158,3 +158,8 @@ Run `node scripts/verify-release.mjs` from the checkout to repeat those read-onl
 Graphs are bounded to 200 nodes/500 edges, eight query pages and depth eight. AI evidence is bounded to 10,000 characters and output to 420 tokens. Model attempts have daily and per-IP limits; deterministic tools and readers also work without inference. Signed validity and chain storage are finite and require operator renewal. No external customer adoption, security certification, perpetual availability or hosted computation proof is claimed.
 
 MIT covers the new graph SDK, adapter and application. Qarinah retains Apache-2.0 and its notices; [PREEXISTING.md](PREEXISTING.md) discloses the baseline. Original Qarinah and ScamSignal folders are preserved. See [integration observations](arkiv/friction.md) and [media sources and credits](media/README.md).
+
+
+Final expiry-boundary correction: Graph 0.4.1 rechecks the signed head after asynchronous graph assembly and result digest preparation; the browser checks before checkpoint persistence. AI Passport 0.6.1 pins the patch. The current local suite passes 274/274, including three exact deadline regressions. The unchanged 162-second film records the prior 0.4.0/0.6.0 release and historical 271-test measurement. See [trust review](docs/TRUST_REVIEW.md) and the [current local test receipt](apps/web/public/data/security-evaluation.json).
+
+The [final release receipt](https://arkivgraph.ajnasnb.com/data/final-review.json) links 12 hosted release checks, 10 targeted hosted browser checks, anonymous installed-package consumers and all current media hashes. These scopes are separate; their counts are not combined into users or a judging score.

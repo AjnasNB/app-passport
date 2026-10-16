@@ -1,6 +1,6 @@
 {
   "schema": "arkiv-graph.npm-usage.v1",
-  "fetched_at": "2026-10-16T07:21:26.823Z",
+  "fetched_at": "2026-10-16T16:21:31.138Z",
   "metric": "npm-package-downloads",
   "window_semantics": "Explicit inclusive UTC dates ending on a complete UTC day; package-level counts include all versions.",
   "packages": [
@@ -8,18 +8,18 @@
       "name": "@ajnasnb/arkiv-graph",
       "registry": {
         "source_url": "https://registry.npmjs.org/%40ajnasnb%2Farkiv-graph",
-        "fetched_at": "2026-10-16T07:21:25.137Z",
+        "fetched_at": "2026-10-16T16:21:29.810Z",
         "http_status": 200,
-        "response_date": "Fri, 16 Oct 2026 07:21:27 GMT",
-        "latest": "0.4.0",
-        "published_at": "2026-10-15T12:19:50.093Z",
-        "expected_version": "0.4.0",
+        "response_date": "Fri, 16 Oct 2026 16:21:31 GMT",
+        "latest": "0.4.1",
+        "published_at": "2026-10-16T16:19:08.140Z",
+        "expected_version": "0.4.1",
         "expected_version_is_latest": true,
         "npm_authentication_used": false,
         "raw_dist_tags": {
-          "latest": "0.4.0"
+          "latest": "0.4.1"
         },
-        "raw_release_time": "2026-10-15T12:19:50.093Z"
+        "raw_release_time": "2026-10-16T16:19:08.140Z"
       },
       "windows": [
         {
@@ -30,9 +30,9 @@
           "status": "unavailable",
           "downloads": null,
           "source_url": "https://api.npmjs.org/downloads/point/2026-10-09:2026-10-15/%40ajnasnb%2Farkiv-graph",
-          "fetched_at": "2026-10-16T07:21:25.198Z",
+          "fetched_at": "2026-10-16T16:21:30.161Z",
           "http_status": 404,
-          "response_date": "Fri, 16 Oct 2026 07:21:25 GMT",
+          "response_date": "Fri, 16 Oct 2026 16:21:30 GMT",
           "raw_response": "{\"error\":\"package @ajnasnb/arkiv-graph not found\"}"
         },
         {
@@ -43,9 +43,9 @@
           "status": "unavailable",
           "downloads": null,
           "source_url": "https://api.npmjs.org/downloads/point/2026-09-16:2026-10-15/%40ajnasnb%2Farkiv-graph",
-          "fetched_at": "2026-10-16T07:21:25.200Z",
+          "fetched_at": "2026-10-16T16:21:30.167Z",
           "http_status": 404,
-          "response_date": "Fri, 16 Oct 2026 07:21:26 GMT",
+          "response_date": "Fri, 16 Oct 2026 16:21:30 GMT",
           "raw_response": "{\"error\":\"package @ajnasnb/arkiv-graph not found\"}"
         }
       ]
@@ -54,18 +54,18 @@
       "name": "@ajnasnb/ai-passport",
       "registry": {
         "source_url": "https://registry.npmjs.org/%40ajnasnb%2Fai-passport",
-        "fetched_at": "2026-10-16T07:21:25.201Z",
+        "fetched_at": "2026-10-16T16:21:30.171Z",
         "http_status": 200,
-        "response_date": "Fri, 16 Oct 2026 07:21:25 GMT",
-        "latest": "0.6.0",
-        "published_at": "2026-10-15T12:22:07.362Z",
-        "expected_version": "0.6.0",
+        "response_date": "Fri, 16 Oct 2026 16:21:30 GMT",
+        "latest": "0.6.1",
+        "published_at": "2026-10-16T16:20:40.726Z",
+        "expected_version": "0.6.1",
         "expected_version_is_latest": true,
         "npm_authentication_used": false,
         "raw_dist_tags": {
-          "latest": "0.6.0"
+          "latest": "0.6.1"
         },
-        "raw_release_time": "2026-10-15T12:22:07.362Z"
+        "raw_release_time": "2026-10-16T16:20:40.726Z"
       },
       "windows": [
         {
@@ -76,9 +76,9 @@
           "status": "unavailable",
           "downloads": null,
           "source_url": "https://api.npmjs.org/downloads/point/2026-10-09:2026-10-15/%40ajnasnb%2Fai-passport",
-          "fetched_at": "2026-10-16T07:21:25.202Z",
+          "fetched_at": "2026-10-16T16:21:30.174Z",
           "http_status": 404,
-          "response_date": "Fri, 16 Oct 2026 07:21:25 GMT",
+          "response_date": "Fri, 16 Oct 2026 16:21:30 GMT",
           "raw_response": "{\"error\":\"package @ajnasnb/ai-passport not found\"}"
         },
         {
@@ -89,9 +89,9 @@
           "status": "unavailable",
           "downloads": null,
           "source_url": "https://api.npmjs.org/downloads/point/2026-09-16:2026-10-15/%40ajnasnb%2Fai-passport",
-          "fetched_at": "2026-10-16T07:21:25.203Z",
+          "fetched_at": "2026-10-16T16:21:30.179Z",
           "http_status": 404,
-          "response_date": "Fri, 16 Oct 2026 07:21:26 GMT",
+          "response_date": "Fri, 16 Oct 2026 16:21:30 GMT",
           "raw_response": "{\"error\":\"package @ajnasnb/ai-passport not found\"}"
         }
       ]

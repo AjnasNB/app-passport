@@ -10,10 +10,10 @@ In a new, empty folder:
 
 ```sh
 npm init -y
-npm install @ajnasnb/arkiv-graph@0.4.0
+npm install @ajnasnb/arkiv-graph@0.4.1
 ```
 
-The generic package has no Qarinah or AI Passport dependency. The separate application adapter is `@ajnasnb/ai-passport@0.6.0`.
+The generic package has no Qarinah or AI Passport dependency. The separate application adapter is `@ajnasnb/ai-passport@0.6.1`.
 
 ## 2. Build and traverse a local graph
 
@@ -80,7 +80,7 @@ From this repository, reproduce that exact documentation example in a fresh OS t
 node scripts/quickstart-proof.mjs
 ```
 
-The proof installs **only graph 0.4.0** and its dependencies, checks the installed identity and absence of workspace symlinks, then disables all `fetch` calls before running the example. It returns a JSON result. It does not use a wallet or broadcast a transaction. The [successful recorded run](../apps/web/public/data/quickstart-proof.json) from 16 October 2026 produced the complete two-node/one-edge path. Fetch interception is the test control; it is not an OS network sandbox.
+The proof installs **only graph 0.4.1** and its dependencies, checks the installed identity and absence of workspace symlinks, then disables all `fetch` calls before running the example. It returns a JSON result. It does not use a wallet or broadcast a transaction. The [successful recorded run](../apps/web/public/data/quickstart-proof.json) from 16 October 2026 produced the complete two-node/one-edge path. Fetch interception is the test control; it is not an OS network sandbox.
 
 ## 3. Verify a real published graph through RPC
 

@@ -1,10 +1,10 @@
 {
   "schema": "arkiv.graph-npm-trust-consumer.v1",
-  "checked_at": "2026-10-15T12:26:54.066Z",
-  "sdk_version": "0.4.0",
+  "checked_at": "2026-10-16T16:28:59.713Z",
+  "sdk_version": "0.4.1",
   "trust_entrypoint": "@ajnasnb/arkiv-graph/trust",
-  "trust_entrypoint_bytes": 14372,
-  "trust_entrypoint_sha256": "b9074195e0564071f7880469cd6c6dff4c499ec20158fd9173f8730095589f1b",
+  "trust_entrypoint_bytes": 14605,
+  "trust_entrypoint_sha256": "36ed335787ad52b4bd8f6d72d6f42fcf7d94833fd7b83e6d04d3abfb7f9e0d80",
   "passed": 8,
   "total": 8,
   "checks": [
@@ -52,13 +52,13 @@
   "live": {
     "rpc": "https://rpc.tiramisu.db-chain.testnet.arkiv.network",
     "chain_id": 7738577,
-    "registry_block": "608722",
+    "registry_block": "659185",
     "current_root": "sha256:8a036fdee3daac844c8b4ab0d78eedd792ae4b8d6d22bcfafb2f054fe9da0520",
     "revisions": [
       {
         "sequence": 1,
         "root": "sha256:e1deadbe5f4b916abddc5b663830b9d70d223c7669426b96bcab9ad61e117d8d",
-        "block": "608722",
+        "block": "659185",
         "nodes": 1,
         "edges": 0,
         "entities": 2
@@ -66,7 +66,7 @@
       {
         "sequence": 2,
         "root": "sha256:8a036fdee3daac844c8b4ab0d78eedd792ae4b8d6d22bcfafb2f054fe9da0520",
-        "block": "608722",
+        "block": "659185",
         "nodes": 2,
         "edges": 1,
         "entities": 4
@@ -90,8 +90,8 @@
     "isolated_npm_config": true,
     "fresh_npm_cache": true,
     "packages": {
-      "@ajnasnb/arkiv-graph": "0.4.0",
-      "@ajnasnb/ai-passport": "0.6.0",
+      "@ajnasnb/arkiv-graph": "0.4.1",
+      "@ajnasnb/ai-passport": "0.6.1",
       "qarinah": "0.7.0"
     },
     "isolated_from_workspace": true,

@@ -1,0 +1,104 @@
+{
+  "schema": "arkiv-graph.final-review.v1",
+  "checked_at": "2026-10-16T16:34:10.965Z",
+  "tested_deployment": "8d9e1372-62a0-42bc-bbcb-45062a207b17",
+  "scope": "Project-run final release verification. Not an independent audit, official judging score, external adoption count or physical-device performance measurement.",
+  "code_fixes": [
+    "Recheck signed root deadline after asynchronous graph assembly and synchronous digest preparation.",
+    "Recheck signed root deadline before browser checkpoint persistence.",
+    "Align web/workspace lock and public adapter with corrected graph dependency."
+  ],
+  "packages": [
+    {
+      "name": "@ajnasnb/arkiv-graph",
+      "version": "0.4.1"
+    },
+    {
+      "name": "@ajnasnb/ai-passport",
+      "version": "0.6.1"
+    }
+  ],
+  "local_tests": {
+    "passed": 274,
+    "total": 274,
+    "receipt": "/data/security-evaluation.json"
+  },
+  "release_smoke": {
+    "passed": 12,
+    "total": 12,
+    "receipt": "/data/release-smoke.json",
+    "checked_at": "2026-10-16T16:32:59.672Z"
+  },
+  "hosted_browser": {
+    "passed": 10,
+    "total": 10,
+    "checked_at": "2026-10-16T16:32:31.233Z",
+    "checks": [
+      {
+        "title": "overview distinguishes infrastructure, keeps download evidence honest and opens the lazy film",
+        "passed": true,
+        "scope": "passed"
+      },
+      {
+        "title": "SDK quickstart copies the exact runnable documentation example and fits mobile",
+        "passed": true,
+        "scope": "passed"
+      },
+      {
+        "title": "static mobile views load without starting live admission reads or subscriptions",
+        "passed": true,
+        "scope": "passed"
+      },
+      {
+        "title": "a missing historical verifier worker refuses the session and keeps consumers disabled",
+        "passed": true,
+        "scope": "passed"
+      },
+      {
+        "title": "live root updates verify the published graph, reject local rollback/tampering and survive reload on mobile",
+        "passed": true,
+        "scope": "passed"
+      },
+      {
+        "title": "root updates fail closed before acceptance if persistent storage cannot retain the checkpoint",
+        "passed": true,
+        "scope": "passed"
+      },
+      {
+        "title": "malformed root history is refused without replacing saved bytes or querying the provider",
+        "passed": true,
+        "scope": "passed"
+      },
+      {
+        "title": "a browser without Web Locks refuses root updates before RPC or checkpoint writes",
+        "passed": true,
+        "scope": "passed"
+      },
+      {
+        "title": "a browser without Web Locks refuses a two-client task before its live RPC read",
+        "passed": true,
+        "scope": "passed"
+      },
+      {
+        "title": "two tabs serialize root checkpoint reads and a queued older RPC snapshot cannot overwrite accepted history",
+        "passed": true,
+        "scope": "passed"
+      }
+    ],
+    "scope": "Two onboarding checks, two performance/failure guards and six root/checkpoint checks. Some failures use authentic evidence replay and controlled injection; live root and current withdrawal checks read real RPC evidence."
+  },
+  "npm_integrity": "/data/npm-release.json",
+  "anonymous_trust": "/data/npm-trust-consumer.json",
+  "backend_failure_simulation": "/data/backend-independence.json",
+  "quickstart": "/data/quickstart-proof.json",
+  "graph_cli_mcp": "/data/graph-infrastructure-evaluation-registry.json",
+  "application_adapter": "/data/consumer-evaluation-registry.json",
+  "deck": "/data/editorial-pitch-evaluation.json",
+  "video": "/data/launch-evaluation.json",
+  "trust_limits": [
+    "One RPC operator supplies unseen-history completeness and metadata.",
+    "Checkpoints protect retained observations; clearing local data loses history.",
+    "Root demo remains small and separate; authority/policy rotation is an explicit bootstrap.",
+    "Physical-phone, unaided external integration and broad production-scale validation are not established."
+  ]
+}

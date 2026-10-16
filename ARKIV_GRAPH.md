@@ -8,15 +8,15 @@ For a first integration, use [GETTING_STARTED.md](docs/GETTING_STARTED.md): a te
 
 | Package | Release | Purpose |
 |---|---|---|
-| `@ajnasnb/arkiv-graph` | 0.4.0 | Generic graph protocol, TypeScript reader, context adapter, CLI and stdio MCP server |
-| `@ajnasnb/ai-passport` | 0.6.0 | Compatible AI graph profile, signed artifact/context admission, Qarinah adapter and bounded tools |
+| `@ajnasnb/arkiv-graph` | 0.4.1 | Generic graph protocol, TypeScript reader, context adapter, CLI and stdio MCP server |
+| `@ajnasnb/ai-passport` | 0.6.1 | Compatible AI graph profile, signed artifact/context admission, Qarinah adapter and bounded tools |
 
 The generic package supports developer-defined node types and relations without a Qarinah, passport or model dependency. The application adapter preserves the existing `ai-passport-graph-v1` signing domain and roots; the generic default uses `arkiv-graph-v1`.
 
 Both packages are published publicly on npm. Unauthenticated registry metadata and tarball fetches verified the exact reviewed bytes; [release evidence](https://arkivgraph.ajnasnb.com/data/npm-release.json) records the checks. Install the generic reader:
 
 ```sh
-npm install @ajnasnb/arkiv-graph@0.4.0
+npm install @ajnasnb/arkiv-graph@0.4.1
 ```
 
 Follow the [reviewed bootstrap recipe](docs/GETTING_STARTED.md#3-verify-a-real-published-graph-through-rpc) before saving or downloading `reader.json`. Then run `npx arkiv-graph verify reader.json`, `npx arkiv-graph trace reader.json application:ai-passport`, or `npx arkiv-graph mcp reader.json`. MCP starts a stdio server and waits for client input.
@@ -24,13 +24,13 @@ Follow the [reviewed bootstrap recipe](docs/GETTING_STARTED.md#3-verify-a-real-p
 For the application adapter:
 
 ```sh
-npm install @ajnasnb/arkiv-graph@0.4.0 @ajnasnb/ai-passport@0.6.0 qarinah@0.7.0
+npm install @ajnasnb/arkiv-graph@0.4.1 @ajnasnb/ai-passport@0.6.1 qarinah@0.7.0
 ```
 
 Both release tarballs also passed isolated installation, all eight runtime entrypoint imports, standalone TypeScript compilation, real direct RPC reads and packaged CLI checks with Qarinah 0.7.0. To use those downloadable builds, install both together:
 
 ```sh
-npm install https://arkivgraph.ajnasnb.com/downloads/ajnasnb-arkiv-graph-0.4.0.tgz https://arkivgraph.ajnasnb.com/downloads/ajnasnb-ai-passport-0.6.0.tgz qarinah@0.7.0
+npm install https://arkivgraph.ajnasnb.com/downloads/ajnasnb-arkiv-graph-0.4.1.tgz https://arkivgraph.ajnasnb.com/downloads/ajnasnb-ai-passport-0.6.1.tgz qarinah@0.7.0
 ```
 
 Node.js 24 is tested. Readers need no wallet or gas tokens. Example configurations pin a graph root and accepted issuers; downloading one does not establish your trust policy. The default CLI uses Tiramisu. Custom chains and graph profiles are available through the TypeScript API.

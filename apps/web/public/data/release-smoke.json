@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-10-16T15:59:16.152Z",
+  "checked_at": "2026-10-16T16:32:59.672Z",
   "url": "https://arkivgraph.ajnasnb.com",
-  "passed": 11,
-  "total": 11,
+  "passed": 12,
+  "total": 12,
   "checks": [
     {
       "name": "Completed session loads and both fresh browser requests refuse",
       "passed": true,
       "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
-      "session_load_ms": 1947
+      "session_load_ms": 2974
     },
     {
       "name": "Third transaction and exact withdrawal target remain inspectable",
@@ -16,6 +16,10 @@
     },
     {
       "name": "Completed-state mobile page has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Live root verifies and retains its checkpoint on mobile; labeled local rollback/tamper controls refuse",
       "passed": true
     },
     {
@@ -46,13 +50,13 @@
       "documents": [
         {
           "file": "arkiv-graph-pitch.pptx",
-          "bytes": 239501,
-          "sha256": "1bd1b3e11c1439641c7eb22541168e93e50f6f3e96d112a18a8e5ece6993ae37"
+          "bytes": 240087,
+          "sha256": "2aaa4f4c4d72fc0cc88e0df65afe24917d7c14890eee1b8f2c548b525f309415"
         },
         {
           "file": "arkiv-graph-pitch.pdf",
-          "bytes": 2177689,
-          "sha256": "e24359df50e37261894dc9e1979ee92eba157a812d9a3e2a40ba5aada3d9d0db"
+          "bytes": 2221045,
+          "sha256": "d0b77d50374d6be5cd38ff6748211f233e7159a4024c2fb5bde775cf2e8a45ac"
         },
         {
           "file": "arkiv-graph-evaluation.pdf",

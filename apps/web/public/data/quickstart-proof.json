@@ -1,11 +1,11 @@
 {
   "schema": "arkiv-graph.quickstart-proof.v1",
-  "checked_at": "2026-10-16T07:22:06.509Z",
+  "checked_at": "2026-10-16T16:23:32.239Z",
   "passed": true,
   "node_version": "v24.15.0",
   "package": {
     "name": "@ajnasnb/arkiv-graph",
-    "version": "0.4.0"
+    "version": "0.4.1"
   },
   "installation": {
     "source": "https://registry.npmjs.org",
