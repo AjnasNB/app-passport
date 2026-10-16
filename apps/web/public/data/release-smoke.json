@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-16T10:05:55.149Z",
+  "checked_at": "2026-10-16T15:59:16.152Z",
   "url": "https://arkivgraph.ajnasnb.com",
   "passed": 11,
   "total": 11,
@@ -8,7 +8,7 @@
       "name": "Completed session loads and both fresh browser requests refuse",
       "passed": true,
       "session_id": "77000888-ffdc-4ecf-beb8-df529adfb952",
-      "session_load_ms": 3323
+      "session_load_ms": 1947
     },
     {
       "name": "Third transaction and exact withdrawal target remain inspectable",
@@ -46,13 +46,13 @@
       "documents": [
         {
           "file": "arkiv-graph-pitch.pptx",
-          "bytes": 239509,
-          "sha256": "ce12610c93993685437584c6fe36371e9c0e6f591d5a4fd9bd0d892171ca9ea4"
+          "bytes": 239501,
+          "sha256": "1bd1b3e11c1439641c7eb22541168e93e50f6f3e96d112a18a8e5ece6993ae37"
         },
         {
           "file": "arkiv-graph-pitch.pdf",
-          "bytes": 2177314,
-          "sha256": "258404d50e4399766dafeb9d53923505e6e1ca09464210cdd969dbb7da0fa038"
+          "bytes": 2177689,
+          "sha256": "e24359df50e37261894dc9e1979ee92eba157a812d9a3e2a40ba5aada3d9d0db"
         },
         {
           "file": "arkiv-graph-evaluation.pdf",

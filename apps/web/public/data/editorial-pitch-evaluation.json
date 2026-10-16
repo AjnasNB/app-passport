@@ -1,11 +1,11 @@
 {
   "schema": "arkiv-graph.editorial-pitch-evaluation.v1",
-  "reviewed_at": "2026-10-16T10:03:58.996Z",
+  "reviewed_at": "2026-10-16T15:54:57.615Z",
   "pitch": {
     "slides": 8,
-    "updated_at": "2026-10-16T10:03:58.996Z",
+    "updated_at": "2026-10-16T15:54:57.615Z",
     "template": "Forest-and-cream editorial redesign; real product captures and native editable diagrams, table and chart",
-    "visual_review": "Every final PPTX reimport render and all eight Poppler PDF pages inspected by the author and a separate project-run model critic. No remaining must-fix findings. Native PowerPoint execution not tested.",
+    "visual_review": "All eight corrected slides inspected in the actual Google Slides browser slideshow, plus all eight Google-exported PDF pages. Author and separate project-run critic also inspected all final PPTX reimport renders and companion PDF pages. Native desktop PowerPoint execution not tested.",
     "artwork": "No generated conceptual illustrations. Actual product captures have dated provenance; screenshots remain raster images.",
     "fonts": [
       "Arial",
@@ -22,10 +22,10 @@
       "historical measurements and npm availability",
       "developer setup and next validation"
     ],
-    "pptx_sha256": "ce12610c93993685437584c6fe36371e9c0e6f591d5a4fd9bd0d892171ca9ea4",
-    "pptx_bytes": 239509,
-    "pdf_sha256": "258404d50e4399766dafeb9d53923505e6e1ca09464210cdd969dbb7da0fa038",
-    "pdf_bytes": 2177314
+    "pptx_sha256": "1bd1b3e11c1439641c7eb22541168e93e50f6f3e96d112a18a8e5ece6993ae37",
+    "pptx_bytes": 239501,
+    "pdf_sha256": "e24359df50e37261894dc9e1979ee92eba157a812d9a3e2a40ba5aada3d9d0db",
+    "pdf_bytes": 2177689
   },
   "structure": {
     "slides": 8,
@@ -42,7 +42,38 @@
     "native_powerpoint_execution": false,
     "closed_findings": {
       "slide_5_sliced_character_count": "Closed. The crop now isolates the complete six-case result panel without a sliced number or missing case.",
-      "slide_7_unnamed_metric": "Closed. Historical Lighthouse performance and score /100 are explicit. Simulated 18-audit median scope remains visible."
+      "slide_7_unnamed_metric": "Closed. Historical Lighthouse performance and score /100 are explicit. Simulated 18-audit median scope remains visible.",
+      "google_chart_label_clipping": "Closed by adding chart headroom and reimporting the exact final PPTX. All eight corrected slides and Google PDF pages rechecked."
+    },
+    "google_slides": {
+      "checked_at": "2026-10-16T15:54:57.615Z",
+      "application": "Google Slides in Chrome, actual authenticated browser UI",
+      "slides": 8,
+      "slideshow_pages_inspected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "google_exported_pdf_pages_inspected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "google_pdf_sha256": "1791a7b65bf22edd81f4909ee8f13dd2e8dbd78ee741caf45e4010c109e1e14b",
+      "correction": "Chart axis headroom prevents two 98 labels being clipped after Google conversion. Values and historical scope unchanged.",
+      "conversion_limitations": "Google imports the chart as a raster image and may round its display axis to120. Original PPTX retains its native editable chart/workbook; the comparison table and narrative text remain editable in Slides.",
+      "native_powerpoint_execution": false,
+      "open_must_fix": 0
     }
   },
   "captures_url": "/brand/arkiv-graph/editorial/captures.json",
@@ -68,11 +99,11 @@
   },
   "devfolio_action": "No submission or form changes performed",
   "hosted_verification": {
-    "checked_at": "2026-10-16T10:05:55.149Z",
+    "checked_at": "2026-10-16T15:59:16.152Z",
     "passed": 11,
     "total": 11,
     "report_url": "/data/release-smoke.json",
     "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script.",
-    "tested_deployment": "87ab025b-d0ef-40fc-8efd-540e81b4cb96"
+    "tested_deployment": "0c5686b0-35e6-4034-a8af-5015b8e57194"
   }
 }

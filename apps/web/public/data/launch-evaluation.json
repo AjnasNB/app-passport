@@ -76,12 +76,12 @@
     "caption_authorship": "One earlier visual critic authored the final sidecar repair; a separate reviewer independently checked the actual sidecars and ordered raw ASR/timeline anchors.",
     "deck_review": {
       "slides": 8,
-      "reviewed_at": "2026-10-16T10:03:58.996Z",
-      "pptx_sha256": "ce12610c93993685437584c6fe36371e9c0e6f591d5a4fd9bd0d892171ca9ea4",
-      "pdf_sha256": "258404d50e4399766dafeb9d53923505e6e1ca09464210cdd969dbb7da0fa038",
-      "scope": "Every final PPTX reimport render and all eight Poppler PDF pages inspected by the author and a separate project-run model critic. No remaining must-fix findings. Native PowerPoint execution not tested.",
+      "reviewed_at": "2026-10-16T15:54:57.615Z",
+      "pptx_sha256": "1bd1b3e11c1439641c7eb22541168e93e50f6f3e96d112a18a8e5ece6993ae37",
+      "pdf_sha256": "e24359df50e37261894dc9e1979ee92eba157a812d9a3e2a40ba5aada3d9d0db",
+      "scope": "All eight corrected slides inspected in the actual Google Slides browser slideshow, plus all eight Google-exported PDF pages. Author and separate project-run critic also inspected all final PPTX reimport renders and companion PDF pages. Native desktop PowerPoint execution not tested.",
       "open_must_fix": 0,
-      "review_type": "Separate project-run model critic plus author inspection, not external certification",
+      "review_type": "Author actual Google Slides review; separate project-run model critic reviewed final local renders, not external certification",
       "evaluation_url": "/data/editorial-pitch-evaluation.json"
     },
     "remaining_optional_polish": [
@@ -422,9 +422,9 @@
   },
   "pitch": {
     "slides": 8,
-    "updated_at": "2026-10-16T10:03:58.996Z",
+    "updated_at": "2026-10-16T15:54:57.615Z",
     "template": "Forest-and-cream editorial redesign; real product captures and native editable diagrams, table and chart",
-    "visual_review": "Every final PPTX reimport render and all eight Poppler PDF pages inspected by the author and a separate project-run model critic. No remaining must-fix findings. Native PowerPoint execution not tested.",
+    "visual_review": "All eight corrected slides inspected in the actual Google Slides browser slideshow, plus all eight Google-exported PDF pages. Author and separate project-run critic also inspected all final PPTX reimport renders and companion PDF pages. Native desktop PowerPoint execution not tested.",
     "artwork": "No generated conceptual illustrations. Actual product captures have dated provenance; screenshots remain raster images.",
     "fonts": [
       "Arial",
@@ -441,10 +441,10 @@
       "historical measurements and npm availability",
       "developer setup and next validation"
     ],
-    "pptx_sha256": "ce12610c93993685437584c6fe36371e9c0e6f591d5a4fd9bd0d892171ca9ea4",
-    "pptx_bytes": 239509,
-    "pdf_sha256": "258404d50e4399766dafeb9d53923505e6e1ca09464210cdd969dbb7da0fa038",
-    "pdf_bytes": 2177314
+    "pptx_sha256": "1bd1b3e11c1439641c7eb22541168e93e50f6f3e96d112a18a8e5ece6993ae37",
+    "pptx_bytes": 239501,
+    "pdf_sha256": "e24359df50e37261894dc9e1979ee92eba157a812d9a3e2a40ba5aada3d9d0db",
+    "pdf_bytes": 2177689
   },
   "credits_url": "/media/arkiv-graph/credits.txt",
   "trust_boundary": "One configured live RPC supplies metadata and completeness. Signatures and retained checkpoints do not prove unseen non-omission, source truth or hosted computation. Clearing local history removes retained protection; records have finite validity/storage.",
@@ -465,12 +465,12 @@
   ],
   "scope": "Project-run media/content evaluation. Full-file automated checks plus sampled visual and cut review; no claim that a human watched each of 4860 individual frames, or that a hackathon score/design percentage is certified.",
   "hosted_playback": {
-    "checked_at": "2026-10-16T10:05:55.149Z",
+    "checked_at": "2026-10-16T15:59:16.152Z",
     "passed": 11,
     "total": 11,
     "report_url": "/data/release-smoke.json",
     "scope": "Project-run final deployment smoke checks. Two current refused reads supplement the separately recorded actual before/after lifecycle. No new withdrawal was published by this script.",
-    "tested_deployment": "87ab025b-d0ef-40fc-8efd-540e81b4cb96"
+    "tested_deployment": "0c5686b0-35e6-4034-a8af-5015b8e57194"
   },
   "pitch_history": [
     {
@@ -503,6 +503,33 @@
         "developer setup and reproduction"
       ],
       "replaced_at": "2026-10-16T10:03:58.996Z"
+    },
+    {
+      "slides": 8,
+      "updated_at": "2026-10-16T10:03:58.996Z",
+      "template": "Forest-and-cream editorial redesign; real product captures and native editable diagrams, table and chart",
+      "visual_review": "Every final PPTX reimport render and all eight Poppler PDF pages inspected by the author and a separate project-run model critic. No remaining must-fix findings. Native PowerPoint execution not tested.",
+      "artwork": "No generated conceptual illustrations. Actual product captures have dated provenance; screenshots remain raster images.",
+      "fonts": [
+        "Arial",
+        "Georgia",
+        "Consolas"
+      ],
+      "coverage": [
+        "introduction",
+        "concrete stale-review problem",
+        "schema and layered architecture",
+        "actual two-client withdrawal and separate root test",
+        "working AI reference and India tools",
+        "Why Arkiv and present defensibility",
+        "historical measurements and npm availability",
+        "developer setup and next validation"
+      ],
+      "pptx_sha256": "ce12610c93993685437584c6fe36371e9c0e6f591d5a4fd9bd0d892171ca9ea4",
+      "pptx_bytes": 239509,
+      "pdf_sha256": "258404d50e4399766dafeb9d53923505e6e1ca09464210cdd969dbb7da0fa038",
+      "pdf_bytes": 2177314,
+      "replaced_at": "2026-10-16T15:54:57.615Z"
     }
   ],
   "positioning_followup": {
