@@ -1,11 +1,23 @@
-# Disclosed baseline and reuse
+# New work and disclosed reuse
 
-The new AppPassport SDK, schemas, admission lifecycle, public readers and Arkiv publication are built for this challenge.
+## Built for this challenge
 
-AI Passport expands this new integration with signed graph nodes/edges/manifests, a bounded traversal SDK, a tested MCP evidence bridge, real hosted AI inference, controlled release-guard generation, an India number tutor and UPI Safety Quest. These features are newly built here. Qarinah's existing memory compiler is reused and credited. Generated branding/illustrations are conceptual artwork; they do not depict actual customers.
+Arkiv Graph is the primary product: the reusable TypeScript graph SDK, typed node/edge/manifest contract, signed complete revisions, bounded reconstruction and traversal, CLI, stdio MCP reader, linked root-update protocol, checkpoint verification and public developer experience were built for this entry.
 
-Qarinah predates this integration. The copied runtime is from the unchanged Skillbox source checkout at commit `1aa70228299de902d92fc97214766c0aea02be9d`, reporting version 0.6.0. Only src, types, schemas, license/notices and adjusted package metadata are included. The new copy has build/publication scripts removed. Original source folders and commits are not modified. Qarinah retains Apache-2.0. Its original proof compiler and validator are reused; their capabilities are not claimed as new AppPassport work.
+AI Passport is the reference application built alongside it. New integration work connects selected context and exact source bytes to Arkiv passports, reviews, withdrawals, task admission and hosted AI inference. It includes the two-client withdrawal demonstration, release-guard exercise, Indian-number tutor and UPI Safety Quest. The public repository includes reproducible queries, test receipts, deployment and presentation assets.
 
-The original ScamSignal project at baseline commit `4833baee0f2872ee6100ba47bb4cc4743abdffe1` supplies prior Arkiv integration experience, the existing testnet reviewer wallet and a self-hosted DM Sans font. Its deployed frontend/scanner are preserved. AppPassport uses a distinct namespace, producer role, deployment and application directory.
+## Earlier Qarinah work
 
-Other dependencies and upstream evaluation artifacts retain their licenses. MCP reference servers, Playwright and Chrome DevTools are third-party evaluation subjects, not code claimed as our own inventions. Evaluated artifacts and their source URLs are listed in public data. Any required submission field about pre-existing work must disclose this reuse rather than say None.
+The builder's earlier Qarinah runtime is reused in the reference integration. Its unchanged Skillbox source baseline is commit `1aa70228299de902d92fc97214766c0aea02be9d`, reporting version 0.6.0. The copied source includes `src`, types, schemas, license/notices and adjusted package metadata, with its original build/publication scripts removed. Original Qarinah folders and commits remain unchanged. Qarinah retains its Apache-2.0 license and notices.
+
+The existing context compiler and proof-context validator provide the packet contract used by the reference flow. The optional adapter imports `validateProofContext` in [`packages/sdk/src/qarinah.ts`](packages/sdk/src/qarinah.ts); the two-client demo uses that validator in [`scripts/two-client-demo.ts`](scripts/two-client-demo.ts). The published application package exposes this adapter. The Arkiv integration around it is new work.
+
+The generic `@ajnasnb/arkiv-graph` package has no Qarinah, AI Passport or model dependency. Its graph contract and readers are usable by other applications on their own.
+
+## Earlier ScamSignal baseline
+
+ScamSignal baseline commit `4833baee0f2872ee6100ba47bb4cc4743abdffe1` supplied the existing testnet reviewer account and self-hosted DM Sans font assets, alongside prior Arkiv integration experience. Its deployed scanner/frontend remain separate. This entry has its own application directory, producer role, namespaces and deployment.
+
+## Dependencies and evaluation subjects
+
+Third-party libraries and upstream evaluation artifacts retain their licenses and notices. MCP reference servers, Playwright and Chrome DevTools are credited as dependencies, evaluation subjects or development tools. Evaluated artifacts and their source URLs are listed in public data. Generated illustrations, where used, are design assets; product captures and transaction receipts are identified in the evidence documentation.

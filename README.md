@@ -1,6 +1,6 @@
 # Arkiv Graph
 
-Arkiv Graph is an MIT TypeScript SDK for signed, connected records on Arkiv: indexed nodes and edges, a complete revision manifest, bounded traversal, a CLI and a stdio MCP server. Another application can reconstruct and verify a published graph through its configured Arkiv provider without using the originating application's API. AI Passport is the working reference application, combining Qarinah context, exact source checks and current review admission.
+Arkiv Graph is an MIT TypeScript SDK for publishing connected evidence on Arkiv and checking it across applications. It adds typed nodes and edges, signed revision manifests, bounded traversal, linked root updates, a CLI and a stdio MCP server. A compatible application can reconstruct a published graph through its configured Arkiv provider, verify its accepted publisher and exact members, and trace the evidence it needs for a task. AI Passport is the working reference application: it connects Qarinah-selected context to original source bytes, current review decisions and usable AI tools.
 
 Start with the **[wallet-free developer guide](docs/GETTING_STARTED.md)**: install the public SDK, build a valid two-node/one-edge graph and traverse it offline. Then use a separate, reviewed bootstrap to verify real testnet records. No wallet is needed to read.
 
@@ -12,6 +12,22 @@ Start with the **[wallet-free developer guide](docs/GETTING_STARTED.md)**: insta
 - [Source](https://github.com/AjnasNB/arkiv-graph), [evaluation PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-evaluation.pdf), [162-second launch film](https://arkivgraph.ajnasnb.com/media/arkiv-graph-launch.mp4), [editable eight-page editorial PPTX](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pptx), [pitch PDF](https://arkivgraph.ajnasnb.com/downloads/arkiv-graph-pitch.pdf)
 - [Launch evidence and judging questions](docs/LAUNCH_EVIDENCE.md): what is recorded, what is illustrated, and what remains unresolved.
 - [Onboarding and pitch release checks](https://arkivgraph.ajnasnb.com/data/developer-release.json), [hosted release smoke](https://arkivgraph.ajnasnb.com/data/release-smoke.json), [dated npm statistics response](https://arkivgraph.ajnasnb.com/data/npm-usage.json).
+
+## What people can build
+
+The first users are AI-tool developers, SDK builders and security reviewers who pass context or reviewed artifacts between applications. A copied approval can become stale after a reviewer withdraws it. A file hash still identifies the same bytes, but the next application also needs the connected source, accepted publisher, selected revision and current review decision.
+
+The SDK gives these applications a common data contract. A node represents an artifact, source, context packet, review or task; an edge names a relationship such as a source binding or dependency. A signed manifest lists the exact nodes and edges in one revision. Readers select accepted creators, reconstruct that revision, check membership and signatures locally, then follow bounded paths. Optional authority-signed root revisions let returning readers check a linked update history against their retained checkpoint.
+
+AI Passport shows the complete workflow:
+
+1. Select a public context packet and inspect the source relationships in the graph.
+2. Verify the packet, the exact source bytes, accepted publisher and current review.
+3. Admit the requested task using the selected evidence. The hosted AI workspace shows the bounded model input and resulting run receipt; the two-client release-guard demo uses deterministic checks.
+4. Withdraw the exact review. On their next request, both demo consumers read current evidence and refuse admission.
+5. Inspect the creator addresses, transactions, graph revision and request observations, or reproduce the read with the published npm package.
+
+The reference tools include a cited-context AI workspace, a release-guard exercise, an Indian-number tutor and a UPI safety learning game. The generic graph SDK also supports other connected-evidence applications without requiring Qarinah, AI Passport or a particular model. [Architecture](ARCHITECTURE.md), [schema and exact queries](arkiv/schema.md), and [trust setup](docs/TRUST_SETUP.md) explain how to integrate it.
 
 ## The problem and the fit
 
